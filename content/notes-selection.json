@@ -1,0 +1,111 @@
+{
+  "reviewedAt": "2026-10-22",
+  "mode": "index-only",
+  "items": [
+    {
+      "path": "APT-sample Analysis.md",
+      "title": "恶意样本初步分析：文件指纹、导入表与 IOC",
+      "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。",
+      "category": "安全",
+      "section": "安全分析",
+      "featured": true
+    },
+    {
+      "path": "TrafficAnalysis.md",
+      "title": "Wireshark 流量分析入门",
+      "summary": "整理显示过滤、协议分层与文件导出的基础用法，给流量分析留一份入门索引。",
+      "category": "安全",
+      "section": "安全分析",
+      "featured": true
+    },
+    {
+      "path": "Nmap.md",
+      "title": "Nmap 基础：读懂端口与服务识别结果",
+      "summary": "梳理端口状态、服务指纹、扫描结果对比与 Zenmap 的基本概念。",
+      "category": "安全",
+      "section": "安全分析",
+      "featured": true
+    },
+    {
+      "path": "COA.md",
+      "title": "计算机组成原理：从数据表示到控制器",
+      "summary": "沿着数据表示、CPU 控制与控制器设计，整理计算机组成原理的学习脉络。",
+      "category": "系统基础",
+      "section": "计算机基础",
+      "featured": true
+    },
+    {
+      "path": "OperationSystem/Chapter1_操作系统引论.md",
+      "title": "操作系统引论",
+      "summary": "从目标、作用与发展过程，搭建理解操作系统的概念框架。",
+      "category": "系统基础",
+      "section": "计算机基础"
+    },
+    {
+      "path": "OperationSystem/Chapter2_进程的描述与控制.md",
+      "title": "进程的描述与控制",
+      "summary": "梳理进程状态、PCB、控制机制、进程同步与线程基础。",
+      "category": "系统基础",
+      "section": "计算机基础"
+    },
+    {
+      "path": "OperationSystem/Chapter3_处理机调度与死锁.md",
+      "title": "处理机调度与死锁",
+      "summary": "整理调度层级、常见调度算法、实时调度与死锁处理思路。",
+      "category": "系统基础",
+      "section": "计算机基础"
+    },
+    {
+      "path": "OperationSystem/Chapter4_存储器管理.md",
+      "title": "存储器管理",
+      "summary": "从程序装入与链接，理解连续分配、分页和分段等内存管理机制。",
+      "category": "系统基础",
+      "section": "计算机基础"
+    },
+    {
+      "path": "OperationSystem/Chapter5_虚拟存储器.md",
+      "title": "虚拟存储器",
+      "summary": "从基本概念到请求分页、页面置换与工作集，认识虚拟内存。",
+      "category": "系统基础",
+      "section": "计算机基础"
+    },
+    {
+      "path": "OperationSystem/Chapter6_输入输出系统.md",
+      "title": "输入输出系统",
+      "summary": "沿着设备、控制方式和软件层次，理解中断、DMA、缓冲与设备分配。",
+      "category": "系统基础",
+      "section": "计算机基础"
+    },
+    {
+      "path": "OperationSystem/Chapter7_文件管理.md",
+      "title": "文件管理",
+      "summary": "概览文件结构、目录、共享与保护的基本机制。",
+      "category": "系统基础",
+      "section": "计算机基础"
+    },
+    {
+      "path": "StudyPlan/Trident_安全产品架构设计.md",
+      "title": "安全产品架构设计学习路线",
+      "summary": "从安全经验出发，梳理架构表达、核心概念与阶段练习的学习方向。",
+      "category": "学习计划",
+      "section": "学习计划",
+      "status": "还没开始"
+    },
+    {
+      "path": "StudyPlan/机器学习与深度学习安全沙箱学习计划.md",
+      "title": "面向安全沙箱的机器学习学习计划",
+      "summary": "从数据处理和传统模型，逐步走向行为特征与风险评分。",
+      "category": "学习计划",
+      "section": "学习计划",
+      "status": "还没开始"
+    },
+    {
+      "path": "StudyPlan/零基础电气嵌入式学习路线图.md",
+      "title": "零基础电气与嵌入式学习路线",
+      "summary": "从电子基础和 C 语言，逐步到单片机、PCB 与综合项目。",
+      "category": "学习计划",
+      "section": "学习计划",
+      "status": "还没开始"
+    }
+  ]
+}

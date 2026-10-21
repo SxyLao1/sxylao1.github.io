@@ -1,0 +1,9 @@
+* text=auto eol=lf
+# The recovery ZIP preserves post.json bytes. Git must not change their
+# line endings between the local build and the Linux Pages runner.
+content/moments/**/post.json -text
+*.webp binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary

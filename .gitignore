@@ -1,0 +1,9 @@
+.local/
+.openai/
+.qa/
+outputs/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.tar.gz

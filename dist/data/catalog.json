@@ -1,0 +1,882 @@
+{
+  "generatedAt": "2026-10-22",
+  "profile": {
+    "eyebrow": "SXYLAO1 · PERSONAL WEBSITE",
+    "headline": "SXYLAO1 的个人网站",
+    "intro": "记录安全工作、阅读和笔记，也放一些想保存的图片。",
+    "pillars": [
+      "安全工作",
+      "阅读笔记",
+      "图像收藏",
+      "个人记录"
+    ]
+  },
+  "collections": {
+    "funny": {
+      "title": "Funny / 梗与偶发灵感",
+      "description": "一些不必解释太多的图，负责给系统降噪。",
+      "count": 15,
+      "items": [
+        {
+          "name": "Clash代理windows.jpg",
+          "path": "Clash代理windows.jpg",
+          "extension": "jpg",
+          "sizeKb": 113.6,
+          "preview": "assets/previews/funny/9d6ce82aa6e1f1d7.webp",
+          "previewWidth": 542,
+          "previewHeight": 370
+        },
+        {
+          "name": "Firefox停止运行.jpg",
+          "path": "Firefox停止运行.jpg",
+          "extension": "jpg",
+          "sizeKb": 448.2,
+          "preview": "assets/previews/funny/e142068fec645131.webp",
+          "previewWidth": 1047,
+          "previewHeight": 1000
+        },
+        {
+          "name": "Firefox发现安全漏洞.jpg",
+          "path": "Firefox发现安全漏洞.jpg",
+          "extension": "jpg",
+          "sizeKb": 41.5,
+          "preview": "assets/previews/funny/698d2d87a72cadc5.webp",
+          "previewWidth": 600,
+          "previewHeight": 410
+        },
+        {
+          "name": "Linux入侵Windows.jpg",
+          "path": "Linux入侵Windows.jpg",
+          "extension": "jpg",
+          "sizeKb": 190.2,
+          "preview": "assets/previews/funny/a972b65cf6380f48.webp",
+          "previewWidth": 935,
+          "previewHeight": 1000
+        },
+        {
+          "name": "力竭了.jpg",
+          "path": "力竭了.jpg",
+          "extension": "jpg",
+          "sizeKb": 16.4,
+          "preview": "assets/previews/funny/50dc48f4c9daf165.webp",
+          "previewWidth": 410,
+          "previewHeight": 400
+        },
+        {
+          "name": "天下洁.png",
+          "path": "天下洁.png",
+          "extension": "png",
+          "sizeKb": 596.8,
+          "preview": "assets/previews/funny/bcd6d35d4dccba65.webp",
+          "previewWidth": 1002,
+          "previewHeight": 1000
+        },
+        {
+          "name": "尼古喵喵.png",
+          "path": "尼古喵喵.png",
+          "extension": "png",
+          "sizeKb": 24.2,
+          "preview": "assets/previews/funny/8c46eb3debbc54d3.webp",
+          "previewWidth": 123,
+          "previewHeight": 124
+        },
+        {
+          "name": "慈爱蜀黍.png",
+          "path": "慈爱蜀黍.png",
+          "extension": "png",
+          "sizeKb": 130.5,
+          "preview": "assets/previews/funny/394cd370aac94a6a.webp",
+          "previewWidth": 440,
+          "previewHeight": 438
+        },
+        {
+          "name": "普瑞赛斯.png",
+          "path": "普瑞赛斯.png",
+          "extension": "png",
+          "sizeKb": 26.1,
+          "preview": "assets/previews/funny/56d1fd3e0508491e.webp",
+          "previewWidth": 133,
+          "previewHeight": 132
+        },
+        {
+          "name": "柯洁.jpg",
+          "path": "柯洁.jpg",
+          "extension": "jpg",
+          "sizeKb": 26.6,
+          "preview": "assets/previews/funny/a54fc91d3e7ef0d8.webp",
+          "previewWidth": 720,
+          "previewHeight": 718
+        },
+        {
+          "name": "滑稽鲸鱼娘.jpg",
+          "path": "滑稽鲸鱼娘.jpg",
+          "extension": "jpg",
+          "sizeKb": 88.0,
+          "preview": "assets/previews/funny/f2265933824a5d7d.webp",
+          "previewWidth": 1000,
+          "previewHeight": 1000
+        },
+        {
+          "name": "爷们耄耋.png",
+          "path": "爷们耄耋.png",
+          "extension": "png",
+          "sizeKb": 17.7,
+          "preview": "assets/previews/funny/bf0cd0aff4439991.webp",
+          "previewWidth": 130,
+          "previewHeight": 123
+        },
+        {
+          "name": "耄耋.png",
+          "path": "耄耋.png",
+          "extension": "png",
+          "sizeKb": 29.1,
+          "preview": "assets/previews/funny/6e18bda4c14502d1.webp",
+          "previewWidth": 163,
+          "previewHeight": 160
+        },
+        {
+          "name": "这时髦啊.jpg",
+          "path": "这时髦啊.jpg",
+          "extension": "jpg",
+          "sizeKb": 46.8,
+          "preview": "assets/previews/funny/5900544cc0e0b63f.webp",
+          "previewWidth": 960,
+          "previewHeight": 640
+        },
+        {
+          "name": "阿巴阿巴.jpg",
+          "path": "阿巴阿巴.jpg",
+          "extension": "jpg",
+          "sizeKb": 39.4,
+          "preview": "assets/previews/funny/b7f40dbcf379d40d.webp",
+          "previewWidth": 1000,
+          "previewHeight": 1000
+        }
+      ]
+    },
+    "arknights": {
+      "title": "Arknights / 角色档案",
+      "description": "偏好、构图与角色记忆的私人展柜。",
+      "count": 12,
+      "items": [
+        {
+          "name": "4K巫恋.jpg",
+          "path": "4K巫恋.jpg",
+          "extension": "jpg",
+          "sizeKb": 12100.0,
+          "preview": "assets/previews/arknights/b69762be2472e632.webp",
+          "previewWidth": 1400,
+          "previewHeight": 646
+        },
+        {
+          "name": "4K稀音.jpg",
+          "path": "4K稀音.jpg",
+          "extension": "jpg",
+          "sizeKb": 2316.5,
+          "preview": "assets/previews/arknights/32394538fd1b1574.webp",
+          "previewWidth": 1400,
+          "previewHeight": 788
+        },
+        {
+          "name": "4K缪尔赛斯.jpg",
+          "path": "4K缪尔赛斯.jpg",
+          "extension": "jpg",
+          "sizeKb": 5008.2,
+          "preview": "assets/previews/arknights/1d4e7849252c6148.webp",
+          "previewWidth": 1400,
+          "previewHeight": 788
+        },
+        {
+          "name": "4K迷迭香.jpg",
+          "path": "4K迷迭香.jpg",
+          "extension": "jpg",
+          "sizeKb": 2230.8,
+          "preview": "assets/previews/arknights/1981380b5a927e3f.webp",
+          "previewWidth": 1400,
+          "previewHeight": 787
+        },
+        {
+          "name": "Amiya.jpg",
+          "path": "Amiya.jpg",
+          "extension": "jpg",
+          "sizeKb": 1405.1,
+          "preview": "assets/previews/arknights/a1f24d94c146bce3.webp",
+          "previewWidth": 1400,
+          "previewHeight": 888
+        },
+        {
+          "name": "Lappland01.jpg",
+          "path": "Lappland01.jpg",
+          "extension": "jpg",
+          "sizeKb": 3169.1,
+          "preview": "assets/previews/arknights/561cb1f190bf6230.webp",
+          "previewWidth": 707,
+          "previewHeight": 1000
+        },
+        {
+          "name": "Priestess.png",
+          "path": "Priestess.png",
+          "extension": "png",
+          "sizeKb": 4411.1,
+          "preview": "assets/previews/arknights/ff660733c1375d62.webp",
+          "previewWidth": 562,
+          "previewHeight": 1000
+        },
+        {
+          "name": "斯卡蒂壁纸.jpg",
+          "path": "斯卡蒂壁纸.jpg",
+          "extension": "jpg",
+          "sizeKb": 773.1,
+          "preview": "assets/previews/arknights/722fb6e179698012.webp",
+          "previewWidth": 1400,
+          "previewHeight": 673
+        },
+        {
+          "name": "日光中的花束.jpg",
+          "path": "日光中的花束.jpg",
+          "extension": "jpg",
+          "sizeKb": 9118.0,
+          "preview": "assets/previews/arknights/5a1327638c9d8907.webp",
+          "previewWidth": 563,
+          "previewHeight": 1000
+        },
+        {
+          "name": "能天使彩绘.jpg",
+          "path": "能天使彩绘.jpg",
+          "extension": "jpg",
+          "sizeKb": 4447.0,
+          "preview": "assets/previews/arknights/e0d0bb918638c7e7.webp",
+          "previewWidth": 537,
+          "previewHeight": 1000
+        },
+        {
+          "name": "铃兰是我们的光.jpg",
+          "path": "铃兰是我们的光.jpg",
+          "extension": "jpg",
+          "sizeKb": 1258.0,
+          "preview": "assets/previews/arknights/17e4ed8f42d53991.webp",
+          "previewWidth": 750,
+          "previewHeight": 1000
+        },
+        {
+          "name": "音律联觉特蕾西娅.png",
+          "path": "音律联觉特蕾西娅.png",
+          "extension": "png",
+          "sizeKb": 3255.1,
+          "preview": "assets/previews/arknights/76aacb5bfa769edd.webp",
+          "previewWidth": 1400,
+          "previewHeight": 862
+        }
+      ]
+    },
+    "notes": {
+      "title": "MyNote / 精选笔记目录",
+      "description": "从个人笔记里选出的技术目录与学习计划。",
+      "count": 14,
+      "folderCount": 3,
+      "folders": [
+        {
+          "name": "安全分析",
+          "path": "安全分析",
+          "markdownCount": 3
+        },
+        {
+          "name": "计算机基础",
+          "path": "计算机基础",
+          "markdownCount": 8
+        },
+        {
+          "name": "学习计划",
+          "path": "学习计划",
+          "markdownCount": 3
+        }
+      ],
+      "items": [
+        {
+          "name": "APT-sample Analysis.md",
+          "path": "APT-sample Analysis.md",
+          "extension": "md",
+          "sizeKb": 8.6,
+          "folder": "安全分析",
+          "title": "恶意样本初步分析：文件指纹、导入表与 IOC",
+          "category": "安全",
+          "modifiedAt": "2025-12-23",
+          "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。"
+        },
+        {
+          "name": "TrafficAnalysis.md",
+          "path": "TrafficAnalysis.md",
+          "extension": "md",
+          "sizeKb": 7.0,
+          "folder": "安全分析",
+          "title": "Wireshark 流量分析入门",
+          "category": "安全",
+          "modifiedAt": "2024-09-23",
+          "summary": "整理显示过滤、协议分层与文件导出的基础用法，给流量分析留一份入门索引。"
+        },
+        {
+          "name": "Nmap.md",
+          "path": "Nmap.md",
+          "extension": "md",
+          "sizeKb": 8.2,
+          "folder": "安全分析",
+          "title": "Nmap 基础：读懂端口与服务识别结果",
+          "category": "安全",
+          "modifiedAt": "2024-09-23",
+          "summary": "梳理端口状态、服务指纹、扫描结果对比与 Zenmap 的基本概念。"
+        },
+        {
+          "name": "COA.md",
+          "path": "COA.md",
+          "extension": "md",
+          "sizeKb": 226.6,
+          "folder": "计算机基础",
+          "title": "计算机组成原理：从数据表示到控制器",
+          "category": "系统基础",
+          "modifiedAt": "2025-05-29",
+          "summary": "沿着数据表示、CPU 控制与控制器设计，整理计算机组成原理的学习脉络。"
+        },
+        {
+          "name": "Chapter1_操作系统引论.md",
+          "path": "OperationSystem/Chapter1_操作系统引论.md",
+          "extension": "md",
+          "sizeKb": 23.2,
+          "folder": "计算机基础",
+          "title": "操作系统引论",
+          "category": "系统基础",
+          "modifiedAt": "2024-11-26",
+          "summary": "从目标、作用与发展过程，搭建理解操作系统的概念框架。"
+        },
+        {
+          "name": "Chapter2_进程的描述与控制.md",
+          "path": "OperationSystem/Chapter2_进程的描述与控制.md",
+          "extension": "md",
+          "sizeKb": 27.8,
+          "folder": "计算机基础",
+          "title": "进程的描述与控制",
+          "category": "系统基础",
+          "modifiedAt": "2024-11-26",
+          "summary": "梳理进程状态、PCB、控制机制、进程同步与线程基础。"
+        },
+        {
+          "name": "Chapter3_处理机调度与死锁.md",
+          "path": "OperationSystem/Chapter3_处理机调度与死锁.md",
+          "extension": "md",
+          "sizeKb": 41.0,
+          "folder": "计算机基础",
+          "title": "处理机调度与死锁",
+          "category": "系统基础",
+          "modifiedAt": "2024-11-26",
+          "summary": "整理调度层级、常见调度算法、实时调度与死锁处理思路。"
+        },
+        {
+          "name": "Chapter4_存储器管理.md",
+          "path": "OperationSystem/Chapter4_存储器管理.md",
+          "extension": "md",
+          "sizeKb": 23.6,
+          "folder": "计算机基础",
+          "title": "存储器管理",
+          "category": "系统基础",
+          "modifiedAt": "2024-11-26",
+          "summary": "从程序装入与链接，理解连续分配、分页和分段等内存管理机制。"
+        },
+        {
+          "name": "Chapter5_虚拟存储器.md",
+          "path": "OperationSystem/Chapter5_虚拟存储器.md",
+          "extension": "md",
+          "sizeKb": 11.4,
+          "folder": "计算机基础",
+          "title": "虚拟存储器",
+          "category": "系统基础",
+          "modifiedAt": "2024-11-26",
+          "summary": "从基本概念到请求分页、页面置换与工作集，认识虚拟内存。"
+        },
+        {
+          "name": "Chapter6_输入输出系统.md",
+          "path": "OperationSystem/Chapter6_输入输出系统.md",
+          "extension": "md",
+          "sizeKb": 5.3,
+          "folder": "计算机基础",
+          "title": "输入输出系统",
+          "category": "系统基础",
+          "modifiedAt": "2024-11-26",
+          "summary": "沿着设备、控制方式和软件层次，理解中断、DMA、缓冲与设备分配。"
+        },
+        {
+          "name": "Chapter7_文件管理.md",
+          "path": "OperationSystem/Chapter7_文件管理.md",
+          "extension": "md",
+          "sizeKb": 4.0,
+          "folder": "计算机基础",
+          "title": "文件管理",
+          "category": "系统基础",
+          "modifiedAt": "2024-11-26",
+          "summary": "概览文件结构、目录、共享与保护的基本机制。"
+        },
+        {
+          "name": "Trident_安全产品架构设计.md",
+          "path": "StudyPlan/Trident_安全产品架构设计.md",
+          "extension": "md",
+          "sizeKb": 19.9,
+          "folder": "学习计划",
+          "title": "安全产品架构设计学习路线",
+          "category": "学习计划",
+          "modifiedAt": "2026-06-10",
+          "summary": "从安全经验出发，梳理架构表达、核心概念与阶段练习的学习方向。",
+          "status": "还没开始"
+        },
+        {
+          "name": "机器学习与深度学习安全沙箱学习计划.md",
+          "path": "StudyPlan/机器学习与深度学习安全沙箱学习计划.md",
+          "extension": "md",
+          "sizeKb": 15.1,
+          "folder": "学习计划",
+          "title": "面向安全沙箱的机器学习学习计划",
+          "category": "学习计划",
+          "modifiedAt": "2026-07-31",
+          "summary": "从数据处理和传统模型，逐步走向行为特征与风险评分。",
+          "status": "还没开始"
+        },
+        {
+          "name": "零基础电气嵌入式学习路线图.md",
+          "path": "StudyPlan/零基础电气嵌入式学习路线图.md",
+          "extension": "md",
+          "sizeKb": 8.6,
+          "folder": "学习计划",
+          "title": "零基础电气与嵌入式学习路线",
+          "category": "学习计划",
+          "modifiedAt": "2026-06-04",
+          "summary": "从电子基础和 C 语言，逐步到单片机、PCB 与综合项目。",
+          "status": "还没开始"
+        }
+      ]
+    },
+    "blog": {
+      "title": "Blog / 文章索引",
+      "description": "从安全分析、检测工程到长期积累的学习笔记。",
+      "count": 4,
+      "items": [
+        {
+          "name": "APT-sample Analysis.md",
+          "path": "APT-sample Analysis.md",
+          "extension": "md",
+          "sizeKb": 8.6,
+          "folder": "安全分析",
+          "title": "恶意样本初步分析：文件指纹、导入表与 IOC",
+          "category": "安全",
+          "modifiedAt": "2025-12-23",
+          "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。"
+        },
+        {
+          "name": "TrafficAnalysis.md",
+          "path": "TrafficAnalysis.md",
+          "extension": "md",
+          "sizeKb": 7.0,
+          "folder": "安全分析",
+          "title": "Wireshark 流量分析入门",
+          "category": "安全",
+          "modifiedAt": "2024-09-23",
+          "summary": "整理显示过滤、协议分层与文件导出的基础用法，给流量分析留一份入门索引。"
+        },
+        {
+          "name": "Nmap.md",
+          "path": "Nmap.md",
+          "extension": "md",
+          "sizeKb": 8.2,
+          "folder": "安全分析",
+          "title": "Nmap 基础：读懂端口与服务识别结果",
+          "category": "安全",
+          "modifiedAt": "2024-09-23",
+          "summary": "梳理端口状态、服务指纹、扫描结果对比与 Zenmap 的基本概念。"
+        },
+        {
+          "name": "COA.md",
+          "path": "COA.md",
+          "extension": "md",
+          "sizeKb": 226.6,
+          "folder": "计算机基础",
+          "title": "计算机组成原理：从数据表示到控制器",
+          "category": "系统基础",
+          "modifiedAt": "2025-05-29",
+          "summary": "沿着数据表示、CPU 控制与控制器设计，整理计算机组成原理的学习脉络。"
+        }
+      ]
+    }
+  },
+  "gallery": {
+    "defaultTag": "funny",
+    "tags": [
+      {
+        "id": "funny",
+        "label": "Funny",
+        "description": "码狗的幽默：Windows、Linux、浏览器和桌面日常。",
+        "count": 4
+      },
+      {
+        "id": "memes",
+        "label": "梗图",
+        "description": "其余不必太认真的画面，随手存下，偶尔笑一笑。",
+        "count": 11
+      },
+      {
+        "id": "arknights",
+        "label": "Arknights",
+        "description": "明日方舟的角色与画面，留在自己的收藏里。",
+        "count": 12
+      }
+    ],
+    "items": [
+      {
+        "name": "Clash代理windows.jpg",
+        "path": "Clash代理windows.jpg",
+        "extension": "jpg",
+        "sizeKb": 113.6,
+        "preview": "assets/previews/funny/9d6ce82aa6e1f1d7.webp",
+        "previewWidth": 542,
+        "previewHeight": 370,
+        "bucket": "funny",
+        "tags": [
+          "funny"
+        ]
+      },
+      {
+        "name": "Firefox停止运行.jpg",
+        "path": "Firefox停止运行.jpg",
+        "extension": "jpg",
+        "sizeKb": 448.2,
+        "preview": "assets/previews/funny/e142068fec645131.webp",
+        "previewWidth": 1047,
+        "previewHeight": 1000,
+        "bucket": "funny",
+        "tags": [
+          "funny"
+        ]
+      },
+      {
+        "name": "Firefox发现安全漏洞.jpg",
+        "path": "Firefox发现安全漏洞.jpg",
+        "extension": "jpg",
+        "sizeKb": 41.5,
+        "preview": "assets/previews/funny/698d2d87a72cadc5.webp",
+        "previewWidth": 600,
+        "previewHeight": 410,
+        "bucket": "funny",
+        "tags": [
+          "funny"
+        ]
+      },
+      {
+        "name": "Linux入侵Windows.jpg",
+        "path": "Linux入侵Windows.jpg",
+        "extension": "jpg",
+        "sizeKb": 190.2,
+        "preview": "assets/previews/funny/a972b65cf6380f48.webp",
+        "previewWidth": 935,
+        "previewHeight": 1000,
+        "bucket": "funny",
+        "tags": [
+          "funny"
+        ]
+      },
+      {
+        "name": "力竭了.jpg",
+        "path": "力竭了.jpg",
+        "extension": "jpg",
+        "sizeKb": 16.4,
+        "preview": "assets/previews/funny/50dc48f4c9daf165.webp",
+        "previewWidth": 410,
+        "previewHeight": 400,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "天下洁.png",
+        "path": "天下洁.png",
+        "extension": "png",
+        "sizeKb": 596.8,
+        "preview": "assets/previews/funny/bcd6d35d4dccba65.webp",
+        "previewWidth": 1002,
+        "previewHeight": 1000,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "尼古喵喵.png",
+        "path": "尼古喵喵.png",
+        "extension": "png",
+        "sizeKb": 24.2,
+        "preview": "assets/previews/funny/8c46eb3debbc54d3.webp",
+        "previewWidth": 123,
+        "previewHeight": 124,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "慈爱蜀黍.png",
+        "path": "慈爱蜀黍.png",
+        "extension": "png",
+        "sizeKb": 130.5,
+        "preview": "assets/previews/funny/394cd370aac94a6a.webp",
+        "previewWidth": 440,
+        "previewHeight": 438,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "普瑞赛斯.png",
+        "path": "普瑞赛斯.png",
+        "extension": "png",
+        "sizeKb": 26.1,
+        "preview": "assets/previews/funny/56d1fd3e0508491e.webp",
+        "previewWidth": 133,
+        "previewHeight": 132,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "柯洁.jpg",
+        "path": "柯洁.jpg",
+        "extension": "jpg",
+        "sizeKb": 26.6,
+        "preview": "assets/previews/funny/a54fc91d3e7ef0d8.webp",
+        "previewWidth": 720,
+        "previewHeight": 718,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "滑稽鲸鱼娘.jpg",
+        "path": "滑稽鲸鱼娘.jpg",
+        "extension": "jpg",
+        "sizeKb": 88.0,
+        "preview": "assets/previews/funny/f2265933824a5d7d.webp",
+        "previewWidth": 1000,
+        "previewHeight": 1000,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "爷们耄耋.png",
+        "path": "爷们耄耋.png",
+        "extension": "png",
+        "sizeKb": 17.7,
+        "preview": "assets/previews/funny/bf0cd0aff4439991.webp",
+        "previewWidth": 130,
+        "previewHeight": 123,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "耄耋.png",
+        "path": "耄耋.png",
+        "extension": "png",
+        "sizeKb": 29.1,
+        "preview": "assets/previews/funny/6e18bda4c14502d1.webp",
+        "previewWidth": 163,
+        "previewHeight": 160,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "这时髦啊.jpg",
+        "path": "这时髦啊.jpg",
+        "extension": "jpg",
+        "sizeKb": 46.8,
+        "preview": "assets/previews/funny/5900544cc0e0b63f.webp",
+        "previewWidth": 960,
+        "previewHeight": 640,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "阿巴阿巴.jpg",
+        "path": "阿巴阿巴.jpg",
+        "extension": "jpg",
+        "sizeKb": 39.4,
+        "preview": "assets/previews/funny/b7f40dbcf379d40d.webp",
+        "previewWidth": 1000,
+        "previewHeight": 1000,
+        "bucket": "funny",
+        "tags": [
+          "memes"
+        ]
+      },
+      {
+        "name": "4K巫恋.jpg",
+        "path": "4K巫恋.jpg",
+        "extension": "jpg",
+        "sizeKb": 12100.0,
+        "preview": "assets/previews/arknights/b69762be2472e632.webp",
+        "previewWidth": 1400,
+        "previewHeight": 646,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "4K稀音.jpg",
+        "path": "4K稀音.jpg",
+        "extension": "jpg",
+        "sizeKb": 2316.5,
+        "preview": "assets/previews/arknights/32394538fd1b1574.webp",
+        "previewWidth": 1400,
+        "previewHeight": 788,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "4K缪尔赛斯.jpg",
+        "path": "4K缪尔赛斯.jpg",
+        "extension": "jpg",
+        "sizeKb": 5008.2,
+        "preview": "assets/previews/arknights/1d4e7849252c6148.webp",
+        "previewWidth": 1400,
+        "previewHeight": 788,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "4K迷迭香.jpg",
+        "path": "4K迷迭香.jpg",
+        "extension": "jpg",
+        "sizeKb": 2230.8,
+        "preview": "assets/previews/arknights/1981380b5a927e3f.webp",
+        "previewWidth": 1400,
+        "previewHeight": 787,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "Amiya.jpg",
+        "path": "Amiya.jpg",
+        "extension": "jpg",
+        "sizeKb": 1405.1,
+        "preview": "assets/previews/arknights/a1f24d94c146bce3.webp",
+        "previewWidth": 1400,
+        "previewHeight": 888,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "Lappland01.jpg",
+        "path": "Lappland01.jpg",
+        "extension": "jpg",
+        "sizeKb": 3169.1,
+        "preview": "assets/previews/arknights/561cb1f190bf6230.webp",
+        "previewWidth": 707,
+        "previewHeight": 1000,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "Priestess.png",
+        "path": "Priestess.png",
+        "extension": "png",
+        "sizeKb": 4411.1,
+        "preview": "assets/previews/arknights/ff660733c1375d62.webp",
+        "previewWidth": 562,
+        "previewHeight": 1000,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "斯卡蒂壁纸.jpg",
+        "path": "斯卡蒂壁纸.jpg",
+        "extension": "jpg",
+        "sizeKb": 773.1,
+        "preview": "assets/previews/arknights/722fb6e179698012.webp",
+        "previewWidth": 1400,
+        "previewHeight": 673,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "日光中的花束.jpg",
+        "path": "日光中的花束.jpg",
+        "extension": "jpg",
+        "sizeKb": 9118.0,
+        "preview": "assets/previews/arknights/5a1327638c9d8907.webp",
+        "previewWidth": 563,
+        "previewHeight": 1000,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "能天使彩绘.jpg",
+        "path": "能天使彩绘.jpg",
+        "extension": "jpg",
+        "sizeKb": 4447.0,
+        "preview": "assets/previews/arknights/e0d0bb918638c7e7.webp",
+        "previewWidth": 537,
+        "previewHeight": 1000,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "铃兰是我们的光.jpg",
+        "path": "铃兰是我们的光.jpg",
+        "extension": "jpg",
+        "sizeKb": 1258.0,
+        "preview": "assets/previews/arknights/17e4ed8f42d53991.webp",
+        "previewWidth": 750,
+        "previewHeight": 1000,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      },
+      {
+        "name": "音律联觉特蕾西娅.png",
+        "path": "音律联觉特蕾西娅.png",
+        "extension": "png",
+        "sizeKb": 3255.1,
+        "preview": "assets/previews/arknights/76aacb5bfa769edd.webp",
+        "previewWidth": 1400,
+        "previewHeight": 862,
+        "bucket": "arknights",
+        "tags": [
+          "arknights"
+        ]
+      }
+    ]
+  }
+}

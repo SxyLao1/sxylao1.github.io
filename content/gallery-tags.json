@@ -1,0 +1,17 @@
+{
+  "defaultTag": "funny",
+  "tags": [
+    {"id": "funny", "label": "Funny", "description": "码狗的幽默：Windows、Linux、浏览器和桌面日常。"},
+    {"id": "memes", "label": "梗图", "description": "其余不必太认真的画面，随手存下，偶尔笑一笑。"},
+    {"id": "arknights", "label": "Arknights", "description": "明日方舟的角色与画面，留在自己的收藏里。"}
+  ],
+  "defaults": {"funny": ["memes"], "arknights": ["arknights"]},
+  "assignments": {
+    "funny": {
+      "Clash代理windows.jpg": ["funny"],
+      "Firefox停止运行.jpg": ["funny"],
+      "Firefox发现安全漏洞.jpg": ["funny"],
+      "Linux入侵Windows.jpg": ["funny"]
+    }
+  }
+}
