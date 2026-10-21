@@ -2,8 +2,14 @@
 # The recovery ZIP preserves post.json bytes. Git must not change their
 # line endings between the local build and the Linux Pages runner.
 content/moments/**/post.json -text
+# Original notebooks preserve their line endings and intentional spacing.
+content/posts/*.md -text -whitespace
+dist/articles/*.md -text -whitespace
 *.webp binary
 *.zip binary
 *.png binary
 *.jpg binary
 *.jpeg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

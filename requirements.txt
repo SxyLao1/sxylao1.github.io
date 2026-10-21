@@ -1,2 +1,4 @@
 # Python >= 3.10
 Pillow==12.3.0
+markdown-it-py==3.0.0
+mdit-py-plugins==0.6.1

@@ -14,11 +14,11 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 CONTENT = ROOT / "content"
-EXPECTED_PAGES = ("index.html", "about.html", "blog.html", "album.html", "join.html")
+EXPECTED_PAGES = ("index.html", "about.html", "blog.html", "album.html", "join.html", "article.html")
 SITES_METADATA_DIR = ".openai"
 SITES_IDENTITY_PREFIXES = ("appgprj_", "appgver_", "appgdep_")
 FORBIDDEN_NOTE_TERMS = ("english", "postgratuatewriting", "temporal")
-TEXT_EXTENSIONS = {".css", ".html", ".js", ".json", ".svg", ".txt", ".xml"}
+TEXT_EXTENSIONS = {".css", ".html", ".js", ".json", ".svg", ".txt", ".xml", ".md"}
 DRIVE_PATH_PATTERN = re.compile(r"(?<![A-Za-z0-9+.-])[A-Za-z]:[\\/]")
 
 
@@ -121,6 +121,9 @@ def check_catalog() -> None:
     for path in actual_notes:
         if not isinstance(path, str) or any(term in path.lower() for term in FORBIDDEN_NOTE_TERMS):
             fail(f"catalog includes excluded note path: {path}")
+    featured = catalog.get("collections", {}).get("blog", {}).get("items", [])
+    if [item.get("slug") for item in featured] != [item["slug"] for item in config["items"] if item.get("featured")]:
+        fail("home featured articles do not match the selected reading list")
 
     gallery_config = load_json(CONTENT / "gallery-tags.json")
     gallery = catalog.get("gallery")
@@ -234,10 +237,80 @@ def check_dist_safety() -> None:
                 text = path.read_text(encoding="utf-8")
             except UnicodeDecodeError as exc:
                 fail(f"public text file is not UTF-8: {relative.as_posix()} ({exc})")
-            if DRIVE_PATH_PATTERN.search(text):
+            is_original_article = relative.parts[:1] == ("articles",) or relative.parts[:2] == ("data", "articles")
+            if DRIVE_PATH_PATTERN.search(text) and not is_original_article:
                 fail(f"public text file exposes an absolute drive path: {relative.as_posix()}")
             if any(marker in text for marker in SITES_IDENTITY_PREFIXES):
                 fail(f"public text file exposes a Sites platform identity: {relative.as_posix()}")
+
+
+class ArticleMarkup(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.ids = set()
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in {"script", "style", "iframe", "object", "embed", "form", "svg"}:
+            fail(f"article includes active HTML tag: {tag}")
+        for key, value in attrs:
+            if key.lower().startswith("on"):
+                fail("article includes an HTML event handler")
+            if key == "id":
+                if value in self.ids:
+                    fail(f"article has a duplicate heading ID: {value}")
+                self.ids.add(value)
+            if key in {"href", "src"}:
+                self.links.append(value or '')
+
+
+def check_articles() -> None:
+    selection = load_json(CONTENT / "notes-selection.json")["items"]
+    notes = load_json(DIST / "data" / "catalog.json")["collections"]["notes"]["items"]
+    expected = {entry["slug"]: entry for entry in selection}
+    if len(expected) != len(selection):
+        fail("article slugs must be unique")
+    for note in notes:
+        slug = note.get("slug")
+        if slug not in expected or note.get("url") != f"article.html?id={slug}":
+            fail("note entry does not link to its published article")
+    for slug, entry in expected.items():
+        article = load_json(DIST / "data" / "articles" / f"{slug}.json")
+        source = CONTENT / "posts" / f"{slug}.md"
+        published = DIST / "articles" / f"{slug}.md"
+        if not source.is_file() or not published.is_file() or source.read_bytes() != published.read_bytes():
+            fail(f"published Markdown differs from its reviewed source: {slug}")
+        if article.get("slug") != slug or article.get("title") != entry["title"] or not article.get("html", '').strip():
+            fail(f"missing or inconsistent rendered article: {slug}")
+        if not article.get("sourceOriginal"):
+            fail(f"article must be rendered from its original Markdown: {slug}")
+        if article.get("markdownUrl") != f"articles/{slug}.md":
+            fail(f"article has an invalid Markdown download URL: {slug}")
+        markup = ArticleMarkup()
+        markup.feed(article["html"])
+        for heading in article.get("toc", []):
+            if heading.get("id") not in markup.ids or not heading.get("text"):
+                fail(f"article has a broken table of contents: {slug}")
+        for link in markup.links:
+            parsed = urlsplit(link)
+            if parsed.scheme and parsed.scheme.lower() not in {"http", "https", "mailto"}:
+                fail(f"article has an unsafe URL: {slug}")
+            if not parsed.scheme and not parsed.netloc and parsed.path:
+                target = (DIST / unquote(parsed.path)).resolve()
+                if not target.is_relative_to(DIST.resolve()) or not target.is_file():
+                    fail(f"article has a broken local resource: {slug}")
+        if entry.get("status") and article.get("status") != entry["status"]:
+            fail(f"article has an inconsistent learning status: {slug}")
+    asset_manifest = load_json(CONTENT / "article-assets.json")["articles"]
+    for assets in asset_manifest.values():
+        for url in assets.values():
+            relative = Path(url)
+            if relative.parts[:1] != ("article-assets",) or ".." in relative.parts:
+                fail("article asset must remain in its public assets folder")
+            source_asset = CONTENT / relative
+            published_asset = DIST / relative
+            if not source_asset.is_file() or not published_asset.is_file() or source_asset.read_bytes() != published_asset.read_bytes():
+                fail(f"article image does not match its original source: {url}")
 
 
 def main() -> None:
@@ -246,10 +319,13 @@ def main() -> None:
     missing = [page for page in EXPECTED_PAGES if not (DIST / page).is_file()]
     if missing:
         fail(f"missing expected HTML pages: {', '.join(missing)}")
+    if (CONTENT / "site-icon.jpg").read_bytes() != (DIST / "favicon.jpg").read_bytes():
+        fail("published site icon does not match the selected avatar")
     check_dist_safety()
     check_html_references()
     check_catalog()
     check_moments()
+    check_articles()
     print("Site artifact checks passed.")
 
 

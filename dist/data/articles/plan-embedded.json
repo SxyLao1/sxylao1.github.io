@@ -1,0 +1,164 @@
+{
+  "slug": "plan-embedded",
+  "title": "零基础电气与嵌入式学习路线",
+  "summary": "从电子基础和 C 语言，逐步到单片机、PCB 与综合项目。",
+  "category": "学习计划",
+  "html": "<h1 id=\"section-1\">零基础电气嵌入式学习路线图</h1>\n<blockquote>\n<p><strong>适用人群</strong>：完全零基础，想从修家电开始，最终能独立做出嵌入式小玩具的初学者<br />\n<strong>预计周期</strong>：8~12 个月（每天 2~3 小时）<br />\n<strong>核心原则</strong>：项目驱动，先动手再补理论，避免从大部头教科书开始劝退</p>\n</blockquote>\n<hr />\n<h2 id=\"section-2\">阶段一：家庭电工与电子基础（第 1~2 个月）</h2>\n<h3 id=\"section-3\">学习目标</h3>\n<ul>\n<li>安全操作 220V 市电，能独立换灯泡、修台灯、换插座、看懂配电箱</li>\n<li>掌握万用表、电烙铁、面包板的基本使用</li>\n<li>认识常见元器件：电阻、电容、二极管、三极管/MOS 管、LED</li>\n</ul>\n<h3 id=\"section-4\">核心内容</h3>\n<table>\n<thead>\n<tr>\n<th>主题</th>\n<th>要点</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>安全规范</strong></td>\n<td>触电急救、断电验电、绝缘工具使用、单相/三相电概念</td>\n</tr>\n<tr>\n<td><strong>基础理论</strong></td>\n<td>电压、电流、电阻；欧姆定律；串联与并联</td>\n</tr>\n<tr>\n<td><strong>元器件认知</strong></td>\n<td>色环电阻读数、电容极性、二极管单向导电、三极管开关作用</td>\n</tr>\n<tr>\n<td><strong>工具实操</strong></td>\n<td>万用表测通断/电压/电阻；电烙铁焊接与拆焊；面包板搭电路</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-5\">实践任务</h3>\n<ol>\n<li>修好一个接触不良的台灯（换开关或内部导线）</li>\n<li>在面包板上点亮 LED（串联限流电阻，理解为什么必须加电阻）</li>\n<li>焊接一条自己的 USB 数据线或修复一条断线</li>\n</ol>\n<h3 id=\"section-6\">推荐资源</h3>\n<ul>\n<li><strong>B 站搜索</strong>：<code>零基础电工入门 家庭电路</code>，选择播放量高的系统课程</li>\n<li><strong>电子元器件与模电基础</strong>：<a href=\"https://www.bilibili.com/video/BV1ho9vYFE7b/\" rel=\"noopener noreferrer\" target=\"_blank\">电子元器件+模拟电路硬件零基础入门</a></li>\n<li><strong>面包板使用</strong>：<a href=\"https://www.bilibili.com/video/BV1rmQ5BMEvX/\" rel=\"noopener noreferrer\" target=\"_blank\">电子零基础入门：面包板使用教程</a></li>\n</ul>\n<hr />\n<h2 id=\"section-7\">阶段二：C 语言编程（第 2~3.5 个月）</h2>\n<h3 id=\"section-8\">学习目标</h3>\n<ul>\n<li>掌握嵌入式开发的核心语言，重点攻克指针与内存操作</li>\n</ul>\n<h3 id=\"section-9\">核心内容</h3>\n<table>\n<thead>\n<tr>\n<th>主题</th>\n<th>要点</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>基础语法</strong></td>\n<td>变量、数据类型、运算符、条件、循环、数组</td>\n</tr>\n<tr>\n<td><strong>函数与模块化</strong></td>\n<td>函数定义、传参、返回值、作用域</td>\n</tr>\n<tr>\n<td><strong>指针（重中之重）</strong></td>\n<td>地址与取值、指针运算、函数指针——后续操作寄存器全靠它</td>\n</tr>\n<tr>\n<td><strong>结构体与位运算</strong></td>\n<td>结构体定义、typedef、位与/或/非/移位操作</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-10\">实践任务</h3>\n<ul>\n<li>用 C 语言写一个简单的控制台计算器</li>\n<li>写一个数组排序程序，再用指针重写一遍</li>\n<li>理解 <code>&amp;</code> 和 <code>*</code> 的区别，画出内存示意图</li>\n</ul>\n<h3 id=\"section-11\">推荐资源</h3>\n<ul>\n<li><strong>B 站</strong>：<strong>翁恺 C语言</strong>（浙江大学公开课，零基础最友好）</li>\n<li><strong>书籍</strong>：\n<ul>\n<li>《C Primer Plus》——系统全面，适合零基础</li>\n<li>《C和指针》——专门攻克指针难点</li>\n</ul>\n</li>\n</ul>\n<hr />\n<h2 id=\"section-12\">阶段三：单片机入门 — Arduino / ESP32（第 3.5~5.5 个月）</h2>\n<h3 id=\"section-13\">为什么先学 Arduino/ESP32，而不是 51 单片机？</h3>\n<p>51 单片机过于底层和枯燥，很多人在此放弃。Arduino/ESP32 生态丰富，<strong>一周就能做出会动的东西</strong>，对&quot;想做小玩具&quot;的人来说最能保持热情。C 语言也可以在做项目的过程中边用边巩固。</p>\n<h3 id=\"section-14\">学习目标</h3>\n<ul>\n<li>掌握 GPIO、PWM、ADC、串口、I2C/SPI 等基础外设</li>\n<li>能驱动常见传感器和模块</li>\n<li>做出第一个能交互的实物作品</li>\n</ul>\n<h3 id=\"section-15\">核心内容</h3>\n<table>\n<thead>\n<tr>\n<th>主题</th>\n<th>要点</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>GPIO 控制</strong></td>\n<td>点灯、按键消抖、外部中断</td>\n</tr>\n<tr>\n<td><strong>PWM</strong></td>\n<td>电机调速、舵机控制、LED 呼吸灯</td>\n</tr>\n<tr>\n<td><strong>ADC</strong></td>\n<td>读取传感器模拟电压、光敏/热敏电阻</td>\n</tr>\n<tr>\n<td><strong>通信协议</strong></td>\n<td>串口打印调试、I2C（OLED/传感器）、SPI（屏幕/SD卡）</td>\n</tr>\n<tr>\n<td><strong>无线功能（ESP32）</strong></td>\n<td>Wi-Fi / 蓝牙、MQTT 物联网</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-16\">实践任务</h3>\n<ol>\n<li>手机蓝牙遥控小车（电机驱动 + 蓝牙模块）</li>\n<li>温湿度监测 + OLED 实时显示</li>\n<li>人体感应小夜灯（PIR + 继电器/LED）</li>\n</ol>\n<h3 id=\"section-17\">推荐资源</h3>\n<ul>\n<li><strong>太极创客 Arduino 教程</strong>：<a href=\"https://www.bilibili.com/list/ml3199142768?bvid=BV1RM4y1a7J5\" rel=\"noopener noreferrer\" target=\"_blank\">零基础入门学用 Arduino 第一部分合辑</a></li>\n<li><strong>ESP32 Arduino 教程（2023版）</strong>：<a href=\"https://www.bilibili.com/list/ml3199142768?bvid=BV1RM4y1a7J5\" rel=\"noopener noreferrer\" target=\"_blank\">2023年最新 ESP32 Arduino 教程</a></li>\n<li><strong>立创实战派 ESP32-S3</strong>（更贴近工程实战）：<a href=\"https://www.bilibili.com/list/ml3126622782?bvid=BV1vTCUYyETZ\" rel=\"noopener noreferrer\" target=\"_blank\">嘴对嘴带你从入门到项目实战</a></li>\n</ul>\n<hr />\n<h2 id=\"section-18\">阶段四：STM32 进阶（第 5.5~9.5 个月）</h2>\n<h3 id=\"section-19\">学习目标</h3>\n<ul>\n<li>真正理解单片机底层原理，脱离 Arduino 的&quot;黑箱&quot;</li>\n<li>掌握 STM32CubeMX + HAL 库开发流程</li>\n<li>能阅读芯片数据手册（Datasheet），具备产品级开发能力</li>\n</ul>\n<h3 id=\"section-20\">核心内容</h3>\n<table>\n<thead>\n<tr>\n<th>主题</th>\n<th>要点</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>开发环境</strong></td>\n<td>STM32CubeIDE、STM32CubeMX 图形化配置</td>\n</tr>\n<tr>\n<td><strong>HAL 库编程</strong></td>\n<td>GPIO、外部中断、定时器、PWM 输出</td>\n</tr>\n<tr>\n<td><strong>ADC + DMA</strong></td>\n<td>多通道采集、直接内存访问减轻 CPU 负担</td>\n</tr>\n<tr>\n<td><strong>通信外设</strong></td>\n<td>USART 串口、I2C（MPU6050）、SPI（W25Q64 Flash）</td>\n</tr>\n<tr>\n<td><strong>进阶功能</strong></td>\n<td>独立看门狗、低功耗模式、RTC 实时时钟</td>\n</tr>\n<tr>\n<td><strong>调试技能</strong></td>\n<td>断点调试、逻辑分析仪、阅读参考手册（Reference Manual）</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-21\">实践任务</h3>\n<ol>\n<li>基于 STM32 的智能小车（红外循迹 / 超声波避障 / 蓝牙遥控）</li>\n<li>舵机机械臂控制（多路 PWM + 串口指令）</li>\n<li>MPU6050 陀螺仪姿态读取与 OLED 显示</li>\n</ol>\n<h3 id=\"section-22\">推荐资源</h3>\n<ul>\n<li><strong>江协科技 STM32 入门教程-2023 版</strong>（B 站公认最系统、最适合零基础）：<br />\n<a href=\"https://www.bilibili.com/video/BV1th411z7sn/\" rel=\"noopener noreferrer\" target=\"_blank\">BV1th411z7sn</a><br />\n配套资料下载：https://jiangxiekeji.com/download.html</li>\n<li><strong>书籍</strong>：\n<ul>\n<li>《STM32库开发实战指南》（正点原子或野火出品）</li>\n<li>《STM32F4xx 参考手册》（ST 官方，学会查手册是分水岭）</li>\n</ul>\n</li>\n</ul>\n<hr />\n<h2 id=\"section-23\">阶段五：综合项目与 PCB 设计（第 9.5~12 个月及以后）</h2>\n<h3 id=\"section-24\">学习目标</h3>\n<ul>\n<li>不再用杜邦线乱飞，能独立绘制电路原理图和 PCB</li>\n<li>完成一个从设计到外壳的完整产品</li>\n</ul>\n<h3 id=\"section-25\">核心内容</h3>\n<table>\n<thead>\n<tr>\n<th>主题</th>\n<th>要点</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>原理图设计</strong></td>\n<td>元器件选型、电源电路、接口保护、去耦电容</td>\n</tr>\n<tr>\n<td><strong>PCB 布局布线</strong></td>\n<td>立创 EDA 使用、布线规则、地线处理、高速信号注意事项</td>\n</tr>\n<tr>\n<td><strong>电路仿真</strong></td>\n<td>Proteus / Multisim 基础仿真验证</td>\n</tr>\n<tr>\n<td><strong>制板与焊接</strong></td>\n<td>嘉立创 5 元打样、贴片元件焊接、回流焊/热风枪基础</td>\n</tr>\n<tr>\n<td><strong>结构设计</strong></td>\n<td>简单外壳设计（Fusion 360 / 找现成 3D 打印模型）</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-26\">实践任务</h3>\n<ol>\n<li>设计并制作一个&quot;便携式温湿度监测仪&quot;（带屏幕、锂电池充电、有外壳）</li>\n<li>将之前 Arduino/ESP32 的项目，用 STM32 + 自己画的 PCB 重做一遍</li>\n<li>设计一块电机驱动板或传感器扩展板</li>\n</ol>\n<h3 id=\"section-27\">推荐资源</h3>\n<ul>\n<li><strong>立创 EDA</strong>：https://lceda.cn（国产免费，在线 PCB 设计工具）</li>\n<li><strong>嘉立创</strong>：https://www.jlc.com（5 元 PCB 打样）</li>\n<li><strong>B 站搜索</strong>：<code>立创 EDA 教程</code>、<code>AD 画板教程</code>、<code>PCB 设计入门</code></li>\n</ul>\n<hr />\n<h2 id=\"section-28\">装备清单（预算约 300~500 元）</h2>\n<table>\n<thead>\n<tr>\n<th>工具/器材</th>\n<th>预算</th>\n<th>用途</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>数字万用表</td>\n<td>~30 元</td>\n<td>测电压、通断、电阻</td>\n</tr>\n<tr>\n<td>可调温电烙铁 + 焊锡 + 吸锡器</td>\n<td>~50 元</td>\n<td>焊接与拆焊</td>\n</tr>\n<tr>\n<td>面包板 + 杜邦线套件</td>\n<td>~20 元</td>\n<td>搭试验电路</td>\n</tr>\n<tr>\n<td>ESP32-DevKitC 或 STM32F103C8T6 最小系统板</td>\n<td>~10~30 元</td>\n<td>主控芯片</td>\n</tr>\n<tr>\n<td>ST-Link V2 下载器</td>\n<td>~10 元</td>\n<td>给 STM32 烧录程序</td>\n</tr>\n<tr>\n<td>基础元器件包（电阻/电容/LED/按键等）</td>\n<td>~20 元</td>\n<td>实验消耗</td>\n</tr>\n<tr>\n<td>传感器模块包（温湿度、超声波、OLED、舵机等）</td>\n<td>~50~100 元</td>\n<td>做项目</td>\n</tr>\n<tr>\n<td>可调稳压电源（或先用 USB 供电）</td>\n<td>~50~80 元</td>\n<td>稳定供电调试</td>\n</tr>\n</tbody>\n</table>\n<hr />\n<h2 id=\"section-29\">三条避坑建议</h2>\n<ol>\n<li>\n<p><strong>不要先啃《模拟电子技术》大部头教科书</strong><br />\n零基础看模电很容易劝退。用到什么电路就查什么，以项目驱动学习，遇到不懂的名词再回头补基础。</p>\n</li>\n<li>\n<p><strong>不要只看不动手</strong><br />\n嵌入式是&quot;焊&quot;出来的，不是&quot;看&quot;出来的。哪怕照着视频抄代码、抄电路，也比光看强十倍。遇到 Bug 才是成长最快的时刻。</p>\n</li>\n<li>\n<p><strong>尽早学会查数据手册（Datasheet）</strong><br />\n这是从&quot;爱好者&quot;进阶到&quot;工程师&quot;的分水岭。遇到不懂的传感器，先去淘宝商品页找资料，再直接阅读芯片原厂手册，培养独立解决问题的能力。</p>\n</li>\n</ol>\n<hr />\n<h2 id=\"section-30\">时间线总览</h2>\n<table>\n<thead>\n<tr>\n<th>月份</th>\n<th>阶段</th>\n<th>里程碑</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1~2 月</td>\n<td>家庭电工与电子基础</td>\n<td>能修台灯、换插座、面包板点亮 LED</td>\n</tr>\n<tr>\n<td>2~3.5 月</td>\n<td>C 语言</td>\n<td>掌握指针、能独立写控制台程序</td>\n</tr>\n<tr>\n<td>3.5~5.5 月</td>\n<td>Arduino / ESP32</td>\n<td>做出蓝牙遥控小车或温湿度监测</td>\n</tr>\n<tr>\n<td>5.5~9.5 月</td>\n<td>STM32 进阶</td>\n<td>掌握 HAL 库、能做多传感器综合项目</td>\n</tr>\n<tr>\n<td>9.5~12 月</td>\n<td>PCB 与综合项目</td>\n<td>画出第一块自己的电路板，做出完整产品</td>\n</tr>\n</tbody>\n</table>\n<blockquote>\n<p><strong>最后提醒</strong>：学习周期因人而异，关键是保持每周都有&quot;看得见&quot;的产出。哪怕是一个亮起来的 LED，也是继续走下去的动力。</p>\n</blockquote>\n",
+  "toc": [
+    {
+      "id": "section-1",
+      "text": "零基础电气嵌入式学习路线图",
+      "level": 1
+    },
+    {
+      "id": "section-2",
+      "text": "阶段一：家庭电工与电子基础（第 1~2 个月）",
+      "level": 2
+    },
+    {
+      "id": "section-3",
+      "text": "学习目标",
+      "level": 3
+    },
+    {
+      "id": "section-4",
+      "text": "核心内容",
+      "level": 3
+    },
+    {
+      "id": "section-5",
+      "text": "实践任务",
+      "level": 3
+    },
+    {
+      "id": "section-6",
+      "text": "推荐资源",
+      "level": 3
+    },
+    {
+      "id": "section-7",
+      "text": "阶段二：C 语言编程（第 2~3.5 个月）",
+      "level": 2
+    },
+    {
+      "id": "section-8",
+      "text": "学习目标",
+      "level": 3
+    },
+    {
+      "id": "section-9",
+      "text": "核心内容",
+      "level": 3
+    },
+    {
+      "id": "section-10",
+      "text": "实践任务",
+      "level": 3
+    },
+    {
+      "id": "section-11",
+      "text": "推荐资源",
+      "level": 3
+    },
+    {
+      "id": "section-12",
+      "text": "阶段三：单片机入门 — Arduino / ESP32（第 3.5~5.5 个月）",
+      "level": 2
+    },
+    {
+      "id": "section-13",
+      "text": "为什么先学 Arduino/ESP32，而不是 51 单片机？",
+      "level": 3
+    },
+    {
+      "id": "section-14",
+      "text": "学习目标",
+      "level": 3
+    },
+    {
+      "id": "section-15",
+      "text": "核心内容",
+      "level": 3
+    },
+    {
+      "id": "section-16",
+      "text": "实践任务",
+      "level": 3
+    },
+    {
+      "id": "section-17",
+      "text": "推荐资源",
+      "level": 3
+    },
+    {
+      "id": "section-18",
+      "text": "阶段四：STM32 进阶（第 5.5~9.5 个月）",
+      "level": 2
+    },
+    {
+      "id": "section-19",
+      "text": "学习目标",
+      "level": 3
+    },
+    {
+      "id": "section-20",
+      "text": "核心内容",
+      "level": 3
+    },
+    {
+      "id": "section-21",
+      "text": "实践任务",
+      "level": 3
+    },
+    {
+      "id": "section-22",
+      "text": "推荐资源",
+      "level": 3
+    },
+    {
+      "id": "section-23",
+      "text": "阶段五：综合项目与 PCB 设计（第 9.5~12 个月及以后）",
+      "level": 2
+    },
+    {
+      "id": "section-24",
+      "text": "学习目标",
+      "level": 3
+    },
+    {
+      "id": "section-25",
+      "text": "核心内容",
+      "level": 3
+    },
+    {
+      "id": "section-26",
+      "text": "实践任务",
+      "level": 3
+    },
+    {
+      "id": "section-27",
+      "text": "推荐资源",
+      "level": 3
+    },
+    {
+      "id": "section-28",
+      "text": "装备清单（预算约 300~500 元）",
+      "level": 2
+    },
+    {
+      "id": "section-29",
+      "text": "三条避坑建议",
+      "level": 2
+    },
+    {
+      "id": "section-30",
+      "text": "时间线总览",
+      "level": 2
+    }
+  ],
+  "readingMinutes": 11,
+  "markdownUrl": "articles/plan-embedded.md",
+  "sourceOriginal": true,
+  "modifiedAt": "2026-06-04",
+  "status": "还没开始"
+}

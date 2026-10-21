@@ -272,18 +272,18 @@
     "notes": {
       "title": "MyNote / 精选笔记目录",
       "description": "从个人笔记里选出的技术目录与学习计划。",
-      "count": 14,
+      "count": 17,
       "folderCount": 3,
       "folders": [
         {
           "name": "安全分析",
           "path": "安全分析",
-          "markdownCount": 3
+          "markdownCount": 5
         },
         {
           "name": "计算机基础",
           "path": "计算机基础",
-          "markdownCount": 8
+          "markdownCount": 9
         },
         {
           "name": "学习计划",
@@ -293,6 +293,45 @@
       ],
       "items": [
         {
+          "name": "Penetration.md",
+          "path": "Penetration.md",
+          "extension": "md",
+          "sizeKb": 1549.5,
+          "folder": "安全分析",
+          "title": "Penetration",
+          "category": "安全",
+          "modifiedAt": "2025-12-29",
+          "summary": "Web、网络、内网与流量检测的长期学习笔记，保留完整原文。",
+          "slug": "penetration",
+          "url": "article.html?id=penetration"
+        },
+        {
+          "name": "Assembly8086.md",
+          "path": "Assembly8086.md",
+          "extension": "md",
+          "sizeKb": 281.9,
+          "folder": "计算机基础",
+          "title": "8086 汇编",
+          "category": "系统基础",
+          "modifiedAt": "2024-10-12",
+          "summary": "从寄存器、寻址、程序结构到中断与指令系统的原始学习笔记。",
+          "slug": "assembly-8086",
+          "url": "article.html?id=assembly-8086"
+        },
+        {
+          "name": "Pwn.md",
+          "path": "Pwn.md",
+          "extension": "md",
+          "sizeKb": 235.7,
+          "folder": "安全分析",
+          "title": "Pwn",
+          "category": "安全",
+          "modifiedAt": "2025-04-12",
+          "summary": "保留练习过程、代码与题解的原始 Pwn 学习笔记。",
+          "slug": "pwn",
+          "url": "article.html?id=pwn"
+        },
+        {
           "name": "APT-sample Analysis.md",
           "path": "APT-sample Analysis.md",
           "extension": "md",
@@ -301,7 +340,9 @@
           "title": "恶意样本初步分析：文件指纹、导入表与 IOC",
           "category": "安全",
           "modifiedAt": "2025-12-23",
-          "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。"
+          "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。",
+          "slug": "malware-basics",
+          "url": "article.html?id=malware-basics"
         },
         {
           "name": "TrafficAnalysis.md",
@@ -312,7 +353,9 @@
           "title": "Wireshark 流量分析入门",
           "category": "安全",
           "modifiedAt": "2024-09-23",
-          "summary": "整理显示过滤、协议分层与文件导出的基础用法，给流量分析留一份入门索引。"
+          "summary": "整理显示过滤、协议分层与文件导出的基础用法，给流量分析留一份入门索引。",
+          "slug": "wireshark",
+          "url": "article.html?id=wireshark"
         },
         {
           "name": "Nmap.md",
@@ -323,7 +366,9 @@
           "title": "Nmap 基础：读懂端口与服务识别结果",
           "category": "安全",
           "modifiedAt": "2024-09-23",
-          "summary": "梳理端口状态、服务指纹、扫描结果对比与 Zenmap 的基本概念。"
+          "summary": "梳理端口状态、服务指纹、扫描结果对比与 Zenmap 的基本概念。",
+          "slug": "nmap",
+          "url": "article.html?id=nmap"
         },
         {
           "name": "COA.md",
@@ -334,7 +379,9 @@
           "title": "计算机组成原理：从数据表示到控制器",
           "category": "系统基础",
           "modifiedAt": "2025-05-29",
-          "summary": "沿着数据表示、CPU 控制与控制器设计，整理计算机组成原理的学习脉络。"
+          "summary": "沿着数据表示、CPU 控制与控制器设计，整理计算机组成原理的学习脉络。",
+          "slug": "computer-organization",
+          "url": "article.html?id=computer-organization"
         },
         {
           "name": "Chapter1_操作系统引论.md",
@@ -345,7 +392,9 @@
           "title": "操作系统引论",
           "category": "系统基础",
           "modifiedAt": "2024-11-26",
-          "summary": "从目标、作用与发展过程，搭建理解操作系统的概念框架。"
+          "summary": "从目标、作用与发展过程，搭建理解操作系统的概念框架。",
+          "slug": "os-introduction",
+          "url": "article.html?id=os-introduction"
         },
         {
           "name": "Chapter2_进程的描述与控制.md",
@@ -356,7 +405,9 @@
           "title": "进程的描述与控制",
           "category": "系统基础",
           "modifiedAt": "2024-11-26",
-          "summary": "梳理进程状态、PCB、控制机制、进程同步与线程基础。"
+          "summary": "梳理进程状态、PCB、控制机制、进程同步与线程基础。",
+          "slug": "os-processes",
+          "url": "article.html?id=os-processes"
         },
         {
           "name": "Chapter3_处理机调度与死锁.md",
@@ -367,7 +418,9 @@
           "title": "处理机调度与死锁",
           "category": "系统基础",
           "modifiedAt": "2024-11-26",
-          "summary": "整理调度层级、常见调度算法、实时调度与死锁处理思路。"
+          "summary": "整理调度层级、常见调度算法、实时调度与死锁处理思路。",
+          "slug": "os-scheduling",
+          "url": "article.html?id=os-scheduling"
         },
         {
           "name": "Chapter4_存储器管理.md",
@@ -378,7 +431,9 @@
           "title": "存储器管理",
           "category": "系统基础",
           "modifiedAt": "2024-11-26",
-          "summary": "从程序装入与链接，理解连续分配、分页和分段等内存管理机制。"
+          "summary": "从程序装入与链接，理解连续分配、分页和分段等内存管理机制。",
+          "slug": "os-memory",
+          "url": "article.html?id=os-memory"
         },
         {
           "name": "Chapter5_虚拟存储器.md",
@@ -389,7 +444,9 @@
           "title": "虚拟存储器",
           "category": "系统基础",
           "modifiedAt": "2024-11-26",
-          "summary": "从基本概念到请求分页、页面置换与工作集，认识虚拟内存。"
+          "summary": "从基本概念到请求分页、页面置换与工作集，认识虚拟内存。",
+          "slug": "os-virtual-memory",
+          "url": "article.html?id=os-virtual-memory"
         },
         {
           "name": "Chapter6_输入输出系统.md",
@@ -400,7 +457,9 @@
           "title": "输入输出系统",
           "category": "系统基础",
           "modifiedAt": "2024-11-26",
-          "summary": "沿着设备、控制方式和软件层次，理解中断、DMA、缓冲与设备分配。"
+          "summary": "沿着设备、控制方式和软件层次，理解中断、DMA、缓冲与设备分配。",
+          "slug": "os-io",
+          "url": "article.html?id=os-io"
         },
         {
           "name": "Chapter7_文件管理.md",
@@ -411,7 +470,9 @@
           "title": "文件管理",
           "category": "系统基础",
           "modifiedAt": "2024-11-26",
-          "summary": "概览文件结构、目录、共享与保护的基本机制。"
+          "summary": "概览文件结构、目录、共享与保护的基本机制。",
+          "slug": "os-files",
+          "url": "article.html?id=os-files"
         },
         {
           "name": "Trident_安全产品架构设计.md",
@@ -423,6 +484,8 @@
           "category": "学习计划",
           "modifiedAt": "2026-06-10",
           "summary": "从安全经验出发，梳理架构表达、核心概念与阶段练习的学习方向。",
+          "slug": "plan-security-architecture",
+          "url": "article.html?id=plan-security-architecture",
           "status": "还没开始"
         },
         {
@@ -435,6 +498,8 @@
           "category": "学习计划",
           "modifiedAt": "2026-07-31",
           "summary": "从数据处理和传统模型，逐步走向行为特征与风险评分。",
+          "slug": "plan-ml-sandbox",
+          "url": "article.html?id=plan-ml-sandbox",
           "status": "还没开始"
         },
         {
@@ -447,6 +512,8 @@
           "category": "学习计划",
           "modifiedAt": "2026-06-04",
           "summary": "从电子基础和 C 语言，逐步到单片机、PCB 与综合项目。",
+          "slug": "plan-embedded",
+          "url": "article.html?id=plan-embedded",
           "status": "还没开始"
         }
       ]
@@ -457,6 +524,45 @@
       "count": 4,
       "items": [
         {
+          "name": "Penetration.md",
+          "path": "Penetration.md",
+          "extension": "md",
+          "sizeKb": 1549.5,
+          "folder": "安全分析",
+          "title": "Penetration",
+          "category": "安全",
+          "modifiedAt": "2025-12-29",
+          "summary": "Web、网络、内网与流量检测的长期学习笔记，保留完整原文。",
+          "slug": "penetration",
+          "url": "article.html?id=penetration"
+        },
+        {
+          "name": "Assembly8086.md",
+          "path": "Assembly8086.md",
+          "extension": "md",
+          "sizeKb": 281.9,
+          "folder": "计算机基础",
+          "title": "8086 汇编",
+          "category": "系统基础",
+          "modifiedAt": "2024-10-12",
+          "summary": "从寄存器、寻址、程序结构到中断与指令系统的原始学习笔记。",
+          "slug": "assembly-8086",
+          "url": "article.html?id=assembly-8086"
+        },
+        {
+          "name": "Pwn.md",
+          "path": "Pwn.md",
+          "extension": "md",
+          "sizeKb": 235.7,
+          "folder": "安全分析",
+          "title": "Pwn",
+          "category": "安全",
+          "modifiedAt": "2025-04-12",
+          "summary": "保留练习过程、代码与题解的原始 Pwn 学习笔记。",
+          "slug": "pwn",
+          "url": "article.html?id=pwn"
+        },
+        {
           "name": "APT-sample Analysis.md",
           "path": "APT-sample Analysis.md",
           "extension": "md",
@@ -465,40 +571,9 @@
           "title": "恶意样本初步分析：文件指纹、导入表与 IOC",
           "category": "安全",
           "modifiedAt": "2025-12-23",
-          "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。"
-        },
-        {
-          "name": "TrafficAnalysis.md",
-          "path": "TrafficAnalysis.md",
-          "extension": "md",
-          "sizeKb": 7.0,
-          "folder": "安全分析",
-          "title": "Wireshark 流量分析入门",
-          "category": "安全",
-          "modifiedAt": "2024-09-23",
-          "summary": "整理显示过滤、协议分层与文件导出的基础用法，给流量分析留一份入门索引。"
-        },
-        {
-          "name": "Nmap.md",
-          "path": "Nmap.md",
-          "extension": "md",
-          "sizeKb": 8.2,
-          "folder": "安全分析",
-          "title": "Nmap 基础：读懂端口与服务识别结果",
-          "category": "安全",
-          "modifiedAt": "2024-09-23",
-          "summary": "梳理端口状态、服务指纹、扫描结果对比与 Zenmap 的基本概念。"
-        },
-        {
-          "name": "COA.md",
-          "path": "COA.md",
-          "extension": "md",
-          "sizeKb": 226.6,
-          "folder": "计算机基础",
-          "title": "计算机组成原理：从数据表示到控制器",
-          "category": "系统基础",
-          "modifiedAt": "2025-05-29",
-          "summary": "沿着数据表示、CPU 控制与控制器设计，整理计算机组成原理的学习脉络。"
+          "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。",
+          "slug": "malware-basics",
+          "url": "article.html?id=malware-basics"
         }
       ]
     }

@@ -1,0 +1,98 @@
+{
+  "slug": "wireshark",
+  "title": "Wireshark 流量分析入门",
+  "summary": "整理显示过滤、协议分层与文件导出的基础用法，给流量分析留一份入门索引。",
+  "category": "安全",
+  "html": "<h1 id=\"section-1\">Traffic Analysis</h1>\n<p><a href=\"https://www.wireshark.org/\" rel=\"noopener noreferrer\" target=\"_blank\">Wireshark · Go Deep</a>\n我选择网卡时报错说我没有设置混合模式(解决方法建议使用后者)：</p>\n<pre><code>The capture session could not be initiated on interface '\\Device\\NPF_Loopback' (Error opening adapter: The system cannot find the path specified. (3)).\n</code></pre>\n<p>管理员权限启动<code>cmd</code>并执行<code>net start npcap</code>，重新启动<code>Wireshark</code>问题解决。或者使用如下方法：</p>\n<p><img src=\"article-assets/wireshark/a954383c764136e030fb.png\" alt=\"image-20230317100348328\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<h2 id=\"section-2\">BasicUsage</h2>\n<h3 id=\"section-3\">基本语法</h3>\n<p>过滤匹配表达式：</p>\n<pre><code class=\"language-shell\">#过滤IP\nip.addr eq/== x.x.x.x #eq即equal 也是等于 ==和eq都可以 使用其一\nip.src eq/== x.x.x.x #只对源地址IP过滤\nip.dst eq/== x.x.x.x #只对目的地址IP过滤\n#过滤端口 判断的==也可以换成&quot;&gt;=&quot;, &quot;&lt;=&quot;, &quot;&gt;&quot;, &quot;&lt;&quot;\ntcp.port == 80 #过滤tcp协议的80端口\ntcp.srcport == 80 #过滤源端口为tcp协议的80端口\ntcp.dstport == 80 #过滤目的端口为tcp协议的80端口\n#过滤协议\ntcp #即只看tcp\nhttp #只看http\n...\n!udp #加上'!'表示非 不查看udp协议 结果为udp协议以外的协议\n#过滤指定字符\nhttp.request.uri contains &quot;shell.php&quot; #在所有http协议的头信息中查找&quot;shell.php&quot;\nhttp.request.uri matches &quot;shell.php$&quot; #matches过滤的字符串中可以使用正则表达\n#http模式过滤\nhttp contains &quot;Host: 192.168.228.135&quot; #在所有http协议的内容中寻找包含&quot;Host: 192.168.228.135&quot;的内容\ntcp contains &quot;Host: 192.168.228.135&quot;\nhttp.request.method == POST #寻找请求方式为post方法的http协议\n</code></pre>\n<p><code>Ctrl + F</code>打开<code>WireShark</code>的内容搜索，可以直接查找协议中的字符串</p>\n<h3 id=\"section-4\">协议分级</h3>\n<p><img src=\"article-assets/wireshark/3482a4bba6936915f514.png\" alt=\"image-20230317200203129\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>打开后如下图所示\n<img src=\"article-assets/wireshark/46062c4be9c0b3f43395.png\" alt=\"image-20230317200312905\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<h3 id=\"section-5\">文件导出</h3>\n<p><img src=\"article-assets/wireshark/219993f82c1c083e572a.png\" alt=\"image-20230318152713196\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p><img src=\"article-assets/wireshark/cf2f7b6a37e6b159f6c0.png\" alt=\"image-20230318161845721\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<h3 id=\"section-6\">无线流量</h3>\n<p>遇到WIFI密码破解的流量包时可以直接使用Kali的工具进行破解</p>\n<pre><code class=\"language-shell\">aircrack-ng -w /usr/share/wordlists/wfuzz/general/big.txt ctf.pcapng\n</code></pre>\n<p>通过字典爆破得到密码之后，点击<code>编辑</code>==&gt;<code>首选项</code></p>\n<p><img src=\"article-assets/wireshark/e227f2c5373a2b077cf9.png\" alt=\"image-20230318192313229\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>进入首选项找协议中的<code>IEEE 802.11</code>无线协议</p>\n<p><img src=\"article-assets/wireshark/e7690ce1e8473cd500e2.png\" alt=\"image-20230318192457450\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>添加该无线流量包的密码点击OK即可 点击视图中的重新加载就能查看该加密流量包(此处Key Type应为wpa-pwd)</p>\n<p><span class=\"image-unavailable\">image-20230318193438375</span></p>\n<p>TLS协议的证书也可以通过该位置的选项导入对应整数打开加密的流量包</p>\n<h3 id=\"section-7\">SQL流量包</h3>\n<pre><code class=\"language-bash\">strings sqltest.pcapng | grep &quot;ascii&quot; &gt; 1.txt #直接输出流量包中的信息到文本中\n</code></pre>\n<h2 id=\"section-8\">BUUCTF</h2>\n<h3 id=\"section-9\">被嗅探的流量</h3>\n<p><a href=\"https://buuoj.cn/challenges#%E8%A2%AB%E5%97%85%E6%8E%A2%E7%9A%84%E6%B5%81%E9%87%8F\" rel=\"noopener noreferrer\" target=\"_blank\">题目链接</a>\n<a href=\"https://files.buuoj.cn/files/ff965ff87437e3fda765ba928da94821/efa02e35-ee20-476f-94a2-cadbcef7d076.zip\" rel=\"noopener noreferrer\" target=\"_blank\">流量包下载</a>\n<code>Ctrl + F</code>直接在所有协议里面查找字符串<code>flag{</code></p>\n<p><img src=\"article-assets/wireshark/75d8cd45ef035f2f9d25.png\" alt=\"image-20230317110757104\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p><img src=\"article-assets/wireshark/62ea28e384f3011365e6.png\" alt=\"image-20230317110933368\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<h3 id=\"section-10\">大流量分析(一)</h3>\n<p>附件链接: https://pan.baidu.com/s/1EgLI37y6m9btzwIWZYDL9g 提取码: 9jva <strong>后面几道大流量分析都是这条链接的文件</strong></p>\n<p><img src=\"article-assets/wireshark/93651f0e397fe3b4ffc0.png\" alt=\"image-20230317113250141\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p><img src=\"article-assets/wireshark/927bcf20b31cce3df5eb.png\" alt=\"image-20230317113331888\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>如图该出现频率最高的IP地址中，唯一一个外网IP地址是非常可疑的，这个就是黑客的IP地址，<code>flag{183.129.152.140}</code></p>\n<h3 id=\"section-11\">大流量分析(二)</h3>\n<p>SMTP是一种提供可靠且有效的<a href=\"https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93/22035911?fromModule=lemma_inlink\" rel=\"noopener noreferrer\" target=\"_blank\">电子邮件传输</a>的协议。SMTP是建立在FTP<a href=\"https://baike.baidu.com/item/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E6%9C%8D%E5%8A%A1/5389842?fromModule=lemma_inlink\" rel=\"noopener noreferrer\" target=\"_blank\">文件传输服务</a>上的一种邮件服务，主要用于系统之间的邮件信息传递，并提供有关来信的通知。SMTP独立于特定的传输子系统，且只需要可靠有序的数据流信道支持，SMTP的重要特性之一是其能跨越网络传输邮件，即“SMTP邮件中继”。使用SMTP，可实现相同网络处理进程之间的邮件传输，也可通过<a href=\"https://baike.baidu.com/item/%E4%B8%AD%E7%BB%A7%E5%99%A8/1867747?fromModule=lemma_inlink\" rel=\"noopener noreferrer\" target=\"_blank\">中继器</a>或网关实现某处理进程与其他网络之间的邮件传输。</p>\n<p><img src=\"article-assets/wireshark/0f042c3a22eee8b3eec6.png\" alt=\"image-20230317134118624\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>既然题目涉及到了邮件，自然查找与电子邮件传输相关的协议，很简单就查到了相关的邮箱信息，flag{xsser@live.cn}</p>\n<h3 id=\"section-12\">大流量分析(三)</h3>\n<p><img src=\"article-assets/wireshark/b380d97cf58cab1435a9.png\" alt=\"image-20230317164817194\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>phpinfo是一个服务器的<a href=\"https://baike.baidu.com/item/%E8%BF%90%E8%A1%8C%E6%8C%87%E4%BB%A4/2919148?fromModule=lemma_inlink\" rel=\"noopener noreferrer\" target=\"_blank\">运行指令</a>，可以显示php服务器的配置信息。\n后门程序是可运行的脚本<code>.php</code>，查找包含该信息的所有数据包，找不到就换下一个数据包继续查找后门程序，flag{admin.bak.php}</p>\n<h3 id=\"section-13\">荷兰宽带数据泄露</h3>\n<p>解压得到.bin文件，为路由器文件。使用工具查看：https://1108dx.0098118.com/lc6/routerpassview186.zip\n打开后寻找泄露的特别信息作为<code>flag</code>，flag{053700357621}</p>\n<p><img src=\"article-assets/wireshark/5627d862bf009e0e0be2.png\" alt=\"image-20230317173822042\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<h3 id=\"section-14\">数据包中的线索</h3>\n<p>到手发现文件并不大，直接找http过滤，发现一个很吸引人的文件名，右键追踪<strong>HTTP</strong>流。</p>\n<p><img src=\"article-assets/wireshark/55264aca8402d7bd597b.png\" alt=\"image-20230317193155176\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>追踪后发现一长串编码：</p>\n<p><img src=\"article-assets/wireshark/d4971f8f8aa5a32aedeb.png\" alt=\"image-20230317193406600\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>结果有&quot;=&quot;号很有可能是base64编码，将编码复制到浏览器作为png的base64编码打开：</p>\n<pre><code class=\"language-cmd\">data:image/png;base64,这里跟编码\n</code></pre>\n<p><img src=\"article-assets/wireshark/e35dc41b764dc31ed262.png\" alt=\"image-20230317193623742\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<h3 id=\"section-15\">被劫持的神秘礼物</h3>\n<p>链接:https://pan.baidu.com/s/1pwVVpA5_WWY8Og6dhCcWRw 提取码: 31vk</p>\n<p>直接过滤找HTTP，不多，追踪进去发现<code>name=admina&amp;word=adminb</code></p>\n<p><img src=\"article-assets/wireshark/3d85afadd580ac09d0de.png\" alt=\"image-20230407094456655\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>拼起来<code>adminaadminb</code>丢给<a href=\"https://www.cmd5.com/hash.aspx?s=123456\" rel=\"noopener noreferrer\" target=\"_blank\">md5加密,sha1加密--md5在线解密 (cmd5.com)</a>加密，取md5加密作为flag</p>\n<h2 id=\"section-16\">杂七杂八</h2>\n<h3 id=\"section-17\">2018 铁人三项</h3>\n<p>链接：https://pan.baidu.com/s/1b6bkW-J8vKASr8C2r9vsdQ 提取码：nux4\n[2018.5.18信息安全铁人三项赛数据赛复现_lemonl1的博客-CSDN博客](https://blog.csdn.net/qq_43431158/article/details/107258218?ops_request_misc=%7B%22request%5Fid%22%3A%22167918893816800226510658%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fall.%22%7D&amp;request_id=167918893816800226510658&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_34-4-107258218-null-null.142^v74^pc_new_rank,201^v4^add_ask,239^v2^insert_chatgpt&amp;utm_term=2018CTF 铁人三项 数据流量分析&amp;spm=1018.2226.3001.4187)</p>\n",
+  "toc": [
+    {
+      "id": "section-1",
+      "text": "Traffic Analysis",
+      "level": 1
+    },
+    {
+      "id": "section-2",
+      "text": "BasicUsage",
+      "level": 2
+    },
+    {
+      "id": "section-3",
+      "text": "基本语法",
+      "level": 3
+    },
+    {
+      "id": "section-4",
+      "text": "协议分级",
+      "level": 3
+    },
+    {
+      "id": "section-5",
+      "text": "文件导出",
+      "level": 3
+    },
+    {
+      "id": "section-6",
+      "text": "无线流量",
+      "level": 3
+    },
+    {
+      "id": "section-7",
+      "text": "SQL流量包",
+      "level": 3
+    },
+    {
+      "id": "section-8",
+      "text": "BUUCTF",
+      "level": 2
+    },
+    {
+      "id": "section-9",
+      "text": "被嗅探的流量",
+      "level": 3
+    },
+    {
+      "id": "section-10",
+      "text": "大流量分析(一)",
+      "level": 3
+    },
+    {
+      "id": "section-11",
+      "text": "大流量分析(二)",
+      "level": 3
+    },
+    {
+      "id": "section-12",
+      "text": "大流量分析(三)",
+      "level": 3
+    },
+    {
+      "id": "section-13",
+      "text": "荷兰宽带数据泄露",
+      "level": 3
+    },
+    {
+      "id": "section-14",
+      "text": "数据包中的线索",
+      "level": 3
+    },
+    {
+      "id": "section-15",
+      "text": "被劫持的神秘礼物",
+      "level": 3
+    },
+    {
+      "id": "section-16",
+      "text": "杂七杂八",
+      "level": 2
+    },
+    {
+      "id": "section-17",
+      "text": "2018 铁人三项",
+      "level": 3
+    }
+  ],
+  "readingMinutes": 8,
+  "markdownUrl": "articles/wireshark.md",
+  "sourceOriginal": true,
+  "modifiedAt": "2024-09-23"
+}

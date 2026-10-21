@@ -152,6 +152,10 @@ def selected_notes(note_files, notes_root: Path):
             raise ValueError("English study material is excluded from the website")
         seen.add(path)
         note = {**note_item(source_paths[path], notes_root), **{key: entry[key] for key in ("title", "summary", "category")}, "folder": entry["section"]}
+        slug = entry["slug"]
+        if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+            raise ValueError(f"Invalid article slug for selected note: {path}")
+        note.update({"slug": slug, "url": f"article.html?id={slug}"})
         if entry.get("status"):
             note["status"] = entry["status"]
         notes.append(note)

@@ -1,4 +1,5 @@
 'use strict';
+const siteName = '𝒮𝓍𝓎ℒ𝒶ℴ𝓁';
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -36,7 +37,7 @@ $('#themeToggle').addEventListener('click', () => {
 
 function renderHome() {
   const items = (catalog.collections.blog?.items || catalog.collections.notes.items).slice(0, 4);
-  $('#homePosts').innerHTML = items.map((item, index) => `<a class="home-post" href="blog.html?q=${encodeURIComponent(item.name)}"><span class="post-no">${String(index + 1).padStart(2, '0')}</span><div><h3>${escapeHtml(titleOf(item))}</h3><p>${escapeHtml(item.category || '笔记')} · ${escapeHtml(item.modifiedAt || 'MYNOTE')} · 目录索引</p></div><span class="post-arrow" aria-hidden="true">↗</span></a>`).join('');
+  $('#homePosts').innerHTML = items.map((item, index) => `<a class="home-post" href="${escapeHtml(item.url || 'blog.html')}"><span class="post-no">${String(index + 1).padStart(2, '0')}</span><div><h3>${escapeHtml(titleOf(item))}</h3><p>${escapeHtml(item.category || '笔记')} · ${escapeHtml(item.modifiedAt || 'MYNOTE')} · 阅读全文</p></div><span class="post-arrow" aria-hidden="true">↗</span></a>`).join('');
 }
 
 function selectFolder(path) {
@@ -64,7 +65,7 @@ function renderNotes() {
   else filtered.sort((a, b) => titleOf(a).localeCompare(titleOf(b), 'zh-CN'));
   $('#listTitle').textContent = query ? `搜索：${$('#noteSearch').value.trim()}` : noteFolder === 'all' ? '全部笔记' : noteFolder;
   $('#noteResultCount').textContent = `${fmt(filtered.length)} 篇`;
-  $('#notesList').innerHTML = filtered.map((item, index) => `<article class="article-row"><span class="post-no">${String(index + 1).padStart(2, '0')}</span><div><h2>${escapeHtml(titleOf(item))}</h2>${item.summary ? `<p class="article-summary">${escapeHtml(item.summary)}</p>` : ''}<p>${escapeHtml(item.category || '笔记')}<span aria-hidden="true"> · </span>${escapeHtml(item.folder)}${item.modifiedAt ? `<span aria-hidden="true"> · </span>${escapeHtml(item.modifiedAt)}` : ''}${item.status ? `<span aria-hidden="true"> · </span>${escapeHtml(item.status)}` : ''}</p></div><span class="article-type">MD / 目录</span></article>`).join('') || '<div class="empty-state"><strong>还没有找到这篇笔记</strong><p>换个关键词，或选择“全部笔记”再看看。</p></div>';
+  $('#notesList').innerHTML = filtered.map((item, index) => `<a class="article-row" href="${escapeHtml(item.url || 'blog.html')}" aria-label="阅读：${escapeHtml(titleOf(item))}"><span class="post-no">${String(index + 1).padStart(2, '0')}</span><div><h2>${escapeHtml(titleOf(item))}</h2>${item.summary ? `<p class="article-summary">${escapeHtml(item.summary)}</p>` : ''}<p>${escapeHtml(item.folder || item.category || '笔记')}${item.modifiedAt ? `<span aria-hidden="true"> · </span>${escapeHtml(item.modifiedAt)}` : ''}${item.status ? `<span aria-hidden="true"> · </span>${escapeHtml(item.status)}` : ''}</p></div><span class="article-type">阅读全文 ↗</span></a>`).join('') || '<div class="empty-state"><strong>还没有找到这篇笔记</strong><p>换个关键词，或选择“全部笔记”再看看。</p></div>';
 }
 function setupBlog() {
   renderFolders();
