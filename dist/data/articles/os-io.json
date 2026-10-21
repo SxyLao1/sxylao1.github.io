@@ -1,0 +1,63 @@
+{
+  "slug": "os-io",
+  "title": "输入输出系统",
+  "summary": "沿着设备、控制方式和软件层次，理解中断、DMA、缓冲与设备分配。",
+  "category": "系统基础",
+  "html": "<blockquote>\n<p>参考大佬博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/104415990?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163473008716780261954971%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=163473008716780261954971&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-104415990.first_rank_v2_pc_rank_v29&amp;utm_term=%E7%8E%8B%E9%81%93%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&amp;spm=1018.2226.3001.4187\" rel=\"noopener noreferrer\" target=\"_blank\">《王道操作系统》学习笔记总目录+思维导图</a><br />\nb站王道操作系统：<a href=\"https://www.bilibili.com/video/BV1YE411D7nH?p=63&amp;spm_id_from=pageDriver\" rel=\"noopener noreferrer\" target=\"_blank\">王道计算机考研 操作系统</a><br />\n操作系统系列目录：<br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119898085\" rel=\"noopener noreferrer\" target=\"_blank\">第一章：操作系统引论</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119927993\" rel=\"noopener noreferrer\" target=\"_blank\">第二章：进程的描述与控制</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119980799\" rel=\"noopener noreferrer\" target=\"_blank\">第三章：处理机调度与死锁</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119980799\" rel=\"noopener noreferrer\" target=\"_blank\">第四章：存储器管理</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/120875028\" rel=\"noopener noreferrer\" target=\"_blank\">第五章：虚拟存储器</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/120875693\" rel=\"noopener noreferrer\" target=\"_blank\">第六章：输入输出系统</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/120875693\" rel=\"noopener noreferrer\" target=\"_blank\">第七章：文件管理</a></p>\n</blockquote>\n<h4 id=\"section-1\">输入输出系统</h4>\n<ul>\n<li><a href=\"#IO_15\">一、I/O管理概述</a></li>\n<li>\n<ul>\n<li><a href=\"#1IOIO_18\">1.什么是I/O设备？有几类I/O设备？</a></li>\n<li><a href=\"#2IOIO_25\">2.控制I/O设备的I/O控制器</a></li>\n<li><a href=\"#3IODMA_34\">3.控制I/O设备的几种方式？(程序直接控制方式、中断驱动方式、DMA、通道控制)</a></li>\n<li><a href=\"#4_IO_43\">4. I/O软件的层次结构（用户层软件-设备独立性软件-设备驱动程序-中断处理程序-硬件）</a></li>\n</ul>\n</li>\n<li><a href=\"#_IO_52\">二、 I/O核心子系统</a></li>\n<li>\n<ul>\n<li><a href=\"#1_IO_55\">1. 内核的I/O核心子系统及功能</a></li>\n<li><a href=\"#2_IOSPOOLing_63\">2. I/O设备假脱机技术(SPOOLing)</a></li>\n<li><a href=\"#3IODCTCOCTCHCTSDT_72\">3.I/O设备的分配与回收（DCT-COCT-CHCT-SDT）</a></li>\n<li><a href=\"#4__80\">4. 缓冲区管理（单缓冲-双缓冲-循环缓冲-缓冲池）</a></li>\n</ul>\n</li>\n</ul>\n<h2 id=\"section-2\">一、I/O管理概述</h2>\n<h3 id=\"section-3\">1.什么是I/O设备？有几类I/O设备？</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/0614880b63a8c7a56fd1010bb74edb8a.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106136127\" rel=\"noopener noreferrer\" target=\"_blank\">什么是I/O设备？有几类I/O设备？</a></p>\n</blockquote>\n<h3 id=\"section-4\">2.控制I/O设备的I/O控制器</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/ee156cb51cf4c142f2bc29b7ea703e50.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106136990\" rel=\"noopener noreferrer\" target=\"_blank\">控制I/O设备的I/O控制器</a></p>\n</blockquote>\n<h3 id=\"section-5\">3.控制I/O设备的几种方式？(程序直接控制方式、中断驱动方式、DMA、通道控制)</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/862e9964ec975dc144729d38006cbd2c.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106144829\" rel=\"noopener noreferrer\" target=\"_blank\">控制I/O设备的几种方式？(程序直接控制方式、中断驱动方式、DMA、通道控制)</a></p>\n</blockquote>\n<h3 id=\"section-6\">4. I/O软件的层次结构（用户层软件-设备独立性软件-设备驱动程序-中断处理程序-硬件）</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/dc22df5ba23e2ea0bff4b3c9ca49bf6e.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106147270\" rel=\"noopener noreferrer\" target=\"_blank\">I/O软件的层次结构（用户层软件-设备独立性软件-设备驱动程序-中断处理程序）</a></p>\n</blockquote>\n<h2 id=\"section-7\">二、 I/O核心子系统</h2>\n<h3 id=\"section-8\">1. 内核的I/O核心子系统及功能</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/7401edf8d10f28571e6a7c9f0d867b78.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106147949\" rel=\"noopener noreferrer\" target=\"_blank\">内核的I/O核心子系统及功能</a></p>\n</blockquote>\n<h3 id=\"section-9\">2. I/O设备假脱机技术(SPOOLing)</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/6567adf042bc3e8898b742d993852eca.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106150766\" rel=\"noopener noreferrer\" target=\"_blank\">I/O设备假脱机技术(SPOOLing)</a></p>\n</blockquote>\n<h3 id=\"section-10\">3.I/O设备的分配与回收（DCT-COCT-CHCT-SDT）</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/1aec6039bb3c93419400868506569307.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106151353\" rel=\"noopener noreferrer\" target=\"_blank\">I/O设备的分配与回收（DCT-COCT-CHCT-SDT）</a></p>\n</blockquote>\n<h3 id=\"section-11\">4. 缓冲区管理（单缓冲-双缓冲-循环缓冲-缓冲池）</h3>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/776e3ce710d3730a12c11b788ef2bd9a.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106274269\" rel=\"noopener noreferrer\" target=\"_blank\">缓冲区管理（单缓冲-双缓冲-循环缓冲-缓冲池）</a></p>\n</blockquote>\n",
+  "toc": [
+    {
+      "id": "section-2",
+      "text": "一、I/O管理概述",
+      "level": 2
+    },
+    {
+      "id": "section-3",
+      "text": "1.什么是I/O设备？有几类I/O设备？",
+      "level": 3
+    },
+    {
+      "id": "section-4",
+      "text": "2.控制I/O设备的I/O控制器",
+      "level": 3
+    },
+    {
+      "id": "section-5",
+      "text": "3.控制I/O设备的几种方式？(程序直接控制方式、中断驱动方式、DMA、通道控制)",
+      "level": 3
+    },
+    {
+      "id": "section-6",
+      "text": "4. I/O软件的层次结构（用户层软件-设备独立性软件-设备驱动程序-中断处理程序-硬件）",
+      "level": 3
+    },
+    {
+      "id": "section-7",
+      "text": "二、 I/O核心子系统",
+      "level": 2
+    },
+    {
+      "id": "section-8",
+      "text": "1. 内核的I/O核心子系统及功能",
+      "level": 3
+    },
+    {
+      "id": "section-9",
+      "text": "2. I/O设备假脱机技术(SPOOLing)",
+      "level": 3
+    },
+    {
+      "id": "section-10",
+      "text": "3.I/O设备的分配与回收（DCT-COCT-CHCT-SDT）",
+      "level": 3
+    },
+    {
+      "id": "section-11",
+      "text": "4. 缓冲区管理（单缓冲-双缓冲-循环缓冲-缓冲池）",
+      "level": 3
+    }
+  ],
+  "readingMinutes": 6,
+  "markdownUrl": "articles/os-io.md",
+  "sourceOriginal": true,
+  "modifiedAt": "2024-11-26"
+}

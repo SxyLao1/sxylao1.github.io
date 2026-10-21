@@ -22,7 +22,7 @@
 .moment-date small { font-size: 9px; }
 .moment-content { min-width: 0; }
 .moment-author { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; margin-bottom: 20px; }
-.moment-avatar { display: grid; place-items: center; width: 29px; height: 29px; background: var(--surface); border: 1px solid var(--line); border-radius: 50%; font: italic 21px var(--serif); color: var(--accent); }
+.moment-avatar { display: block; width: 29px; height: 29px; object-fit: cover; border: 1px solid var(--line); border-radius: 50%; }
 .moment-content h2 { font-size: 23px; line-height: 1.65; margin-bottom: 15px; }
 .moment-text { font-size: 14px; line-height: 2; overflow-wrap: anywhere; }
 .moment-text p + p { margin-top: 16px; }

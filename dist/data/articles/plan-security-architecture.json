@@ -1,0 +1,184 @@
+{
+  "slug": "plan-security-architecture",
+  "title": "安全产品架构设计学习路线",
+  "summary": "从安全经验出发，梳理架构表达、核心概念与阶段练习的学习方向。",
+  "category": "学习计划",
+  "html": "<h1 id=\"section-1\">Trident 作者学习路线：从现场经验到安全产品架构设计</h1>\n<blockquote>\n<p><strong>适用对象</strong>: 有安全现场经验（绿盟/深信服/奇安信设备使用经验），具备基础编程能力（Java SME/SpringBoot、Python 脚本），正在开发 Trident 安全产品，以求职面试为当前首要目标\n<strong>核心原则</strong>: 循序渐进，面试优先，项目迭代为辅，AI 辅助编程时代聚焦&quot;决策能力&quot;而非&quot;编码速度&quot;\n<strong>生成时间</strong>: 2026-06-10\n<strong>关联项目</strong>: Trident WebShell 检测系统 v1.7.9+</p>\n</blockquote>\n<hr />\n<h2 id=\"section-2\">目录</h2>\n<ul>\n<li><a href=\"#%E4%B8%80%E5%BD%93%E5%89%8D%E8%83%BD%E5%8A%9B%E8%AF%84%E4%BC%B0\">一、当前能力评估</a></li>\n<li><a href=\"#%E4%BA%8C%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5%E8%A7%84%E5%88%92%E9%9D%A2%E8%AF%95%E5%AF%BC%E5%90%91\">二、学习阶段规划（面试导向）</a></li>\n<li><a href=\"#%E4%B8%89%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E9%9D%A2%E8%AF%95%E6%80%A5%E6%95%91%E5%8C%851-2%E5%91%A8\">三、第一阶段：面试急救包（1-2周）</a></li>\n<li><a href=\"#%E5%9B%9B%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%E6%9E%B6%E6%9E%84%E5%BD%A2%E5%BC%8F%E5%8C%961-2%E4%B8%AA%E6%9C%88\">四、第二阶段：架构形式化（1-2个月）</a></li>\n<li><a href=\"#%E4%BA%94%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%E5%AE%89%E5%85%A8%E6%B7%B1%E5%BA%A63-6%E4%B8%AA%E6%9C%88\">五、第三阶段：安全深度（3-6个月）</a></li>\n<li><a href=\"#%E5%85%AD%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%B8%8E%E5%BC%80%E6%BA%906-12%E4%B8%AA%E6%9C%88\">六、第四阶段：工程化与开源（6-12个月）</a></li>\n<li><a href=\"#%E4%B8%83ai-%E6%97%B6%E4%BB%A3%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AD%96%E7%95%A5\">七、AI 时代的学习策略</a></li>\n<li><a href=\"#%E5%85%AB%E9%9D%A2%E8%AF%95%E4%B8%93%E9%A1%B9%E5%87%86%E5%A4%87\">八、面试专项准备</a></li>\n<li><a href=\"#%E4%B9%9D%E6%8E%A8%E8%8D%90%E8%B5%84%E6%BA%90%E6%B8%85%E5%8D%95\">九、推荐资源清单</a></li>\n<li><a href=\"#%E5%8D%81%E4%B8%8E-trident-%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%93%E5%90%88%E7%82%B9\">十、与 Trident 项目的结合点</a></li>\n</ul>\n<hr />\n<h2 id=\"section-3\">一、当前能力评估</h2>\n<h3 id=\"section-4\">优势（核心竞争力）</h3>\n<table>\n<thead>\n<tr>\n<th>能力</th>\n<th>说明</th>\n<th>市场价值</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>现场经验</strong></td>\n<td>使用过绿盟/深信服/奇安信等主流安全设备，了解真实攻防场景</td>\n<td>安全产品岗最稀缺的素质</td>\n</tr>\n<tr>\n<td><strong>产品直觉</strong></td>\n<td>能提出&quot;画像&quot;&quot;行为指纹&quot;&quot;代理池检测&quot;等高级概念，命中 CrowdStrike/Splunk 核心设计</td>\n<td>架构师级别的思维</td>\n</tr>\n<tr>\n<td><strong>问题意识</strong></td>\n<td>知道&quot;磁盘被打坏&quot;&quot;运维人员还活不活了&quot;等真实痛点</td>\n<td>产品经理+工程师的复合能力</td>\n</tr>\n<tr>\n<td><strong>项目驱动</strong></td>\n<td>有 Trident 完整项目经验，从 0 到 1 开发安全产品</td>\n<td>面试时最有说服力的谈资</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-5\">短板（需要补强）</h3>\n<table>\n<thead>\n<tr>\n<th>短板</th>\n<th>影响</th>\n<th>优先级</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>架构形式化能力</td>\n<td>能&quot;感觉&quot;到要分层，但画不出架构图、定义不了接口契约</td>\n<td><strong>高</strong>（面试必问）</td>\n</tr>\n<tr>\n<td>复杂度分析</td>\n<td>对 Big-O、性能数字没有体感</td>\n<td>中（面试可能问）</td>\n</tr>\n<tr>\n<td>工程化习惯</td>\n<td>测试覆盖、版本管理、文档规范不够系统</td>\n<td>中（入职后重要）</td>\n</tr>\n<tr>\n<td>安全理论深度</td>\n<td>知道 ATT&amp;CK 但讲不清 Technique 编号</td>\n<td><strong>高</strong>（安全岗必问）</td>\n</tr>\n<tr>\n<td>代码深度</td>\n<td>能写脚本，但不懂 Python 内存模型、GIL、异步 IO</td>\n<td>低（面试很少深挖）</td>\n</tr>\n</tbody>\n</table>\n<hr />\n<h2 id=\"section-6\">二、学习阶段规划（面试导向）</h2>\n<pre><code>时间线:\n\n现在 ──────────────────────────────────────────────&gt; 12个月\n  │         │              │              │\n  ▼         ▼              ▼              ▼\n面试急救   架构形式化     安全深度       工程化开源\n(1-2周)   (1-2个月)     (3-6个月)      (6-12个月)\n  │         │              │              │\n  └─────────┴──────────────┴──────────────┘\n              与 Trident 项目迭代同步进行\n</code></pre>\n<p><strong>核心原则</strong>：</p>\n<ul>\n<li>面试优先：先解决&quot;面试时被问住&quot;的问题</li>\n<li>项目驱动：每个学习内容都能在 Trident 中找到结合点</li>\n<li>循序渐进：不要同时开多个大坑，一次只攻一个主题</li>\n<li>AI 辅助：用 AI 生成代码/测试/文档，自己专注&quot;决策&quot;和&quot;验证&quot;</li>\n</ul>\n<hr />\n<h2 id=\"section-7\">三、第一阶段：面试急救包（1-2周）</h2>\n<h3 id=\"section-8\">目标</h3>\n<p>面试时能说清楚 Trident 的架构、自己的角色、技术决策的理由。</p>\n<h3 id=\"section-9\">学习任务</h3>\n<h4 id=\"section-10\">3.1 架构图绘制（2天）</h4>\n<p><strong>任务</strong>：用 Draw.io 或 Excalidraw 画一张 Trident 的架构图</p>\n<p><strong>要求</strong>：</p>\n<ul>\n<li>分层：Domain（领域）/ Application（应用）/ Infrastructure（基础设施）/ Interface（接口）</li>\n<li>每个框写清楚职责</li>\n<li>箭头标明依赖方向（Domain 不依赖其他层）</li>\n<li>标注你自己的设计决策：为什么画像 ID 不是 IP？为什么用 WAL？</li>\n</ul>\n<p><strong>参考</strong>：</p>\n<pre><code>[Interface Layer]\n    Dashboard (Flask + HTMX)\n    REST API\n\n[Application Layer]\n    AlertUseCase\n    ProfileUseCase\n    QuarantineUseCase\n\n[Domain Layer]\n    AttackerProfile (Entity)\n    ThreatIntelligence (Port/Interface)\n    HashEngine (Strategy)\n\n[Infrastructure Layer]\n    WALStore\n    JSONLStore\n    SimpleDecayEngine\n    HTMXRenderer\n</code></pre>\n<p><strong>验证</strong>：把图发给 AI，问&quot;这个架构符合整洁架构的依赖规则吗？&quot;</p>\n<h4 id=\"section-11\">3.2 三个核心概念讲清楚（3天）</h4>\n<p><strong>概念 1：画像系统（Attacker Profile）</strong></p>\n<ul>\n<li>为什么不用 IP 作为唯一标识？</li>\n<li>行为指纹包括哪些维度？（UA + 文件相似簇 + 时间窗口）</li>\n<li>和 CrowdStrike Falcon 的 Threat Graph 有什么相似之处？</li>\n<li><strong>面试话术</strong>：&quot;传统设备以事件为核心，我们升级为以攻击者实体为核心，解决代理池 IP 变化的问题&quot;</li>\n</ul>\n<p><strong>概念 2：WAL 持久化</strong></p>\n<ul>\n<li>为什么用 JSONL 而不是 JSON？</li>\n<li>什么是原子写入？（先写 .tmp 再 rename）</li>\n<li>和客户现场磁盘被打坏的经历有什么关联？</li>\n<li><strong>面试话术</strong>：&quot;现场环境极端恶劣，我们设计 WAL 只追加模式，即使断电也不会 corrupt 数据文件&quot;</li>\n</ul>\n<p><strong>概念 3：三轨哈希引擎</strong></p>\n<ul>\n<li>为什么同时支持 ssdeep / py-tlsh / SimHash？</li>\n<li>什么是 graceful degradation？</li>\n<li>零外部依赖为什么是枷锁？</li>\n<li><strong>面试话术</strong>：&quot;核心功能零依赖保证永不崩溃，增强功能 graceful degradation 保证最佳体验&quot;</li>\n</ul>\n<h4 id=\"section-12\">3.3 模拟面试问答（2天）</h4>\n<p><strong>自己问自己</strong>（或让 AI 扮演面试官）：</p>\n<ol>\n<li>&quot;请介绍一下 Trident 的架构&quot;</li>\n<li>&quot;画像系统的 ID 为什么不用 IP？&quot;</li>\n<li>&quot;衰减公式 24h/0.5 是怎么设计的？&quot;</li>\n<li>&quot;WAL 和快照有什么区别？&quot;</li>\n<li>&quot;如果红队用 1000 个 IP 扫 1000 个文件，你的系统怎么处理？&quot;</li>\n<li>&quot;ssdeep 安装失败怎么办？&quot;</li>\n<li>&quot;你和传统安全设备（如 WAF、IDS）有什么区别？&quot;</li>\n</ol>\n<p><strong>要求</strong>：每个问题能回答 3 分钟，不卡壳。</p>\n<hr />\n<h2 id=\"section-13\">四、第二阶段：架构形式化（1-2个月）</h2>\n<h3 id=\"section-14\">目标</h3>\n<p>能独立设计分层架构，定义接口契约，画出清晰的依赖图。</p>\n<h3 id=\"section-15\">学习任务</h3>\n<h4 id=\"section-16\">4.1 《领域驱动设计》前6章（2周）</h4>\n<p><strong>重点概念</strong>：</p>\n<ul>\n<li><strong>实体（Entity）</strong>：有唯一标识，状态可变 → <code>AttackerProfile</code></li>\n<li><strong>值对象（Value Object）</strong>：无标识，不可变 → <code>IPReputation</code>、<code>FileReputation</code></li>\n<li><strong>聚合根（Aggregate Root）</strong>：一组实体/值对象的入口 → <code>ThreatGraph</code></li>\n<li><strong>仓储模式（Repository）</strong>：抽象持久化 → <code>ThreatIntelligence</code> ABC</li>\n<li><strong>领域服务（Domain Service）</strong>：跨实体的业务逻辑 → <code>DecayEngine</code></li>\n</ul>\n<p><strong>结合 Trident</strong>：</p>\n<ul>\n<li>读一章，画一张 Trident 对应概念的图</li>\n<li>例：读完&quot;聚合根&quot;，确认 <code>ThreatGraph</code> 是聚合根，<code>AttackerProfile</code> 是实体</li>\n</ul>\n<h4 id=\"section-17\">4.2 《整洁架构》第1-3章（1周）</h4>\n<p><strong>重点概念</strong>：</p>\n<ul>\n<li><strong>依赖规则</strong>：内层不依赖外层\n<ul>\n<li>Domain 不依赖 Application</li>\n<li>Application 不依赖 Infrastructure</li>\n<li>Interface 依赖所有内层</li>\n</ul>\n</li>\n<li><strong>边界</strong>：用接口（ABC）定义边界</li>\n<li><strong>用例</strong>：Application 层的独立业务单元</li>\n</ul>\n<p><strong>结合 Trident</strong>：</p>\n<ul>\n<li>检查当前代码：\n<ul>\n<li><code>core/interfaces/threat_intel.py</code> → Domain 层 ✅</li>\n<li><code>core/threat_graph.py</code> → 混合了 Domain + Application ❌（需要拆分）</li>\n<li><code>core/persistence/wal_store.py</code> → Infrastructure 层 ✅</li>\n<li><code>web/blueprints/admin_bp.py</code> → Interface 层 ✅</li>\n</ul>\n</li>\n</ul>\n<h4 id=\"section-18\">4.3 复杂度分析基础（1周）</h4>\n<p><strong>不需要刷 LeetCode</strong>，只需要理解：</p>\n<table>\n<thead>\n<tr>\n<th>操作</th>\n<th>数据结构</th>\n<th>时间复杂度</th>\n<th>实际耗时（Python）</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>查询</td>\n<td>dict</td>\n<td>O(1)</td>\n<td>~50 ns</td>\n</tr>\n<tr>\n<td>遍历</td>\n<td>dict</td>\n<td>O(N)</td>\n<td>N=10000 → ~1 ms</td>\n</tr>\n<tr>\n<td>排序</td>\n<td>list</td>\n<td>O(N log N)</td>\n<td>N=10000 → ~5 ms</td>\n</tr>\n<tr>\n<td>文件读取</td>\n<td>-</td>\n<td>O(文件大小)</td>\n<td>1MB → ~10 ms</td>\n</tr>\n</tbody>\n</table>\n<p><strong>实践任务</strong>：</p>\n<ul>\n<li>在 Trident 的 <code>SimpleDecayEngine</code> 中加一个计时器</li>\n<li>打印&quot;扫描 N 个画像耗时 X ms&quot;</li>\n<li>验证 N=10000 时是否 &lt; 10 ms</li>\n</ul>\n<h4 id=\"section-19\">4.4 设计模式（选学，2周）</h4>\n<p><strong>安全产品常用模式</strong>：</p>\n<ul>\n<li><strong>策略模式（Strategy）</strong>：<code>HashEngine</code> 的三轨降级</li>\n<li><strong>观察者模式（Observer）</strong>：检测事件 → 画像更新 → 告警推送</li>\n<li><strong>工厂模式（Factory）</strong>：<code>ThreatIntelligence</code> 的实现类创建</li>\n<li><strong>适配器模式（Adapter）</strong>：ssdeep / py-tlsh 统一接口</li>\n</ul>\n<p><strong>学习资源</strong>：</p>\n<ul>\n<li>《Head First 设计模式》（选读相关章节）</li>\n<li>或直接用 AI：&quot;请用策略模式重构 Trident 的 HashEngine&quot;</li>\n</ul>\n<hr />\n<h2 id=\"section-20\">五、第三阶段：安全深度（3-6个月）</h2>\n<h3 id=\"section-21\">目标</h3>\n<p>成为&quot;懂安全的工程师&quot;，而不仅是&quot;会写代码的安全爱好者&quot;。</p>\n<h3 id=\"section-22\">学习任务</h3>\n<h4 id=\"section-23\">5.1 MITRE ATT&amp;CK 框架（1个月）</h4>\n<p><strong>必学内容</strong>：</p>\n<ul>\n<li><strong>战术（Tactics）</strong>：14 个战术（Initial Access → Impact）</li>\n<li><strong>技术（Techniques）</strong>：常用技术编号和含义\n<ul>\n<li>T1505.003：Web Shell（你的核心检测目标）</li>\n<li>T1190：Exploit Public-Facing Application</li>\n<li>T1071：Application Layer Protocol</li>\n</ul>\n</li>\n<li><strong>子技术（Sub-techniques）</strong>：细分场景</li>\n</ul>\n<p><strong>结合 Trident</strong>：</p>\n<ul>\n<li>为 Trident 的每个检测规则标注 ATT&amp;CK 技术编号</li>\n<li>例：webshell_jsp_hsx → T1505.003</li>\n<li>面试话术：&quot;我们的检测覆盖 ATT&amp;CK T1505.003，并通过画像系统关联到 T1071 的 C2 通信&quot;</li>\n</ul>\n<h4 id=\"section-24\">5.2 威胁建模（2周）</h4>\n<p><strong>工具</strong>：</p>\n<ul>\n<li><strong>OWASP Threat Dragon</strong>：免费，画图式威胁建模</li>\n<li><strong>Microsoft STRIDE</strong>：威胁分类框架\n<ul>\n<li>Spoofing（伪装）</li>\n<li>Tampering（篡改）</li>\n<li>Repudiation（抵赖）</li>\n<li>Information Disclosure（信息泄露）</li>\n<li>Denial of Service（拒绝服务）</li>\n<li>Elevation of Privilege（权限提升）</li>\n</ul>\n</li>\n</ul>\n<p><strong>实践任务</strong>：</p>\n<ul>\n<li>用 Threat Dragon 为 Trident 画一张威胁模型图</li>\n<li>识别：&quot;如果攻击者篡改 WAL 文件怎么办？&quot;</li>\n<li>识别：&quot;如果攻击者 DDoS 检测接口怎么办？&quot;</li>\n</ul>\n<h4 id=\"section-25\">5.3 攻防技术深度（2个月）</h4>\n<p><strong>必读书籍</strong>：</p>\n<ul>\n<li>《黑客攻防技术宝典：Web实战篇》（Dafydd Stuttard）\n<ul>\n<li>重点：文件上传漏洞、webshell 原理、条件竞争</li>\n</ul>\n</li>\n<li>《内网安全攻防：渗透测试实战指南》（徐焱）\n<ul>\n<li>重点：横向移动、权限维持、C2 通信</li>\n</ul>\n</li>\n<li>《Metasploit渗透测试指南》（David Kennedy）\n<ul>\n<li>重点：payload 生成、编码绕过</li>\n</ul>\n</li>\n</ul>\n<p><strong>实践任务</strong>：</p>\n<ul>\n<li>在本地搭建 DVWA / Pikachu 靶场</li>\n<li>自己上传 webshell，观察 Trident 的检测行为</li>\n<li>尝试绕过 Trident 的 YARA 规则（红队思维）</li>\n</ul>\n<h4 id=\"section-26\">5.4 安全标准与合规（选学，1个月）</h4>\n<ul>\n<li><strong>等保 2.0</strong>：三级系统要求</li>\n<li><strong>ISO 27001</strong>：信息安全管理体系</li>\n<li><strong>GDPR</strong>：数据保护（如果产品有海外客户）</li>\n<li><strong>SRRC</strong>：无线电发射设备认证（你之前问过）</li>\n</ul>\n<hr />\n<h2 id=\"section-27\">六、第四阶段：工程化与开源（6-12个月）</h2>\n<h3 id=\"section-28\">目标</h3>\n<p>让 Trident 成为可维护、可测试、可扩展的工业级产品。</p>\n<h3 id=\"section-29\">学习任务</h3>\n<h4 id=\"section-30\">6.1 测试驱动开发（TDD）（2个月）</h4>\n<p><strong>测试金字塔</strong>：</p>\n<pre><code>        /\\\n       /  \\      E2E 测试（慢，覆盖核心流程）\n      /----\\\n     /      \\    集成测试（中速，覆盖模块交互）\n    /--------\\\n   /          \\  单元测试（快速，覆盖每个函数）\n  /------------\\\n</code></pre>\n<p><strong>Trident 测试覆盖计划</strong>：</p>\n<ul>\n<li><strong>单元测试</strong>：<code>tests/unit/test_threat_graph.py</code>\n<ul>\n<li>模拟代理池场景：100 IP → 1 画像</li>\n<li>模拟红队共享 shell：100 文件 → 1 画像</li>\n</ul>\n</li>\n<li><strong>集成测试</strong>：<code>tests/integration/test_hash_engine.py</code>\n<ul>\n<li>ssdeep / py-tlsh / SimHash 三轨降级</li>\n</ul>\n</li>\n<li><strong>E2E 测试</strong>：<code>tests/e2e/test_threat_intel_flow.py</code>\n<ul>\n<li>完整流程：检测 → 画像 → 推送 → 前端</li>\n</ul>\n</li>\n</ul>\n<h4 id=\"section-31\">6.2 开源运营（2个月）</h4>\n<p><strong>任务清单</strong>：</p>\n<ul>\n<li>[ ] 完善 README（中英双语）</li>\n<li>[ ] 写 CONTRIBUTING.md（贡献指南）</li>\n<li>[ ] 选择 LICENSE（MIT / Apache-2.0 / GPL）</li>\n<li>[ ] 发布到 GitHub，打 tag（v1.7.9）</li>\n<li>[ ] 写 Release Notes</li>\n<li>[ ] 在 V2EX / 知乎 / 安全圈子推广</li>\n<li>[ ] 收集 Issue，修复 bug，合并 PR</li>\n</ul>\n<p><strong>收益</strong>：</p>\n<ul>\n<li>简历亮点：&quot;开源项目作者，Star 数 XXX&quot;</li>\n<li>社区反馈：别人会指出你的架构问题，加速成长</li>\n<li>面试谈资：&quot;我维护了一个开源安全产品，处理了 XXX 个 Issue&quot;</li>\n</ul>\n<h4 id=\"section-32\">6.3 性能优化（1个月）</h4>\n<p><strong>目标</strong>：Trident 能处理 10万+ 文件监控，1000+ 并发连接</p>\n<p><strong>任务</strong>：</p>\n<ul>\n<li>用 <code>cProfile</code> / <code>py-spy</code> 分析性能瓶颈</li>\n<li>考虑 <code>asyncio</code> 替换部分同步 I/O</li>\n<li>考虑 <code>multiprocessing</code> 处理文件哈希计算</li>\n<li>考虑 <code>Redis</code> 缓存热点画像（如果部署多实例）</li>\n</ul>\n<hr />\n<h2 id=\"section-33\">七、AI 时代的学习策略</h2>\n<h3 id=\"section-34\">7.1 用 AI 做什么（效率提升）</h3>\n<table>\n<thead>\n<tr>\n<th>任务</th>\n<th>AI 能力</th>\n<th>你的角色</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>生成代码</td>\n<td>写 Python/Java/JS</td>\n<td>审查、验证、决策</td>\n</tr>\n<tr>\n<td>写测试</td>\n<td>生成单元测试用例</td>\n<td>补充边界条件、验证覆盖率</td>\n</tr>\n<tr>\n<td>写文档</td>\n<td>生成 API 文档、Handover</td>\n<td>补充业务背景、决策理由</td>\n</tr>\n<tr>\n<td>画架构图</td>\n<td>生成 PlantUML / Mermaid</td>\n<td>调整分层、验证依赖方向</td>\n</tr>\n<tr>\n<td>解释概念</td>\n<td>解释 DDD / 整洁架构</td>\n<td>结合 Trident 实际场景提问</td>\n</tr>\n<tr>\n<td>模拟面试</td>\n<td>扮演面试官提问</td>\n<td>回答、反思、改进</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-35\">7.2 不用 AI 做什么（必须自己学）</h3>\n<table>\n<thead>\n<tr>\n<th>任务</th>\n<th>为什么必须自己学</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>架构决策</td>\n<td>AI 能生成代码，但给不出&quot;为什么这样分层&quot;的业务理由</td>\n</tr>\n<tr>\n<td>威胁建模</td>\n<td>需要现场经验，AI 没有&quot;磁盘被打坏&quot;的痛感</td>\n</tr>\n<tr>\n<td>面试表达</td>\n<td>必须自己说出来，AI 生成的答案面试官一听就知道</td>\n</tr>\n<tr>\n<td>代码审查</td>\n<td>必须能看懂 AI 生成的代码，否则被坑</td>\n</tr>\n<tr>\n<td>调试排错</td>\n<td>AI 只能给建议，实际环境问题必须自己排查</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-36\">7.3 推荐 AI 使用模式</h3>\n<pre><code>1. 你提出需求（基于现场经验）\n   ↓\n2. AI 生成方案 A/B/C\n   ↓\n3. 你评估方案（基于业务场景）\n   ↓\n4. AI 实现选定方案\n   ↓\n5. 你验证结果（测试、运行、观察）\n   ↓\n6. 你记录决策（为什么选 A 不选 B）\n</code></pre>\n<hr />\n<h2 id=\"section-37\">八、面试专项准备</h2>\n<h3 id=\"section-38\">8.1 简历优化</h3>\n<p><strong>突出点</strong>：</p>\n<ul>\n<li>&quot;独立开发 WebShell 检测系统 Trident，支持 YARA 规则、实时告警、威胁画像&quot;</li>\n<li>&quot;设计画像系统（Attacker Profile），解决代理池 IP 变化问题，对标 CrowdStrike Threat Graph&quot;</li>\n<li>&quot;设计 WAL 持久化方案，解决客户现场磁盘故障导致的数据丢失问题&quot;</li>\n<li>&quot;设计三轨哈希引擎（ssdeep/py-tlsh/SimHash），实现 graceful degradation&quot;</li>\n</ul>\n<p><strong>避免</strong>：</p>\n<ul>\n<li>不要写&quot;熟悉 Python/Java&quot;（太泛）</li>\n<li>不要写&quot;参与过项目&quot;（没有说服力）</li>\n<li>不要夸大（&quot;精通 DDD&quot; → 面试官一问就露馅）</li>\n</ul>\n<h3 id=\"section-39\">8.2 常见面试问题与回答框架</h3>\n<p><strong>Q1: &quot;请介绍一下 Trident&quot;</strong></p>\n<pre><code>Trident 是一个跨平台 WebShell 检测系统，我独立开发。\n核心设计：\n1. 检测层：YARA 规则 + 文件监控\n2. 分析层：威胁画像系统（Attacker Profile），解决代理池问题\n3. 持久层：WAL 只追加日志，保证现场可靠性\n4. 推送层：智能聚合，避免告警风暴\n技术栈：Python/Flask + HTMX + YARA\n</code></pre>\n<p><strong>Q2: &quot;画像系统是什么？和传统 IDS 有什么区别？&quot;</strong></p>\n<pre><code>传统 IDS 以事件为核心：IP A 访问了文件 B → 告警\n画像系统以攻击者为核心：IP A 只是代理池中的一个节点，\n真正的攻击者是&quot;使用冰蝎工具、在 10 秒内扫了 100 个 webshell 的实体&quot;\n优势：\n- 代理池 IP 变化不影响检测\n- 能发现红队共享 webshell 的协作行为\n- 输出攻击链时间线，辅助研判\n</code></pre>\n<p><strong>Q3: &quot;WAL 是什么？为什么不用数据库？&quot;</strong></p>\n<pre><code>WAL = Write-Ahead Log，只追加的日志文件。\n不用数据库的原因：\n1. 客户现场环境恶劣，SQLite 文件可能被防病毒软件锁定\n2. JSONL 格式可读，现场排查时直接用 cat/head 查看\n3. 原子写入（rename）保证不 corrupt\n4. 每小时快照，平衡了查询性能和可靠性\n</code></pre>\n<p><strong>Q4: &quot;如果让你重构 Trident，你会怎么做？&quot;</strong></p>\n<pre><code>1. 分层：Domain/Application/Infrastructure/Interface 四层\n2. 插件化：HashEngine、Notifier、Persistence 都做成插件\n3. 事件驱动：检测事件 → 领域事件 → 异步处理\n4. 配置中心：热加载配置，不重启生效\n5. 多租户：支持多个站点独立监控\n</code></pre>\n<h3 id=\"section-40\">8.3 技术面试准备清单</h3>\n<p>□ 能画 Trident 架构图（分层 + 依赖方向）\n□ 能解释 DDD 的实体、值对象、聚合根、仓储\n□ 能解释 24h/0.5 衰减公式的设计理由\n□ 能解释为什么画像 ID 不用 IP\n□ 能解释 WAL 和快照的区别\n□ 能解释三轨哈希的降级策略\n□ 能说出 5 个 ATT&amp;CK 技术编号和含义\n□ 能描述一次完整的攻击链（侦察→上传→连接→横向）\n□ 能说出 Trident 和 WAF/IDS/EDR 的区别\n□ 能说出未来 3 个月的迭代计划</p>\n<hr />\n<h2 id=\"section-41\">九、推荐资源清单</h2>\n<h3 id=\"section-42\">书籍（按优先级排序）</h3>\n<table>\n<thead>\n<tr>\n<th>优先级</th>\n<th>书名</th>\n<th>阅读重点</th>\n<th>预计耗时</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>P0</strong></td>\n<td>《领域驱动设计》Eric Evans</td>\n<td>前6章：实体、值对象、聚合根、仓储</td>\n<td>2周</td>\n</tr>\n<tr>\n<td><strong>P0</strong></td>\n<td>《整洁架构》Robert C. Martin</td>\n<td>第1-3章：依赖规则、分层</td>\n<td>1周</td>\n</tr>\n<tr>\n<td><strong>P1</strong></td>\n<td>《黑客攻防技术宝典：Web实战篇》</td>\n<td>文件上传、webshell、条件竞争</td>\n<td>1个月</td>\n</tr>\n<tr>\n<td><strong>P1</strong></td>\n<td>《内网安全攻防：渗透测试实战指南》</td>\n<td>横向移动、权限维持</td>\n<td>1个月</td>\n</tr>\n<tr>\n<td><strong>P2</strong></td>\n<td>《Head First 设计模式》</td>\n<td>策略模式、观察者模式、工厂模式</td>\n<td>2周</td>\n</tr>\n<tr>\n<td><strong>P2</strong></td>\n<td>《算法图解》Aditya Bhargava</td>\n<td>时间复杂度、数据结构基础</td>\n<td>1周</td>\n</tr>\n<tr>\n<td><strong>P3</strong></td>\n<td>《TCP/IP详解》卷1</td>\n<td>选读：TCP 握手、HTTP 协议</td>\n<td>1个月</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-43\">在线资源</h3>\n<table>\n<thead>\n<tr>\n<th>资源</th>\n<th>用途</th>\n<th>链接</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>MITRE ATT&amp;CK</td>\n<td>威胁建模标准</td>\n<td>https://attack.mitre.org/</td>\n</tr>\n<tr>\n<td>OWASP Threat Dragon</td>\n<td>威胁建模工具</td>\n<td>https://owasp.org/www-project-threat-dragon/</td>\n</tr>\n<tr>\n<td>Excalidraw</td>\n<td>架构图绘制</td>\n<td>https://excalidraw.com/</td>\n</tr>\n<tr>\n<td>PlantUML</td>\n<td>代码生成架构图</td>\n<td>https://www.plantuml.com/</td>\n</tr>\n<tr>\n<td>Python cProfile</td>\n<td>性能分析</td>\n<td>内置模块</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-44\">社区</h3>\n<table>\n<thead>\n<tr>\n<th>社区</th>\n<th>用途</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>V2EX</td>\n<td>技术产品推广、求职信息</td>\n</tr>\n<tr>\n<td>知乎安全圈子</td>\n<td>安全知识分享</td>\n</tr>\n<tr>\n<td>GitHub Security Lab</td>\n<td>开源安全项目学习</td>\n</tr>\n<tr>\n<td>看雪论坛</td>\n<td>逆向、二进制安全</td>\n</tr>\n<tr>\n<td>FreeBuf</td>\n<td>安全资讯、行业动态</td>\n</tr>\n</tbody>\n</table>\n<hr />\n<h2 id=\"section-45\">十、与 Trident 项目的结合点</h2>\n<h3 id=\"section-46\">学习 → 项目实践对照表</h3>\n<table>\n<thead>\n<tr>\n<th>学习阶段</th>\n<th>学习内容</th>\n<th>Trident 实践任务</th>\n<th>产出物</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>第一阶段</td>\n<td>架构图绘制</td>\n<td>画 Trident 分层架构图</td>\n<td>架构图 PNG</td>\n</tr>\n<tr>\n<td>第一阶段</td>\n<td>核心概念</td>\n<td>准备面试问答</td>\n<td>面试 Q&amp;A 文档</td>\n</tr>\n<tr>\n<td>第二阶段</td>\n<td>DDD 实体</td>\n<td>确认 AttackerProfile 是实体</td>\n<td>代码注释更新</td>\n</tr>\n<tr>\n<td>第二阶段</td>\n<td>DDD 仓储</td>\n<td>完善 ThreatIntelligence ABC</td>\n<td>接口文档</td>\n</tr>\n<tr>\n<td>第二阶段</td>\n<td>复杂度分析</td>\n<td>给 DecayEngine 加计时器</td>\n<td>性能日志</td>\n</tr>\n<tr>\n<td>第三阶段</td>\n<td>ATT&amp;CK</td>\n<td>为 YARA 规则标注技术编号</td>\n<td>规则文档</td>\n</tr>\n<tr>\n<td>第三阶段</td>\n<td>威胁建模</td>\n<td>用 Threat Dragon 画威胁模型</td>\n<td>威胁模型图</td>\n</tr>\n<tr>\n<td>第三阶段</td>\n<td>攻防技术</td>\n<td>搭建靶场测试 Trident</td>\n<td>测试报告</td>\n</tr>\n<tr>\n<td>第四阶段</td>\n<td>TDD</td>\n<td>写单元测试覆盖核心模块</td>\n<td>测试代码</td>\n</tr>\n<tr>\n<td>第四阶段</td>\n<td>开源运营</td>\n<td>发布 GitHub，写 README</td>\n<td>开源项目</td>\n</tr>\n</tbody>\n</table>\n<h3 id=\"section-47\">时间管理建议</h3>\n<p><strong>工作日</strong>（假设有工作/实习）：</p>\n<ul>\n<li>晚上 1-2 小时：Trident 迭代（编码/测试/文档）</li>\n<li>周末 1 天：集中学习（看书/画架构图/模拟面试）</li>\n</ul>\n<p><strong>求职期</strong>（全力找工作）：</p>\n<ul>\n<li>上午：投简历、准备面试</li>\n<li>下午：Trident 迭代（保持手感）</li>\n<li>晚上：学习（架构/安全深度）</li>\n</ul>\n<hr />\n<h2 id=\"section-48\">附录：快速自查表</h2>\n<p>每周日晚上问自己：</p>\n<ul>\n<li>[ ] 本周是否完成了一个 Trident 功能点？</li>\n<li>[ ] 本周是否读完了计划中的章节？</li>\n<li>[ ] 本周是否模拟面试了一次？</li>\n<li>[ ] 本周是否记录了至少一个架构决策？</li>\n<li>[ ] 本周是否向 AI 提出了一个&quot;现场经验驱动&quot;的问题？</li>\n</ul>\n<p>如果 3 个以上没完成，下周减少任务量，保持可持续性。</p>\n<hr />\n<p><em>文档版本: v1.0</em><br />\n<em>生成时间: 2026-06-10</em><br />\n<em>关联项目: Trident WebShell 检测系统 v1.7.9+</em><br />\n<em>核心原则: 面试优先，循序渐进，AI 辅助，现场经验驱动</em></p>\n",
+  "toc": [
+    {
+      "id": "section-1",
+      "text": "Trident 作者学习路线：从现场经验到安全产品架构设计",
+      "level": 1
+    },
+    {
+      "id": "section-2",
+      "text": "目录",
+      "level": 2
+    },
+    {
+      "id": "section-3",
+      "text": "一、当前能力评估",
+      "level": 2
+    },
+    {
+      "id": "section-4",
+      "text": "优势（核心竞争力）",
+      "level": 3
+    },
+    {
+      "id": "section-5",
+      "text": "短板（需要补强）",
+      "level": 3
+    },
+    {
+      "id": "section-6",
+      "text": "二、学习阶段规划（面试导向）",
+      "level": 2
+    },
+    {
+      "id": "section-7",
+      "text": "三、第一阶段：面试急救包（1-2周）",
+      "level": 2
+    },
+    {
+      "id": "section-8",
+      "text": "目标",
+      "level": 3
+    },
+    {
+      "id": "section-9",
+      "text": "学习任务",
+      "level": 3
+    },
+    {
+      "id": "section-13",
+      "text": "四、第二阶段：架构形式化（1-2个月）",
+      "level": 2
+    },
+    {
+      "id": "section-14",
+      "text": "目标",
+      "level": 3
+    },
+    {
+      "id": "section-15",
+      "text": "学习任务",
+      "level": 3
+    },
+    {
+      "id": "section-20",
+      "text": "五、第三阶段：安全深度（3-6个月）",
+      "level": 2
+    },
+    {
+      "id": "section-21",
+      "text": "目标",
+      "level": 3
+    },
+    {
+      "id": "section-22",
+      "text": "学习任务",
+      "level": 3
+    },
+    {
+      "id": "section-27",
+      "text": "六、第四阶段：工程化与开源（6-12个月）",
+      "level": 2
+    },
+    {
+      "id": "section-28",
+      "text": "目标",
+      "level": 3
+    },
+    {
+      "id": "section-29",
+      "text": "学习任务",
+      "level": 3
+    },
+    {
+      "id": "section-33",
+      "text": "七、AI 时代的学习策略",
+      "level": 2
+    },
+    {
+      "id": "section-34",
+      "text": "7.1 用 AI 做什么（效率提升）",
+      "level": 3
+    },
+    {
+      "id": "section-35",
+      "text": "7.2 不用 AI 做什么（必须自己学）",
+      "level": 3
+    },
+    {
+      "id": "section-36",
+      "text": "7.3 推荐 AI 使用模式",
+      "level": 3
+    },
+    {
+      "id": "section-37",
+      "text": "八、面试专项准备",
+      "level": 2
+    },
+    {
+      "id": "section-38",
+      "text": "8.1 简历优化",
+      "level": 3
+    },
+    {
+      "id": "section-39",
+      "text": "8.2 常见面试问题与回答框架",
+      "level": 3
+    },
+    {
+      "id": "section-40",
+      "text": "8.3 技术面试准备清单",
+      "level": 3
+    },
+    {
+      "id": "section-41",
+      "text": "九、推荐资源清单",
+      "level": 2
+    },
+    {
+      "id": "section-42",
+      "text": "书籍（按优先级排序）",
+      "level": 3
+    },
+    {
+      "id": "section-43",
+      "text": "在线资源",
+      "level": 3
+    },
+    {
+      "id": "section-44",
+      "text": "社区",
+      "level": 3
+    },
+    {
+      "id": "section-45",
+      "text": "十、与 Trident 项目的结合点",
+      "level": 2
+    },
+    {
+      "id": "section-46",
+      "text": "学习 → 项目实践对照表",
+      "level": 3
+    },
+    {
+      "id": "section-47",
+      "text": "时间管理建议",
+      "level": 3
+    },
+    {
+      "id": "section-48",
+      "text": "附录：快速自查表",
+      "level": 2
+    }
+  ],
+  "readingMinutes": 23,
+  "markdownUrl": "articles/plan-security-architecture.md",
+  "sourceOriginal": true,
+  "modifiedAt": "2026-06-10",
+  "status": "还没开始"
+}

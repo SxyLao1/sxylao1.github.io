@@ -10,11 +10,11 @@
 
 - 首页：个人介绍和精选笔记入口。
 - 关于：修己、游戏动漫与阅读偏好、学习计划、桌面折腾。
-- 博客：精选笔记的目录与摘要，按安全分析、计算机基础和学习计划分类。
+- 博客：17 篇原始笔记，支持章节目录、公式、表格、代码复制和 Markdown 下载。
 - 相册：图片收藏和按日期记录的时光足迹，支持零至九张配图与原始内容备份。
 - 联系：GitHub、CSDN 与 Bilibili 入口。
 
-`content/profile.json` 保存关于页文字；`content/notes-selection.json` 是笔记展示白名单；`content/gallery-tags.json` 定义图片标签。新增足迹的格式见 [内容目录说明](content/README.md)。
+`content/profile.json` 保存关于页文字；`content/notes-selection.json` 是笔记展示白名单；`content/posts/` 保存所选笔记的原始 Markdown 快照；`content/article-assets/` 保存原文引用的本地插图；`content/gallery-tags.json` 定义图片标签。新增足迹的格式见 [内容目录说明](content/README.md)。
 
 ## 本地维护
 
@@ -34,6 +34,8 @@ python -m http.server 4177 --bind 127.0.0.1 --directory dist
 
 然后打开 `http://127.0.0.1:4177/`。只修改关于页时，可以单独运行 `python scripts/build_pages.py`；只更新足迹时，运行 `python scripts/build_moments.py`。
 
+更新已有笔记后，运行 `python scripts/import_articles.py` 重新导入原文与本地插图，再运行 `python scripts/build_articles.py`。原始 Markdown 按字节保留，网页仅做阅读排版。选取范围由白名单控制，不会自动公开整个笔记库；原文中的代码和 HTML 只作为内容呈现。
+
 ## 发布
 
 将修改后的内容和生成的 `dist/` 一起提交并推送到 `main`。GitHub Actions 会验证页面、目录、图片与足迹备份，再将 `dist/` 发布到 GitHub Pages。云端发布不读取本机媒体目录。
@@ -41,3 +43,5 @@ python -m http.server 4177 --bind 127.0.0.1 --directory dist
 发布状态见仓库的 Actions；工作流为 `.github/workflows/pages.yml`。维护状态见 [WORKLOG.md](WORKLOG.md)。
 
 原主页设计致谢：HZR / Bilibili-hzr。收藏图片的相关权利归各自原作者。
+
+网站图标源文件为 `content/site-icon.jpg`，构建时自动同步为 `dist/favicon.jpg`。

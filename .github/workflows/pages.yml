@@ -36,6 +36,7 @@ jobs:
           python3 -X utf8 scripts/check_site.py
           node --check dist/app.js
           node --check dist/moments.js
+          node --check dist/article.js
       - name: Upload Pages artifact
         id: upload
         uses: actions/upload-pages-artifact@v4
