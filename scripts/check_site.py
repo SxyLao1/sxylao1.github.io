@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import html
 import re
 import sys
 import zipfile
@@ -14,7 +15,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 CONTENT = ROOT / "content"
-EXPECTED_PAGES = ("index.html", "about.html", "blog.html", "album.html", "join.html", "article.html")
+EXPECTED_PAGES = ("index.html", "about.html", "blog.html", "album.html", "join.html", "article.html", "thoughts.html")
 SITES_METADATA_DIR = ".openai"
 SITES_IDENTITY_PREFIXES = ("appgprj_", "appgver_", "appgdep_")
 FORBIDDEN_NOTE_TERMS = ("english", "postgratuatewriting", "temporal")
@@ -122,7 +123,8 @@ def check_catalog() -> None:
         if not isinstance(path, str) or any(term in path.lower() for term in FORBIDDEN_NOTE_TERMS):
             fail(f"catalog includes excluded note path: {path}")
     featured = catalog.get("collections", {}).get("blog", {}).get("items", [])
-    if [item.get("slug") for item in featured] != [item["slug"] for item in config["items"] if item.get("featured")]:
+    expected_featured = sorted((item for item in config["items"] if item.get("featured")), key=lambda item: item.get("featuredRank", 999))
+    if [item.get("slug") for item in featured] != [item["slug"] for item in expected_featured]:
         fail("home featured articles do not match the selected reading list")
 
     gallery_config = load_json(CONTENT / "gallery-tags.json")
@@ -164,7 +166,7 @@ def check_catalog() -> None:
     counts = {tag_id: 0 for tag_id in tag_ids}
     for key, expected in expected_items.items():
         actual = actual_items[key]
-        for field in ("preview", "previewWidth", "previewHeight"):
+        for field in ("preview", "previewWidth", "previewHeight", "original"):
             if actual.get(field) != expected.get(field):
                 fail(f"gallery {key[0]}/{key[1]} has inconsistent {field}")
         tags = actual.get("tags")
@@ -175,11 +177,22 @@ def check_catalog() -> None:
             fail(f"gallery preview is missing: {actual['preview']}")
         if webp_dimensions(preview) != (actual["previewWidth"], actual["previewHeight"]):
             fail(f"gallery preview dimensions do not match metadata: {actual['preview']}")
+        original_url = actual.get("original")
+        if not isinstance(original_url, str):
+            fail(f"gallery original is missing: {key[0]}/{key[1]}")
+        original = (DIST / original_url).resolve()
+        original_root = (DIST / "assets" / "originals" / key[0]).resolve()
+        if not original.is_relative_to(original_root) or not original.is_file():
+            fail(f"gallery original must be a published file in its bucket: {original_url}")
         for tag in tags:
             counts[tag] += 1
     catalog_counts = {tag.get("id"): tag.get("count") for tag in gallery["tags"] if isinstance(tag, dict)}
     if catalog_counts != counts:
         fail("gallery tag counts do not match gallery items")
+    expected_originals = {item["original"] for item in actual_items.values()}
+    published_originals = {path.relative_to(DIST).as_posix() for path in (DIST / "assets" / "originals").rglob("*") if path.is_file()}
+    if published_originals != expected_originals:
+        fail("published gallery originals must exactly match reviewed gallery items")
 
 
 def check_moments() -> None:
@@ -280,17 +293,54 @@ def check_articles() -> None:
         published = DIST / "articles" / f"{slug}.md"
         if not source.is_file() or not published.is_file() or source.read_bytes() != published.read_bytes():
             fail(f"published Markdown differs from its reviewed source: {slug}")
-        if article.get("slug") != slug or article.get("title") != entry["title"] or not article.get("html", '').strip():
+        if article.get("slug") != slug or article.get("title") != entry["title"]:
             fail(f"missing or inconsistent rendered article: {slug}")
         if not article.get("sourceOriginal"):
             fail(f"article must be rendered from its original Markdown: {slug}")
         if article.get("markdownUrl") != f"articles/{slug}.md":
             fail(f"article has an invalid Markdown download URL: {slug}")
+        chapters = article.get("chapters", [])
+        if not isinstance(chapters, list):
+            fail(f"invalid article chapters: {slug}")
         markup = ArticleMarkup()
-        markup.feed(article["html"])
+        chapter_ids = []
+        if chapters:
+            if article.get("html"):
+                fail(f"large article must not carry the full body in its opening payload: {slug}")
+            for index, chapter in enumerate(chapters):
+                url = f"data/articles/{slug}/chapter-{index + 1:03d}.json"
+                if chapter.get("url") != url or chapter.get("id") != f"chapter-{index + 1}":
+                    fail(f"invalid chapter URL or identity: {slug}")
+                payload = load_json(DIST / url)
+                if payload.get("slug") != slug or payload.get("chapterId") != chapter["id"] or not payload.get("html", '').strip():
+                    fail(f"missing chapter content: {slug}")
+                one = ArticleMarkup()
+                one.feed(payload["html"])
+                if one.ids != set(chapter.get("headingIds", [])):
+                    fail(f"chapter heading map is inconsistent: {slug}")
+                chapter_ids.append(one.ids)
+                markup.feed(payload["html"])
+        else:
+            if not article.get("html", '').strip():
+                fail(f"small article has no rendered body: {slug}")
+            markup.feed(article["html"])
+            chapter_ids.append(markup.ids)
         for heading in article.get("toc", []):
-            if heading.get("id") not in markup.ids or not heading.get("text"):
+            index = heading.get("chapterIndex", -1)
+            if not isinstance(index, int) or not 0 <= index < len(chapter_ids) or heading.get("id") not in chapter_ids[index] or not heading.get("text"):
                 fail(f"article has a broken table of contents: {slug}")
+        search_url = f"data/articles/{slug}/search.json"
+        if article.get("searchUrl") != search_url:
+            fail(f"article has no full-text index: {slug}")
+        search = load_json(DIST / search_url)
+        if search.get("slug") != slug or not isinstance(search.get("entries"), list) or not search["entries"]:
+            fail(f"article full-text index is empty: {slug}")
+        for hit in search["entries"]:
+            index = hit.get("chapterIndex", -1)
+            if not isinstance(index, int) or not 0 <= index < len(chapter_ids) or not isinstance(hit.get("text"), str) or not 0 < len(hit["text"]) <= 1600:
+                fail(f"article search entry is invalid: {slug}")
+            if hit.get("headingId") and hit["headingId"] not in chapter_ids[index]:
+                fail(f"article search entry has no reachable heading: {slug}")
         for link in markup.links:
             parsed = urlsplit(link)
             if parsed.scheme and parsed.scheme.lower() not in {"http", "https", "mailto"}:
@@ -313,6 +363,23 @@ def check_articles() -> None:
                 fail(f"article image does not match its original source: {url}")
 
 
+def check_reflections() -> None:
+    entries = [load_json(path) for path in (CONTENT / "reflections").glob("*.json")]
+    about = (DIST / "about.html").read_text(encoding="utf-8")
+    index = (DIST / "thoughts.html").read_text(encoding="utf-8")
+    for entry in entries:
+        page = DIST / f"thought-{entry['slug']}.html"
+        if not page.is_file():
+            fail(f"reflection has no reading page: {entry['slug']}")
+        body = page.read_text(encoding="utf-8")
+        if page.name not in index:
+            fail(f"reflection index is missing an entry: {entry['slug']}")
+        for paragraph in entry["paragraphs"]:
+            encoded = html.escape(paragraph, quote=True)
+            if encoded not in body or encoded in about:
+                fail(f"reflection must retain full text separately from About: {entry['slug']}")
+
+
 def main() -> None:
     if not DIST.is_dir():
         fail("dist directory is missing")
@@ -321,11 +388,15 @@ def main() -> None:
         fail(f"missing expected HTML pages: {', '.join(missing)}")
     if (CONTENT / "site-icon.jpg").read_bytes() != (DIST / "favicon.jpg").read_bytes():
         fail("published site icon does not match the selected avatar")
+    for page in DIST.glob("*.html"):
+        if "<span>JOIN</span>" in page.read_text(encoding="utf-8"):
+            fail(f"contact navigation still uses JOIN: {page.name}")
     check_dist_safety()
     check_html_references()
     check_catalog()
     check_moments()
     check_articles()
+    check_reflections()
     print("Site artifact checks passed.")
 
 

@@ -8,152 +8,212 @@
     {
       "id": "section-1",
       "text": "机器学习与深度学习学习计划：面向沙箱安全",
-      "level": 1
+      "level": 1,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-2",
       "text": "当前结论",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-3",
       "text": "最终能力目标",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-4",
       "text": "第一阶段：机器学习直觉和 Python 数据处理（第 1-3 周）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-5",
       "text": "要学的概念",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-6",
       "text": "Python 工具",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-7",
       "text": "练习任务",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-8",
       "text": "第二阶段：传统机器学习主线（第 4-8 周）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-9",
       "text": "必学模型",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-10",
       "text": "安全方向练习",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-14",
       "text": "第三阶段：评估指标和安全产品判断（第 9-11 周）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-15",
       "text": "必会指标",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-16",
       "text": "需要形成的判断",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-17",
       "text": "第四阶段：深度学习基础（第 12-16 周）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-18",
       "text": "必学概念",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-19",
       "text": "模型顺序",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-20",
       "text": "安全方向练习",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-21",
       "text": "第五阶段：沙箱安全专题（第 17-22 周）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-22",
       "text": "沙箱数据从哪里来",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-23",
       "text": "特征设计路线",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-24",
       "text": "小型沙箱模型原型",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-25",
       "text": "第六阶段：工程化和上线意识（第 23-24 周）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-26",
       "text": "必须理解的工程问题",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-27",
       "text": "最终交付物",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-28",
       "text": "12 周压缩路线",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-29",
       "text": "每周节奏",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-30",
       "text": "推荐资料入口",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-31",
       "text": "安全边界",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-32",
       "text": "先从哪里开始",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     }
   ],
   "readingMinutes": 21,
   "markdownUrl": "articles/plan-ml-sandbox.md",
   "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/plan-ml-sandbox/search.json",
   "modifiedAt": "2026-07-31",
   "status": "还没开始"
 }

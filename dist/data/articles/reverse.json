@@ -1,0 +1,316 @@
+{
+  "slug": "reverse",
+  "title": "Reverse",
+  "summary": "覆盖 PE 基础、常用逆向工具与 CTF 题目分析过程的学习笔记。",
+  "category": "安全",
+  "html": "<h1 id=\"section-1\">Reverse</h1>\n<h2 id=\"section-2\">Basic</h2>\n<h3 id=\"section-3\">PE加壳脱壳</h3>\n<p>PE文件：portable executable（可移植的可执行文件），主要在Windows系统中，包括exe/dll/sys文件。<br />\n加壳：是利用特殊的算法，对EXE、DLL文件里的资源进行压缩、加密。类似WINZIP 的效果，只不过这个压缩之后的文件，可以独立运行，解压过程完全隐蔽，都在内存中完成。它们附加在原程序上通过Windows加载器载入内存后，先于原始 程序执行，得到控制权，执行过程中对原始程序进行解密、还原，还原完成后再把控制权交还给原始程序，执行原来的代码部分。加上外壳后，原始程序代码在磁盘 文件中一般是以加密后的形式存在的，只在执行时在内存中还原，这样就可以比较有效地防止破解者对程序文件的非法修改，同时也可以防止程序被静态反编译。</p>\n<h2 id=\"section-4\">Tools</h2>\n<h3 id=\"section-5\"><a href=\"https://github.com/BlackINT3/OpenArk/releases\" rel=\"noopener noreferrer\" target=\"_blank\">ALL</a></h3>\n<p>OpenArk64 逆向工具包</p>\n<h3 id=\"section-6\"><a href=\"https://objects.githubusercontent.com/github-production-release-asset-2e65be/67031040/203032b6-383a-410d-bf91-ee8528a96447?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230401%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230401T012327Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=8f03ddc2e265b25ed3445eaef324253ccd57b2112ad29eb2303b3a0b13aa1277&amp;X-Amz-SignedHeaders=host&amp;actor_id=112177376&amp;key_id=0&amp;repo_id=67031040&amp;response-content-disposition=attachment%3B%20filename%3Dupx-4.0.2-win64.zip&amp;response-content-type=application%2Foctet-stream\" rel=\"noopener noreferrer\" target=\"_blank\">UPX</a></h3>\n<pre><code class=\"language-cmd\">#配置环境变量后在命令行使用\nupx [PE] #加壳\nupx -d [PE] #脱壳\nupx -o 别名.exe -d 现名.exe\nupx -l [PE] #加壳列出其信息\nupx -t [PE] #测试压缩过的可执行文件\nupx -V #查看版本\nupx -L #软件许可声明\n</code></pre>\n<h3 id=\"section-7\"><a href=\"https://softpedia-secure-download.com/dl/69ac1ba7dcf9a0dd16b047907e974bd5/642783ab/100004102/software/programming/PEiD-0.95-20081103.zip\" rel=\"noopener noreferrer\" target=\"_blank\">PEID</a></h3>\n<h3 id=\"section-8\"><a href=\"https://objects.githubusercontent.com/github-production-release-asset-2e65be/32844456/012e1e80-272e-11ea-9941-5a32c9f59220?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230401%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230401T080343Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=b9dd512b0766225c648ad551e99a4cf42565453c43c0ccec97ef4cb3d7bfa2c4&amp;X-Amz-SignedHeaders=host&amp;actor_id=112177376&amp;key_id=0&amp;repo_id=32844456&amp;response-content-disposition=attachment%3B%20filename%3Djd-gui-1.6.6.jar&amp;response-content-type=application%2Foctet-stream\" rel=\"noopener noreferrer\" target=\"_blank\">jd-gui</a></h3>\n<h3 id=\"section-9\"><a href=\"https://sm.myapp.com/original/Development/OllyICEv2.zip\" rel=\"noopener noreferrer\" target=\"_blank\">OllyICE</a></h3>\n<h3 id=\"section-10\"><a href=\"https://github.com/skylot/jadx/releases/download/v1.4.6/jadx-1.4.6.zip\" rel=\"noopener noreferrer\" target=\"_blank\">jadx-gui</a></h3>\n<h3 id=\"section-11\"><a href=\"https://jaist.dl.sourceforge.net/project/upxshell/upxshell-beta/UPXshell%20v3.4.2.2007/UPXShell-3.4.2.2007-Setup.exe\" rel=\"noopener noreferrer\" target=\"_blank\">UPXShell</a></h3>\n<h3 id=\"section-12\"><a href=\"https://softpedia-secure-download.com/dl/b15161150a6f1578794dc6a5b9ff3f4d/6426db95/100038188/software/programming/exeinfope.zip\" rel=\"noopener noreferrer\" target=\"_blank\">ExeinfoPE</a></h3>\n<h3 id=\"section-13\"><a href=\"http://angusj.com/resourcehacker/reshacker_setup.exe\" rel=\"noopener noreferrer\" target=\"_blank\">Reshacker</a></h3>\n<h3 id=\"section-14\"><a href=\"https://codeload.github.com/liaojack8/AndroidKiller/zip/refs/heads/master\" rel=\"noopener noreferrer\" target=\"_blank\">AndroidKiiler</a></h3>\n<h2 id=\"section-15\">BuuCTF</h2>\n<p><a href=\"https://space.bilibili.com/509688938/video\" rel=\"noopener noreferrer\" target=\"_blank\">j311y的逆向日记的个人空间_哔哩哔哩_bilibili</a></p>\n<h3 id=\"section-16\">easyre</h3>\n<p>winhex打开搜索flag拿下</p>\n<h3 id=\"section-17\">reverse1</h3>\n<p>丢进ExeinfoPE得到<code> x64 Microsoft Visual C++ v.14.00 - 2015 - ExE Debug ( jmp/jmp/jmp/int3 ) - microsoft.com [ Win Vista ]</code><br />\n得知该文件为64位程序后丢给<code>IDA64</code>，Shift+F12查看字符串发现<code>this is the right flag!\\n</code>，点击进入并选中flag字符串，<code>ctrl+x</code>跳转到被调用的相关信息，<code>Tab</code>进入伪代码，进行代码分析：</p>\n<pre><code class=\"language-c\">__int64 sub_1400118C0()\n{\n  char *v0; // rdi\n  __int64 i; // rcx\n  size_t v2; // rax\n  char v4[36]; // [rsp+0h] [rbp-20h] BYREF\n  int j; // [rsp+24h] [rbp+4h]\n  char Str1[224]; // [rsp+48h] [rbp+28h] BYREF\n  __int64 v7; // [rsp+128h] [rbp+108h]\n\n  v0 = v4;\n  for ( i = 82i64; i; --i )\n  {\n    *(_DWORD *)v0 = -858993460;\n    v0 += 4;\n  }\n  for ( j = 0; ; ++j )\n  {\n    v7 = j;\n    if ( j &gt; j_strlen(Str2) )\n      break;\n    if ( Str2[j] == 'o' ) //点击数字按r转为ASCII字符\n      Str2[j] = '0';\n  }\n  sub_1400111D1(&quot;input the flag:&quot;);\n  sub_14001128F(&quot;%20s&quot;, Str1); //推测为scanf函数\n  v2 = j_strlen(Str2);\n  if ( !strncmp(Str1, Str2, v2) ) //点击进入Str2发现{hello_world}\n    sub_1400111D1(&quot;this is the right flag!\\n&quot;);\n  else\n    sub_1400111D1(&quot;wrong flag\\n&quot;);\n  sub_14001113B(v4, &amp;unk_140019D00);\n  return 0i64;\n}\n</code></pre>\n<p>在<code>for循环</code>中会将字母<code>o</code>替换为数字<code>0</code>，所以真实比较的应该是{hell0_w0rld}，拿到flag</p>\n<h3 id=\"section-18\">reverse2</h3>\n<pre><code class=\"language-c\">int __cdecl main(int argc, const char **argv, const char **envp)\n{\n  int stat_loc; // [rsp+4h] [rbp-3Ch] BYREF\n  int i; // [rsp+8h] [rbp-38h]\n  __pid_t pid; // [rsp+Ch] [rbp-34h]\n  char s2[24]; // [rsp+10h] [rbp-30h] BYREF\n  unsigned __int64 v8; // [rsp+28h] [rbp-18h]\n\n  v8 = __readfsqword(0x28u);\n  pid = fork();\n  if ( pid )\n  {\n    waitpid(pid, &amp;stat_loc, 0);\n  }\n  else\n  {\n    for ( i = 0; i &lt;= strlen(&amp;flag); ++i )\n    {\n      if ( *(&amp;flag + i) == 'i' || *(&amp;flag + i) == 'r' ) //i和r换成数字1\n        *(&amp;flag + i) = '1';\n    }\n  }\n  printf(&quot;input the flag:&quot;);\n  __isoc99_scanf(&quot;%20s&quot;, s2);\n  if ( !strcmp(&amp;flag, s2) ) //点击flag进入发现 hacking_for_fun}\n    return puts(&quot;this is the right flag!&quot;);\n  else\n    return puts(&quot;wrong flag!&quot;);\n}\n</code></pre>\n<p>在<code>for循环</code>中会将字母<code>i &amp; r</code>替换为数字<code>1</code>，所以真实比较的应该是{hack1ng_fo1_fun}，拿到flag</p>\n<h3 id=\"section-19\">内涵的软件</h3>\n<p>直接运行一下，告诉我们放在变量里了，Exeinfo后扔给IDA32，看见变量，拿到<code>flag{49d3c93df25caad81232130f3d2ebfad}</code></p>\n<h3 id=\"section-20\">新年快乐</h3>\n<p>运行一下告诉我们脱壳，丢给PEID发现有壳</p>\n<h4 id=\"section-21\">工具脱壳</h4>\n<pre><code class=\"language-cmd\">upx -d 新年快乐.exe #使用UPX脱壳\n</code></pre>\n<h4 id=\"section-22\">人工脱壳</h4>\n<p>脱壳时找<code>pushad</code>和<code>popad</code>，两个指令的目的是<code>保存程序入口参数</code>。加壳程序初始化时保存各个寄存器的值(堆栈)，外壳执行完毕后，再恢复各个寄存器的值，最后再跳到源程序执行。</p>\n<p>程序喂给<code>OllyICE</code>，看见第一个是<code>pushad</code>，需要找到对应的<code>popad</code>，F8走一步发现ESP&amp;EIP发生了改变。<br />\n单击选中寄存器ESP右键选择<code>数据窗口中跟随</code>，在数据窗口内随便选中数据后设置一个<code>硬件访问</code>的Dword断点，再开始运行。<br />\n运行后程序来到<code>lea eax, dword ptr [esp-80]</code>，往上滑第一个就是<code>popad</code>，<code>(如果直接在lea指令处脱壳会导致栈不平衡，生成伪代码错误)</code><br />\nF8往下执行会发现有一个循环，可以断掉跳过循环，也可以右键直接运行到循环结束后的位置，继续执行执行到：<br />\n<code>0040E493   .- E9 E82DFFFF   jmp     00401280</code><br />\n执行进入并发生跳转，此时来到了<code>00401280    83EC 1C         sub     esp, 1C</code><br />\n得到的就是程序真正的入口点，即脱壳后的程序，选中该条指令右键<code>Dump process(OllyDumpEx)</code>，直接Dump(转储)即可。</p>\n<p>再喂给Exeinfo已经没有加壳了，丢给IDA32看见<code>HappyNewYear!</code>，拿到flag</p>\n<h3 id=\"section-23\">xor</h3>\n<p>Exeinfo得到信息MacOS的64位程序，扔给IDA64，分析程序：</p>\n<pre><code class=\"language-c\">int __cdecl main(int argc, const char **argv, const char **envp)\n{\n  int i; // [rsp+2Ch] [rbp-124h]\n  char __b[264]; // [rsp+40h] [rbp-110h] BYREF\n\n  memset(__b, 0, 0x100uLL);\n  printf(&quot;Input your flag:\\n&quot;);\n  get_line(__b, 256LL);\n  if ( strlen(__b) != 33 )\n    goto LABEL_7;\n  for ( i = 1; i &lt; 33; ++i ) //此处会对字符串进行处理\n    __b[i] ^= __b[i - 1];\n  if ( !strncmp(__b, global, 0x21uLL) ) //点击global跳转并追溯得到字符串\n//'f',0Ah,'k',0Ch,'w&amp;O.@',11h,'x',0Dh,'Z;U',11h,'p',19h,'F',1Fh,'v&quot;M#D',0Eh,'g',6,'h',0Fh,'G2O',0\n    printf(&quot;Success&quot;);\n  else\nLABEL_7:\n    printf(&quot;Failed&quot;);\n  return 0;\n}\n</code></pre>\n<pre><code class=\"language-python\">str1 = ['f',0x0A,'k',0x0C,'w','&amp;','O','.','@',0x11,'x',0x0D,'Z',';','U',0x11,'p',0x19,'F',0x1F,'v','&quot;','M','#','D',0x0E,'g',6,'h',0x0F,'G','2','O']\nx = 'f'\nfor i in range(1,len(str1))\n\tif (isinstance(str1[i], str)):\n        if (isinstance(str1[i - 1], str)):\n            x += chr(ord(str1[i]) ^ ord(str1[i - 1]))\n        else:\n            x += chr(ord(str1[i]) ^ str1[i - 1])\n    else:\n        x += chr(str1[i] ^ ord(str1[i - 1]))\n\nprint(x) #flag{QianQiuWanDai_YiTongJiangHu}\n</code></pre>\n<h3 id=\"section-24\">helloword</h3>\n<p>丢给AndroidKiller解析后进入工程信息的主函数直接看见flag</p>\n<h3 id=\"section-25\">reverse3</h3>\n<p>喂给ExeinfoPE，未加壳，Winx32位。丢进IDA32，找到<code>e3nifIH9b_C@n@dH</code>字符串比较，同时审计for循环对该字符串的处理。</p>\n<pre><code class=\"language-c\">int __cdecl main_0(int argc, const char **argv, const char **envp)\n{\n  size_t StrLen; // eax\n  const char *v4; // eax\n  size_t v5; // eax\n  char v7; // [esp+0h] [ebp-188h]\n  char v8; // [esp+0h] [ebp-188h]\n  signed int j; // [esp+DCh] [ebp-ACh]\n  int i; // [esp+E8h] [ebp-A0h]\n  signed int v11; // [esp+E8h] [ebp-A0h]\n  char Destination[108]; // [esp+F4h] [ebp-94h] BYREF\n  char Str[28]; // [esp+160h] [ebp-28h] BYREF\n  char v14[8]; // [esp+17Ch] [ebp-Ch] BYREF\n\n  for ( i = 0; i &lt; 100; ++i )\n  {\n    if ( (unsigned int)i &gt;= 0x64 )\n      j____report_rangecheckfailure();\n    Destination[i] = 0;\n  }\n  printf(&quot;please enter the flag:&quot;, v7);\n  scanf(&quot;%20s&quot;, (char)Str);\n  StrLen = j_strlen(Str);\n  v4 = (const char *)sub_4110BE(Str, StrLen, v14); //下方会写上该函数追进去的源码\n  strncpy(Destination, v4, 0x28u);\n  v11 = j_strlen(Destination);\n  for ( j = 0; j &lt; v11; ++j )\n    Destination[j] += j;\n  v5 = j_strlen(Destination);\n  if ( !strncmp(Destination, Str2, v5) )\n    printf(&quot;rigth flag!\\n&quot;, v8);\n  else\n    printf(&quot;wrong flag!\\n&quot;, v8);\n  return 0;\n}\n</code></pre>\n<pre><code class=\"language-c\">void *__cdecl sub_411AB0(char *a1, unsigned int a2, int *a3)\n{\n  int v4; // [esp+D4h] [ebp-38h]\n  int v5; // [esp+D4h] [ebp-38h]\n  int v6; // [esp+D4h] [ebp-38h]\n  int v7; // [esp+D4h] [ebp-38h]\n  int i; // [esp+E0h] [ebp-2Ch]\n  unsigned int v9; // [esp+ECh] [ebp-20h]\n  int v10; // [esp+ECh] [ebp-20h]\n  signed int v11; // [esp+ECh] [ebp-20h]\n  void *v12; // [esp+F8h] [ebp-14h]\n  char *v13; // [esp+104h] [ebp-8h]\n\n  if ( !a1 || !a2 )\n    return 0;\n  v9 = a2 / 3;\n  if ( (int)(a2 / 3) % 3 )\n    ++v9;\n  v10 = 4 * v9;\n  *a3 = v10;\n  v12 = malloc(v10 + 1);\n  if ( !v12 )\n    return 0;\n  j_memset(v12, 0, v10 + 1);\n  v13 = a1;\n  v11 = a2;\n  v4 = 0;\n  while ( v11 &gt; 0 )\n  {\n    byte_41A144[2] = 0;\n    byte_41A144[1] = 0;\n    byte_41A144[0] = 0;\n    for ( i = 0; i &lt; 3 &amp;&amp; v11 &gt;= 1; ++i )\n    {\n      byte_41A144[i] = *v13;\n      --v11;\n      ++v13;\n    }\n    if ( !i )\n      break;\n    switch ( i )\n    {\n      case 1:\n        *((_BYTE *)v12 + v4) = aAbcdefghijklmn[(int)(unsigned __int8)byte_41A144[0] &gt;&gt; 2];\n        v5 = v4 + 1;\n        *((_BYTE *)v12 + v5) = aAbcdefghijklmn[((byte_41A144[1] &amp; 0xF0) &gt;&gt; 4) | (16 * (byte_41A144[0] &amp; 3))];\n        *((_BYTE *)v12 + ++v5) = aAbcdefghijklmn[64]; \n//该数组进入后看到&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&quot; 推测该函数为base64加密\n        *((_BYTE *)v12 + ++v5) = aAbcdefghijklmn[64];\n        v4 = v5 + 1;\n        break;\n      case 2:\n        *((_BYTE *)v12 + v4) = aAbcdefghijklmn[(int)(unsigned __int8)byte_41A144[0] &gt;&gt; 2];\n        v6 = v4 + 1;\n        *((_BYTE *)v12 + v6) = aAbcdefghijklmn[((byte_41A144[1] &amp; 0xF0) &gt;&gt; 4) | (16 * (byte_41A144[0] &amp; 3))];\n        *((_BYTE *)v12 + ++v6) = aAbcdefghijklmn[((byte_41A144[2] &amp; 0xC0) &gt;&gt; 6) | (4 * (byte_41A144[1] &amp; 0xF))];\n        *((_BYTE *)v12 + ++v6) = aAbcdefghijklmn[64];\n        v4 = v6 + 1;\n        break;\n      case 3:\n        *((_BYTE *)v12 + v4) = aAbcdefghijklmn[(int)(unsigned __int8)byte_41A144[0] &gt;&gt; 2];\n        v7 = v4 + 1;\n        *((_BYTE *)v12 + v7) = aAbcdefghijklmn[((byte_41A144[1] &amp; 0xF0) &gt;&gt; 4) | (16 * (byte_41A144[0] &amp; 3))];\n        *((_BYTE *)v12 + ++v7) = aAbcdefghijklmn[((byte_41A144[2] &amp; 0xC0) &gt;&gt; 6) | (4 * (byte_41A144[1] &amp; 0xF))];\n        *((_BYTE *)v12 + ++v7) = aAbcdefghijklmn[byte_41A144[2] &amp; 0x3F];\n        v4 = v7 + 1;\n        break;\n    }\n  }\n  *((_BYTE *)v12 + v4) = 0;\n  return v12;\n}\n</code></pre>\n<pre><code class=\"language-python\">res = ''\nstr1 = &quot;e3nifIH9b_C@n@dH&quot;\nfor i in range(len(str1)):\n\tres += chr(ord(str1[i]) - i);\nprint(res) #e2lfbDB2ZV95b3V9\n</code></pre>\n<pre><code class=\"language-python\">import base64\nsrc = input(&quot;please input:&quot;)\ndes = base64.b64decode(sec)\nprint(des)\n</code></pre>\n<h3 id=\"section-26\">不一样的flag</h3>\n<p>ExeinfoPE ==&gt; 未加壳Win32bit，在IDA32中发现25位字符串<code>*11110100001010000101111#</code>，推测为二维数组的迷宫题</p>\n<pre><code class=\"language-bash\">1 up\t2 down\t3 left\t4 right\n*1111\\n01000\\n01010\\n00010\\n1111#\n        *\t1\t1\t1\t1\n        0\t1\t0\t0\t0\n        0\t1\t0\t1\t0\n        0\t0\t0\t1\t0\n        1\t1\t1\t1\t#\n#从*号走向井号，输入的数字即是flag 222441144222\n</code></pre>\n<h3 id=\"section-27\">SimpleRev</h3>\n<p>ExeinfoPE ==&gt; ELFx64 ==&gt; IDA64</p>\n<pre><code class=\"language-c\">int __cdecl __noreturn main(int argc, const char **argv, const char **envp)\n{\n  int v3; // eax\n  char Choose; // [rsp+Fh] [rbp-1h]\n\n  while ( 1 )\n  {\n    while ( 1 )\n    {\n      printf(&quot;Welcome to CTF game!\\nPlease input d/D to start or input q/Q to quit this program: &quot;);\n      Choose = getchar();\n      if ( Choose != 100 &amp;&amp; Choose != 68 )\n        break;\n      Decry(&quot;Welcome to CTF game!\\nPlease input d/D to start or input q/Q to quit this program: &quot;, argv);\n    }\n    if ( Choose == 113 || Choose == 81 )\n      Exit(&quot;Welcome to CTF game!\\nPlease input d/D to start or input q/Q to quit this program: &quot;, argv);\n    puts(&quot;Input fault format!&quot;);\n    v3 = getchar();\n    putchar(v3);\n  }\n}\n</code></pre>\n<pre><code class=\"language-c\">unsigned __int64 Decry()\n{\n  char v1; // [rsp+Fh] [rbp-51h]\n  int v2; // [rsp+10h] [rbp-50h]\n  int v3; // [rsp+14h] [rbp-4Ch]\n  int i; // [rsp+18h] [rbp-48h]\n  int v5; // [rsp+1Ch] [rbp-44h]\n  char src[8]; // [rsp+20h] [rbp-40h] BYREF\n  __int64 v7; // [rsp+28h] [rbp-38h]\n  int v8; // [rsp+30h] [rbp-30h]\n  __int64 v9[2]; // [rsp+40h] [rbp-20h] BYREF\n  int v10; // [rsp+50h] [rbp-10h]\n  unsigned __int64 v11; // [rsp+58h] [rbp-8h]\n\n  v11 = __readfsqword(0x28u);\n  *(_QWORD *)src = 'SLCDN';                     // NDCLS\n  v7 = 0LL;\n  v8 = 0;\n  v9[0] = 'wodah';                              // hadow\n  v9[1] = 0LL;\n  v10 = 0;\n  text = (char *)join(key3, v9);                // killshadow\n  strcpy(key, key1);                            // ADSFK\n  strcat(key, src);                             // ASDFKNDCLS\n  v2 = 0;\n  v3 = 0;\n  getchar();                                    // 吸收缓冲区\\n\n  v5 = strlen(key);                             // v5 = 10\n  for ( i = 0; i &lt; v5; ++i )\n  {\n    if ( key[v3 % v5] &gt; '@' &amp;&amp; key[v3 % v5] &lt;= 'Z' )// 大写字母+ASCII_32 即转为小写\n      key[i] = key[v3 % v5] + 32;               // asdfkndcls\n    ++v3;                                       // v5 = 10 所以循环十次后++v3值也是10\n  }\n  printf(&quot;Please input your flag:&quot;);\n  while ( 1 )\n  {\n    v1 = getchar();\n    if ( v1 == '\\n' )\n      break;\n    if ( v1 == ' ' )\n    {\n      ++v2;\n    }\n    else\n    {\n      if ( v1 &lt;= 96 || v1 &gt; 122 )               // h键字符变ASCII码值\n      {\n        if ( v1 &gt; 64 &amp;&amp; v1 &lt;= 90 )\n        {\n          str2[v2] = (v1 - 39 - key[v3 % v5] + 97) % 26 + 97;\n          ++v3;\n        }\n      }\n      else\n      {\n        str2[v2] = (v1 - 39 - key[v3 % v5] + 97) % 26 + 97;\n        ++v3;\n      }\n      if ( !(v3 % v5) )\n        putchar(32);\n      ++v2;\n    }\n  }\n  if ( !strcmp(text, str2) )\n    puts(&quot;Congratulation!\\n&quot;);\n  else\n    puts(&quot;Try again!\\n&quot;);\n  return __readfsqword(0x28u) ^ v11;\n}\n</code></pre>\n<pre><code class=\"language-c\">#include&lt;stdio.h&gt;\nint main()\n{\n    char key[] = &quot;adsfkndcls&quot;; //已转换大小写\n    char text[] = &quot;killshadow&quot;;\n    int v3 = 10;\n    int v5 = 10;\n    for (int i = 0; i &lt; 10; i++)\n    {\n        for (int j = 0; j &lt; 128; j++)\n        {\n            if (j &lt; 'A' || j &gt; 'z' || j &gt; 'Z' &amp;&amp; j &lt; 'a')\n            {\n                continue;\n            }\n            if ((j -39 - key[v3 % v5] + 97) % 26 +97 == text[i])\n            {\n                printf(&quot;%c&quot;, j);\n                v3++;\n                break;\n            }\n        }\n    }\n} //KLDQCUDFZO\n</code></pre>\n<h3 id=\"section-28\">Java逆向解密</h3>\n<p>丢给<code>jd-gui</code>，进行代码审计</p>\n<pre><code class=\"language-java\">import java.util.ArrayList;\nimport java.util.Scanner;\n\npublic class Reverse {\n  public static void main(String[] args) {\n    Scanner s = new Scanner(System.in);\n    System.out.println(&quot;Please input the flag );\n    String str = s.next();\n    System.out.println(&quot;Your input is );\n    System.out.println(str);\n    char[] stringArr = str.toCharArray();\n    Encrypt(stringArr);\n  }\n  \n  public static void Encrypt(char[] arr) {\n    ArrayList&lt;Integer&gt; Resultlist = new ArrayList&lt;&gt;();\n    for (int i = 0; i &lt; arr.length; i++) {\n      int result = arr[i] + 64 ^ 0x20;\n      Resultlist.add(Integer.valueOf(result));\n    } \n    int[] KEY = { \n        180, 136, 137, 147, 191, 137, 147, 191, 148, 136, \n        133, 191, 134, 140, 129, 135, 191, 65 };\n    ArrayList&lt;Integer&gt; KEYList = new ArrayList&lt;&gt;();\n    for (int j = 0; j &lt; KEY.length; j++)\n      KEYList.add(Integer.valueOf(KEY[j])); \n    System.out.println(&quot;Result:&quot;);\n    if (Resultlist.equals(KEYList)) {\n      System.out.println(&quot;Congratulations);\n    } else {\n      System.err.println(&quot;Error);\n    } \n  }\n}\n</code></pre>\n<pre><code class=\"language-python\">res = ''\nkey = [180, 136, 137, 147, 191, 137, 147, 191, 148, 136, 133, 191, 134, 140, 129, 135, 191, 65]\nfor i in range(0, len(key)):\n    res += chr(key[i] - 64 ^ 0x20)\nprint(res) #This_is_the_flag_!\n</code></pre>\n<h3 id=\"section-29\">[GXYCTF2019]luck_guy</h3>\n<p>ExeinfoPE ==&gt; ELFx64 ==&gt; IDA64</p>\n<pre><code class=\"language-c\">int __cdecl main(int argc, const char **argv, const char **envp)\n{\n  unsigned int v4; // [rsp+14h] [rbp-Ch] BYREF\n  unsigned __int64 v5; // [rsp+18h] [rbp-8h]\n\n  v5 = __readfsqword(0x28u);\n  welcome(argc, argv, envp);\n  puts(&quot;_________________&quot;);\n  puts(&quot;try to patch me and find flag&quot;);\n  v4 = 0;\n  puts(&quot;please input a lucky number&quot;);\n  __isoc99_scanf(&quot;%d&quot;, &amp;v4);\n  patch_me(v4);\n  puts(&quot;OK,see you again&quot;);\n  return 0;\n}\n\nint __fastcall patch_me(int a1)\n{\n  if ( a1 % 2 == 1 ) //输入奇数程序死掉 偶数继续获取flag\n    return puts(&quot;just finished&quot;);\n  else\n    return get_flag();\n}\n\nunsigned __int64 get_flag()\n{\n  unsigned int v0; // eax\n  int i; // [rsp+4h] [rbp-3Ch]\n  int j; // [rsp+8h] [rbp-38h]\n  __int64 s; // [rsp+10h] [rbp-30h] BYREF\n  char v5; // [rsp+18h] [rbp-28h]\n  unsigned __int64 v6; // [rsp+38h] [rbp-8h]\n\n  v6 = __readfsqword(0x28u);\n  v0 = time(0LL);\n  srand(v0);\n  for ( i = 0; i &lt;= 4; ++i )\n  {\n    switch ( rand() % 200 )\n    {\n      case 1:\n        puts(&quot;OK, it's flag:&quot;);\n        memset(&amp;s, 0, 0x28uLL);\n        strcat((char *)&amp;s, f1); //f1 GXY{do_not_\n        strcat((char *)&amp;s, &amp;f2);\n        printf(&quot;%s&quot;, (const char *)&amp;s);\n        break;\n      case 2:\n        printf(&quot;Solar not like you&quot;);\n        break;\n      case 3:\n        printf(&quot;Solar want a girlfriend&quot;);\n        break;\n      case 4:\n        s = 0x7F666F6067756369LL; //重要信息\n        v5 = 0;\n        strcat(&amp;f2, (const char *)&amp;s);\n        break;\n      case 5:\n        for ( j = 0; j &lt;= 7; ++j )\n        {\n          if ( j % 2 == 1 )\n            *(&amp;f2 + j) -= 2;\n          else\n            --*(&amp;f2 + j);\n        }\n        break;\n      default:\n        puts(&quot;emmm,you can't find flag 23333&quot;);\n        break;\n    }\n  }\n  return __readfsqword(0x28u) ^ v6;\n}\n</code></pre>\n<pre><code class=\"language-c\">#include &lt;stdio.h&gt;\nint main()\n{\n    char f1[] = &quot;GXY{do_not_&quot;;\n    char f2[] = &quot;icug`of\\x7&quot;; //小端序:\\x7Ffo`guci  ==&gt;  大端序:icug`of\\x7\n    //根据case 5的循环进行反向操作\n    for (int j = 0; j &lt;= 7; ++j)\n    {\n        if (j % 2 == 1)\n            f2[j] -= 2;\n        else\n            --f2[j];\n    }\n    printf(&quot;%s&quot;, f1);\n    printf(&quot;%s&quot;, f2);\n\n    return 0; //do_not_hate_me\n}\n</code></pre>\n<h3 id=\"section-30\">[BJDCTF2020]JustRE</h3>\n<p>https://github.com/BjdsecCA/BJDCTF2020</p>\n<p>ExeinfoPE ==&gt; Winx32 ==&gt; IDA32，来到<code>DialogFunc</code>函数处发现<code>sprintf(String, &quot; BJD{%d%d2069a45792d233ac}&quot;, 19999, 0);</code></p>\n<pre><code class=\"language-c\">INT_PTR __stdcall DialogFunc(HWND hWnd, UINT a2, WPARAM a3, LPARAM a4)\n{\n  CHAR String[100]; // [esp+0h] [ebp-64h] BYREF\n\n  if ( a2 != 272 )\n  {\n    if ( a2 != 273 )\n      return 0;\n    if ( (_WORD)a3 != 1 &amp;&amp; (_WORD)a3 != 2 )\n    {\n      sprintf(String, &amp;Format, ++dword_4099F0);\n      if ( dword_4099F0 == 19999 ) \n          //除了下方方法 可以点击进入存储点击次数的变量dword_4099F0地址为0x004099F0\n\t\t //程序丢进OllyICE在左下方0x004099F0地址下硬件写入断点，F9执行后单击click发现eax寄存器变成了1\n          //双击寄存器修改值为19999，确定后F9执行程序输出flag\n      {\n        sprintf(String, &quot; BJD{%d%d2069a45792d233ac}&quot;, 19999, 0); //将此处的数值代入表达式即可拿到flag\n        SetWindowTextA(hWnd, String);\n        return 0;\n      }\n      SetWindowTextA(hWnd, String);\n      return 0;\n    }\n    EndDialog(hWnd, (unsigned __int16)a3);\n  }\n  return 1;\n}\n</code></pre>\n<h3 id=\"section-31\">刮开有奖</h3>\n<p>ExeinfoPE ==&gt; Winx32 ==&gt; IDA32</p>\n<pre><code class=\"language-c\">INT_PTR __stdcall DialogFunc(HWND hDlg, UINT a2, WPARAM a3, LPARAM a4)\n{\n  const char *v4; // esi\n  const char *v5; // edi\n  int v7[2]; // [esp+8h] [ebp-20030h] BYREF\n  int v8; // [esp+10h] [ebp-20028h]\n  int v9; // [esp+14h] [ebp-20024h]\n  int v10; // [esp+18h] [ebp-20020h]\n  int v11; // [esp+1Ch] [ebp-2001Ch]\n  int v12; // [esp+20h] [ebp-20018h]\n  int v13; // [esp+24h] [ebp-20014h]\n  int v14; // [esp+28h] [ebp-20010h]\n  int v15; // [esp+2Ch] [ebp-2000Ch]\n  int v16; // [esp+30h] [ebp-20008h]\n  CHAR String[65536]; // [esp+34h] [ebp-20004h] BYREF\n  char v18[65536]; // [esp+10034h] [ebp-10004h] BYREF\n\n  if ( a2 == 272 )\n    return 1;\n  if ( a2 != 273 )\n    return 0;\n  if ( (_WORD)a3 == 1001 )\n  {\n    memset(String, 0, 0xFFFFu);\n    GetDlgItemTextA(hDlg, 1000, String, 0xFFFF);\n    if ( strlen(String) == 8 )\n    {\n      v7[0] = 90;\n      v7[1] = 74;\n      v8 = 83;\n      v9 = 69;\n      v10 = 67;\n      v11 = 97;\n      v12 = 78;\n      v13 = 72;\n      v14 = 51;\n      v15 = 110;\n      v16 = 103;\n      sub_4010F0(v7, 0, 10);\n      memset(v18, 0, 0xFFFFu);\n      v18[0] = String[5];\n      v18[2] = String[7];\n      v18[1] = String[6];\n      v4 = (const char *)sub_401000(v18, strlen(v18));\n      memset(v18, 0, 0xFFFFu);\n      v18[1] = String[3];\n      v18[0] = String[2];\n      v18[2] = String[4];\n      v5 = (const char *)sub_401000(v18, strlen(v18));\n      if ( String[0] == v7[0] + 34 // sub_4010F0函数后的第一位等于51+34=85--&gt;'U'\n        &amp;&amp; String[1] == v10 // 第2位，等于v13,即sub_4010F0函数返回值的第5位值--&gt;'J'\n        &amp;&amp; 4 * String[2] - 141 == 3 * v8\n        &amp;&amp; String[3] / 4 == 2 * (v13 / 9)\n        &amp;&amp; !strcmp(v4, &quot;ak1w&quot;) //解码得到'jMp'\n        &amp;&amp; !strcmp(v5, &quot;V1Ax&quot;)) //'WP1'\n      {\n        MessageBoxA(hDlg, &quot;U g3t 1T!&quot;, &quot;@_@&quot;, 0); \n      }\n    }\n    return 0;\n  }\n  if ( (_WORD)a3 != 1 &amp;&amp; (_WORD)a3 != 2 )\n    return 0;\n  EndDialog(hDlg, (unsigned __int16)a3);\n  return 1;\n}\n</code></pre>\n<pre><code class=\"language-c\">int __cdecl sub_4010F0(int a1, int a2, int a3)\n{\n  int result; // eax\n  int i; // esi\n  int v5; // ecx\n  int v6; // edx\n\n  result = a3;\n  for ( i = a2; i &lt;= a3; a2 = i )\n  {\n    v5 = 4 * i;\n    v6 = *(_DWORD *)(4 * i + a1);\n    if ( a2 &lt; result &amp;&amp; i &lt; result )\n    {\n      do\n      {\n        if ( v6 &gt; *(_DWORD *)(a1 + 4 * result) )\n        {\n          if ( i &gt;= result )\n            break;\n          ++i;\n          *(_DWORD *)(v5 + a1) = *(_DWORD *)(a1 + 4 * result);\n          if ( i &gt;= result )\n            break;\n          while ( *(_DWORD *)(a1 + 4 * i) &lt;= v6 )\n          {\n            if ( ++i &gt;= result )\n              goto LABEL_13;\n          }\n          if ( i &gt;= result )\n            break;\n          v5 = 4 * i;\n          *(_DWORD *)(a1 + 4 * result) = *(_DWORD *)(4 * i + a1);\n        }\n        --result;\n      }\n      while ( i &lt; result );\n    }\nLABEL_13:\n    *(_DWORD *)(a1 + 4 * result) = v6;\n    sub_4010F0(a1, a2, i - 1);\n    result = a3;\n    ++i;\n  }\n  return result;\n}\n</code></pre>\n<p>进入第65行byte_407830，如下，猜测这个函数应该是base64加密</p>\n<pre><code class=\"language-bash\">.rdata:00407830 ; char byte_407830[]\n.rdata:00407830 byte_407830     db 41h                  ; DATA XREF: sub_401000+C0↑r\n.rdata:00407831 aBcdefghijklmno db 'BCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',0\n</code></pre>\n<pre><code class=\"language-c\">#include &lt;stdio.h&gt;\n#include &lt;string.h&gt;\nint sub_4010F0(char* a1, int a2, int a3)\n{\n    int result; //eax\n    int i; //esi\n    int v5; //ecx\n    int v6; //edx\n    \n    result = a3;\n    for (i = a2; i &lt;= a3; a2 = i)\n    {\n        v5 = i;\n        v6 = a1[i];\n        if (a2 &lt; result &amp;&amp; i &lt; result)\n        {\n            do\n            {\n                if (v6 &gt; a1[result])\n                {\n                    if (i &gt;= result)\n                        break;\n                    ++i;\n                    a1[v5] = a1[result];\n                    if (i &gt;= result)\n                        break;\n                    while (a1[i] &lt;= v6)\n                    {\n                        if (++i &gt;= result)\n                            goto LABEL_13;\n                    }\n                    if (i &gt; result)\n                        break;\n                    v5 = i;\n                    a1[result] = a1[i];\n                }\n                --result;\n            } while (i &lt; result);\n        }\n    LABEL_13:\n        a1[result] = v6;\n        sub_4010F0(a1, a2, i - 1);\n        result = a3;\n        ++i;\n    }\n    return result;\n}\nint main()\n{\n    char v[] = &quot;ZJSECaNH3ng&quot;;\n    sub_4010F0(v, 0, 10);\n    printf(&quot;%s\\n&quot;, v);\n    printf(&quot;%c%c&quot;, v[0]+34,v[4]);\n    return 0;\n} //UJ 加上解码得到'jMp'和'WP1'组成 UJWP1jMp\n</code></pre>\n<h3 id=\"section-32\">简单注册器</h3>\n<p>jadx-gui打开反编译，得到：</p>\n<pre><code class=\"language-java\">public void onClick(View v) {\n                int flag = 1;\n                String xx = editview.getText().toString();\n                flag = (xx.length() == 32 &amp;&amp; xx.charAt(31) == 'a' &amp;&amp; xx.charAt(1) == 'b' &amp;&amp; (xx.charAt(0) + xx.charAt(2)) + (-48) == 56) ? 0 : 0;\n                if (flag == 1) {\n                    char[] x = &quot;dd2940c04462b4dd7c450528835cca15&quot;.toCharArray();\n                    x[2] = (char) ((x[2] + x[3]) - 50);\n                    x[4] = (char) ((x[2] + x[5]) - 48);\n                    x[30] = (char) ((x[31] + x[9]) - 48);\n                    x[14] = (char) ((x[27] + x[28]) - 97);\n                    for (int i = 0; i &lt; 16; i++) {\n                        char a = x[31 - i];\n                        x[31 - i] = x[i];\n                        x[i] = a;\n                    }\n                    String bbb = String.valueOf(x);\n                    textview.setText(&quot;flag{&quot; + bbb + &quot;}&quot;);\n                    return;\n                }\n                textview.setText(&quot;输入注册码错误&quot;);\n            }\n</code></pre>\n<pre><code class=\"language-c\">#include &lt;stdio.h&gt;\nint main()\n{\n    char x[] = &quot;dd2940c04462b4dd7c450528835cca15&quot;;\n    x[2] = (char) ((x[2] + x[3]) - 50);\n    x[4] = (char) ((x[2] + x[5]) - 48);\n    x[30] = (char) ((x[31] + x[9]) - 48);\n    x[14] = (char) ((x[27] + x[28]) - 97);\n    for (int i = 0; i &lt; 16; i++) {\n        char a = x[31 - i];\n        x[31 - i] = x[i];\n        x[i] = a;\n    }\n    printf(&quot;%s&quot;,x);\n    return 0;\n} //59acc538825054c7de4b26440c0999dd\n</code></pre>\n<h3 id=\"section-33\">[GWCTF 2019]pyre</h3>\n<pre><code class=\"language-cmd\">pip install uncompyle6\nuncompyle6 xxx.pyc #直接输出反编译文本\n</code></pre>\n<p><a href=\"https://tool.lu/pyc/\" rel=\"noopener noreferrer\" target=\"_blank\">python反编译 - 在线工具 (tool.lu)</a></p>\n<pre><code class=\"language-python\">#!/usr/bin/env python\n# visit https://tool.lu/pyc/ for more information\n# Version: Python 2.7\n\nprint 'Welcome to Re World!'\nprint 'Your input1 is your flag~'\nl = len(input1)\nfor i in range(l):\n    num = ((input1[i] + i) % 128 + 128) % 128\n    code += num\n\nfor i in range(l - 1):\n    code[i] = code[i] ^ code[i + 1]\n\nprint code\ncode = [\n    '%1f',\n    '%12',\n    '%1d',\n    '(',\n    '0',\n    '4',\n    '%01',\n    '%06',\n    '%14',\n    '4',\n    ',',\n    '%1b',\n    'U',\n    '?',\n    'o',\n    '6',\n    '*',\n    ':',\n    '%01',\n    'D',\n    ';',\n    '%',\n    '%13']\n</code></pre>\n<pre><code class=\"language-python\">print('Welcome to Re World!')\nprint('Your input1 is your flag~')\n\ncode = [0x1f,0x12,0x1d, 0x28,0x30,0x34, 0x01,0x06,0x14, 0x34,\n        0x2c, 0x1b, 0x55,0x3f,0x6f,0x36,0x2a,0x3a, 0x01, 0x44,\n        0x3b,0x25, 0x13]\n\ncode.reverse()\nl = len(code)\n\nfor i in range(l-1):\n    code[i + 1] = code[i] ^ code[i + 1]\n\ncode.reverse()\n\nfor i in range(len(code)):\n    if code[i] - i &lt; 0:\n        code[i] = code[i] + 128 -i\n    else:\n        code[i] -= i\n\nflag = ''.join(chr(i) for i in code)\nprint(flag)\n\n# GWHT{Just_Re_1s_Ha66y!}\n</code></pre>\n<h3 id=\"section-34\">[ACTF新生赛2020]easyre</h3>\n<p>ExeinfoPE ==&gt; Winx32Bit(unpacked) ==&gt; <code>UPXShell</code> / <code>upx -d easyre.exe</code> ==&gt; IDA32</p>\n<pre><code class=\"language-c\">int __cdecl main(int argc, const char **argv, const char **envp)\n{\n  _BYTE v4[12]; // [esp+12h] [ebp-2Eh] BYREF\n  _DWORD v5[3]; // [esp+1Eh] [ebp-22h]\n  _BYTE v6[5]; // [esp+2Ah] [ebp-16h] BYREF\n  int v7; // [esp+2Fh] [ebp-11h]\n  int v8; // [esp+33h] [ebp-Dh]\n  int v9; // [esp+37h] [ebp-9h]\n  char v10; // [esp+3Bh] [ebp-5h]\n  int i; // [esp+3Ch] [ebp-4h]\n\n  __main();\n  qmemcpy(v4, &quot;*F'\\&quot;N,\\&quot;(I?+@&quot;, sizeof(v4));\n  // [42,70,39,34,78,44,34,40,73,63,43,64]\n  // [ *, f, ', &quot;, N, ,, &quot;, (, I, ?, +, @]\n  printf(&quot;Please input:&quot;);\n  scanf(&quot;%s&quot;, v6);\n  if ( v6[0] != 65 || v6[1] != 67 || v6[2] != 84 || v6[3] != 70 || v6[4] != 123 || v10 != 125 )\n    return 0;\n  v5[0] = v7;\n  v5[1] = v8;\n  v5[2] = v9;\n  for ( i = 0; i &lt;= 11; ++i )\n  {\n    if ( v4[i] != _data_start__[*((char *)v5 + i) - 1] )\n      //'~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?&gt;=&lt;;:9876543210/.-,+*)(\\'&amp;%$# !&quot;'\n      return 0;\n  }\n  printf(&quot;You are correct!&quot;);\n  return 0;\n}\n</code></pre>\n<p><span class=\"image-unavailable\">image-20230402203622554</span></p>\n<pre><code class=\"language-python\">a = [42,70,39,34,78,44,34,40,73,63,43,64]\n_data_start__ = '~}|{zyxwvutsrqponmlkjihgfedcba`_^]\\[ZYXWVUTSRQPONMLKJIHGFEDCBA@?&gt;=&lt;;:9876543210/.-,+*)(\\'&amp;%$# !&quot;'\ns = &quot;&quot;\nfor i in a:\n    s += chr(_data_start__.find(chr(i))+1)\nprint(s) #flag{U9X_1S_W6@T?}\n</code></pre>\n<h3 id=\"section-35\">findit</h3>\n<p>直接喂给<code>jadx-gui</code></p>\n<pre><code class=\"language-java\">package com.example.findit;\n\nimport android.os.Bundle;\nimport android.support.v7.app.ActionBarActivity;\nimport android.view.MenuItem;\nimport android.view.View;\nimport android.widget.Button;\nimport android.widget.EditText;\nimport android.widget.TextView;\n\n/* loaded from: classes.dex */\npublic class MainActivity extends ActionBarActivity {\n    /* JADX INFO: Access modifiers changed from: protected */\n    @Override // android.support.v7.app.ActionBarActivity, android.support.v4.app.FragmentActivity, android.app.Activity\n    public void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n        Button btn = (Button) findViewById(R.id.widget3);\n        final EditText edit = (EditText) findViewById(R.id.widget2);\n        final TextView text = (TextView) findViewById(R.id.widget1);\n        final char[] a = {'T', 'h', 'i', 's', 'I', 's', 'T', 'h', 'e', 'F', 'l', 'a', 'g', 'H', 'o', 'm', 'e'};\n        final char[] b = {'p', 'v', 'k', 'q', '{', 'm', '1', '6', '4', '6', '7', '5', '2', '6', '2', '0', '3', '3', 'l', '4', 'm', '4', '9', 'l', 'n', 'p', '7', 'p', '9', 'm', 'n', 'k', '2', '8', 'k', '7', '5', '}'};\n        btn.setOnClickListener(new View.OnClickListener() { // from class: com.example.findit.MainActivity.1\n            @Override // android.view.View.OnClickListener\n            public void onClick(View v) {\n                char[] x = new char[17];\n                char[] y = new char[38];\n                for (int i = 0; i &lt; 17; i++) {\n                    if ((a[i] &lt; 'I' &amp;&amp; a[i] &gt;= 'A') || (a[i] &lt; 'i' &amp;&amp; a[i] &gt;= 'a')) {\n                        x[i] = (char) (a[i] + 18);\n                    } else if ((a[i] &gt;= 'A' &amp;&amp; a[i] &lt;= 'Z') || (a[i] &gt;= 'a' &amp;&amp; a[i] &lt;= 'z')) {\n                        x[i] = (char) (a[i] - '\\b');\n                    } else {\n                        x[i] = a[i];\n                    }\n                }\n                String m = String.valueOf(x);\n                if (m.equals(edit.getText().toString())) {\n                    for (int i2 = 0; i2 &lt; 38; i2++) {\n                        if ((b[i2] &gt;= 'A' &amp;&amp; b[i2] &lt;= 'Z') || (b[i2] &gt;= 'a' &amp;&amp; b[i2] &lt;= 'z')) {\n                            y[i2] = (char) (b[i2] + 16);\n                            if ((y[i2] &gt; 'Z' &amp;&amp; y[i2] &lt; 'a') || y[i2] &gt;= 'z') {\n                                y[i2] = (char) (y[i2] - 26);\n                            }\n                        } else {\n                            y[i2] = b[i2];\n                        }\n                    }\n                    String n = String.valueOf(y);\n                    text.setText(n);\n                    return;\n                }\n                text.setText(&quot;答案错了肿么办。。。不给你又不好意思。。。哎呀好纠结啊~~~&quot;);\n            }\n        });\n    }\n\n    @Override // android.app.Activity\n    public boolean onOptionsItemSelected(MenuItem item) {\n        int id = item.getItemId();\n        if (id == R.id.action_settings) {\n            return true;\n        }\n        return super.onOptionsItemSelected(item);\n    }\n}\n</code></pre>\n<pre><code class=\"language-java\">'p', 'v', 'k', 'q', '{', 'm', '1', '6', '4', '6', '7', '5', '2', '6', '2', '0', '3', '3', 'l', '4', 'm', '4', '9', 'l', 'n', 'p', '7', 'p', '9', 'm', 'n', 'k', '2', '8', 'k', '7', '5', '}' //疑似凯撒加密 解密即可\n</code></pre>\n<pre><code class=\"language-java\">package Reverse; //脚本解法\n//https://buuoj.cn/challenges#findit\npublic class BuuCTF_findit {\n    public static void main(String[] args) {\n        final char[] a = {'T', 'h', 'i', 's', 'I', 's', 'T', 'h', 'e', 'F', 'l', 'a', 'g', 'H', 'o', 'm', 'e'};\n        final char[] b = {'p', 'v', 'k', 'q', '{', 'm', '1', '6', '4', '6', '7', '5', '2', '6', '2', '0', '3', '3', 'l', '4', 'm', '4', '9', 'l', 'n', 'p', '7', 'p', '9', 'm', 'n', 'k', '2', '8', 'k', '7', '5', '}'};\n\n        char[] x = new char[17];\n        char[] y = new char[38];\n        for (int i = 0; i &lt; 17; i++) {\n            if ((a[i] &lt; 'I' &amp;&amp; a[i] &gt;= 'A') || (a[i] &lt; 'i' &amp;&amp; a[i] &gt;= 'a')) {\n                x[i] = (char) (a[i] + 18);\n            } else if ((a[i] &gt;= 'A' &amp;&amp; a[i] &lt;= 'Z') || (a[i] &gt;= 'a' &amp;&amp; a[i] &lt;= 'z')) {\n                x[i] = (char) (a[i] - '\\b');\n            } else {\n                x[i] = a[i];\n            }\n        }\n        String m = String.valueOf(x);\n        for (int i2 = 0; i2 &lt; 38; i2++) {\n            if ((b[i2] &gt;= 'A' &amp;&amp; b[i2] &lt;= 'Z') || (b[i2] &gt;= 'a' &amp;&amp; b[i2] &lt;= 'z')) {\n                y[i2] = (char) (b[i2] + 16);\n                if ((y[i2] &gt; 'Z' &amp;&amp; y[i2] &lt; 'a') || y[i2] &gt;= 'z') {\n                    y[i2] = (char) (y[i2] - 26);\n                }\n            } else {\n                y[i2] = b[i2];\n            }\n        }\n        System.out.println(y);\n    }\n}\n</code></pre>\n<h3 id=\"section-36\">[ACTF新生赛2020]rome</h3>\n<p>ExeinfoPE ==&gt; Winx32Bit ==&gt; IDA32</p>\n<pre><code class=\"language-c\">int func()\n{\n  int result; // eax\n  int v1[4]; // [esp+14h] [ebp-44h]\n  unsigned __int8 v2; // [esp+24h] [ebp-34h] BYREF\n  unsigned __int8 v3; // [esp+25h] [ebp-33h]\n  unsigned __int8 v4; // [esp+26h] [ebp-32h]\n  unsigned __int8 v5; // [esp+27h] [ebp-31h]\n  unsigned __int8 v6; // [esp+28h] [ebp-30h]\n  int v7; // [esp+29h] [ebp-2Fh]\n  int v8; // [esp+2Dh] [ebp-2Bh]\n  int v9; // [esp+31h] [ebp-27h]\n  int v10; // [esp+35h] [ebp-23h]\n  unsigned __int8 v11; // [esp+39h] [ebp-1Fh]\n  char v12[29]; // [esp+3Bh] [ebp-1Dh] BYREF\n\n  strcpy(v12, &quot;Qsw3sj_lz4_Ujw@l&quot;);\n  printf(&quot;Please input:&quot;);\n  scanf(&quot;%s&quot;, &amp;v2);\n  result = v2;\n  if ( v2 == 'A' )\n  {\n    result = v3;\n    if ( v3 == 'C' )\n    {\n      result = v4;\n      if ( v4 == 'T' )\n      {\n        result = v5;\n        if ( v5 == 'F' )\n        {\n          result = v6;\n          if ( v6 == '{' )\n          {\n            result = v11;\n            if ( v11 == '}' )\n            {\n              v1[0] = v7;\n              v1[1] = v8;\n              v1[2] = v9;\n              v1[3] = v10;\n              *(_DWORD *)&amp;v12[17] = 0;\n              while ( *(int *)&amp;v12[17] &lt;= 15 )\n              {\n                if ( *((char *)v1 + *(_DWORD *)&amp;v12[17]) &gt; 64 &amp;&amp; *((char *)v1 + *(_DWORD *)&amp;v12[17]) &lt;= 90 )\n                  *((_BYTE *)v1 + *(_DWORD *)&amp;v12[17]) = (*((char *)v1 + *(_DWORD *)&amp;v12[17]) - 51) % 26 + 65;\n                if ( *((char *)v1 + *(_DWORD *)&amp;v12[17]) &gt; 96 &amp;&amp; *((char *)v1 + *(_DWORD *)&amp;v12[17]) &lt;= 122 )\n                  *((_BYTE *)v1 + *(_DWORD *)&amp;v12[17]) = (*((char *)v1 + *(_DWORD *)&amp;v12[17]) - 79) % 26 + 97;\n                ++*(_DWORD *)&amp;v12[17];\n              }\n              *(_DWORD *)&amp;v12[17] = 0;\n              while ( *(int *)&amp;v12[17] &lt;= 15 )\n              {\n                result = (unsigned __int8)v12[*(_DWORD *)&amp;v12[17]];\n                if ( *((_BYTE *)v1 + *(_DWORD *)&amp;v12[17]) != (_BYTE)result )\n                  return result;\n                ++*(_DWORD *)&amp;v12[17];\n              }\n              return printf(&quot;You are correct!&quot;);\n            }\n          }\n        }\n      }\n    }\n  }\n  return result;\n}\n</code></pre>\n<pre><code class=\"language-python\">word =&quot;Qsw3sj_lz4_Ujw@l&quot;\nflag = &quot;&quot;\nfor i in range(16):\n    for j in range(32, 127):\n        k = j\n        if j &gt; 64 and j &lt;= 90:\n            j = (j - 51) % 26 + 65\n        if j &gt; 96 and j &lt;= 122:\n            j = (j - 79) % 26 + 97\n        if chr(j) == word[i]:\n            flag += chr(k)\nprint(flag)\n</code></pre>\n<h3 id=\"section-37\">rsa</h3>\n<p><a href=\"https://blog.csdn.net/dbs1215/article/details/48953589\" rel=\"noopener noreferrer\" target=\"_blank\">RSA算法原理</a><br />\n<a href=\"https://www.cnblogs.com/hhh5460/p/5243410.html\" rel=\"noopener noreferrer\" target=\"_blank\">Python下RSA加解密</a><br />\n<a href=\"https://www.cnblogs.com/ESHLkangi/p/8576222.html\" rel=\"noopener noreferrer\" target=\"_blank\">利用gmpy2破解RSA</a></p>\n<p><code>cat pub.key</code>拖入网址 http://tool.chacuo.net/cryptrsakeyparse 进行解密后得到</p>\n<p><strong>公钥指数及模数信息:</strong></p>\n<table>\n<thead>\n<tr>\n<th>key长度：</th>\n<th>256</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>模数：</td>\n<td>C0332C5C64AE47182F6C1C876D42336910545A58F7EEFEFC0BCAAF5AF341CCDD</td>\n</tr>\n<tr>\n<td>指数：</td>\n<td>65537 (0x10001)</td>\n</tr>\n</tbody>\n</table>\n<p>E(即指数)=65537 &amp; N(模数)=C0332C5C64AE47182F6C1C876D42336910545A58F7EEFEFC0BCAAF5AF341CCDD<br />\n<a href=\"https://www.cnblogs.com/marvin-wen/p/12172424.html\" rel=\"noopener noreferrer\" target=\"_blank\">python进制转换 - Marvin-wen - 博客园 (cnblogs.com)</a><br />\nN(模数):Hex ==&gt; Dec = 86934482296048119190666062003494800588905656017203025617216654058378322103517</p>\n<p>进入 http://www.factordb.com/index.php 计算 p 和 q</p>\n<p><img src=\"article-assets/reverse/5884f42dfa07804ee728.png\" alt=\"image-20230403093216648\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /><br />\np = 285960468890451637935629440372639283459<br />\nq = 304008741604601924494328155975272418463</p>\n<pre><code class=\"language-shell\">pip install gmpy2 -i https://pypi.tuna.tsinghua.edu.cn/simple\npip install rsa -i https://pypi.tuna.tsinghua.edu.cn/simple\n</code></pre>\n<pre><code class=\"language-python\">import gmpy2\nimport rsa\nnum = &quot;C0332C5C64AE47182F6C1C876D42336910545A58F7EEFEFC0BCAAF5AF341CCDD&quot;\nN = int(num,16)\nE = 65537\np = 285960468890451637935629440372639283459\nq = 304008741604601924494328155975272418463\nD = int(gmpy2.invert(E,(p-1)*(q-1)))\nprivkey = rsa.PrivateKey(N, E, D, p, q)\nwith open(&quot;F:\\\\Info\\\\Information\\\\CTF_File\\\\BUUCTF\\\\Reverse\\\\rsa&quot;, &quot;rb+&quot;) as file:\n    text = file.read()\nmessage = rsa.decrypt(text,privkey)\nprint(message) #flag{decrypt_256}\n</code></pre>\n<h3 id=\"section-38\">[FlareOn4]login</h3>\n<pre><code class=\"language-bash\">cat login.html\n&lt;!DOCTYPE Html /&gt;\n&lt;html&gt;\n    &lt;head&gt;\n        &lt;title&gt;FLARE On 2017&lt;/title&gt;\n    &lt;/head&gt;\n    &lt;body&gt;\n        &lt;input type=&quot;text&quot; name=&quot;flag&quot; id=&quot;flag&quot; value=&quot;Enter the flag&quot; /&gt;\n        &lt;input type=&quot;button&quot; id=&quot;prompt&quot; value=&quot;Click to check the flag&quot; /&gt;\n        &lt;script type=&quot;text/javascript&quot;&gt;\n            document.getElementById(&quot;prompt&quot;).onclick = function () {\n                var flag = document.getElementById(&quot;flag&quot;).value;\n                var rotFlag = flag.replace(/[a-zA-Z]/g, function(c){return String.fromCharCode((c &lt;= &quot;Z&quot; ? 90 : 122) &gt;= (c = c.charCodeAt(0) + 13) ? c : c - 26);});\n                if (&quot;PyvragFvqrYbtvafNerRnfl@syner-ba.pbz&quot; == rotFlag) {\n                    alert(&quot;Correct flag!&quot;);\n                } else {\n                    alert(&quot;Incorrect flag, rot again&quot;);\n                    #在源码中添加如下指令 网页输入&quot;PyvragFvqrYbtvafNerRnfl@syner-ba.pbz&quot; 输出flag\n                    alert(rotFlag); #ClientSideLoginsAreEasy@flare-on.com\n                }\n            }\n        &lt;/script&gt;\n    &lt;/body&gt;\n&lt;/html&gt;\n</code></pre>\n<h3 id=\"section-39\">CrackRTF</h3>\n<p>ExeinfoPE ==&gt; Winx32Bit ==&gt; IDA32</p>\n<pre><code class=\"language-c\">int __cdecl main_0(int argc, const char **argv, const char **envp)\n{\n  DWORD v3; // eax\n  DWORD v4; // eax\n  char Str[260]; // [esp+4Ch] [ebp-310h] BYREF\n  int v7; // [esp+150h] [ebp-20Ch]\n  char String1[260]; // [esp+154h] [ebp-208h] BYREF\n  char Destination[260]; // [esp+258h] [ebp-104h] BYREF\n\n  memset(Destination, 0, sizeof(Destination));\n  memset(String1, 0, sizeof(String1));\n  v7 = 0;\n  printf(&quot;pls input the first passwd(1): &quot;);\n  scanf(&quot;%s&quot;, Destination);\n  if ( strlen(Destination) != 6 ) //需要输入六位密码\n  {\n    printf(&quot;Must be 6 characters!\\n&quot;);\n    ExitProcess(0);\n  }\n  v7 = atoi(Destination);\n  if ( v7 &lt; 100000 ) //密码需要比100000大\n    ExitProcess(0);\n  strcat(Destination, &quot;@DBApp&quot;); //字符串拼接(?) @DBApp\n  v3 = strlen(Destination); //v3接收长度为12\n  sub_40100A((BYTE *)Destination, v3, String1); //Hash加密\n  if ( !_strcmpi(String1, &quot;6E32D0943418C2C33385BC35A1470250DD8923A9&quot;) ) //比较\n  {\n    printf(&quot;continue...\\n\\n&quot;);\n    printf(&quot;pls input the first passwd(2): &quot;);\n    memset(Str, 0, sizeof(Str));\n    scanf(&quot;%s&quot;, Str);\n    if ( strlen(Str) != 6 ) //6位\n    {\n      printf(&quot;Must be 6 characters!\\n&quot;);\n      ExitProcess(0);\n    }\n    strcat(Str, Destination);\n    memset(String1, 0, sizeof(String1));\n    v4 = strlen(Str);\n    sub_401019((BYTE *)Str, v4, String1);\n    if ( !_strcmpi(&quot;27019e688a4e62a649fd99cadaafdb4e&quot;, String1) )\n    {\n      if ( !(unsigned __int8)sub_40100F(Str) ) //点此进入标识码是0x8003u 查询得知md5加密 进入后有FindResourceA()提示\n      {\n        printf(&quot;Error!!\\n&quot;);\n        ExitProcess(0);\n      }\n      printf(&quot;bye ~~\\n&quot;);\n    }\n  }\n  return 0;\n}\n</code></pre>\n<pre><code class=\"language-c\">char __cdecl sub_4014D0(LPCSTR lpString)\n{\n  LPCVOID lpBuffer; // [esp+50h] [ebp-1Ch]\n  DWORD NumberOfBytesWritten; // [esp+58h] [ebp-14h] BYREF\n  DWORD nNumberOfBytesToWrite; // [esp+5Ch] [ebp-10h]\n  HGLOBAL hResData; // [esp+60h] [ebp-Ch]\n  HRSRC hResInfo; // [esp+64h] [ebp-8h]\n  HANDLE hFile; // [esp+68h] [ebp-4h]\n\n  hFile = 0;\n  hResData = 0;\n  nNumberOfBytesToWrite = 0;\n  NumberOfBytesWritten = 0;\n  hResInfo = FindResourceA(0, (LPCSTR)0x65, &quot;AAA&quot;); //找AAA文件\n  if ( !hResInfo )\n    return 0;\n  nNumberOfBytesToWrite = SizeofResource(0, hResInfo);\n  hResData = LoadResource(0, hResInfo);\n  if ( !hResData )\n    return 0;\n  lpBuffer = LockResource(hResData);\n  sub_401005(lpString, (int)lpBuffer, nNumberOfBytesToWrite);\n  hFile = CreateFileA(&quot;dbapp.rtf&quot;, 0x10000000u, 0, 0, 2u, 0x80u, 0);\n  if ( hFile == (HANDLE)-1 )\n    return 0;\n  if ( !WriteFile(hFile, lpBuffer, nNumberOfBytesToWrite, &amp;NumberOfBytesWritten, 0) )\n    return 0;\n  CloseHandle(hFile);\n  return 1;\n}\n</code></pre>\n<pre><code class=\"language-c\">unsigned int __cdecl sub_401420(LPCSTR lpString, int a2, int a3)\n{\n  unsigned int result; // eax\n  unsigned int i; // [esp+4Ch] [ebp-Ch]\n  unsigned int v5; // [esp+54h] [ebp-4h]\n\n  v5 = lstrlenA(lpString);\n  for ( i = 0; ; ++i )\n  {\n    result = i;\n    if ( i &gt;= a3 )\n      break;\n    *(_BYTE *)(i + a2) ^= lpString[i % v5]; //\n  }\n  return result;\n}\n</code></pre>\n<pre><code class=\"language-python\">import hashlib\nstring = &quot;@DBApp&quot;\nencrypt = &quot;6E32D0943418C2C33385BC35A1470250DD8923A9&quot;.lower() #踩坑记录 一定要转小写\nfor i in range(100000, 999999):\n    y = hashlib.sha1((str(i)+string).encode(&quot;utf-8&quot;)).hexdigest()\n    if encrypt == y:\n        print(str(i)+string) #123321@DBApp\n        break\n</code></pre>\n<p><a href=\"https://www.jianshu.com/p/ea3faf5a0646\" rel=\"noopener noreferrer\" target=\"_blank\">2022-06-28 【CTF杂项】常见文件文件头文件尾格式总结及各类文件头 - 简书 (jianshu.com)</a><br />\n<a href=\"https://www.somd5.com/\" rel=\"noopener noreferrer\" target=\"_blank\">MD5免费在线解密破解_MD5在线加密-SOMD5</a></p>\n<p>解密<code>27019e688a4e62a649fd99cadaafdb4e1</code>后得到<code>~!3a@0123321@DBApp</code>，输入程序中在当前文件夹得到flag文件。</p>\n<p>或者使用Reshacker，根据FindResourceA()提示，进入后发现AAA目录取文件标志位前六位和AAA文件中的前六位进行异或得出~!3a@0</p>\n<p><span class=\"image-unavailable\">image-20230403122509066</span></p>\n<pre><code class=\"language-python\">s = &quot;{\\\\rtf1&quot;\na = [0x05, 0x7D, 0x41, 0x15, 0x26, 0x01]\nflag = &quot;&quot;\nfor i in range(0, len(s)):\n    x = ord(s[i]^a[i])\n    flag += chr(x)\nprint(flag)\n</code></pre>\n<h3 id=\"section-40\">[WUSTCTF2020]level1</h3>\n<p>ExeinfoPe ==&gt; ELF64bit ==&gt; IDA64</p>\n<pre><code class=\"language-c\">int __cdecl main(int argc, const char **argv, const char **envp)\n{\n  int i; // [rsp+4h] [rbp-2Ch]\n  FILE *stream; // [rsp+8h] [rbp-28h]\n  char ptr[24]; // [rsp+10h] [rbp-20h] BYREF\n  unsigned __int64 v7; // [rsp+28h] [rbp-8h]\n\n  v7 = __readfsqword(0x28u);\n  stream = fopen(&quot;flag&quot;, &quot;r&quot;);\n  fread(ptr, 1uLL, 0x14uLL, stream);\n  fclose(stream);\n  for ( i = 1; i &lt;= 19; ++i )\n  {\n    if ( (i &amp; 1) != 0 ) //对下标索引为奇数进行移位，偶数进行乘法\n      printf(&quot;%ld\\n&quot;, (unsigned int)(ptr[i] &lt;&lt; i));\n    else\n      printf(&quot;%ld\\n&quot;, (unsigned int)(i * ptr[i]));\n  }\n  return 0;\n}\n</code></pre>\n<pre><code class=\"language-python\">a = [198,232,816,200,1536,300,6144,984,51200,570,92160,1200,565248,756,1474560,800,6291456,1782,65536000]\nflag = &quot;&quot;\nfor i in range(19):\n    if ((i+1) &amp; 1):\n        flag += (chr(a[i] &gt;&gt; (i+1))) \n    else:\n        flag += (chr(a[i] / (i+1))) #windows下需要强转 flag += (chr(int(a[i] / (i+1))))\nprint(flag) #ctf2020{d9-dE6-20c}\n</code></pre>\n<h3 id=\"section-41\">[GUET-CTF2019]re</h3>\n<p>ExeinfoPE ==&gt; ELFx64bit ==&gt; <code>upx -d re</code> ==&gt; IDA64</p>\n<pre><code class=\"language-c\">__int64 __fastcall sub_400E28(__int64 a1, int a2, int a3, int a4, int a5, int a6)\n{\n  int v6; // edx\n  int v7; // ecx\n  int v8; // er8\n  int v9; // er9\n  __int64 result; // rax\n  __int64 v11; // [rsp+0h] [rbp-30h] BYREF\n  unsigned __int64 v12; // [rsp+28h] [rbp-8h]\n\n  v12 = __readfsqword(0x28u);\n  sub_40F950((unsigned int)&quot;input your flag:&quot;, a2, a3, a4, a5, a6, 0LL, 0LL, 0LL, 0LL);\n  sub_40FA80((unsigned int)&quot;%s&quot;, (unsigned int)&amp;v11, v6, v7, v8, v9, v11);\n  if ( (unsigned int)sub_4009AE(&amp;v11) )\n    sub_410350(&quot;Correct!&quot;);\n  else\n    sub_410350(&quot;Wrong!&quot;);\n  result = 0LL;\n  if ( __readfsqword(0x28u) != v12 )\n    sub_443550();\n  return result;\n}\n</code></pre>\n<pre><code class=\"language-c\">_BOOL8 __fastcall sub_4009AE(char *a1)\n{\n  if ( 1629056 * *a1 != 166163712 )\n    return 0LL;\n  if ( 6771600 * a1[1] != 731332800 )\n    return 0LL;\n  if ( 3682944 * a1[2] != 357245568 )\n    return 0LL;\n  if ( 10431000 * a1[3] != 1074393000 )\n    return 0LL;\n  if ( 3977328 * a1[4] != 489211344 )\n    return 0LL;\n  if ( 5138336 * a1[5] != 518971936 )\n    return 0LL;\n  if ( 7532250 * a1[7] != 406741500 )\n    return 0LL;\n  if ( 5551632 * a1[8] != 294236496 )\n    return 0LL;\n  if ( 3409728 * a1[9] != 177305856 )\n    return 0LL;\n  if ( 13013670 * a1[10] != 650683500 )\n    return 0LL;\n  if ( 6088797 * a1[11] != 298351053 )\n    return 0LL;\n  if ( 7884663 * a1[12] != 386348487 )\n    return 0LL;\n  if ( 8944053 * a1[13] != 438258597 )\n    return 0LL;\n  if ( 5198490 * a1[14] != 249527520 )\n    return 0LL;\n  if ( 4544518 * a1[15] != 445362764 )\n    return 0LL;\n  if ( 3645600 * a1[17] != 174988800 )\n    return 0LL;\n  if ( 10115280 * a1[16] != 981182160 )\n    return 0LL;\n  if ( 9667504 * a1[18] != 493042704 )\n    return 0LL;\n  if ( 5364450 * a1[19] != 257493600 )\n    return 0LL;\n  if ( 13464540 * a1[20] != 767478780 )\n    return 0LL;\n  if ( 5488432 * a1[21] != 312840624 )\n    return 0LL;\n  if ( 14479500 * a1[22] != 1404511500 )\n    return 0LL;\n  if ( 6451830 * a1[23] != 316139670 )\n    return 0LL;\n  if ( 6252576 * a1[24] != 619005024 )\n    return 0LL;\n  if ( 7763364 * a1[25] != 372641472 )\n    return 0LL;\n  if ( 7327320 * a1[26] != 373693320 )\n    return 0LL;\n  if ( 8741520 * a1[27] != 498266640 )\n    return 0LL;\n  if ( 8871876 * a1[28] != 452465676 )\n    return 0LL;\n  if ( 4086720 * a1[29] != 208422720 )\n    return 0LL;\n  if ( 9374400 * a1[30] == 515592000 )\n    return 5759124 * a1[31] == 719890500;\n  return 0LL;\n}\n</code></pre>\n<pre><code class=\"language-python\">flag=''\nflag+=chr(166163712//1629056)\nflag+= chr(731332800 // 6771600)\nflag += chr(357245568 // 3682944)\nflag += chr(1074393000 // 10431000)\nflag += chr(489211344 // 3977328)\nflag += chr(518971936 // 5138336)\nflag+='?'\nflag += chr(406741500 // 7532250)\nflag += chr(294236496 // 5551632)\nflag += chr(177305856 // 3409728)\nflag += chr(650683500 // 13013670)\nflag += chr(298351053 // 6088797)\nflag += chr(386348487 // 7884663)\nflag+= chr(438258597 // 8944053)\nflag+= chr(249527520 // 5198490)\nflag+= chr(445362764 // 4544518)\nflag+= chr(981182160 // 10115280)\nflag+= chr(174988800 // 3645600)\nflag+= chr(493042704 // 9667504)\nflag += chr(257493600 // 5364450)\nflag+= chr(767478780 // 13464540)\nflag+= chr(312840624 // 5488432)\nflag += chr(1404511500 // 14479500)\nflag+= chr(316139670 // 6451830)\nflag+= chr(619005024 // 6252576)\nflag+= chr(372641472 // 7763364)\nflag+= chr(373693320 // 7327320)\nflag+= chr(498266640 // 8741520)\nflag+= chr(452465676 // 8871876)\nflag+= chr(208422720 // 4086720)\nflag+= chr(515592000 // 9374400)\nflag+= chr(719890500 // 5759124)\nprint(flag) #flag{e?65421110ba03099a1c039337} 蒙了一下？是1结果直接过了\n</code></pre>\n<h3 id=\"section-42\">[2019红帽杯]easyRE</h3>\n<p>ExeinfoPE ==&gt; Elf_64Bit ==&gt; IDA64，搜索字符串跳转到关键函数</p>\n<pre><code class=\"language-c\">__int64 sub_4009C6()\n{\n  __int64 result; // rax\n  int i; // [rsp+Ch] [rbp-114h]\n  __int64 v2; // [rsp+10h] [rbp-110h]\n  __int64 v3; // [rsp+18h] [rbp-108h]\n  __int64 v4; // [rsp+20h] [rbp-100h]\n  __int64 v5; // [rsp+28h] [rbp-F8h]\n  __int64 v6; // [rsp+30h] [rbp-F0h]\n  __int64 v7; // [rsp+38h] [rbp-E8h]\n  __int64 v8; // [rsp+40h] [rbp-E0h]\n  __int64 v9; // [rsp+48h] [rbp-D8h]\n  __int64 v10; // [rsp+50h] [rbp-D0h]\n  __int64 v11; // [rsp+58h] [rbp-C8h]\n  char v12[13]; // [rsp+60h] [rbp-C0h] BYREF\n  char v13[4]; // [rsp+6Dh] [rbp-B3h] BYREF\n  char v14[19]; // [rsp+71h] [rbp-AFh] BYREF\n  char v15[32]; // [rsp+90h] [rbp-90h] BYREF\n  int v16; // [rsp+B0h] [rbp-70h]\n  char v17; // [rsp+B4h] [rbp-6Ch]\n  char v18[72]; // [rsp+C0h] [rbp-60h] BYREF\n  unsigned __int64 v19; // [rsp+108h] [rbp-18h]\n\n  v19 = __readfsqword(0x28u);\n  qmemcpy(v12, &quot;Iodl&gt;Qnb(ocy&quot;, 12);\n  v12[12] = 127;\n  qmemcpy(v13, &quot;y.i&quot;, 3);\n  v13[3] = 127;\n  qmemcpy(v14, &quot;d`3w}wek9{iy=~yL@EC&quot;, sizeof(v14));\n  memset(v15, 0, sizeof(v15));\n  v16 = 0;\n  v17 = 0;\n  sub_4406E0(0LL, v15, 37LL);\n  v17 = 0;\n  if ( sub_424BA0(v15) == 36 )\n  {\n    for ( i = 0; i &lt; (unsigned __int64)sub_424BA0(v15); ++i )\n    {\n      if ( (unsigned __int8)(v15[i] ^ i) != v12[i] )\n      {\n        result = 4294967294LL;\n        goto LABEL_13;\n      }\n    }\n    sub_410CC0(&quot;continue!&quot;);\n    memset(v18, 0, 65);\n    sub_4406E0(0LL, v18, 64LL);\n    v18[39] = 0;\n    if ( sub_424BA0(v18) == 39 )\n    {\n      v2 = sub_400E44(v18);\n      v3 = sub_400E44(v2);\n      v4 = sub_400E44(v3);\n      v5 = sub_400E44(v4);\n      v6 = sub_400E44(v5);\n      v7 = sub_400E44(v6);\n      v8 = sub_400E44(v7);\n      v9 = sub_400E44(v8);\n      v10 = sub_400E44(v9);\n      v11 = sub_400E44(v10);\n      if ( !(unsigned int)sub_400360(v11, off_6CC090) )\n      {\n        sub_410CC0(&quot;You found me!!!&quot;);\n        sub_410CC0(&quot;bye bye~&quot;);\n      }\n      result = 0LL;\n    }\n    else\n    {\n      result = 4294967293LL;\n    }\n  }\n  else\n  {\n    result = 0xFFFFFFFFLL;\n  }\nLABEL_13:\n  if ( __readfsqword(0x28u) != v19 )\n    sub_444020();\n  return result;\n}\n</code></pre>\n<h2 id=\"section-43\">CTF-Show</h2>\n<h3 id=\"section-44\">Challenges</h3>\n<h4 id=\"section-45\">re2</h4>\n<pre><code class=\"language-python\">#!/usr/bin/python\n#coding=utf-8\n\nuser = &quot;DH~mqqvqxB^||zll@Jq~jkwpmvez{&quot;\n\nflag = ''\nfor x in range(0, 29):\n    for y in range(256):\n        if(ord(user[x])==y^0x1f):\n            flag+=chr(y)\n\nprint(flag) #[Warnning]Access_Unauthorized\n</code></pre>\n<h3 id=\"section-46\">内部赛</h3>\n<h4 id=\"section-47\">真的是签到</h4>\n<pre><code>#include&lt;stdio.h&gt;\nint main()\n{\n\tint res[18]= { 0x6c,0x2f,0x30,0x31,0x32,0x33,0xffffffb6,0xffffffbf,0xffffffa0,0xffffffcf,0x7c,0x71,0x6a,0x6c,0x70,0x64,0x75,0x63 };\n\tfor (int i = 17; i&gt;=0; i--)\n\t{\n\t\tres[i] ^= 17-i;\n\t\tprintf(&quot;%c&quot;, res[i]);\n\t}\n\tprintf(&quot;\\n&quot;);\n\treturn 0;\n}\n// ctfshow{签到?????}\n</code></pre>\n",
+  "toc": [
+    {
+      "id": "section-1",
+      "text": "Reverse",
+      "level": 1,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-2",
+      "text": "Basic",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-3",
+      "text": "PE加壳脱壳",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-4",
+      "text": "Tools",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-5",
+      "text": "ALL",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-6",
+      "text": "UPX",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-7",
+      "text": "PEID",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-8",
+      "text": "jd-gui",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-9",
+      "text": "OllyICE",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-10",
+      "text": "jadx-gui",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-11",
+      "text": "UPXShell",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-12",
+      "text": "ExeinfoPE",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-13",
+      "text": "Reshacker",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-14",
+      "text": "AndroidKiiler",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-15",
+      "text": "BuuCTF",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-16",
+      "text": "easyre",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-17",
+      "text": "reverse1",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-18",
+      "text": "reverse2",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-19",
+      "text": "内涵的软件",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-20",
+      "text": "新年快乐",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-23",
+      "text": "xor",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-24",
+      "text": "helloword",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-25",
+      "text": "reverse3",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-26",
+      "text": "不一样的flag",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-27",
+      "text": "SimpleRev",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-28",
+      "text": "Java逆向解密",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-29",
+      "text": "[GXYCTF2019]luck_guy",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-30",
+      "text": "[BJDCTF2020]JustRE",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-31",
+      "text": "刮开有奖",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-32",
+      "text": "简单注册器",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-33",
+      "text": "[GWCTF 2019]pyre",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-34",
+      "text": "[ACTF新生赛2020]easyre",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-35",
+      "text": "findit",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-36",
+      "text": "[ACTF新生赛2020]rome",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-37",
+      "text": "rsa",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-38",
+      "text": "[FlareOn4]login",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-39",
+      "text": "CrackRTF",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-40",
+      "text": "[WUSTCTF2020]level1",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-41",
+      "text": "[GUET-CTF2019]re",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-42",
+      "text": "[2019红帽杯]easyRE",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-43",
+      "text": "CTF-Show",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-44",
+      "text": "Challenges",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-46",
+      "text": "内部赛",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    }
+  ],
+  "readingMinutes": 39,
+  "markdownUrl": "articles/reverse.md",
+  "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/reverse/search.json",
+  "modifiedAt": "2024-12-03"
+}

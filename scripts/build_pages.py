@@ -2,11 +2,12 @@
 from pathlib import Path
 from shutil import copyfile
 from about_content import render_about
+from reflection_content import load_reflections, render_thoughts_index, render_thought
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
 DISPLAY_NAME = "𝒮𝓍𝓎ℒ𝒶ℴ𝓁"
-PAGES = {"index": ("首页", "HOME"), "about": ("关于", "ABOUT"), "blog": ("博客", "BLOG"), "album": ("相册", "ALBUM"), "join": ("联系", "JOIN")}
+PAGES = {"index": ("首页", "HOME"), "about": ("关于", "ABOUT"), "blog": ("博客", "BLOG"), "album": ("相册", "ALBUM"), "join": ("联系", "CONTACT")}
 
 
 def header(page):
@@ -51,34 +52,60 @@ BLOG = page_head("02", "BLOG", "博客与笔记", "安全分析与计算机基�
 
 ALBUM = page_head("03", "ALBUM", "相册与足迹", "喜欢的画面，走过的时间，都在这里慢慢留下。") + '''
 <div class="album-view-nav wrap" role="tablist" aria-label="相册视图"><button type="button" id="photosTab" class="album-view-button active" role="tab" aria-controls="photosPanel" aria-selected="true" data-view="photos">图片收藏 <span>COLLECTION</span></button><button type="button" id="momentsTab" class="album-view-button" role="tab" aria-controls="momentsPanel" aria-selected="false" data-view="moments">时光足迹 <span>MOMENTS</span></button></div>
-<section class="album-section wrap" id="photosPanel" role="tabpanel" aria-labelledby="photosTab"><div class="album-toolbar"><div class="gallery-switcher" id="galleryTags" role="tablist" aria-label="图片标签"></div><span class="album-hint" id="galleryCount" aria-live="polite"></span></div><p class="gallery-description" id="galleryDescription"></p><div class="photo-wall" id="galleryGrid"><p class="loading">正在展开照片墙…</p></div><p class="album-bottom">收藏的图像，各有各的故事。<span>点击图片可放大 · ← → 切换</span></p></section>
+<section class="album-section wrap" id="photosPanel" role="tabpanel" aria-labelledby="photosTab"><div class="album-toolbar"><div class="gallery-switcher" id="galleryTags" role="tablist" aria-label="图片标签"></div><span class="album-hint" id="galleryCount" aria-live="polite"></span></div><p class="gallery-description" id="galleryDescription"></p><div class="photo-wall" id="galleryGrid"><p class="loading">正在展开照片墙…</p></div><p class="album-bottom">收藏的图像，各有各的故事。<span>点击预览 · 滚轮缩放 · 拖拽移动 · 可下载原图</span></p></section>
 <section class="moments-section wrap" id="momentsPanel" role="tabpanel" aria-labelledby="momentsTab" hidden><div class="moments-layout"><aside class="moments-intro"><span class="eyebrow">A TRACE OF MY DAYS</span><h2>给日常，<br>留一个地址。</h2><p>一段文字，几张图片。<br>把此刻留给未来的自己。</p><p class="moments-count" id="momentsCount">正在整理足迹…</p><a class="moment-backup text-link" href="data/moments-backup.zip" download="SxyLao1-时光足迹备份.zip">下载足迹备份 <span>↓</span></a></aside><div class="moments-feed" id="momentsFeed" aria-live="polite"><p class="loading">正在翻开时间…</p></div></div></section>
-<dialog class="lightbox" id="lightbox" aria-label="图片预览"><button class="lightbox-close" id="lightboxClose" aria-label="关闭预览" type="button">×</button><button class="lightbox-prev" id="lightboxPrev" aria-label="上一张" type="button">←</button><div class="lightbox-content"><img id="lightboxImage" alt=""><div class="lightbox-caption"><p id="lightboxCaption"></p><span id="lightboxCount"></span></div></div><button class="lightbox-next" id="lightboxNext" aria-label="下一张" type="button">→</button></dialog>'''
+<dialog class="lightbox" id="lightbox" aria-label="图片预览"><button class="lightbox-close" id="lightboxClose" aria-label="关闭预览" type="button">×</button><button class="lightbox-prev" id="lightboxPrev" aria-label="上一张" type="button">←</button><div class="lightbox-content"><div class="lightbox-viewport" id="lightboxViewport"><img id="lightboxImage" alt="" draggable="false"></div><div class="lightbox-tools" aria-label="图片工具"><button id="lightboxZoomOut" type="button" aria-label="缩小图片">−</button><output id="lightboxZoomValue" aria-label="缩放比例">100%</output><button id="lightboxZoomIn" type="button" aria-label="放大图片">＋</button><button id="lightboxReset" type="button">适应窗口</button><a id="lightboxDownload" download>下载原图 ↓</a></div><div class="lightbox-caption"><p id="lightboxCaption"></p><span id="lightboxCount"></span></div></div><button class="lightbox-next" id="lightboxNext" aria-label="下一张" type="button">→</button></dialog>'''
 
-JOIN = page_head("04", "JOIN", "打个招呼", "欢迎聊聊代码、文字，以及共同感兴趣的事情。") + '''
+CONTACT = page_head("04", "CONTACT", "打个招呼", "欢迎聊聊代码、文字，以及共同感兴趣的事情。") + '''
 <section class="join-layout wrap"><div class="join-statement"><p class="eyebrow">LET'S KEEP IN TOUCH</p><h2>一个问题，<br>也可以是<br><em>对话的开始。</em></h2><p>可以从 GitHub 上的项目开始，也可以从博客里的一篇文章开始。</p></div><div class="contact-links"><a href="https://github.com/SxyLao1" target="_blank" rel="noreferrer"><span class="contact-index">01</span><div><small>CODE & PROJECTS</small><h3>GitHub</h3><p>@SxyLao1</p></div><span class="contact-arrow">↗</span></a><a href="https://blog.csdn.net/SxyLao1" target="_blank" rel="noreferrer"><span class="contact-index">02</span><div><small>ARTICLES & NOTES</small><h3>CSDN</h3><p>@SxyLao1</p></div><span class="contact-arrow">↗</span></a><a href="https://space.bilibili.com/389562675" target="_blank" rel="noreferrer"><span class="contact-index">03</span><div><small>ELSEWHERE</small><h3>Bilibili</h3><p>在另一个角落</p></div><span class="contact-arrow">↗</span></a></div></section>'''
 
 
-ARTICLE = '''<div class="reader-wrap wrap"><a class="text-link reader-back" href="blog.html">← 返回博客</a><div id="articleStatus" class="reader-status" role="status"><span class="eyebrow">FROM THE NOTEBOOK</span><h1>正在打开笔记…</h1></div><div id="articleView" hidden><header class="reader-heading"><p class="eyebrow" id="articleCategory"></p><h1 id="articleTitle"></h1><p class="reader-summary" id="articleSummary"></p><div class="reader-meta"><span id="articleMeta"></span><a id="articleDownload" href="blog.html" download>下载 Markdown ↓</a></div></header><div class="reading-layout"><aside class="reader-toc" aria-label="文章目录"><p class="eyebrow">CONTENTS / 目录</p><nav id="articleToc"></nav></aside><article class="markdown-body" id="articleContent"></article></div><div class="reader-end"><span class="eyebrow">END OF THE NOTE</span><p>写下所学，也留下问题。</p><a class="text-link" href="blog.html">继续翻翻笔记 <span>↗</span></a></div></div></div>'''
+ARTICLE = '''<div class="reader-wrap wrap">
+<a class="text-link reader-back" href="blog.html">← 返回博客</a>
+<div id="articleStatus" class="reader-status" role="status"><span class="reader-spinner" aria-hidden="true"></span><p>正在读取笔记…</p></div>
+<div id="articleView" hidden aria-busy="true">
+  <header class="reader-heading"><p class="eyebrow" id="articleCategory"></p><h1 id="articleTitle"></h1><p class="reader-summary" id="articleSummary"></p><div class="reader-meta"><span id="articleMeta"></span><a id="articleDownload" href="blog.html" download>下载原始 Markdown ↓</a></div></header>
+  <section class="reader-search" aria-label="笔记内搜索">
+    <div class="reader-search-field"><label for="articleSearch">全文搜索</label><input id="articleSearch" type="search" maxlength="80" placeholder="搜索全部章节和代码…" autocomplete="off"><kbd>Ctrl K</kbd><button id="articleSearchClear" type="button">清空</button></div>
+    <div id="articleSearchPanel" class="reader-search-panel" hidden><p id="articleSearchStatus" role="status" aria-live="polite"></p><div id="articleSearchResults"></div></div>
+  </section>
+  <div class="reading-layout">
+    <aside class="reader-toc" aria-label="文章目录"><p class="eyebrow">CONTENTS / 目录</p><nav id="articleToc"></nav></aside>
+    <div class="reader-main">
+      <nav id="chapterControls" class="chapter-controls" aria-label="分节阅读" hidden><button id="chapterPrev" type="button">← 上一节</button><label><span id="chapterPosition"></span><select id="chapterSelect" aria-label="选择阅读章节"></select></label><button id="chapterNext" type="button">下一节 →</button></nav>
+      <div id="chapterLoading" class="chapter-loading" role="status" hidden></div>
+      <article class="markdown-body" id="articleContent"></article>
+      <nav id="chapterBottom" class="chapter-controls chapter-bottom" aria-label="继续阅读" hidden><button id="chapterPrevBottom" type="button">← 上一节</button><span id="chapterBottomPosition"></span><button id="chapterNextBottom" type="button">下一节 →</button></nav>
+    </div>
+  </div>
+  <div class="reader-end"><span class="eyebrow">FROM THE NOTEBOOK</span><p>写下所学，也留下问题。</p><a class="text-link" href="blog.html">继续翻翻笔记 <span>↗</span></a></div>
+</div></div>'''
 
 
 def main():
     copyfile(ROOT / "content" / "site-icon.jpg", DIST / "favicon.jpg")
-    bodies = {"index": HOME, "about": ABOUT, "blog": BLOG, "album": ALBUM, "join": JOIN, "article": ARTICLE}
+    reflections = load_reflections()
+    bodies = {"index": HOME, "about": ABOUT, "blog": BLOG, "album": ALBUM, "join": CONTACT, "article": ARTICLE, "thoughts": render_thoughts_index(reflections)}
+    thought_titles = {}
+    for entry in reflections:
+        key = f"thought-{entry['slug']}"
+        bodies[key] = render_thought(entry)
+        thought_titles[key] = entry['title']
     for page, body in bodies.items():
-        title = f"{DISPLAY_NAME} · 个人主页" if page == "index" else f"笔记 · {DISPLAY_NAME}" if page == "article" else f"{PAGES[page][0]} · {DISPLAY_NAME}"
+        label = thought_titles.get(page) or ("一些随想" if page == "thoughts" else "笔记" if page == "article" else PAGES.get(page, ("个人主页",))[0])
+        title = f"{DISPLAY_NAME} · 个人主页" if page == "index" else f"{label} · {DISPLAY_NAME}"
         extra = ''
-        if page == 'about':
-            extra = '<link rel="stylesheet" href="about.css?v=20261022-reader">'
+        if page == 'about' or page.startswith('thought'):
+            extra = '<link rel="stylesheet" href="about.css?v=20261022-experience">'
         elif page == 'album':
-            extra = '<link rel="stylesheet" href="album.css?v=20261022-reader"><script src="moments.js?v=20261022-reader" defer></script>'
+            extra = '<link rel="stylesheet" href="album.css?v=20261022-experience"><script src="moments.js?v=20261022-experience" defer></script>'
         elif page == 'article':
-            extra = '<link rel="stylesheet" href="article.css?v=20261022-reader"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="vendor/katex/katex.min.js" defer></script><script src="article.js?v=20261022-reader" defer></script>'
+            extra = '<link rel="stylesheet" href="article.css?v=20261022-experience"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="article.js?v=20261022-experience" defer></script>'
         html = f'''<!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-reader"><script src="app.js?v=20261022-reader" defer></script>{extra}</head>
-<body id="top" data-page="{page}"><a class="skip-link" href="#main">跳到主要内容</a>{header('blog' if page == 'article' else page)}<main id="main">{body}</main>{FOOTER}</body></html>'''
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-experience"><script src="app.js?v=20261022-experience" defer></script>{extra}</head>
+<body id="top" data-page="{page}"><a class="skip-link" href="#main">跳到主要内容</a>{header('blog' if page == 'article' else 'about' if page.startswith('thought') else page)}<main id="main">{body}</main>{FOOTER}</body></html>'''
         (DIST / f"{page}.html").write_text(html, encoding="utf-8")
-    print("Rendered 6 pages: HOME / ABOUT / BLOG / ALBUM / JOIN / ARTICLE")
+    print(f"Rendered {len(bodies)} pages, including {len(reflections)} thoughts.")
 
 
 if __name__ == "__main__":

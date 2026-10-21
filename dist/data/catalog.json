@@ -24,7 +24,8 @@
           "sizeKb": 113.6,
           "preview": "assets/previews/funny/9d6ce82aa6e1f1d7.webp",
           "previewWidth": 542,
-          "previewHeight": 370
+          "previewHeight": 370,
+          "original": "assets/originals/funny/9d6ce82aa6e1f1d7.jpg"
         },
         {
           "name": "Firefox停止运行.jpg",
@@ -33,7 +34,8 @@
           "sizeKb": 448.2,
           "preview": "assets/previews/funny/e142068fec645131.webp",
           "previewWidth": 1047,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/funny/e142068fec645131.jpg"
         },
         {
           "name": "Firefox发现安全漏洞.jpg",
@@ -42,7 +44,8 @@
           "sizeKb": 41.5,
           "preview": "assets/previews/funny/698d2d87a72cadc5.webp",
           "previewWidth": 600,
-          "previewHeight": 410
+          "previewHeight": 410,
+          "original": "assets/originals/funny/698d2d87a72cadc5.jpg"
         },
         {
           "name": "Linux入侵Windows.jpg",
@@ -51,7 +54,8 @@
           "sizeKb": 190.2,
           "preview": "assets/previews/funny/a972b65cf6380f48.webp",
           "previewWidth": 935,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/funny/a972b65cf6380f48.jpg"
         },
         {
           "name": "力竭了.jpg",
@@ -60,7 +64,8 @@
           "sizeKb": 16.4,
           "preview": "assets/previews/funny/50dc48f4c9daf165.webp",
           "previewWidth": 410,
-          "previewHeight": 400
+          "previewHeight": 400,
+          "original": "assets/originals/funny/50dc48f4c9daf165.jpg"
         },
         {
           "name": "天下洁.png",
@@ -69,7 +74,8 @@
           "sizeKb": 596.8,
           "preview": "assets/previews/funny/bcd6d35d4dccba65.webp",
           "previewWidth": 1002,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/funny/bcd6d35d4dccba65.png"
         },
         {
           "name": "尼古喵喵.png",
@@ -78,7 +84,8 @@
           "sizeKb": 24.2,
           "preview": "assets/previews/funny/8c46eb3debbc54d3.webp",
           "previewWidth": 123,
-          "previewHeight": 124
+          "previewHeight": 124,
+          "original": "assets/originals/funny/8c46eb3debbc54d3.png"
         },
         {
           "name": "慈爱蜀黍.png",
@@ -87,7 +94,8 @@
           "sizeKb": 130.5,
           "preview": "assets/previews/funny/394cd370aac94a6a.webp",
           "previewWidth": 440,
-          "previewHeight": 438
+          "previewHeight": 438,
+          "original": "assets/originals/funny/394cd370aac94a6a.png"
         },
         {
           "name": "普瑞赛斯.png",
@@ -96,7 +104,8 @@
           "sizeKb": 26.1,
           "preview": "assets/previews/funny/56d1fd3e0508491e.webp",
           "previewWidth": 133,
-          "previewHeight": 132
+          "previewHeight": 132,
+          "original": "assets/originals/funny/56d1fd3e0508491e.png"
         },
         {
           "name": "柯洁.jpg",
@@ -105,7 +114,8 @@
           "sizeKb": 26.6,
           "preview": "assets/previews/funny/a54fc91d3e7ef0d8.webp",
           "previewWidth": 720,
-          "previewHeight": 718
+          "previewHeight": 718,
+          "original": "assets/originals/funny/a54fc91d3e7ef0d8.jpg"
         },
         {
           "name": "滑稽鲸鱼娘.jpg",
@@ -114,7 +124,8 @@
           "sizeKb": 88.0,
           "preview": "assets/previews/funny/f2265933824a5d7d.webp",
           "previewWidth": 1000,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/funny/f2265933824a5d7d.jpg"
         },
         {
           "name": "爷们耄耋.png",
@@ -123,7 +134,8 @@
           "sizeKb": 17.7,
           "preview": "assets/previews/funny/bf0cd0aff4439991.webp",
           "previewWidth": 130,
-          "previewHeight": 123
+          "previewHeight": 123,
+          "original": "assets/originals/funny/bf0cd0aff4439991.png"
         },
         {
           "name": "耄耋.png",
@@ -132,7 +144,8 @@
           "sizeKb": 29.1,
           "preview": "assets/previews/funny/6e18bda4c14502d1.webp",
           "previewWidth": 163,
-          "previewHeight": 160
+          "previewHeight": 160,
+          "original": "assets/originals/funny/6e18bda4c14502d1.png"
         },
         {
           "name": "这时髦啊.jpg",
@@ -141,7 +154,8 @@
           "sizeKb": 46.8,
           "preview": "assets/previews/funny/5900544cc0e0b63f.webp",
           "previewWidth": 960,
-          "previewHeight": 640
+          "previewHeight": 640,
+          "original": "assets/originals/funny/5900544cc0e0b63f.jpg"
         },
         {
           "name": "阿巴阿巴.jpg",
@@ -150,7 +164,8 @@
           "sizeKb": 39.4,
           "preview": "assets/previews/funny/b7f40dbcf379d40d.webp",
           "previewWidth": 1000,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/funny/b7f40dbcf379d40d.jpg"
         }
       ]
     },
@@ -166,7 +181,8 @@
           "sizeKb": 12100.0,
           "preview": "assets/previews/arknights/b69762be2472e632.webp",
           "previewWidth": 1400,
-          "previewHeight": 646
+          "previewHeight": 646,
+          "original": "assets/originals/arknights/b69762be2472e632.jpg"
         },
         {
           "name": "4K稀音.jpg",
@@ -175,7 +191,8 @@
           "sizeKb": 2316.5,
           "preview": "assets/previews/arknights/32394538fd1b1574.webp",
           "previewWidth": 1400,
-          "previewHeight": 788
+          "previewHeight": 788,
+          "original": "assets/originals/arknights/32394538fd1b1574.jpg"
         },
         {
           "name": "4K缪尔赛斯.jpg",
@@ -184,7 +201,8 @@
           "sizeKb": 5008.2,
           "preview": "assets/previews/arknights/1d4e7849252c6148.webp",
           "previewWidth": 1400,
-          "previewHeight": 788
+          "previewHeight": 788,
+          "original": "assets/originals/arknights/1d4e7849252c6148.jpg"
         },
         {
           "name": "4K迷迭香.jpg",
@@ -193,7 +211,8 @@
           "sizeKb": 2230.8,
           "preview": "assets/previews/arknights/1981380b5a927e3f.webp",
           "previewWidth": 1400,
-          "previewHeight": 787
+          "previewHeight": 787,
+          "original": "assets/originals/arknights/1981380b5a927e3f.jpg"
         },
         {
           "name": "Amiya.jpg",
@@ -202,7 +221,8 @@
           "sizeKb": 1405.1,
           "preview": "assets/previews/arknights/a1f24d94c146bce3.webp",
           "previewWidth": 1400,
-          "previewHeight": 888
+          "previewHeight": 888,
+          "original": "assets/originals/arknights/a1f24d94c146bce3.jpg"
         },
         {
           "name": "Lappland01.jpg",
@@ -211,7 +231,8 @@
           "sizeKb": 3169.1,
           "preview": "assets/previews/arknights/561cb1f190bf6230.webp",
           "previewWidth": 707,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/arknights/561cb1f190bf6230.jpg"
         },
         {
           "name": "Priestess.png",
@@ -220,7 +241,8 @@
           "sizeKb": 4411.1,
           "preview": "assets/previews/arknights/ff660733c1375d62.webp",
           "previewWidth": 562,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/arknights/ff660733c1375d62.png"
         },
         {
           "name": "斯卡蒂壁纸.jpg",
@@ -229,7 +251,8 @@
           "sizeKb": 773.1,
           "preview": "assets/previews/arknights/722fb6e179698012.webp",
           "previewWidth": 1400,
-          "previewHeight": 673
+          "previewHeight": 673,
+          "original": "assets/originals/arknights/722fb6e179698012.jpg"
         },
         {
           "name": "日光中的花束.jpg",
@@ -238,7 +261,8 @@
           "sizeKb": 9118.0,
           "preview": "assets/previews/arknights/5a1327638c9d8907.webp",
           "previewWidth": 563,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/arknights/5a1327638c9d8907.jpg"
         },
         {
           "name": "能天使彩绘.jpg",
@@ -247,7 +271,8 @@
           "sizeKb": 4447.0,
           "preview": "assets/previews/arknights/e0d0bb918638c7e7.webp",
           "previewWidth": 537,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/arknights/e0d0bb918638c7e7.jpg"
         },
         {
           "name": "铃兰是我们的光.jpg",
@@ -256,7 +281,8 @@
           "sizeKb": 1258.0,
           "preview": "assets/previews/arknights/17e4ed8f42d53991.webp",
           "previewWidth": 750,
-          "previewHeight": 1000
+          "previewHeight": 1000,
+          "original": "assets/originals/arknights/17e4ed8f42d53991.jpg"
         },
         {
           "name": "音律联觉特蕾西娅.png",
@@ -265,20 +291,21 @@
           "sizeKb": 3255.1,
           "preview": "assets/previews/arknights/76aacb5bfa769edd.webp",
           "previewWidth": 1400,
-          "previewHeight": 862
+          "previewHeight": 862,
+          "original": "assets/originals/arknights/76aacb5bfa769edd.png"
         }
       ]
     },
     "notes": {
       "title": "MyNote / 精选笔记目录",
       "description": "从个人笔记里选出的技术目录与学习计划。",
-      "count": 17,
+      "count": 20,
       "folderCount": 3,
       "folders": [
         {
           "name": "安全分析",
           "path": "安全分析",
-          "markdownCount": 5
+          "markdownCount": 8
         },
         {
           "name": "计算机基础",
@@ -303,7 +330,8 @@
           "modifiedAt": "2025-12-29",
           "summary": "Web、网络、内网与流量检测的长期学习笔记，保留完整原文。",
           "slug": "penetration",
-          "url": "article.html?id=penetration"
+          "url": "article.html?id=penetration",
+          "featuredRank": 1
         },
         {
           "name": "Assembly8086.md",
@@ -316,7 +344,8 @@
           "modifiedAt": "2024-10-12",
           "summary": "从寄存器、寻址、程序结构到中断与指令系统的原始学习笔记。",
           "slug": "assembly-8086",
-          "url": "article.html?id=assembly-8086"
+          "url": "article.html?id=assembly-8086",
+          "featuredRank": 3
         },
         {
           "name": "Pwn.md",
@@ -329,7 +358,8 @@
           "modifiedAt": "2025-04-12",
           "summary": "保留练习过程、代码与题解的原始 Pwn 学习笔记。",
           "slug": "pwn",
-          "url": "article.html?id=pwn"
+          "url": "article.html?id=pwn",
+          "featuredRank": 2
         },
         {
           "name": "APT-sample Analysis.md",
@@ -515,13 +545,55 @@
           "slug": "plan-embedded",
           "url": "article.html?id=plan-embedded",
           "status": "还没开始"
+        },
+        {
+          "name": "Forensics.md",
+          "path": "Forensics.md",
+          "extension": "md",
+          "sizeKb": 42.8,
+          "folder": "安全分析",
+          "title": "Forensics",
+          "category": "安全",
+          "modifiedAt": "2024-10-12",
+          "summary": "围绕应急响应、内存取证与 Linux 取证整理的学习笔记。",
+          "slug": "forensics",
+          "url": "article.html?id=forensics",
+          "featuredRank": 4
+        },
+        {
+          "name": "Reverse.md",
+          "path": "Reverse.md",
+          "extension": "md",
+          "sizeKb": 49.9,
+          "folder": "安全分析",
+          "title": "Reverse",
+          "category": "安全",
+          "modifiedAt": "2024-12-03",
+          "summary": "覆盖 PE 基础、常用逆向工具与 CTF 题目分析过程的学习笔记。",
+          "slug": "reverse",
+          "url": "article.html?id=reverse",
+          "featuredRank": 5
+        },
+        {
+          "name": "Web-CTF.md",
+          "path": "Web-CTF.md",
+          "extension": "md",
+          "sizeKb": 258.7,
+          "folder": "安全分析",
+          "title": "Web-CTF",
+          "category": "安全",
+          "modifiedAt": "2025-01-07",
+          "summary": "围绕常见 Web 漏洞主题和 CTF 题目过程整理的学习笔记。",
+          "slug": "web-ctf",
+          "url": "article.html?id=web-ctf",
+          "featuredRank": 6
         }
       ]
     },
     "blog": {
       "title": "Blog / 文章索引",
       "description": "从安全分析、检测工程到长期积累的学习笔记。",
-      "count": 4,
+      "count": 6,
       "items": [
         {
           "name": "Penetration.md",
@@ -534,20 +606,8 @@
           "modifiedAt": "2025-12-29",
           "summary": "Web、网络、内网与流量检测的长期学习笔记，保留完整原文。",
           "slug": "penetration",
-          "url": "article.html?id=penetration"
-        },
-        {
-          "name": "Assembly8086.md",
-          "path": "Assembly8086.md",
-          "extension": "md",
-          "sizeKb": 281.9,
-          "folder": "计算机基础",
-          "title": "8086 汇编",
-          "category": "系统基础",
-          "modifiedAt": "2024-10-12",
-          "summary": "从寄存器、寻址、程序结构到中断与指令系统的原始学习笔记。",
-          "slug": "assembly-8086",
-          "url": "article.html?id=assembly-8086"
+          "url": "article.html?id=penetration",
+          "featuredRank": 1
         },
         {
           "name": "Pwn.md",
@@ -560,20 +620,64 @@
           "modifiedAt": "2025-04-12",
           "summary": "保留练习过程、代码与题解的原始 Pwn 学习笔记。",
           "slug": "pwn",
-          "url": "article.html?id=pwn"
+          "url": "article.html?id=pwn",
+          "featuredRank": 2
         },
         {
-          "name": "APT-sample Analysis.md",
-          "path": "APT-sample Analysis.md",
+          "name": "Assembly8086.md",
+          "path": "Assembly8086.md",
           "extension": "md",
-          "sizeKb": 8.6,
+          "sizeKb": 281.9,
+          "folder": "计算机基础",
+          "title": "8086 汇编",
+          "category": "系统基础",
+          "modifiedAt": "2024-10-12",
+          "summary": "从寄存器、寻址、程序结构到中断与指令系统的原始学习笔记。",
+          "slug": "assembly-8086",
+          "url": "article.html?id=assembly-8086",
+          "featuredRank": 3
+        },
+        {
+          "name": "Forensics.md",
+          "path": "Forensics.md",
+          "extension": "md",
+          "sizeKb": 42.8,
           "folder": "安全分析",
-          "title": "恶意样本初步分析：文件指纹、导入表与 IOC",
+          "title": "Forensics",
           "category": "安全",
-          "modifiedAt": "2025-12-23",
-          "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。",
-          "slug": "malware-basics",
-          "url": "article.html?id=malware-basics"
+          "modifiedAt": "2024-10-12",
+          "summary": "围绕应急响应、内存取证与 Linux 取证整理的学习笔记。",
+          "slug": "forensics",
+          "url": "article.html?id=forensics",
+          "featuredRank": 4
+        },
+        {
+          "name": "Reverse.md",
+          "path": "Reverse.md",
+          "extension": "md",
+          "sizeKb": 49.9,
+          "folder": "安全分析",
+          "title": "Reverse",
+          "category": "安全",
+          "modifiedAt": "2024-12-03",
+          "summary": "覆盖 PE 基础、常用逆向工具与 CTF 题目分析过程的学习笔记。",
+          "slug": "reverse",
+          "url": "article.html?id=reverse",
+          "featuredRank": 5
+        },
+        {
+          "name": "Web-CTF.md",
+          "path": "Web-CTF.md",
+          "extension": "md",
+          "sizeKb": 258.7,
+          "folder": "安全分析",
+          "title": "Web-CTF",
+          "category": "安全",
+          "modifiedAt": "2025-01-07",
+          "summary": "围绕常见 Web 漏洞主题和 CTF 题目过程整理的学习笔记。",
+          "slug": "web-ctf",
+          "url": "article.html?id=web-ctf",
+          "featuredRank": 6
         }
       ]
     }
@@ -609,6 +713,7 @@
         "preview": "assets/previews/funny/9d6ce82aa6e1f1d7.webp",
         "previewWidth": 542,
         "previewHeight": 370,
+        "original": "assets/originals/funny/9d6ce82aa6e1f1d7.jpg",
         "bucket": "funny",
         "tags": [
           "funny"
@@ -622,6 +727,7 @@
         "preview": "assets/previews/funny/e142068fec645131.webp",
         "previewWidth": 1047,
         "previewHeight": 1000,
+        "original": "assets/originals/funny/e142068fec645131.jpg",
         "bucket": "funny",
         "tags": [
           "funny"
@@ -635,6 +741,7 @@
         "preview": "assets/previews/funny/698d2d87a72cadc5.webp",
         "previewWidth": 600,
         "previewHeight": 410,
+        "original": "assets/originals/funny/698d2d87a72cadc5.jpg",
         "bucket": "funny",
         "tags": [
           "funny"
@@ -648,6 +755,7 @@
         "preview": "assets/previews/funny/a972b65cf6380f48.webp",
         "previewWidth": 935,
         "previewHeight": 1000,
+        "original": "assets/originals/funny/a972b65cf6380f48.jpg",
         "bucket": "funny",
         "tags": [
           "funny"
@@ -661,6 +769,7 @@
         "preview": "assets/previews/funny/50dc48f4c9daf165.webp",
         "previewWidth": 410,
         "previewHeight": 400,
+        "original": "assets/originals/funny/50dc48f4c9daf165.jpg",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -674,6 +783,7 @@
         "preview": "assets/previews/funny/bcd6d35d4dccba65.webp",
         "previewWidth": 1002,
         "previewHeight": 1000,
+        "original": "assets/originals/funny/bcd6d35d4dccba65.png",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -687,6 +797,7 @@
         "preview": "assets/previews/funny/8c46eb3debbc54d3.webp",
         "previewWidth": 123,
         "previewHeight": 124,
+        "original": "assets/originals/funny/8c46eb3debbc54d3.png",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -700,6 +811,7 @@
         "preview": "assets/previews/funny/394cd370aac94a6a.webp",
         "previewWidth": 440,
         "previewHeight": 438,
+        "original": "assets/originals/funny/394cd370aac94a6a.png",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -713,6 +825,7 @@
         "preview": "assets/previews/funny/56d1fd3e0508491e.webp",
         "previewWidth": 133,
         "previewHeight": 132,
+        "original": "assets/originals/funny/56d1fd3e0508491e.png",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -726,6 +839,7 @@
         "preview": "assets/previews/funny/a54fc91d3e7ef0d8.webp",
         "previewWidth": 720,
         "previewHeight": 718,
+        "original": "assets/originals/funny/a54fc91d3e7ef0d8.jpg",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -739,6 +853,7 @@
         "preview": "assets/previews/funny/f2265933824a5d7d.webp",
         "previewWidth": 1000,
         "previewHeight": 1000,
+        "original": "assets/originals/funny/f2265933824a5d7d.jpg",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -752,6 +867,7 @@
         "preview": "assets/previews/funny/bf0cd0aff4439991.webp",
         "previewWidth": 130,
         "previewHeight": 123,
+        "original": "assets/originals/funny/bf0cd0aff4439991.png",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -765,6 +881,7 @@
         "preview": "assets/previews/funny/6e18bda4c14502d1.webp",
         "previewWidth": 163,
         "previewHeight": 160,
+        "original": "assets/originals/funny/6e18bda4c14502d1.png",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -778,6 +895,7 @@
         "preview": "assets/previews/funny/5900544cc0e0b63f.webp",
         "previewWidth": 960,
         "previewHeight": 640,
+        "original": "assets/originals/funny/5900544cc0e0b63f.jpg",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -791,6 +909,7 @@
         "preview": "assets/previews/funny/b7f40dbcf379d40d.webp",
         "previewWidth": 1000,
         "previewHeight": 1000,
+        "original": "assets/originals/funny/b7f40dbcf379d40d.jpg",
         "bucket": "funny",
         "tags": [
           "memes"
@@ -804,6 +923,7 @@
         "preview": "assets/previews/arknights/b69762be2472e632.webp",
         "previewWidth": 1400,
         "previewHeight": 646,
+        "original": "assets/originals/arknights/b69762be2472e632.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -817,6 +937,7 @@
         "preview": "assets/previews/arknights/32394538fd1b1574.webp",
         "previewWidth": 1400,
         "previewHeight": 788,
+        "original": "assets/originals/arknights/32394538fd1b1574.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -830,6 +951,7 @@
         "preview": "assets/previews/arknights/1d4e7849252c6148.webp",
         "previewWidth": 1400,
         "previewHeight": 788,
+        "original": "assets/originals/arknights/1d4e7849252c6148.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -843,6 +965,7 @@
         "preview": "assets/previews/arknights/1981380b5a927e3f.webp",
         "previewWidth": 1400,
         "previewHeight": 787,
+        "original": "assets/originals/arknights/1981380b5a927e3f.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -856,6 +979,7 @@
         "preview": "assets/previews/arknights/a1f24d94c146bce3.webp",
         "previewWidth": 1400,
         "previewHeight": 888,
+        "original": "assets/originals/arknights/a1f24d94c146bce3.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -869,6 +993,7 @@
         "preview": "assets/previews/arknights/561cb1f190bf6230.webp",
         "previewWidth": 707,
         "previewHeight": 1000,
+        "original": "assets/originals/arknights/561cb1f190bf6230.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -882,6 +1007,7 @@
         "preview": "assets/previews/arknights/ff660733c1375d62.webp",
         "previewWidth": 562,
         "previewHeight": 1000,
+        "original": "assets/originals/arknights/ff660733c1375d62.png",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -895,6 +1021,7 @@
         "preview": "assets/previews/arknights/722fb6e179698012.webp",
         "previewWidth": 1400,
         "previewHeight": 673,
+        "original": "assets/originals/arknights/722fb6e179698012.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -908,6 +1035,7 @@
         "preview": "assets/previews/arknights/5a1327638c9d8907.webp",
         "previewWidth": 563,
         "previewHeight": 1000,
+        "original": "assets/originals/arknights/5a1327638c9d8907.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -921,6 +1049,7 @@
         "preview": "assets/previews/arknights/e0d0bb918638c7e7.webp",
         "previewWidth": 537,
         "previewHeight": 1000,
+        "original": "assets/originals/arknights/e0d0bb918638c7e7.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -934,6 +1063,7 @@
         "preview": "assets/previews/arknights/17e4ed8f42d53991.webp",
         "previewWidth": 750,
         "previewHeight": 1000,
+        "original": "assets/originals/arknights/17e4ed8f42d53991.jpg",
         "bucket": "arknights",
         "tags": [
           "arknights"
@@ -947,6 +1077,7 @@
         "preview": "assets/previews/arknights/76aacb5bfa769edd.webp",
         "previewWidth": 1400,
         "previewHeight": 862,
+        "original": "assets/originals/arknights/76aacb5bfa769edd.png",
         "bucket": "arknights",
         "tags": [
           "arknights"

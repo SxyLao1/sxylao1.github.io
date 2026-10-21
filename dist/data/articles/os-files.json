@@ -8,31 +8,43 @@
     {
       "id": "section-2",
       "text": "1. 初识文件管理概念和功能",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-3",
       "text": "2. 文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-4",
       "text": "3. 文件目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-5",
       "text": "4. OS之文件共享（索引节点-硬链接、符号链接-软链接）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-6",
       "text": "5.OS之文件保护（口令保护、加密保护、访问控制）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     }
   ],
   "readingMinutes": 5,
   "markdownUrl": "articles/os-files.md",
   "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/os-files/search.json",
   "modifiedAt": "2024-11-26"
 }

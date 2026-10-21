@@ -12,11 +12,21 @@ let galleryMode;
 let galleryItems = [];
 let lightboxItems = [];
 let lightboxIndex = 0;
+let lightboxZoom = 1;
+let lightboxPan = { x: 0, y: 0 };
+const lightboxPointers = new Map();
+let pinchDistance = 0;
+let pinchZoom = 1;
+const LIGHTBOX_MAX_ZOOM = 5;
 
 // Preserve links shared before the original five-page structure was restored.
 if (page === 'index') {
   const oldLinks = { '#about': 'about.html', '#notes': 'blog.html', '#blog': 'blog.html', '#gallery': 'album.html', '#album': 'album.html', '#contact': 'join.html', '#join': 'join.html' };
   if (oldLinks[location.hash]) location.replace(oldLinks[location.hash]);
+}
+if (page === 'about') {
+  const reflections = { '#self-cultivation': 'thought-self-cultivation.html', '#acceptance': 'thought-from-solving-to-observing.html' };
+  if (reflections[location.hash]) location.replace(reflections[location.hash]);
 }
 
 function savedTheme() {
@@ -36,7 +46,7 @@ $('#themeToggle').addEventListener('click', () => {
 });
 
 function renderHome() {
-  const items = (catalog.collections.blog?.items || catalog.collections.notes.items).slice(0, 4);
+  const items = catalog.collections.blog?.items || catalog.collections.notes.items.slice(0, 6);
   $('#homePosts').innerHTML = items.map((item, index) => `<a class="home-post" href="${escapeHtml(item.url || 'blog.html')}"><span class="post-no">${String(index + 1).padStart(2, '0')}</span><div><h3>${escapeHtml(titleOf(item))}</h3><p>${escapeHtml(item.category || '笔记')} · ${escapeHtml(item.modifiedAt || 'MYNOTE')} · 阅读全文</p></div><span class="post-arrow" aria-hidden="true">↗</span></a>`).join('');
 }
 
@@ -111,12 +121,62 @@ function renderGallery() {
 function openImageGroup(items, index) {
   openLightbox(index, items);
 }
+function lightboxSource(item) {
+  return item.original || item.preview;
+}
+function lightboxFileName(item) {
+  const source = lightboxSource(item).split('?')[0];
+  const sourceName = source.slice(source.lastIndexOf('/') + 1) || 'image';
+  const extension = sourceName.match(/\.[^.]+$/)?.[0] || '';
+  const name = (item.name || sourceName).replace(/[\\/:*?"<>|]/g, '_');
+  return name.replace(/\.(?:jpe?g|png|webp|gif|avif)$/i, '') + extension;
+}
+function clampLightboxPan() {
+  const viewport = $('#lightboxViewport');
+  if (!viewport || lightboxZoom <= 1) { lightboxPan = { x: 0, y: 0 }; return; }
+  const image = $('#lightboxImage');
+  const width = image.offsetWidth || viewport.clientWidth;
+  const height = image.offsetHeight || viewport.clientHeight;
+  const maxX = Math.max(0, (width * lightboxZoom - viewport.clientWidth) / 2);
+  const maxY = Math.max(0, (height * lightboxZoom - viewport.clientHeight) / 2);
+  lightboxPan.x = Math.max(-maxX, Math.min(maxX, lightboxPan.x));
+  lightboxPan.y = Math.max(-maxY, Math.min(maxY, lightboxPan.y));
+}
+function paintLightboxTransform() {
+  const image = $('#lightboxImage');
+  if (!image) return;
+  clampLightboxPan();
+  image.style.transform = `translate(${lightboxPan.x}px, ${lightboxPan.y}px) scale(${lightboxZoom})`;
+  image.style.cursor = lightboxZoom > 1 ? 'grab' : 'zoom-in';
+  const value = $('#lightboxZoomValue');
+  if (value) value.textContent = `${Math.round(lightboxZoom * 100)}%`;
+  const zoomOut = $('#lightboxZoomOut');
+  if (zoomOut) zoomOut.disabled = lightboxZoom <= 1;
+  const zoomIn = $('#lightboxZoomIn');
+  if (zoomIn) zoomIn.disabled = lightboxZoom >= LIGHTBOX_MAX_ZOOM;
+}
+function setLightboxZoom(zoom) {
+  lightboxZoom = Math.max(1, Math.min(LIGHTBOX_MAX_ZOOM, zoom));
+  paintLightboxTransform();
+}
+function resetLightboxView() {
+  lightboxZoom = 1;
+  lightboxPan = { x: 0, y: 0 };
+  lightboxPointers.clear();
+  pinchDistance = 0;
+  paintLightboxTransform();
+}
 function updateLightbox() {
   const item = lightboxItems[lightboxIndex];
-  $('#lightboxImage').src = item.preview;
+  const image = $('#lightboxImage');
+  image.src = lightboxSource(item);
+  image.draggable = false;
   $('#lightboxImage').alt = titleOf(item);
   $('#lightboxCaption').textContent = titleOf(item);
   $('#lightboxCount').textContent = `${lightboxIndex + 1} / ${lightboxItems.length}`;
+  const download = $('#lightboxDownload');
+  if (download) { download.href = lightboxSource(item); download.download = lightboxFileName(item); }
+  resetLightboxView();
 }
 function openLightbox(index, items = galleryItems) {
   if (!items.length) return;
@@ -148,12 +208,48 @@ function setupLightbox() {
   $('#lightboxClose').addEventListener('click', () => $('#lightbox').close());
   $('#lightboxPrev').addEventListener('click', () => moveLightbox(-1));
   $('#lightboxNext').addEventListener('click', () => moveLightbox(1));
+  $('#lightboxZoomOut')?.addEventListener('click', () => setLightboxZoom(lightboxZoom - 0.25));
+  $('#lightboxZoomIn')?.addEventListener('click', () => setLightboxZoom(lightboxZoom + 0.25));
+  $('#lightboxReset')?.addEventListener('click', resetLightboxView);
+  const viewport = $('#lightboxViewport');
+  const pointerDistance = () => {
+    const points = [...lightboxPointers.values()];
+    return points.length < 2 ? 0 : Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y);
+  };
+  viewport?.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    setLightboxZoom(lightboxZoom + (event.deltaY < 0 ? 0.25 : -0.25));
+  }, { passive: false });
+  viewport?.addEventListener('dblclick', () => setLightboxZoom(lightboxZoom > 1 ? 1 : 2));
+  viewport?.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    lightboxPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    viewport.setPointerCapture?.(event.pointerId);
+    if (lightboxPointers.size === 2) { pinchDistance = pointerDistance(); pinchZoom = lightboxZoom; }
+  });
+  viewport?.addEventListener('pointermove', (event) => {
+    const previous = lightboxPointers.get(event.pointerId);
+    if (!previous) return;
+    const next = { x: event.clientX, y: event.clientY };
+    lightboxPointers.set(event.pointerId, next);
+    if (lightboxPointers.size === 1 && lightboxZoom > 1) {
+      lightboxPan.x += next.x - previous.x; lightboxPan.y += next.y - previous.y; paintLightboxTransform();
+    } else if (lightboxPointers.size === 2 && pinchDistance) {
+      setLightboxZoom(pinchZoom * pointerDistance() / pinchDistance);
+    }
+    event.preventDefault();
+  });
+  const endPointer = (event) => { lightboxPointers.delete(event.pointerId); if (lightboxPointers.size < 2) pinchDistance = 0; };
+  viewport?.addEventListener('pointerup', endPointer);
+  viewport?.addEventListener('pointercancel', endPointer);
+  viewport?.addEventListener('lostpointercapture', endPointer);
   $('#lightbox').addEventListener('click', (event) => {
     if (event.target === $('#lightbox')) $('#lightbox').close();
   });
-  $('#lightbox').addEventListener('close', () => { document.body.style.overflow = ''; });
+  $('#lightbox').addEventListener('close', () => { document.body.style.overflow = ''; resetLightboxView(); });
   document.addEventListener('keydown', (event) => {
     if (!$('#lightbox').open) return;
+    if (event.target?.closest?.('.lightbox-tools')) return;
     if (event.key === 'ArrowLeft') { event.preventDefault(); moveLightbox(-1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); moveLightbox(1); }
   });

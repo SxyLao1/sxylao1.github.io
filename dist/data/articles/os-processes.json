@@ -8,46 +8,64 @@
     {
       "id": "section-2",
       "text": "2.1前趋图和程序执行",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-6",
       "text": "2.2 进程的描述",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-11",
       "text": "2.3进程控制",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-17",
       "text": "2.4 进程同步",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-18",
       "text": "2.5经典进程的同步问题",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-19",
       "text": "2.6进程通信",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-24",
       "text": "2.7 线程(Threads)的基本概念",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-28",
       "text": "2.8 线程的实现",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     }
   ],
   "readingMinutes": 39,
   "markdownUrl": "articles/os-processes.md",
   "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/os-processes/search.json",
   "modifiedAt": "2024-11-26"
 }

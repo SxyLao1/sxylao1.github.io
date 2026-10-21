@@ -8,157 +8,219 @@
     {
       "id": "section-1",
       "text": "零基础电气嵌入式学习路线图",
-      "level": 1
+      "level": 1,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-2",
       "text": "阶段一：家庭电工与电子基础（第 1~2 个月）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-3",
       "text": "学习目标",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-4",
       "text": "核心内容",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-5",
       "text": "实践任务",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-6",
       "text": "推荐资源",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-7",
       "text": "阶段二：C 语言编程（第 2~3.5 个月）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-8",
       "text": "学习目标",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-9",
       "text": "核心内容",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-10",
       "text": "实践任务",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-11",
       "text": "推荐资源",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-12",
       "text": "阶段三：单片机入门 — Arduino / ESP32（第 3.5~5.5 个月）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-13",
       "text": "为什么先学 Arduino/ESP32，而不是 51 单片机？",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-14",
       "text": "学习目标",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-15",
       "text": "核心内容",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-16",
       "text": "实践任务",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-17",
       "text": "推荐资源",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-18",
       "text": "阶段四：STM32 进阶（第 5.5~9.5 个月）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-19",
       "text": "学习目标",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-20",
       "text": "核心内容",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-21",
       "text": "实践任务",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-22",
       "text": "推荐资源",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-23",
       "text": "阶段五：综合项目与 PCB 设计（第 9.5~12 个月及以后）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-24",
       "text": "学习目标",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-25",
       "text": "核心内容",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-26",
       "text": "实践任务",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-27",
       "text": "推荐资源",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-28",
       "text": "装备清单（预算约 300~500 元）",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-29",
       "text": "三条避坑建议",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-30",
       "text": "时间线总览",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     }
   ],
   "readingMinutes": 11,
   "markdownUrl": "articles/plan-embedded.md",
   "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/plan-embedded/search.json",
   "modifiedAt": "2026-06-04",
   "status": "还没开始"
 }

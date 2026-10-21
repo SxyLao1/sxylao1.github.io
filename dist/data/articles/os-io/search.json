@@ -1,0 +1,195 @@
+{
+  "slug": "os-io",
+  "entries": [
+    {
+      "chapterIndex": 0,
+      "headingId": null,
+      "text": "参考大佬博客：《王道操作系统》学习笔记总目录+思维导图\nb站王道操作系统：王道计算机考研 操作系统\n操作系统系列目录：\n第一章：操作系统引论\n第二章：进程的描述与控制\n第三章：处理机调度与死锁\n第四章：存储器管理\n第五章：虚拟存储器\n第六章：输入输出系统\n第七章：文件管理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "输入输出系统"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "一、I/O管理概述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "1.什么是I/O设备？有几类I/O设备？"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "2.控制I/O设备的I/O控制器"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "3.控制I/O设备的几种方式？(程序直接控制方式、中断驱动方式、DMA、通道控制)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4. I/O软件的层次结构（用户层软件-设备独立性软件-设备驱动程序-中断处理程序-硬件）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "二、 I/O核心子系统"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "1. 内核的I/O核心子系统及功能"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "2. I/O设备假脱机技术(SPOOLing)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "3.I/O设备的分配与回收（DCT-COCT-CHCT-SDT）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4. 缓冲区管理（单缓冲-双缓冲-循环缓冲-缓冲池）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "一、I/O管理概述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "1.什么是I/O设备？有几类I/O设备？"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "参考博客：什么是I/O设备？有几类I/O设备？"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "2.控制I/O设备的I/O控制器"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "参考博客：控制I/O设备的I/O控制器"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "3.控制I/O设备的几种方式？(程序直接控制方式、中断驱动方式、DMA、通道控制)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "参考博客：控制I/O设备的几种方式？(程序直接控制方式、中断驱动方式、DMA、通道控制)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "4. I/O软件的层次结构（用户层软件-设备独立性软件-设备驱动程序-中断处理程序-硬件）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "参考博客：I/O软件的层次结构（用户层软件-设备独立性软件-设备驱动程序-中断处理程序）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "二、 I/O核心子系统"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "1. 内核的I/O核心子系统及功能"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "参考博客：内核的I/O核心子系统及功能"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "2. I/O设备假脱机技术(SPOOLing)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "参考博客：I/O设备假脱机技术(SPOOLing)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "3.I/O设备的分配与回收（DCT-COCT-CHCT-SDT）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "参考博客：I/O设备的分配与回收（DCT-COCT-CHCT-SDT）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "4. 缓冲区管理（单缓冲-双缓冲-循环缓冲-缓冲池）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "参考博客：缓冲区管理（单缓冲-双缓冲-循环缓冲-缓冲池）"
+    }
+  ]
+}

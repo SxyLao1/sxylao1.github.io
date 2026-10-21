@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from PIL import Image
@@ -17,8 +18,11 @@ SITE_ROOT = Path(__file__).resolve().parents[1]
 DIST = SITE_ROOT / "dist"
 DATA = DIST / "data"
 PREVIEWS = DIST / "assets" / "previews"
+ORIGINALS = DIST / "assets" / "originals"
 SOURCES_CONFIG = SITE_ROOT / ".local" / "sources.json"
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+MAX_ORIGINAL_BYTES = 95 * 1024 * 1024
+MAX_SITE_BYTES = 900 * 1024 * 1024
 
 # Scan the source locally, but publish only the deliberately reviewed images.
 ARK_PREVIEW_NAMES = [
@@ -160,7 +164,9 @@ def selected_notes(note_files, notes_root: Path):
             note["status"] = entry["status"]
         notes.append(note)
         if entry.get("featured"):
+            note["featuredRank"] = entry.get("featuredRank", len(featured) + 1)
             featured.append(note)
+    featured.sort(key=lambda note: note["featuredRank"])
     return notes, featured
 
 
@@ -189,6 +195,40 @@ def make_preview(source: Path, bucket: str):
             }
     except Exception:
         return None
+
+
+def make_original(source: Path, bucket: str):
+    """Copy a reviewed source unchanged for an on-demand reader download."""
+    target_dir = ORIGINALS / bucket
+    target_dir.mkdir(parents=True, exist_ok=True)
+    target = target_dir / f"{source_hash(source)}{source.suffix}"
+    shutil.copyfile(source, target)
+    return {"original": target.relative_to(DIST).as_posix()}
+
+
+def ensure_original_size_limits(selected):
+    """Reject a gallery rebuild before it can turn the static site into a large download."""
+    largest = max((path.stat().st_size for _, path in selected), default=0)
+    if largest > MAX_ORIGINAL_BYTES:
+        raise ValueError("A reviewed gallery original exceeds the 95 MiB publication limit")
+    selected_bytes = sum(path.stat().st_size for _, path in selected)
+    existing_original_bytes = sum(path.stat().st_size for path in ORIGINALS.rglob("*") if path.is_file()) if ORIGINALS.exists() else 0
+    existing_site_bytes = sum(path.stat().st_size for path in DIST.rglob("*") if path.is_file())
+    if existing_site_bytes - existing_original_bytes + selected_bytes > MAX_SITE_BYTES:
+        raise ValueError("Reviewed gallery originals would make the static site exceed 900 MiB")
+
+
+def purge_retired_originals(active):
+    """Remove only stale files inside the generator-owned originals buckets."""
+    for bucket in ("funny", "arknights"):
+        bucket_dir = ORIGINALS / bucket
+        if not bucket_dir.is_dir():
+            continue
+        for generated in bucket_dir.iterdir():
+            if generated.is_file() and generated.resolve().is_relative_to(ORIGINALS.resolve()):
+                relative = generated.relative_to(DIST).as_posix()
+                if relative not in active:
+                    generated.unlink()
 
 
 def gallery_catalog(collections):
@@ -239,6 +279,9 @@ def main():
     # 原始目录只读，发布数据只保留明确挑过的预览。
     ark_by_name = {p.name: p for p in arknights if p.suffix.lower() in IMAGE_EXTS}
     ark_visuals = [ark_by_name[name] for name in ARK_PREVIEW_NAMES if name in ark_by_name]
+    reviewed_visuals = [("funny", path) for path in funny if path.suffix.lower() in IMAGE_EXTS]
+    reviewed_visuals.extend(("arknights", path) for path in ark_visuals)
+    ensure_original_size_limits(reviewed_visuals)
     arknights_previews = []
     for path in ark_visuals:
         preview = make_preview(path, "arknights")
@@ -258,11 +301,15 @@ def main():
                 generated.unlink()
     for x in funny_items:
         if x["path"] in preview_map["funny"]:
-            x.update(preview_map["funny"][x["path"]])
+            source = funny_root / x["path"]
+            x.update(preview_map["funny"][x["path"]], **make_original(source, "funny"))
     for x in arknights_items:
         if x["path"] in preview_map["arknights"]:
-            x.update(preview_map["arknights"][x["path"]])
+            source = ark_root / x["path"]
+            x.update(preview_map["arknights"][x["path"]], **make_original(source, "arknights"))
     arknights_items = [image for image in arknights_items if image.get("preview")]
+    active_originals = {image["original"] for image in funny_items + arknights_items if image.get("original")}
+    purge_retired_originals(active_originals)
 
     catalog = {
         "generatedAt": datetime.now(SHANGHAI_TZ).date().isoformat(),

@@ -2,6 +2,36 @@
 .reader-wrap { max-width: 1160px; }
 .reader-back { margin-top: 38px; font-size: 12px; }
 .reader-status { padding: 70px 0 150px; }
+.reader-spinner { display: inline-block; width: 28px; height: 28px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: reader-spin .8s linear infinite; margin-bottom: 18px; }
+@keyframes reader-spin { to { transform: rotate(360deg); } }
+.reader-error-actions { display: flex; align-items: center; gap: 25px; }
+.reader-error-actions button { padding: 10px 18px; color: var(--ink); border: 1px solid var(--line); background: var(--surface); }
+.reader-main { min-width: 0; }
+.chapter-loading { min-height: 260px; padding: 70px 20px; text-align: center; color: var(--muted); font-size: 13px; }
+.chapter-controls { display: flex; align-items: center; gap: 15px; padding-bottom: 26px; scroll-margin-top: 110px; }
+.chapter-controls button { flex-shrink: 0; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 8px 12px; font-size: 11px; }
+.chapter-controls button:disabled { opacity: .35; cursor: default; }
+.chapter-bottom { border-top: 1px solid var(--line); margin-top: 35px; padding-top: 24px; padding-bottom: 0; justify-content: space-between; }
+.chapter-bottom > span { color: var(--muted); font-size: 11px; }
+.chapter-controls label { flex: 1; min-width: 0; }
+.chapter-controls label span { display: block; color: var(--muted); font-size: 10px; margin-bottom: 6px; }
+.chapter-controls select { width: 100%; min-width: 0; font-size: 12px; padding: 8px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+.reader-search { position: relative; margin: 0 0 30px; }
+.reader-search-field { display: flex; gap: 14px; align-items: center; border: 1px solid var(--line); padding: 11px 15px; background: var(--surface); }
+.reader-search-field label { font-size: 11px; flex-shrink: 0; color: var(--muted); }
+.reader-search-field input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 13px; outline: 0; }
+.reader-search-field:focus-within { outline: 1px solid var(--accent); }
+.reader-search-field button { background: transparent; border: 0; color: var(--muted); font-size: 11px; }
+.reader-search-field kbd { color: var(--muted); font-size: 9px; white-space: nowrap; }
+.reader-search-panel { border: 1px solid var(--line); border-top: 0; background: var(--paper); }
+#articleSearchStatus { color: var(--muted); font-size: 11px; padding: 13px 18px; }
+#articleSearchResults { max-height: 360px; overflow: auto; }
+.reader-search-result { display: block; width: 100%; padding: 14px 18px; border: 0; border-top: 1px solid var(--line); color: var(--ink); background: transparent; text-align: left; cursor: pointer; }
+.reader-search-result:hover,.reader-search-result:focus-visible { background: var(--surface); }
+.reader-search-result strong { display: block; font-size: 12px; font-weight: 500; margin-bottom: 8px; }
+.reader-search-result span { display: block; color: var(--muted); white-space: pre-wrap; font-size: 11px; line-height: 1.8; overflow-wrap: anywhere; }
+.reader-search-result mark,.reader-hit { background: #e8bd6d; color: #24291f; border-radius: 2px; }
+.reader-toc a[aria-current] { color: var(--accent); }
 .reader-status h1 { font-size: clamp(28px,4vw,42px); line-height: 1.5; margin: 22px 0; }
 .reader-status > p { color: var(--muted); font-size: 14px; margin-bottom: 25px; }
 .reader-heading { max-width: 900px; padding: 55px 0 42px; }
@@ -49,6 +79,11 @@
 .article-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 @media(max-width: 900px) { .reading-layout { grid-template-columns: 160px minmax(0,1fr); gap: 30px; } }
 @media(max-width: 720px) {
+  .reader-search-field { gap: 9px; padding-inline: 10px; }
+  .reader-search-field kbd { display: none; }
+  .chapter-controls { gap: 8px; flex-wrap: wrap; }
+  .chapter-controls label { min-width: 140px; }
+  .chapter-controls button { padding: 7px 8px; font-size: 10px; }
   .reader-back { margin-top: 28px; }
   .reader-heading { padding: 35px 0 28px; }
   .reader-heading h1 { font-size: 27px; line-height: 1.7; }
@@ -67,3 +102,4 @@
   .markdown-body table { font-size: 11px; }
   .markdown-body th,.markdown-body td { padding: 8px 10px; min-width: 86px; }
 }
+@media(prefers-reduced-motion: reduce) { .reader-spinner { animation-duration: 2s; } }

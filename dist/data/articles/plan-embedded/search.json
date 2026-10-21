@@ -1,0 +1,920 @@
+{
+  "slug": "plan-embedded",
+  "entries": [
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "零基础电气嵌入式学习路线图"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "适用人群：完全零基础，想从修家电开始，最终能独立做出嵌入式小玩具的初学者\n预计周期：8~12 个月（每天 2~3 小时）\n核心原则：项目驱动，先动手再补理论，避免从大部头教科书开始劝退"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "阶段一：家庭电工与电子基础（第 1~2 个月）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "学习目标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "安全操作 220V 市电，能独立换灯泡、修台灯、换插座、看懂配电箱"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "掌握万用表、电烙铁、面包板的基本使用"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "认识常见元器件：电阻、电容、二极管、三极管/MOS 管、LED"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "核心内容"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "主题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "要点"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "安全规范"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "触电急救、断电验电、绝缘工具使用、单相/三相电概念"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "基础理论"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "电压、电流、电阻；欧姆定律；串联与并联"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "元器件认知"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "色环电阻读数、电容极性、二极管单向导电、三极管开关作用"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "工具实操"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "万用表测通断/电压/电阻；电烙铁焊接与拆焊；面包板搭电路"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "实践任务"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "修好一个接触不良的台灯（换开关或内部导线）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "在面包板上点亮 LED（串联限流电阻，理解为什么必须加电阻）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "焊接一条自己的 USB 数据线或修复一条断线"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "推荐资源"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "B 站搜索：零基础电工入门 家庭电路，选择播放量高的系统课程"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "电子元器件与模电基础：电子元器件+模拟电路硬件零基础入门"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "面包板使用：电子零基础入门：面包板使用教程"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "阶段二：C 语言编程（第 2~3.5 个月）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "学习目标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "掌握嵌入式开发的核心语言，重点攻克指针与内存操作"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "核心内容"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "主题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "要点"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "基础语法"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "变量、数据类型、运算符、条件、循环、数组"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "函数与模块化"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "函数定义、传参、返回值、作用域"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "指针（重中之重）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "地址与取值、指针运算、函数指针——后续操作寄存器全靠它"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "结构体与位运算"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "结构体定义、typedef、位与/或/非/移位操作"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "实践任务"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "用 C 语言写一个简单的控制台计算器"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "写一个数组排序程序，再用指针重写一遍"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "理解 & 和 * 的区别，画出内存示意图"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "推荐资源"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "B 站：翁恺 C语言（浙江大学公开课，零基础最友好）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "书籍："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "《C Primer Plus》——系统全面，适合零基础"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "《C和指针》——专门攻克指针难点"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "阶段三：单片机入门 — Arduino / ESP32（第 3.5~5.5 个月）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-13",
+      "text": "为什么先学 Arduino/ESP32，而不是 51 单片机？"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-13",
+      "text": "51 单片机过于底层和枯燥，很多人在此放弃。Arduino/ESP32 生态丰富，一周就能做出会动的东西，对\"想做小玩具\"的人来说最能保持热情。C 语言也可以在做项目的过程中边用边巩固。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "学习目标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "掌握 GPIO、PWM、ADC、串口、I2C/SPI 等基础外设"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "能驱动常见传感器和模块"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "做出第一个能交互的实物作品"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "核心内容"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "主题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "要点"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "GPIO 控制"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "点灯、按键消抖、外部中断"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "PWM"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "电机调速、舵机控制、LED 呼吸灯"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "ADC"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "读取传感器模拟电压、光敏/热敏电阻"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "通信协议"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "串口打印调试、I2C（OLED/传感器）、SPI（屏幕/SD卡）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "无线功能（ESP32）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "Wi-Fi / 蓝牙、MQTT 物联网"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "实践任务"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "手机蓝牙遥控小车（电机驱动 + 蓝牙模块）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "温湿度监测 + OLED 实时显示"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "人体感应小夜灯（PIR + 继电器/LED）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-17",
+      "text": "推荐资源"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-17",
+      "text": "太极创客 Arduino 教程：零基础入门学用 Arduino 第一部分合辑"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-17",
+      "text": "ESP32 Arduino 教程（2023版）：2023年最新 ESP32 Arduino 教程"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-17",
+      "text": "立创实战派 ESP32-S3（更贴近工程实战）：嘴对嘴带你从入门到项目实战"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "阶段四：STM32 进阶（第 5.5~9.5 个月）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "学习目标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "真正理解单片机底层原理，脱离 Arduino 的\"黑箱\""
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "掌握 STM32CubeMX + HAL 库开发流程"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "能阅读芯片数据手册（Datasheet），具备产品级开发能力"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "核心内容"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "主题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "要点"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "开发环境"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "STM32CubeIDE、STM32CubeMX 图形化配置"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "HAL 库编程"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "GPIO、外部中断、定时器、PWM 输出"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "ADC + DMA"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "多通道采集、直接内存访问减轻 CPU 负担"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "通信外设"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "USART 串口、I2C（MPU6050）、SPI（W25Q64 Flash）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "进阶功能"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "独立看门狗、低功耗模式、RTC 实时时钟"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "调试技能"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "断点调试、逻辑分析仪、阅读参考手册（Reference Manual）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "实践任务"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "基于 STM32 的智能小车（红外循迹 / 超声波避障 / 蓝牙遥控）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "舵机机械臂控制（多路 PWM + 串口指令）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "MPU6050 陀螺仪姿态读取与 OLED 显示"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "推荐资源"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "江协科技 STM32 入门教程-2023 版（B 站公认最系统、最适合零基础）：\nBV1th411z7sn\n配套资料下载：https://jiangxiekeji.com/download.html"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "书籍："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "《STM32库开发实战指南》（正点原子或野火出品）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "《STM32F4xx 参考手册》（ST 官方，学会查手册是分水岭）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "阶段五：综合项目与 PCB 设计（第 9.5~12 个月及以后）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "学习目标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "不再用杜邦线乱飞，能独立绘制电路原理图和 PCB"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "完成一个从设计到外壳的完整产品"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "核心内容"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "主题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "要点"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "原理图设计"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "元器件选型、电源电路、接口保护、去耦电容"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "PCB 布局布线"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "立创 EDA 使用、布线规则、地线处理、高速信号注意事项"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "电路仿真"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "Proteus / Multisim 基础仿真验证"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "制板与焊接"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "嘉立创 5 元打样、贴片元件焊接、回流焊/热风枪基础"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "结构设计"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "简单外壳设计（Fusion 360 / 找现成 3D 打印模型）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "实践任务"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "设计并制作一个\"便携式温湿度监测仪\"（带屏幕、锂电池充电、有外壳）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "将之前 Arduino/ESP32 的项目，用 STM32 + 自己画的 PCB 重做一遍"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "设计一块电机驱动板或传感器扩展板"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "推荐资源"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "立创 EDA：https://lceda.cn（国产免费，在线 PCB 设计工具）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "嘉立创：https://www.jlc.com（5 元 PCB 打样）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "B 站搜索：立创 EDA 教程、AD 画板教程、PCB 设计入门"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "装备清单（预算约 300~500 元）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "工具/器材"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "预算"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "用途"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "数字万用表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~30 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "测电压、通断、电阻"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "可调温电烙铁 + 焊锡 + 吸锡器"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~50 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "焊接与拆焊"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "面包板 + 杜邦线套件"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~20 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "搭试验电路"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "ESP32-DevKitC 或 STM32F103C8T6 最小系统板"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~10~30 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "主控芯片"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "ST-Link V2 下载器"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~10 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "给 STM32 烧录程序"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "基础元器件包（电阻/电容/LED/按键等）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~20 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "实验消耗"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "传感器模块包（温湿度、超声波、OLED、舵机等）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~50~100 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "做项目"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "可调稳压电源（或先用 USB 供电）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "~50~80 元"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "稳定供电调试"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "三条避坑建议"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "不要先啃《模拟电子技术》大部头教科书\n零基础看模电很容易劝退。用到什么电路就查什么，以项目驱动学习，遇到不懂的名词再回头补基础。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "不要只看不动手\n嵌入式是\"焊\"出来的，不是\"看\"出来的。哪怕照着视频抄代码、抄电路，也比光看强十倍。遇到 Bug 才是成长最快的时刻。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "尽早学会查数据手册（Datasheet）\n这是从\"爱好者\"进阶到\"工程师\"的分水岭。遇到不懂的传感器，先去淘宝商品页找资料，再直接阅读芯片原厂手册，培养独立解决问题的能力。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "时间线总览"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "月份"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "阶段"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "里程碑"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "1~2 月"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "家庭电工与电子基础"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "能修台灯、换插座、面包板点亮 LED"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "2~3.5 月"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "C 语言"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "掌握指针、能独立写控制台程序"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "3.5~5.5 月"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "Arduino / ESP32"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "做出蓝牙遥控小车或温湿度监测"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "5.5~9.5 月"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "STM32 进阶"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "掌握 HAL 库、能做多传感器综合项目"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "9.5~12 月"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "PCB 与综合项目"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "画出第一块自己的电路板，做出完整产品"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "最后提醒：学习周期因人而异，关键是保持每周都有\"看得见\"的产出。哪怕是一个亮起来的 LED，也是继续走下去的动力。"
+    }
+  ]
+}

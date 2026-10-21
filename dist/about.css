@@ -4,13 +4,15 @@
 .profile-lead { align-self: end; max-width: 410px; color: var(--muted); font-size: 14px; line-height: 2; }
 .profile-outline { display: flex; gap: 28px; flex-wrap: wrap; padding-top: 20px; font-size: 11px; color: var(--muted); }
 .profile-outline a:hover { color: var(--accent); }
-.profile-story { display: grid; grid-template-columns: .5fr 1.5fr; gap: 10vw; padding-top: 70px; }
-.profile-aside { border-top: 1px solid var(--line); padding-top: 16px; display: flex; justify-content: space-between; align-items: start; }
-.profile-aside span { color: var(--accent); font: 20px var(--serif); }
-.profile-prose { max-width: 690px; }
-.profile-prose h2, .profile-section-title h2, .profile-desktop h2, .profile-history h2 { font: 400 clamp(28px, 3vw, 40px)/1.55 var(--serif); letter-spacing: -1px; }
-.profile-prose p { margin-top: 18px; color: var(--muted); font-size: 14px; line-height: 2.1; }
-.profile-interests, .profile-learning, .profile-desktop, .profile-history { padding-top: 100px; }
+.profile-reflections { padding-top: 60px; }
+.profile-section-title h2, .profile-desktop h2, .profile-history h2 { font: 400 clamp(28px, 3vw, 40px)/1.55 var(--serif); letter-spacing: -1px; }
+.profile-reflection-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line); margin-top: 28px; }
+.profile-reflection-card { padding: 23px 28px 22px 0; border-right: 1px solid var(--line); }
+.profile-reflection-card + .profile-reflection-card { padding-left: 28px; padding-right: 0; border-right: 0; }
+.profile-reflection-card h3 { margin-top: 12px; font: 400 24px/1.5 var(--serif); }
+.profile-reflection-card > p:not(.eyebrow) { margin-top: 11px; color: var(--muted); font-size: 13px; line-height: 1.9; }
+.profile-reflections > .profile-inline-link { margin-top: 18px; }
+.profile-interests, .profile-learning, .profile-desktop, .profile-history { padding-top: 82px; }
 .profile-section-title { max-width: 620px; }
 .profile-section-title h2 { margin-top: 12px; }
 .profile-section-title > p:last-child { color: var(--muted); font-size: 13px; line-height: 1.9; margin-top: 14px; }
@@ -34,16 +36,33 @@
 .profile-history { display: grid; grid-template-columns: 1fr 1.2fr; gap: 9vw; padding-bottom: 25px; }
 .profile-history > div:last-child { border-top: 1px solid var(--line); padding-top: 21px; color: var(--muted); font-size: 13px; line-height: 1.9; }
 .profile-history small { display: block; font-size: 10px; margin-top: 18px; }
-body.dark .profile-story, body.dark .profile-interest-grid, body.dark .profile-learning ol, body.dark .profile-desktop, body.dark .profile-history > div:last-child { --paper: #202727; --surface: #293231; --ink: #e9e8df; --muted: #acb4ab; --accent: #d48e70; --line: #43504a; }
+.thoughts-hero { max-width: 780px; padding-block: 68px 54px; border-bottom: 1px solid var(--line); }
+.thoughts-hero h1 { margin-top: 13px; font: 400 clamp(40px, 5vw, 64px)/1.25 var(--serif); letter-spacing: -2px; }
+.thoughts-hero > p:last-child { max-width: 510px; margin-top: 17px; color: var(--muted); font-size: 14px; line-height: 2; }
+.thoughts-list { max-width: 780px; padding-top: 42px; }
+.thought-card { padding: 25px 0; border-bottom: 1px solid var(--line); }
+.thought-card h3 { margin-top: 12px; font: 400 clamp(26px, 3vw, 34px)/1.45 var(--serif); }
+.thought-card > p:not(.eyebrow) { max-width: 590px; margin-top: 11px; color: var(--muted); font-size: 14px; line-height: 1.95; }
+.thought-detail { max-width: 780px; padding-block: 52px 82px; }
+.thought-detail header { max-width: 680px; margin-top: 42px; padding-bottom: 33px; border-bottom: 1px solid var(--line); }
+.thought-detail h1 { margin-top: 13px; font: 400 clamp(36px, 5vw, 60px)/1.35 var(--serif); letter-spacing: -2px; }
+.thought-detail-prose { max-width: 680px; padding-top: 18px; }
+.thought-detail-prose p { margin-top: 20px; color: var(--muted); font-size: 15px; line-height: 2.2; }
+body.dark .profile-reflection-grid, body.dark .profile-interest-grid, body.dark .profile-learning ol, body.dark .profile-desktop, body.dark .profile-history > div:last-child { --paper: #202727; --surface: #293231; --ink: #e9e8df; --muted: #acb4ab; --accent: #d48e70; --line: #43504a; }
 @media (max-width: 720px) {
-  .profile-hero, .profile-story, .profile-learning, .profile-history { grid-template-columns: 1fr; gap: 28px; }
+  .profile-hero, .profile-learning, .profile-history { grid-template-columns: 1fr; gap: 28px; }
   .profile-hero { padding-block: 42px 52px; } .profile-hero h2 { font-size: 42px; letter-spacing: -1.5px; }
-  .profile-lead { font-size: 13px; } .profile-story { padding-top: 50px; }
-  .profile-prose h2, .profile-section-title h2, .profile-desktop h2, .profile-history h2 { font-size: 29px; }
-  .profile-prose p { font-size: 13px; } .profile-interests, .profile-learning, .profile-desktop, .profile-history { padding-top: 58px; }
+  .profile-lead { font-size: 13px; }
+  .profile-section-title h2, .profile-desktop h2, .profile-history h2 { font-size: 29px; }
+  .profile-reflections, .profile-interests, .profile-learning, .profile-desktop, .profile-history { padding-top: 58px; }
+  .profile-reflection-grid { grid-template-columns: 1fr; } .profile-reflection-card, .profile-reflection-card + .profile-reflection-card { border-right: 0; border-bottom: 1px solid var(--line); padding: 20px 0; }
   .profile-interest-grid { grid-template-columns: 1fr 1fr; } .profile-interest-grid article { padding: 20px 14px; border-bottom: 1px solid var(--line); }
   .profile-interest-grid article:first-child { padding-left: 0; } .profile-interest-grid article:nth-child(2) { border-right: 0; }
   .profile-interest-grid article:nth-child(3) { padding-left: 0; } .profile-interest-grid article:nth-child(n+3) { border-bottom: 0; }
   .profile-interest-grid ul { font-size: 11px; } .profile-learning ol { margin-top: 3px; }
   .profile-desktop { grid-template-columns: 1fr; gap: 16px; padding-top: 48px; } .profile-desktop h2 { margin-top: 0; }
+  .thoughts-hero { padding-block: 42px 39px; } .thoughts-hero h1 { font-size: 42px; letter-spacing: -1.5px; }
+  .thoughts-list { padding-top: 22px; } .thought-card { padding-block: 22px; } .thought-card h3 { font-size: 28px; }
+  .thought-detail { padding-block: 38px 58px; } .thought-detail header { margin-top: 30px; padding-bottom: 25px; } .thought-detail h1 { font-size: 40px; letter-spacing: -1px; }
+  .thought-detail-prose p { font-size: 14px; line-height: 2.1; }
 }
