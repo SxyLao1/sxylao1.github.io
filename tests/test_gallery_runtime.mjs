@@ -45,6 +45,7 @@ test('lightbox prefers original, creates a same-origin download, zooms and reset
   assert.equal(elements.get('lightboxImage').draggable, false);
   assert.equal(elements.get('lightboxDownload').href, first.original);
   assert.equal(elements.get('lightboxDownload').download, 'picture.png');
+  assert.equal(elements.get('lightboxDownload').textContent, '下载原图 ↓');
   elements.get('lightboxZoomIn').emit('click');
   assert.equal(elements.get('lightboxZoomValue').textContent, '125%');
   elements.get('lightboxViewport').emit('pointerdown', { pointerId: 1, clientX: 40, clientY: 40 });
@@ -52,6 +53,7 @@ test('lightbox prefers original, creates a same-origin download, zooms and reset
   assert.match(elements.get('lightboxImage').style.transform, /translate\(40px, 20px\) scale\(1.25\)/);
   api.moveLightbox(1);
   assert.equal(elements.get('lightboxImage').src, second.preview);
+  assert.equal(elements.get('lightboxDownload').textContent, '下载图片 ↓');
   assert.equal(elements.get('lightboxZoomValue').textContent, '100%');
   assert.match(elements.get('lightboxImage').style.transform, /translate\(0px, 0px\) scale\(1\)/);
 });

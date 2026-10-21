@@ -175,7 +175,11 @@ function updateLightbox() {
   $('#lightboxCaption').textContent = titleOf(item);
   $('#lightboxCount').textContent = `${lightboxIndex + 1} / ${lightboxItems.length}`;
   const download = $('#lightboxDownload');
-  if (download) { download.href = lightboxSource(item); download.download = lightboxFileName(item); }
+  if (download) {
+    download.href = lightboxSource(item);
+    download.download = lightboxFileName(item);
+    download.textContent = item.original ? '下载原图 ↓' : '下载图片 ↓';
+  }
   resetLightboxView();
 }
 function openLightbox(index, items = galleryItems) {
