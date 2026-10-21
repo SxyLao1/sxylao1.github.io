@@ -9,7 +9,8 @@
       "summary": "Web、网络、内网与流量检测的长期学习笔记，保留完整原文。",
       "category": "安全",
       "section": "安全分析",
-      "featured": true
+      "featured": true,
+      "featuredRank": 1
     },
     {
       "path": "Assembly8086.md",
@@ -18,7 +19,8 @@
       "summary": "从寄存器、寻址、程序结构到中断与指令系统的原始学习笔记。",
       "category": "系统基础",
       "section": "计算机基础",
-      "featured": true
+      "featured": true,
+      "featuredRank": 3
     },
     {
       "path": "Pwn.md",
@@ -27,7 +29,8 @@
       "summary": "保留练习过程、代码与题解的原始 Pwn 学习笔记。",
       "category": "安全",
       "section": "安全分析",
-      "featured": true
+      "featured": true,
+      "featuredRank": 2
     },
     {
       "path": "APT-sample Analysis.md",
@@ -36,7 +39,7 @@
       "summary": "从初步分析流程出发，整理 PE 信息、哈希、imphash、导入表与 IOC 的常见概念。",
       "category": "安全",
       "section": "安全分析",
-      "featured": true
+      "featured": false
     },
     {
       "path": "TrafficAnalysis.md",
@@ -157,6 +160,36 @@
       "section": "学习计划",
       "status": "还没开始",
       "featured": false
+    },
+    {
+      "path": "Forensics.md",
+      "slug": "forensics",
+      "title": "Forensics",
+      "summary": "围绕应急响应、内存取证与 Linux 取证整理的学习笔记。",
+      "category": "安全",
+      "section": "安全分析",
+      "featured": true,
+      "featuredRank": 4
+    },
+    {
+      "path": "Reverse.md",
+      "slug": "reverse",
+      "title": "Reverse",
+      "summary": "覆盖 PE 基础、常用逆向工具与 CTF 题目分析过程的学习笔记。",
+      "category": "安全",
+      "section": "安全分析",
+      "featured": true,
+      "featuredRank": 5
+    },
+    {
+      "path": "Web-CTF.md",
+      "slug": "web-ctf",
+      "title": "Web-CTF",
+      "summary": "围绕常见 Web 漏洞主题和 CTF 题目过程整理的学习笔记。",
+      "category": "安全",
+      "section": "安全分析",
+      "featured": true,
+      "featuredRank": 6
     }
   ]
 }

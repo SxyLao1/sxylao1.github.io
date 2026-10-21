@@ -47,6 +47,14 @@ $$
 
 [http](http://example.com) [https](https://example.com) [mail](mailto:test@example.com)
 
+Soft line one
+Soft line two
+
+```text
+code line one
+code line two
+```
+
 <script>alert('no')</script>
 '''
         temporary, root = self.make_site(markdown)
@@ -57,15 +65,55 @@ $$
             self.assertIn("<table>", output["html"])
             self.assertIn("C:\\private\\note.md", output["html"])
             self.assertIn('<span class="math inline">\\frac{a}{b}</span>', output["html"])
-            self.assertIn('<div class="math block">\\mathbf{x}</div>', output["html"])
+            self.assertIn('<div class="math block">\n\\mathbf{x}\n</div>', output["html"])
             self.assertIn('href="http://example.com"', output["html"])
             self.assertIn('href="https://example.com"', output["html"])
             self.assertIn('href="mailto:test@example.com"', output["html"])
             self.assertIn('rel="noopener noreferrer"', output["html"])
+            self.assertIn("Soft line one<br />\nSoft line two", output["html"])
+            self.assertIn("code line one\ncode line two", output["html"])
             self.assertIn("&lt;script&gt;", output["html"])
             published = json.loads((root / "dist" / "data" / "articles" / "safe-article.json").read_text(encoding="utf-8"))
             self.assertTrue(published["sourceOriginal"])
             self.assertEqual(published["modifiedAt"], "2026-10-22")
+
+    def test_large_article_uses_balanced_chapters_and_search_index(self):
+        parts = ["# Start\n\n"]
+        for number in range(22):
+            parts.append(f"## Section {number}\n\n" + (f"paragraph-{number} " * 900) + "\n\n")
+        parts.append("## Last Section\n\n```text\nCODE-FINAL\n```\n\n$$\n\\omega\n$$\n")
+        temporary, root = self.make_site("".join(parts))
+        with temporary:
+            article = articles.build(root)[0]
+            self.assertEqual(article["html"], "")
+            self.assertGreater(len(article["chapters"]), 1)
+            self.assertTrue(all(item["chapterId"].startswith("chapter-") for item in article["toc"]))
+            self.assertTrue(all("chapterIndex" in item for item in article["toc"]))
+            chapter_html = []
+            for chapter in article["chapters"]:
+                chapter_path = root / "dist" / chapter["url"]
+                payload = json.loads(chapter_path.read_text(encoding="utf-8"))
+                chapter_html.append(payload["html"])
+                self.assertEqual(payload["slug"], "safe-article")
+            combined = "".join(chapter_html)
+            self.assertIn("paragraph-0", combined)
+            self.assertIn("paragraph-21", combined)
+            search = json.loads((root / "dist" / article["searchUrl"]).read_text(encoding="utf-8"))
+            self.assertTrue(any("CODE-FINAL" in item["text"] for item in search["entries"]))
+            self.assertTrue(any("\\omega" in item["text"] for item in search["entries"]))
+            self.assertTrue(any("Last Section" in item["text"] for item in search["entries"]))
+            self.assertTrue(all(len(item["text"]) <= 1600 for item in search["entries"]))
+
+    def test_search_entries_in_unheaded_chapter_do_not_point_to_prior_heading(self):
+        code = "CODE-BLOCK\n" * 7000
+        temporary, root = self.make_site("# Only heading\n\n```text\n" + code + "```\n\n```text\n" + code + "```\n\n```text\n" + code + "```\n")
+        with temporary:
+            article = articles.build(root)[0]
+            self.assertGreater(len(article["chapters"]), 1)
+            headings_by_index = {index: set(chapter["headingIds"]) for index, chapter in enumerate(article["chapters"])}
+            search = json.loads((root / "dist" / article["searchUrl"]).read_text(encoding="utf-8"))
+            for entry in search["entries"]:
+                self.assertTrue(entry["headingId"] is None or entry["headingId"] in headings_by_index[entry["chapterIndex"]])
 
     def test_original_crlf_and_actual_unsafe_destinations_are_preserved_or_inert(self):
         source_bytes = b"# Title\r\n\r\n[unsafe](javascript:alert(1)) ![missing](file:///C:/private.png)\r\n"

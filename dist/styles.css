@@ -152,8 +152,13 @@ kbd { font: 10px monospace; color: var(--muted); padding: 0 6px; border: 1px sol
 .album-bottom span { font-size: 10px; }
 .lightbox { border: 0; background: #182020; color: #e7e7dc; padding: 40px 70px 24px; width: min(1150px, 96vw); max-width: 96vw; max-height: 96vh; overflow: auto; }
 .lightbox::backdrop { background: #101616ed; backdrop-filter: blur(10px); }
-.lightbox-content { display: grid; justify-items: center; }
-.lightbox img { object-fit: contain; max-height: 78vh; width: auto; margin: auto; }
+.lightbox-content { display: grid; justify-items: center; min-width: 0; }
+.lightbox-viewport { display: grid; place-items: center; overflow: hidden; width: 100%; height: min(65vh, 720px); touch-action: none; }
+.lightbox img { object-fit: contain; max-height: 100%; max-width: 100%; width: auto; margin: auto; transform-origin: center; transition: transform .14s ease-out; user-select: none; -webkit-user-drag: none; }
+.lightbox-tools { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; padding: 8px 0 0; }
+.lightbox-tools button, .lightbox-tools a { border: 1px solid #ffffff42; color: #eee; min-width: 32px; min-height: 30px; display: inline-grid; place-items: center; font-size: 12px; }
+.lightbox-tools a { text-decoration: none; }
+.lightbox-tools output { min-width: 45px; text-align: center; font-variant-numeric: tabular-nums; color: #c5cdc5; font-size: 11px; }
 .lightbox-caption { display: flex; width: 100%; justify-content: space-between; gap: 24px; padding-top: 14px; font-size: 11px; }
 .lightbox-caption p { overflow-wrap: anywhere; }
 .lightbox-caption > span { flex-shrink: 0; color: #b5bdb6; }
@@ -203,7 +208,7 @@ kbd { font: 10px monospace; color: var(--muted); padding: 0 6px; border: 1px sol
  .blog-tools { grid-template-columns: 1fr 90px; gap: 12px; } .search-box input { font-size: 12px; } .article-row { grid-template-columns: 25px minmax(0,1fr) auto; gap: 8px; padding-block: 19px; } .article-row h2 { font-size: 15px; } .article-row p { font-size: 9px; } .article-type { padding: 1px 5px; font-size: 8px; }
  .gallery-switcher { gap: 2px; } .switch { padding: 5px 9px; font-size: 10px; } .album-toolbar { gap: 7px; margin-bottom: 18px; padding-bottom: 18px; } .album-hint { font-size: 9px; }
  .photo-wall { columns: 2; column-gap: 9px; } .photo-tile { margin-bottom: 9px; } .album-bottom { flex-direction: column; gap: 7px; font-size: 10px; }
- .lightbox { padding: 42px 34px 20px; width: 98vw; max-width: 98vw; } .lightbox-prev { left: 0; } .lightbox-next { right: 0; } .lightbox-prev, .lightbox-next { width: 32px; font-size: 21px; } .lightbox img { max-height: 72vh; } .lightbox-caption { font-size: 10px; gap: 10px; }
+ .lightbox { padding: 42px 34px 20px; width: 98vw; max-width: 98vw; } .lightbox-prev { left: 0; } .lightbox-next { right: 0; } .lightbox-prev, .lightbox-next { width: 32px; font-size: 21px; } .lightbox-viewport { height: 60vh; } .lightbox-caption { font-size: 10px; gap: 10px; }
  .join-layout { grid-template-columns: 1fr; gap: 35px; padding-top: 30px; } .join-statement h2 { font-size: 35px; } .join-statement > p:last-child { max-width: none; }
 }
 .article-row p.article-summary { margin-block: 8px 9px; font-size: 12px; line-height: 1.8; color: var(--ink); opacity: .8; }

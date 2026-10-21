@@ -18,6 +18,11 @@ from mdit_py_plugins.dollarmath import dollarmath_plugin
 ROOT = Path(__file__).resolve().parents[1]
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 DRIVE_PATH_PATTERN = re.compile(r"(?<![A-Za-z0-9+.-])[A-Za-z]:[\\/]")
+LARGE_ARTICLE_HTML = 120_000
+CHAPTER_MIN_HTML = 24_000
+CHAPTER_MAX_HTML = 60_000
+SEARCH_SEGMENT = 1_600
+SEARCH_OVERLAP = 80
 
 
 def fail(message: str) -> ValueError:
@@ -88,16 +93,15 @@ def url_kind(value: str, *, target_dir: Path, dist: Path, image: bool) -> str:
 
 
 def make_markdown_renderer(target_dir: Path, dist: Path) -> MarkdownIt:
-    renderer = MarkdownIt("commonmark", {"html": False, "linkify": False}).enable(["table", "strikethrough"])
+    renderer = MarkdownIt("commonmark", {"html": False, "linkify": False, "breaks": True}).enable(["table", "strikethrough"])
     # Parse all explicit Markdown links so unsafe destinations can display their
     # label as inert text instead of leaving source syntax in the reader.
     renderer.validateLink = lambda value: True
 
     def render_math(tex: str, options: dict) -> str:
-        escaped = html.escape(tex)
-        if options.get("display_mode"):
-            return f'<div class="math block">{escaped}</div>'
-        return f'<span class="math inline">{escaped}</span>'
+        # dollarmath supplies the single .math.inline/.math.block container.
+        # This callback only escapes source TeX for the local KaTeX consumer.
+        return html.escape(tex)
 
     renderer.use(dollarmath_plugin, renderer=render_math)
 
@@ -193,7 +197,57 @@ def prepare_inline_tokens(tokens, renderer: MarkdownIt, *, asset_map: dict[str, 
                 child.meta = {"inert": kind not in {"external", "relative"}}
 
 
-def render_article(markdown: str, *, slug: str, site_root: Path, dist: Path, article_urls: dict[str, str]) -> tuple[str, list[dict], int]:
+def top_level_blocks(tokens):
+    """Return complete top-level Markdown token groups; never split nested blocks."""
+    blocks, start, depth = [], None, 0
+    for index, token in enumerate(tokens):
+        if start is None:
+            start = index
+        if token.nesting == 1:
+            depth += 1
+        elif token.nesting == -1:
+            depth -= 1
+        if token.level == 0 and (token.nesting == 0 or depth == 0):
+            blocks.append(tokens[start:index + 1])
+            start, depth = None, 0
+    if start is not None:
+        raise RuntimeError("Markdown token stream ended inside a top-level block")
+    return blocks
+
+
+def block_plain_text(block) -> list[str]:
+    texts = []
+    for token in block:
+        if token.type in {"fence", "code_block", "math_block", "math_block_label"}:
+            if token.content:
+                texts.append(token.content)
+        elif token.type == "inline" and token.children:
+            pieces = []
+            for child in token.children:
+                if child.type in {"softbreak", "hardbreak"}:
+                    pieces.append("\n")
+                elif child.type in {"text", "code_inline", "math_inline", "math_block", "image"}:
+                    pieces.append(child.content)
+            value = "".join(pieces)
+            if value:
+                texts.append(value)
+    return texts
+
+
+def search_segments(text: str):
+    if len(text) <= SEARCH_SEGMENT:
+        return [text]
+    parts, start = [], 0
+    while start < len(text):
+        end = min(len(text), start + SEARCH_SEGMENT)
+        parts.append(text[start:end])
+        if end == len(text):
+            break
+        start = end - SEARCH_OVERLAP
+    return parts
+
+
+def render_article(markdown: str, *, slug: str, site_root: Path, dist: Path, article_urls: dict[str, str]):
     # Article HTML is inserted into dist/article.html, so relative references
     # resolve from the published site root. Markdown downloads stay in articles/.
     target_dir = dist
@@ -219,9 +273,51 @@ def render_article(markdown: str, *, slug: str, site_root: Path, dist: Path, art
         filtered.append(token)
         index += 1
     prepare_inline_tokens(filtered, renderer, asset_map=image_manifest(site_root, slug), article_urls=article_urls, anchor_ids=anchor_ids, target_dir=target_dir, dist=dist)
-    html_output = renderer.renderer.render(filtered, renderer.options, {})
+    blocks = top_level_blocks(filtered)
+    rendered_blocks = [renderer.renderer.render(block, renderer.options, {}) for block in blocks]
     word_count = len(re.findall(r"[A-Za-z0-9]+|[\u4e00-\u9fff]", markdown))
-    return html_output, toc, max(1, math.ceil(word_count / 200))
+    return rendered_blocks, blocks, toc, max(1, math.ceil(word_count / 200))
+
+
+def chapter_payloads(rendered_blocks, blocks):
+    """Group rendered top-level blocks near headings without breaking structures."""
+    groups, current_html, current_blocks = [], 0, []
+    for html_block, block in zip(rendered_blocks, blocks):
+        first = block[0] if block else None
+        heading_boundary = bool(first and first.type == "heading_open" and first.tag in {"h1", "h2"})
+        should_break = current_blocks and (
+            (current_html >= CHAPTER_MIN_HTML and heading_boundary)
+            or current_html + len(html_block) > CHAPTER_MAX_HTML
+        )
+        if should_break:
+            groups.append(current_blocks)
+            current_html, current_blocks = 0, []
+        current_blocks.append((html_block, block))
+        current_html += len(html_block)
+    if current_blocks:
+        groups.append(current_blocks)
+
+    chapters, heading_chapter, entries = [], {}, []
+    for chapter_index, group in enumerate(groups):
+        chapter_id = f"chapter-{chapter_index + 1}"
+        heading_ids, title = [], None
+        current_heading = None
+        for _, block in group:
+            for token in block:
+                if token.type == "heading_open":
+                    heading_id = token.attrGet("id")
+                    if heading_id:
+                        heading_ids.append(heading_id)
+                        heading_chapter[heading_id] = chapter_index
+                        current_heading = heading_id
+                    if title is None and token.tag in {"h1", "h2"}:
+                        inline = next((item for item in block if item.type == "inline"), None)
+                        title = inline.content if inline else None
+            for text in block_plain_text(block):
+                for segment in search_segments(text):
+                    entries.append({"chapterIndex": chapter_index, "headingId": current_heading, "text": segment})
+        chapters.append({"id": chapter_id, "title": title or f"第 {chapter_index + 1} 节", "html": "".join(html_block for html_block, _ in group), "headingIds": heading_ids})
+    return chapters, heading_chapter, entries
 
 
 def selected_articles(site_root: Path):
@@ -270,17 +366,28 @@ def build(root: Path = ROOT):
     rendered = []
     for selection in selected:
         markdown, markdown_bytes, _ = article_markdown(selection, site_root)
-        body, toc, minutes = render_article(markdown, slug=selection["slug"], site_root=site_root, dist=dist, article_urls=article_urls)
+        rendered_blocks, blocks, toc, minutes = render_article(markdown, slug=selection["slug"], site_root=site_root, dist=dist, article_urls=article_urls)
+        full_html = "".join(rendered_blocks)
+        chapter_payload, heading_chapter, search_entries = chapter_payloads(rendered_blocks, blocks)
+        is_large = len(full_html) > LARGE_ARTICLE_HTML
+        for item in toc:
+            chapter_index = heading_chapter.get(item["id"], 0) if is_large else 0
+            item["chapterIndex"] = chapter_index
+            item["chapterId"] = f"chapter-{chapter_index + 1}"
+        if not is_large:
+            search_entries = [{**entry, "chapterIndex": 0} for entry in search_entries]
         article = {
             "slug": selection["slug"], "title": selection["title"], "summary": selection["summary"],
-            "category": selection["category"], "html": body, "toc": toc,
+            "category": selection["category"], "html": "" if is_large else full_html, "toc": toc,
             "readingMinutes": minutes, "markdownUrl": f"articles/{selection['slug']}.md", "sourceOriginal": True,
+            "chapters": ([{"id": chapter["id"], "title": chapter["title"], "url": f"data/articles/{selection['slug']}/chapter-{index + 1:03d}.json", "headingIds": chapter["headingIds"]} for index, chapter in enumerate(chapter_payload)] if is_large else []),
+            "searchUrl": f"data/articles/{selection['slug']}/search.json",
         }
         if selection["path"] in modified_dates:
             article["modifiedAt"] = modified_dates[selection["path"]]
         if "status" in selection:
             article["status"] = selection["status"]
-        rendered.append((selection["slug"], markdown_bytes, article))
+        rendered.append((selection["slug"], markdown_bytes, article, chapter_payload if is_large else [], search_entries))
 
     data_dir = dist / "data" / "articles"
     markdown_dir = dist / "articles"
@@ -288,16 +395,25 @@ def build(root: Path = ROOT):
     markdown_dir.mkdir(parents=True, exist_ok=True)
     staged = []
     try:
-        for slug, markdown_bytes, article in rendered:
+        for slug, markdown_bytes, article, chapters, search_entries in rendered:
             with tempfile.NamedTemporaryFile(prefix=".article-", suffix=".json", dir=data_dir, delete=False, mode="w", encoding="utf-8", newline="") as handle:
                 handle.write(json.dumps(article, ensure_ascii=False, indent=2) + "\n")
                 staged.append((Path(handle.name), data_dir / f"{slug}.json"))
             with tempfile.NamedTemporaryFile(prefix=".article-", suffix=".md", dir=markdown_dir, delete=False, mode="wb") as handle:
                 handle.write(markdown_bytes)
                 staged.append((Path(handle.name), markdown_dir / f"{slug}.md"))
+            with tempfile.NamedTemporaryFile(prefix=".article-", suffix=".json", dir=data_dir, delete=False, mode="w", encoding="utf-8", newline="") as handle:
+                handle.write(json.dumps({"slug": slug, "entries": search_entries}, ensure_ascii=False, indent=2) + "\n")
+                staged.append((Path(handle.name), data_dir / slug / "search.json"))
+            for index, chapter in enumerate(chapters, start=1):
+                with tempfile.NamedTemporaryFile(prefix=".article-", suffix=".json", dir=data_dir, delete=False, mode="w", encoding="utf-8", newline="") as handle:
+                    handle.write(json.dumps({"slug": slug, "chapterId": chapter["id"], "html": chapter["html"]}, ensure_ascii=False, indent=2) + "\n")
+                    staged.append((Path(handle.name), data_dir / slug / f"chapter-{index:03d}.json"))
+        for _, target in staged:
+            target.parent.mkdir(parents=True, exist_ok=True)
         for source, target in staged:
             os.replace(source, target)
-        return [article for _, _, article in rendered]
+        return [article for _, _, article, _, _ in rendered]
     finally:
         for source, _ in staged:
             source.unlink(missing_ok=True)

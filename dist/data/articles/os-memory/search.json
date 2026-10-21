@@ -1,0 +1,720 @@
+{
+  "slug": "os-memory",
+  "entries": [
+    {
+      "chapterIndex": 0,
+      "headingId": null,
+      "text": "教材为西安电子科技大学 汤小丹老师 第四版\n视频/图片来源：https://www.bilibili.com/video/BV1jv41147h8?p=1\n操作系统系列目录：\n第一章：操作系统引论\n第二章：进程的描述与控制\n第三章：处理机调度与死锁\n第四章：存储器管理\n第五章：虚拟存储器\n第六章：输入输出系统\n第七章：文件管理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "存储器管理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.1 程序的装入和链接"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.1.1程序的链接"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.1.2程序的装入"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2 连续分配方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2.1单一连续分配方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2.2固定分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2.3动态分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2.3.1 分区分配中的数据结构"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2.3.2 分区分配算法"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "①首次适应算法FF"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "② 循环首次适应算法"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "③最佳适应算法"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "④ 最坏适应算法(worst fit)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "⑤快速适应算法(又称为分类搜索法)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2.3.3 分区分配及回收操作"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.2.4可重定位分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.3 基本分页存储管理方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.3.1 页面与页表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.3.2 地址变换机构"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.3.3 两级和多级页表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.3.4 例题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4 基本分段存储管理方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4.1分段存储管理方式的引入"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4.2分段系统的基本原理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4.2.1 分段"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4.2.2 基本分段式存储管理的实现"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4.2.3 分页和分段的相同及主要区别"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4.3信息共享(可重入代码）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4.4.4段页式存储管理方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "存储器是计算机系统的重要组成部分之一。对存储器加以有效管理，不仅直接影响存储器的利用率，而且对系统性能有重大影响。\n存储器管理的主要对象是内存，对外存的管理在文件管理中。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "4.1 程序的装入和链接"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "在多道程序环境下，要使程序运行，必须为之先建立进程。创建进程的第一件事是将程序和数据装入内存。\n将用户源程序变为可在内存中执行的程序的步骤："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "1、编译：由编译程序将用户源代码编译成若干个目标模块"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "2、链接：由链接程序将编译后形成的一组目标模块，以及它们所需要的库函数链接在一起，形成一个完整的装入模块"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "3、装入：由装入程序将装入模块装入内存"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "4.1.1程序的链接"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "程序经过编译后得到一组目标模块，再利用链接程序将目标模块链接，形成装入模块。根据链接时间的不同，把链接分成三种：\n1、静态链接：在程序运行前，将目标模块及所需的库函数链接成一个完整的装配模块，以后不再拆开。\n2、装入时动态链接：指将用户源程序编译后所得的一组目标模块，在装入内存时，采用边装入边链接的链接方式。\n3、运行时动态链接：指对某些目标模块的链接，是在程序执行中需要该目标模块时，才对它进行链接。\n在这里插入图片描述\n在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "4.1.2程序的装入"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "将一个装入模块装入内存时，有三种方式："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "绝对装入方式\n可重定位装入方式\n动态运行时装入方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "绝对装入方式\n在编译时，如果知道程序驻留在内存的什么位置，那么编译程序将产生绝对地址的目标代码。\n装入模块装入内存后，程序中的逻辑地址与实际内存地址完全相同，不须对程序和数据的地址进行修改。\n程序中所使用的绝对地址，可在编译或汇编时给出，也可由程序员赋予。\n只适合于单道程序环境"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "可重定位装入方式\n在多道程序环境下，目标模块的起始地址通常从0开始，程序中的其他地址都是相对于起始地址计算的。因此应采用可重定位装入方式，根据内存的当前情况，将装入模块装入到内存的适当位置。\n注意：在采用可重定位装入方式将装入模块装入内存后，会使装入模块中的所有逻辑地址与实际装入内存的物理地址不同。\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "动态运行时装入方式\n动态运行时的装入程序，在把装入模块装入内存后，并不立即把装入模块中的相对地址转换为绝对地址，而是把这种地址转换推迟到程序真正要执行时才进行。\n装入内存后的所有地址都仍是相对地址。\n为使地址转换不影响指令的执行速度，应设置一个重定位寄存器。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "4.2 连续分配方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "连续分配方式：指为一个用户程序分配一个连续的内存空间。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "一、单一连续分配\n二、固定分区分配\n三、动态分区分配\n四、可重定位分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "4.2.1单一连续分配方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "4.2.2固定分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "原理\n将内存用户空间划分为若干个固定大小的区域，在每个分区中只装入一道作业，便可以有多道作业并发执行。\n当有一空闲分区时，便可以再从外存的后备作业队列中，选择一个适当大小的作业装入该分区，当该作业结束时，可再从后备作业队列中找出另一作业调入该分区。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "划分分区的方法\n(1) 分区大小相等\n所有的内存分区大小相等，缺乏灵活性\n(2) 分区大小不等\n把内存区划分成含有多个较小的分区、适量的中等分区及 少量的大分区。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "实现\n为便于内存分配，通常将分区按大小进行排队，并为之建立一张分区使用表，其中包括每个分区的起始地址、大小及状态(是否已分配)。\n当有一用户程序要装入时，由内存分配程序检索该表，从中找出一个能满足要求的、尚未分配的分区，将之分配给该程序，然后将该表项中的状态置为“已分配”；若未找到大小足够的分区，则拒绝为该用户程序分配内存。\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "4.2.3动态分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "原理\n动态分区分配是根据进程的实际需要，动态地为之分配内存空间。作业装入内存时，把可用内存分出一个连续区域给作业，且分区的大小正好适合作业大小的需要。\n分区的大小和个数依装入作业的需要而定。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "实现\n在实现过程中涉及如下问题："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "分区分配中的数据结构\n分区分配算法\n分区分配及回收操作"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "4.2.3.1 分区分配中的数据结构"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "4.2.3.2 分区分配算法"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "为把一个新作业装入内存，需按照一定的分配算法，从空闲分区表或空闲分区链中选出一分区分配给该作业。\n常用的分配算法："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "(1) 首次适应算法（first fit FF）\n(2) 循环首次适应算法\n(3) 最佳适应算法（best fit BF）\n(4) 最坏适应算法（worst fit WF）\n(5) 快速适应算法(quick fit QF)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "①首次适应算法FF"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "FF算法要求空闲分区表以地址递增的次序排列。在分配内存时，从表首开始顺序查找，直至找到一个大小能满足要求的空闲分区为止；然后按照作业的大小，从该分区中划出一块内存空间分配给请求者，余下的空闲分区仍留在空闲分区表中。若从头到尾不存在满足要求的分区，则分配失败。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "优点：优先利用内存低址部分的内存空间,保留了高址部分的大空闲区。\n缺点：低址部分不断划分，产生小碎片（内存碎块、零头）；每次查找从低址部分开始，增加了查找的开销"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "② 循环首次适应算法"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "在分配内存空间时，从上次找到的空闲分区的下一个空闲分区开始查找，直到找到一个能满足要求的空闲分区，从中划出一块与请求大小相等的内存空间分配给作业。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "为实现算法，需要：\n设置一起始查寻指针、采用循环查找方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "优点：使内存空闲分区分布均匀，减少查找的开销\n缺点：缺乏大的空闲分区"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-13",
+      "text": "③最佳适应算法"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-13",
+      "text": "所谓“最佳”是指每次为作业分配内存时，总是把能满足要求、又是最小的空闲分区分配给作业，避免“大材小用”。\n要求将所有的空闲分区按其容量以从小到大的顺序形成一空闲分区链。\n缺点：产生许多难以利用的小空闲区"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "④ 最坏适应算法(worst fit)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "要扫描整个空闲分区表或链表，总是挑选一个最大的空闲区分割给作业使用。\n该算法要求将所有的空闲分区按其容量以从大到小的顺序形成一空闲分区链，查找时只要看第一个分区能否满足作业要求。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "优点：剩下的空闲区还可以利用，同时查找效率很高。\n缺点：缺乏大的空闲分区。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "⑤快速适应算法(又称为分类搜索法)"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "是将空闲分区根据其容量大小进行分类，对于每一类具有相同容量的所有空闲分区，单独设立一个空闲分区链表，系统中存在多个空闲分区链表，同时在内存中设立一张管理索引表，该表的每一个表项对应了一种空闲分区类型，并记录了该类型空闲分区链表表头的指针"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "优点是查找效率高，仅需要根据进程的长度，寻找到能容纳它的最小空闲区链表，并取下第一块进行分配即可。在进行空闲分区分配时，不会对任何分区产生分割，所以能保留大的分区，满足对大空间的需求，也不会产生内存碎片。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "缺点：在分区归还主存时算法复杂，系统开销较大。\n浪费空间，空闲分区划分越细，浪费则越严重。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "4.2.3.3 分区分配及回收操作"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "回收制度"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-17",
+      "text": "4.2.4可重定位分区分配"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "4.3 基本分页存储管理方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "连续分配方式会形成“碎片”，虽然可以通过“紧凑”解决，但开销大。如果允许将一个进程直接分散地装入许多不相邻的分区中，则无需“紧凑”，由此产生离散分配方式。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "分类：\n分页存储管理方式：离散分配的基本单位是页\n分段存储管理方式：离散分配的基本单位是段"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "基本的分页存储管理方式(或纯分页存储管理方式)：不具备页面对换功能，不具有支持实现虚拟存储器的功能，要求把每个作业全部装入内存后方能运行。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "4.3.1 页面与页表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "分页式存储管理的原理:"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "将一个进程的逻辑地址空间分成若干个大小相等的片称为页面或页，并为各页加以编号，从0开始。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "同时把内存空间分成与页面相同大小的若干个存储块，称为块或页框。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "在为进程分配内存时，以块为单位将进程的若干个页分别装入到多个可以不相邻的物理块中。进程的最后一页经常装不满一块而形成“页内碎片”。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "在这里插入图片描述\n与4.6 请求分页式存储管理的区别"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "基本分页式存储管理（简单页式存储管理）的原理\n系统若能满足一个作业所要求的全部块数，此作业才能被装入内存，否则不为它分配任何内存。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "请求分页式存储管理的原理\n运行一个作业时，并不要求把该作业的全部程序和数据都装入内存，可以只把目前要执行的几页调入内存的空闲块中，其余的仍保存在外存中，以后根据作业运行的需要再调入内存。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "页面大小的选择"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "由机器的地址结构所决定的，即由硬件所决定\n某一种机器只能采用一种大小的页面。\n小：内碎片小，内存利用率高，但页面数目多，使页表过长，占大量内存，管理开销大\n大：页表短，管理开销小，内碎片大，内存利用率低\n页面大小应适中，是2的幂，通常是512B~8KB"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "地址结构\n在这里插入图片描述\n在这里插入图片描述\n基本分页式存储管理（简单页式存储管理）的实现"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "进程的每一页离散地存储在内存的任一存储块中，为方便查找，系统为每一进程建立一张页面映像表，简称页表。\n页表实现了从页号到物理块号的地址映射。\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "4.3.2 地址变换机构"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "为了能将用户地址空间的逻辑地址变换为内存空间的物理地址，在系统中必须设置地址变换机构。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "地址变换机构实现从逻辑地址到物理地址的转换，由于页内地址与物理地址是一 一对应的，因此，地址变换机构的任务是借助于页表，将逻辑地址中的页号转换为内存中的物理块号。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "原理：\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "基本的地址变换机构"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "页表的功能可以由一组专门的寄存器来实现，一个页表项用一个寄存器。但寄存器成本高，系统页表可能很大，所以页表大多常驻内存。\n在系统中只设置一个页表寄存器PTR，存放着页表在内存中的始址和页表的长度。平时，进程没有执行时，页表的始址和页表长度存放在进程的PCB中，当调度到进程时，才将这两个数据装入到页表寄存器中。\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "具有快表的地址变换机构"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "作业表\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "4.3.3 两级和多级页表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "现代计算机系统都支持非常大的逻辑地址空间(232 ~264)，页表就非常大，需占用较大的地址空间。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "例如：一个具有32位逻辑地址空间的分页系统，规定页面大小为4KB 即 212B，则每个进程页表的页表项可达1M (232/212=220)个，若每个页表项占用一个字节，则每个进程的页表就要占据1MB的内存空间，而且要求连续存放。\n解决方法：\n采用离散方式存储\n只将当前所需页表项调入内存"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "两级页表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "在这里插入图片描述\n在这里插入图片描述\n两级页表的实现：在这里插入图片描述\n上述方法用离散分配空间解决了大页表无需大片存储空间的问题，但并未减少页表所占的内存空间。\n解决方法:\n是把当前需要的一批页表项调入内存，以后再根据需要陆续调入。在采用两级页表结构的情况下，对正在运行的进程，必须将其外层页表调入内存，而对页表则只需调入一页或几页。\n这就需要在外层页表项中增设一个状态位S，用于表示该页表是否调入内存。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "多级页表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "两级页表对32位机器适用，64位呢？\n页面大小为4KB即212B，还剩52位，按物理块大小212位来划分页表，则剩余40位用于外层页号，此时外层页表可能有1024G（240B）个页表项，要占用4096GB的连续存储空间"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "4.3.4 例题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "例1. 设页面大小为1KB，将逻辑地址3BADH划分为页号和页内偏移量两部分。用16进制表示。\n例2. 设页面大小为2KB，将逻辑地址3BADH划分为页号和页内偏移量两部分。用16进制表示。\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "例3. 设页面大小为2KB，作业的页表如下图。求逻辑地址3BADH的物理地址。用16进制表示。\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "例4：有一系统采用页式存储管理，有一作业大小是8KB，页大小为2KB，依次装入内存的第7、9、A、5块，试将虚地址0AFEH转换成内存地址。\n在这里插入图片描述\n复杂做法\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "4.4 基本分段存储管理方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "4.4.1分段存储管理方式的引入"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "在这里插入图片描述\n在这里插入图片描述\n引入分段存储管理方式，主要是为了满足用户和程序员的需要"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "便于编程\n用户常把自己的作业按逻辑关系划分成若干个段，每段都有自己的名字，且都从零开始编址，这样，用户程序在执行中可用段名和段内地址进行访问。例如：LOAD 1，[A] | 。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "分段共享\n在实现程序和数据的共享时，常常以信息的逻辑单位为基础，而分页系统中的每一页只是存放信息的物理单位，其本身没有完整的意义，因而不便于实现信息的共享，而段却是信息的逻辑单位，有利于信息的共享。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "分段保护\n信息保护是对相对完整意义的逻辑单位(段)进行保护"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "动态链接\n当运行过程中又需要调用某段时，再将该段（目标程序）调入内存并链接起来。所以，动态链接是以段为基础的。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "动态增长\n在实际系统中，有些数据段会不断地增长，而事先却无法知道数据段会增长到多大，分段存储管理方式能较好地解决这个问题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "4.4.2分段系统的基本原理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "4.4.2.1 分段"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "4.4.2.2 基本分段式存储管理的实现"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "1）段表\n为使程序正常运行，须在系统中为每个进程建立一张段映射表，简称“段表”。每个段在表中占有一个表项。\n段表结构：段号；段在内存中的起始地址(基址)；段长。\n段表可以存放在寄存器中，但更多的是存放在内存中。\n段表用于实现从 逻辑段 到 物理内存区 的映射。\n在这里插入图片描述\n2）地址变换机构\n在系统中设置段表寄存器，用于存放段表始址和段表长度，以实现从进程的逻辑地址到物理地址的变换。\n当段表存放在内存中时，每访问一个数据，都需访问两次内存，降低了计算机的速率。\n解决方法：设置联想寄存器，用于保存最近常用的段表项。\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "4.4.2.3 分页和分段的相同及主要区别"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "4.4.3信息共享(可重入代码）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "分段系统的一个突出优点是易于实现段的共享和保护，允许若干个进程共享一个或多个分段，且对段的保护十分简单易行。\n分页系统中虽然也能实现程序和数据的共享，但远不如分段系统方便。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "4.4.4段页式存储管理方式"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "在这里插入图片描述\n在这里插入图片描述\n2. 地址变换过程\n在段页式系统中，为了实现地址变换，增加一个段表寄存器，用来存放段表始址和段长。\n在这里插入图片描述\n在这里插入图片描述"
+    }
+  ]
+}

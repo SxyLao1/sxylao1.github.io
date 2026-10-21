@@ -1,0 +1,115 @@
+{
+  "slug": "os-files",
+  "entries": [
+    {
+      "chapterIndex": 0,
+      "headingId": null,
+      "text": "参考大佬博客：《王道操作系统》学习笔记总目录+思维导图\nb站王道操作系统：王道计算机考研 操作系统\n操作系统系列目录：\n第一章：操作系统引论\n第二章：进程的描述与控制\n第三章：处理机调度与死锁\n第四章：存储器管理\n第五章：虚拟存储器\n第六章：输入输出系统\n第七章：文件管理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "文件管理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "1. 初识文件管理概念和功能"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "2. 文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "3. 文件目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "4. OS之文件共享（索引节点-硬链接、符号链接-软链接）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "5.OS之文件保护（口令保护、加密保护、访问控制）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "1. 初识文件管理概念和功能"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "只要知道：文件管理是干这个就行\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "2. 文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "参考博客：文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "3. 文件目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "参考博客：OS之文件目录目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "4. OS之文件共享（索引节点-硬链接、符号链接-软链接）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "在这里插入图片描述\n在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "参考博客： OS之文件共享（索引节点-硬链接、符号链接-软链接）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "5.OS之文件保护（口令保护、加密保护、访问控制）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "在这里插入图片描述"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "参考博客： OS之文件保护（口令保护、加密保护、访问控制）"
+    }
+  ]
+}

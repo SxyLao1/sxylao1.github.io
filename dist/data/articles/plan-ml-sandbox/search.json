@@ -1,0 +1,1370 @@
+{
+  "slug": "plan-ml-sandbox",
+  "entries": [
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "机器学习与深度学习学习计划：面向沙箱安全"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "创建时间：2026-07-31\n当前起点：机器学习、深度学习 0 基础；已有安全、邮件、沙箱、恶意样本分析方向的学习需求。\n目标场景：后续做沙箱安全、恶意样本检测、行为日志分析和安全产品判断，不是为了转纯算法研究岗。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "这条路线解决的问题不是“把 AI 全学完”，而是让我能看懂安全产品里为什么要用模型、模型吃什么数据、怎么评估误报漏报，以及后面自己能做一个小型的沙箱行为分类原型。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-1",
+      "text": "最容易踩的坑有三个：一上来啃公式、直接追大模型、拿恶意样本硬跑。这里先反过来走：先建立数据和评估直觉，再用传统机器学习做安全特征分类，最后补深度学习。真正的样本执行、附件提取和动态分析仍然放隔离环境，不在办公主机上做。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "当前结论"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "我目前更适合按这条主线学："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "Python 数据处理\n  ↓\n传统机器学习：分类、聚类、异常检测、评估指标\n  ↓\n安全特征工程：PE 静态特征、沙箱行为特征、邮件/URL/进程日志特征\n  ↓\n深度学习基础：张量、反向传播、MLP、CNN、RNN/Transformer 概念\n  ↓\n沙箱安全原型：从行为日志判断恶意/可疑/良性，解释误报和漏报\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-2",
+      "text": "先不要追“模型很大”“GPU 训练”“论文复现”。安全产品里真正要先会的是：数据从哪里来、标签是否可信、模型为什么误报、漏报能不能被规则兜住、上线后怎么观察漂移。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "最终能力目标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "学完第一轮后，应该能做到这些事："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能力"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "到什么程度算够用"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "机器学习基本概念"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能说清训练集、测试集、特征、标签、过拟合、泛化、分类、聚类、异常检测"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "模型评估"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能看懂准确率、召回率、精确率、F1、ROC-AUC、混淆矩阵，知道安全场景为什么不能只看准确率"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "传统模型"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能用 scikit-learn 训练逻辑回归、随机森林、XGBoost/LightGBM 类模型，知道它们适合结构化特征"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "深度学习基础"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能理解张量、神经网络、损失函数、反向传播、epoch、batch、学习率"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "安全特征工程"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能把沙箱日志转成模型可用特征，例如进程树、文件行为、注册表、网络连接、API 调用序列"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "沙箱检测思路"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能设计“规则 + 机器学习”的组合，而不是迷信模型单点判定"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "可解释性"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "能回答某个样本为什么被模型判恶意，至少能列出贡献特征和人工复核路径"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "工程边界"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-3",
+      "text": "知道模型训练、离线评估、线上推理、反馈闭环、模型漂移分别是什么"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "第一阶段：机器学习直觉和 Python 数据处理（第 1-3 周）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-4",
+      "text": "目标不是推公式，而是先知道“模型到底在学什么”。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "要学的概念"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "数据集、样本、特征、标签"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "监督学习、无监督学习、半监督学习"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "分类、回归、聚类、异常检测"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "训练集、验证集、测试集"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "过拟合、欠拟合、泛化"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-5",
+      "text": "数据泄漏：训练时偷看了测试答案，安全场景很容易犯这个错"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "Python 工具"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "工具"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "用途"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "NumPy"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "数组、矩阵、数值计算"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "Pandas"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "表格数据处理，后面处理日志很常用"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "Matplotlib / Seaborn"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "画分布、趋势、混淆矩阵"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "scikit-learn"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "传统机器学习主力库"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "Jupyter Notebook"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-6",
+      "text": "实验记录，适合边跑边解释"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "练习任务"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "用 Pandas 读一个 CSV，做字段统计、缺失值统计、类别分布。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "用 scikit-learn 跑一个最简单的二分类例子。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "手动画出混淆矩阵，理解 TP、FP、TN、FN。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "写一页笔记：为什么安全检测里“准确率 99%”可能是废话。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-7",
+      "text": "这里先用干净公开数据，不碰真实恶意样本。比如鸢尾花、Titanic、公开日志样例都够用。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "第二阶段：传统机器学习主线（第 4-8 周）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-8",
+      "text": "沙箱安全里大量数据其实是结构化特征，不一定一上来就需要深度学习。传统机器学习更容易解释，也更适合第一轮建立体感。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "必学模型"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "模型"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "要理解什么"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "安全里的类比"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "逻辑回归"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "线性分类、权重、概率输出"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "一组特征加权后判恶意概率"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "决策树"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "if/else 分裂"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "像自动学出来的规则树"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "随机森林"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "多棵树投票"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "多个弱规则组合，抗噪声更好"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "GBDT / XGBoost / LightGBM"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "多轮修正错误"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "结构化安全特征的强基线"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "K-Means"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "聚类"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "把相似行为聚成族群"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "Isolation Forest"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "异常检测"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "找“不像正常软件”的行为"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "One-Class SVM"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "单类学习"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-9",
+      "text": "只有良性样本时做异常检测"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "安全方向练习"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "先不要下载真实恶意文件。第一轮用“特征数据”或自己构造的模拟日志。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-10",
+      "text": "可以做三个小项目："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "项目 1：URL 风险分类"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "输入特征可以是："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "域名长度\n路径长度\n是否有 IP 地址\n是否有 @ 符号\n子域名层级\n可疑关键词数量\n是否 HTTPS\n数字字符比例\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "目标：训练一个模型判断 URL 是正常还是可疑。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-11",
+      "text": "这个项目价值在于：它和邮件钓鱼、安全网关非常贴近，而且不用碰二进制恶意样本。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "项目 2：进程行为日志分类"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "构造或使用脱敏日志，把每个程序的行为变成特征："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "创建进程数量\n写入临时目录次数\n修改注册表次数\n创建计划任务次数\n外连域名数量\n连接非常见端口数量\n写启动项次数\n短时间内文件改名/删除数量\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "目标：判断行为是良性、可疑还是恶意。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-12",
+      "text": "这个项目和沙箱最接近。关键不是模型多高级，而是特征设计是否像安全人员会看的证据。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-13",
+      "text": "项目 3：恶意 PE 静态特征分类"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-13",
+      "text": "用公开的特征数据集，不直接碰真实样本。优先看 EMBER 这种只发布 PE 派生特征的数据。它的价值是能学习真实恶意软件检测里的特征组织方式，例如字节直方图、导入表、节区、字符串统计等。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-13",
+      "text": "注意：如果后面需要真实样本，仍然只进隔离环境和受控样本库，不在办公主机上执行、预览或提取。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "第三阶段：评估指标和安全产品判断（第 9-11 周）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-14",
+      "text": "这一阶段很重要。很多人会训练模型，但不会判断模型在安全场景里能不能用。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "必会指标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "指标"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "中文"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "安全场景含义"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "Accuracy"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "准确率"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "全部样本中判对比例；类别极不平衡时容易骗人"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "Precision"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "精确率"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "判恶意的里面有多少真恶意；低了会误报多"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "Recall"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "召回率"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "真恶意里抓住多少；低了会漏报多"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "F1"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "精确率和召回率的折中"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "一个粗略综合指标，但不能替代业务判断"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "ROC-AUC"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "不同阈值下的区分能力"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "看模型排序能力，不等于上线效果"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "PR-AUC"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "Precision-Recall 曲线面积"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "类别不平衡时比 ROC-AUC 更有参考价值"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "Confusion Matrix"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "混淆矩阵"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-15",
+      "text": "直接看 TP、FP、TN、FN"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "需要形成的判断"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "安全产品里常见问题不是“模型准不准”，而是："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "这个模型漏掉的是哪类样本？\n误报集中在哪类业务软件？\n阈值调高后会少多少误报、多多少漏报？\n规则引擎能不能补模型短板？\n模型结论有没有证据能给运营人员看？\n线上数据分布和训练数据是不是已经不一样？\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-16",
+      "text": "这一阶段的产物：给前面任意一个小项目写一份评估报告，必须包含混淆矩阵、误报样例分析、漏报样例分析、阈值选择理由。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-17",
+      "text": "第四阶段：深度学习基础（第 12-16 周）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-17",
+      "text": "深度学习先学 PyTorch。理由很简单：安全研究、论文复现、底层控制和工程调试里，PyTorch 的心智模型更直观。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "必学概念"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Tensor：张量，可以先理解成高维数组"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Layer：神经网络层"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Loss：损失函数，表示预测和答案差多远"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Optimizer：优化器，负责根据损失更新参数"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Backpropagation：反向传播，自动计算参数该怎么改"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Epoch：完整看一遍训练集"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Batch：一小批样本"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-18",
+      "text": "Learning Rate：学习率，步子太大震荡，太小学得慢"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "模型顺序"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "模型"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "为什么学"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "MLP"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "最基础的全连接网络，理解神经网络工作流"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "CNN"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "原本用于图像，但也能理解局部模式提取"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "RNN / LSTM 概念"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "理解序列数据，例如 API 调用序列"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "Transformer 概念"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "理解现代序列建模和注意力，不急着手写大模型"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "Autoencoder"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-19",
+      "text": "异常检测常见，适合良性行为建模"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "安全方向练习"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "用 MLP 重新做 URL/行为特征分类，对比随机森林。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "用简单序列模型处理 API 调用序列，例如 CreateFile -> WriteFile -> RegSetValue -> CreateProcess。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "用 Autoencoder 学“正常程序行为”，再观察异常样本重构误差。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-20",
+      "text": "这里的核心问题是：深度学习是不是比传统模型更好。不要默认更好，要用同一份测试集比较。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "第五阶段：沙箱安全专题（第 17-22 周）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-21",
+      "text": "这一阶段开始把 ML/DL 和沙箱产品真正连起来。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "沙箱数据从哪里来"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "沙箱能给模型的不是“恶意”两个字，而是一堆行为证据："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "进程树\n命令行参数\n文件创建/修改/删除\n注册表写入\n网络连接\nDNS 查询\nHTTP 请求\nTLS 指纹\nAPI 调用序列\n内存注入迹象\n持久化行为\n权限提升行为\n反沙箱行为\n睡眠/延迟执行\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-22",
+      "text": "这些东西要先变成特征，模型才能吃。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "特征设计路线"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "数据"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "简单特征"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "进阶特征"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "进程"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "子进程数量、可疑命令行关键词"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "进程树结构、父子关系异常"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "文件"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "写入目录、扩展名、数量"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "文件行为时间序列、批量加密迹象"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "注册表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "写启动项次数"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "持久化路径分类"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "网络"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "域名数量、端口、国家"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "DGA 特征、JA3/JA4、连接时序"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "API"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "API 调用计数"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "API n-gram、调用序列模型"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "反沙箱"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "检测 VM、长睡眠、鼠标/窗口探测"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-23",
+      "text": "反分析行为组合评分"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "小型沙箱模型原型"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "目标：做一个“行为风险评分器”，输入一份沙箱 JSON 行为日志，输出："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "risk_score: 0-100\nfamily_hint: downloader / stealer / ransomware-like / benign-like / unknown\nreasons:\n  - 写入启动项\n  - 创建 powershell 子进程\n  - 短时间大量改写用户文档\n  - 外连新注册域名\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "第一版不要追求完整自动化。先用规则 + 传统模型混合："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "规则引擎负责高置信行为\n机器学习负责相似行为归纳\n人工解释层负责告诉人为什么\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-24",
+      "text": "这比“模型直接给恶意概率”更像真实安全产品。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "第六阶段：工程化和上线意识（第 23-24 周）"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-25",
+      "text": "最后补安全产品落地问题。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "必须理解的工程问题"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "数据采集：日志字段是否稳定，缺字段怎么处理"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "标签来源：AV 多引擎、人工分析、沙箱规则、威胁情报，可信度不同"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "数据漂移：攻击手法变了，模型老化"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "模型版本：训练数据、特征代码、模型文件必须能对应"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "阈值策略：不同客户环境误报承受能力不同"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "回滚机制：模型误报暴涨时能不能快速退回"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "可解释性：运营人员要看到证据，不是只看概率"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-26",
+      "text": "隐私和合规：样本、文件路径、用户名、域名、邮件内容不能乱传"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "最终交付物"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "这一轮学习结束时，应该留下这些东西："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-27",
+      "text": "1. 一份 ML 基础概念笔记\n2. 一份模型评估指标笔记\n3. 一个 URL 风险分类 notebook\n4. 一个沙箱行为特征工程 notebook\n5. 一个传统模型 vs 简单深度模型的对比实验\n6. 一份沙箱行为风险评分器设计文档\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "12 周压缩路线"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "如果后面时间紧，可以压缩成 12 周："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "周数"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "内容"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "产物"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "1"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "Python 数据处理、Pandas、可视化"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "读 CSV + 字段分布 notebook"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "2"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "ML 基本概念、训练/测试、过拟合"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "一页概念笔记"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "3"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "分类模型：逻辑回归、随机森林"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "URL 分类 baseline"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "4"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "评估指标：混淆矩阵、Precision/Recall/F1"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "模型评估报告"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "5"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "异常检测：Isolation Forest、One-Class SVM"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "良性行为异常检测 demo"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "6"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "安全特征工程：进程、文件、注册表、网络"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "沙箱日志特征表"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "7"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "PyTorch 入门：Tensor、Dataset、训练循环"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "MLP 二分类 demo"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "8"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "序列建模概念：API 调用序列、n-gram"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "API 序列特征 demo"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "9"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "Autoencoder 异常检测"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "正常行为建模 demo"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "10"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "EMBER/SOREL 这类公开特征数据认知"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "PE 静态特征笔记"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "11"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "规则 + 模型组合"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "风险评分器草图"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "12"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "汇总复盘"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-28",
+      "text": "沙箱 ML 第一版路线复盘"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "每周节奏"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "一周按 5-7 小时也能推进："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "2 小时：看概念和例子\n2 小时：敲代码或跑 notebook\n1 小时：改数据、看错误、画图\n1 小时：写笔记，记录自己哪里没懂\n1 小时：安全场景映射，把概念翻译成沙箱问题\n"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-29",
+      "text": "不要只看课。每周必须有一个能运行的小产物，否则下周会忘。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "推荐资料入口"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "这里先记权威入口，不复制教程正文。使用前按日期复核版本和安装命令。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "scikit-learn Getting Started：传统机器学习主入口，适合先做分类、聚类、评估。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "PyTorch Learn the Basics：PyTorch 基础工作流，覆盖 Tensor、Dataset、模型、自动微分、优化和保存模型。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "PyTorch Tutorials：后续查 PyTorch 专题教程。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "TensorFlow Tutorials：作为对照资料即可，不作为第一主线。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "EMBER：PE 恶意软件机器学习公开特征数据集；2026-07-31 检查时仓库已归档只读，但仍适合理解静态 PE 特征和 benchmark 思路。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-30",
+      "text": "SOREL-20M on AWS Open Data：更大的恶意软件检测数据集，资源很重，先只读介绍，不急着下载。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-31",
+      "text": "安全边界"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-31",
+      "text": "这份计划只面向合法授权、本地实验和防御性分析。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-31",
+      "text": "不在办公主机执行、预览、解码或提取真实恶意样本附件。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-31",
+      "text": "第一轮练习优先用公开特征数据、脱敏日志、自造样例和隔离 VM。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-31",
+      "text": "真实恶意文件只进入隔离样本环境，且先明确来源、哈希、存储路径、网络隔离和快照恢复方式。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-31",
+      "text": "训练数据里如果包含客户日志、邮箱地址、路径、域名或用户名，必须先脱敏再进入笔记或可分享报告。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-31",
+      "text": "模型输出不能直接等同于安全结论；安全结论必须能回到行为证据、规则命中、人工分析或可复现实验。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-32",
+      "text": "先从哪里开始"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-32",
+      "text": "第一步不用想太多，直接做这三个动作："
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-32",
+      "text": "建一个 ml-sandbox-learning 目录，放 notebook 和小数据。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-32",
+      "text": "跑通 scikit-learn 的二分类 demo，亲手打印混淆矩阵。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-32",
+      "text": "写一份“安全检测为什么不能只看准确率”的短笔记。"
+    },
+    {
+      "chapterIndex": 0,
+      "headingId": "section-32",
+      "text": "跑通之后再进入 URL 风险分类。只要这个项目跑起来，后面的沙箱行为分类就有抓手了。"
+    }
+  ]
+}

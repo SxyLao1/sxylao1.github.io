@@ -8,96 +8,134 @@
     {
       "id": "section-2",
       "text": "4.1 程序的装入和链接",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-3",
       "text": "4.1.1程序的链接",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-4",
       "text": "4.1.2程序的装入",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-5",
       "text": "4.2 连续分配方式",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-6",
       "text": "4.2.1单一连续分配方式",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-7",
       "text": "4.2.2固定分区分配",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-8",
       "text": "4.2.3动态分区分配",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-17",
       "text": "4.2.4可重定位分区分配",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-18",
       "text": "4.3 基本分页存储管理方式",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-19",
       "text": "4.3.1 页面与页表",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-20",
       "text": "4.3.2 地址变换机构",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-21",
       "text": "4.3.3 两级和多级页表",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-22",
       "text": "4.3.4 例题",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-23",
       "text": "4.4 基本分段存储管理方式",
-      "level": 2
+      "level": 2,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-24",
       "text": "4.4.1分段存储管理方式的引入",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-25",
       "text": "4.4.2分段系统的基本原理",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-29",
       "text": "4.4.3信息共享(可重入代码）",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-30",
       "text": "4.4.4段页式存储管理方式",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     }
   ],
   "readingMinutes": 31,
   "markdownUrl": "articles/os-memory.md",
   "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/os-memory/search.json",
   "modifiedAt": "2024-11-26"
 }

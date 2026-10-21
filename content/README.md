@@ -1,5 +1,13 @@
 # 内容目录
 
+## 感悟
+
+每篇感悟保存为 `reflections/<slug>.json`，包含 `slug`、`title`、`publishedAt`（ISO 日期）、`excerpt`、`paragraphs`（段落数组）和 `order`。日期表示收录时间；`order` 用于同日排序。正文是纯文本，页面自动转义。
+
+运行 `python scripts/build_pages.py` 后，生成独立的 `thought-<slug>.html` 全文和 `thoughts.html` 索引。关于页只显示最近两篇摘录，新增感悟不会将其他个人信息不断向下推。
+
+## 时光足迹
+
 `moments/` 是时光足迹的持久来源。每条足迹使用一个独立目录：
 
 ```text

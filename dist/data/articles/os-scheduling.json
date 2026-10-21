@@ -8,41 +8,57 @@
     {
       "id": "section-2",
       "text": "3.1 处理机调度的基本概念",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-21",
       "text": "3.2 调度算法",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-27",
       "text": "3.3 实时调度",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-39",
       "text": "3.4 多处理机系统中的调度",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-40",
       "text": "3.5产生死锁的原因和必要条件",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-52",
       "text": "3.6 预防死锁的方法",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     },
     {
       "id": "section-56",
       "text": "3.7 死锁的检测与解除",
-      "level": 3
+      "level": 3,
+      "chapterIndex": 0,
+      "chapterId": "chapter-1"
     }
   ],
   "readingMinutes": 57,
   "markdownUrl": "articles/os-scheduling.md",
   "sourceOriginal": true,
+  "chapters": [],
+  "searchUrl": "data/articles/os-scheduling/search.json",
   "modifiedAt": "2024-11-26"
 }
