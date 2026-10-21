@@ -24,7 +24,7 @@ python -m http.server 8000 --directory dist
 
 ```powershell
 python -X utf8 -m unittest discover -s tests -v
-node --test tests/test_reader_runtime.mjs
+node --test tests/test_reader_runtime.mjs tests/test_gallery_runtime.mjs
 python scripts/check_site.py
 ```
 
