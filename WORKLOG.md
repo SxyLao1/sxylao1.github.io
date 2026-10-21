@@ -11,7 +11,8 @@
 - 首页精选：Penetration、8086 汇编、Pwn 和样本初步分析。
 - 托管：GitHub Pages，网站 https://sxylao1.github.io/ ，静态产物为 `dist/`。
 - 首次发布提交：`20e579922f746d1e012cb5230637ab3cd657775a`；[部署运行成功](https://github.com/SxyLao1/sxylao1.github.io/actions/runs/39641809314)。
-- 验证：首页、关于、博客、相册、联系和三份数据/备份资源均可无认证访问；远端目录为 14 项、图库 4/11/12，足迹备份与发布产物一致。
+- 本次发布：原文阅读与个人内容更新已合并至 `6392db8c937d52452eb540d668aaa03468c9bdf8`；[Pages 部署成功](https://github.com/SxyLao1/sxylao1.github.io/actions/runs/39646998910)，变更见 [PR #2](https://github.com/SxyLao1/sxylao1.github.io/pull/2)。
+- 线上核对：六个页面、17 篇正文与原文下载、头像及本地插图样例可无认证访问，内容与提交产物一致；图库为 4/11/12，足迹备份保持一致。
 - 后续维护：更新内容并生成 `dist/`，验证后推送 `main`；GitHub Actions 自动发布。文档更新不会触发重复部署。
 
 ## Referenced by（导航辅助，非权威）
