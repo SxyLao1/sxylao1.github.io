@@ -8,260 +8,262 @@
     {
       "id": "section-1",
       "text": "Information Forensics",
-      "level": 1,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 1
     },
     {
       "id": "section-2",
       "text": "0x01 Respond*",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-3",
       "text": "InformationGathering",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-4",
+      "text": "SystemPasswd",
+      "level": 4
+    },
+    {
+      "id": "section-5",
+      "text": "BroswerPasswd",
+      "level": 4
+    },
+    {
+      "id": "section-6",
+      "text": "RecentFile",
+      "level": 4
+    },
+    {
+      "id": "section-7",
+      "text": "Hosts",
+      "level": 4
+    },
+    {
+      "id": "section-8",
+      "text": "Middleware",
+      "level": 4
+    },
+    {
+      "id": "section-9",
+      "text": "UserManager",
+      "level": 4
+    },
+    {
+      "id": "section-10",
+      "text": "NetworkConnections",
+      "level": 4
+    },
+    {
+      "id": "section-11",
+      "text": "ProcessAnalyse",
+      "level": 4
+    },
+    {
+      "id": "section-12",
+      "text": "StartsAutomatically",
+      "level": 4
+    },
+    {
+      "id": "section-13",
+      "text": "定时任务/计划任务",
+      "level": 5
+    },
+    {
+      "id": "section-14",
+      "text": "注册表",
+      "level": 5
+    },
+    {
+      "id": "section-15",
+      "text": "服务",
+      "level": 5
+    },
+    {
+      "id": "section-16",
+      "text": "FileAnalysis",
+      "level": 4
     },
     {
       "id": "section-17",
       "text": "MaintainTheFirstScene",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-18",
       "text": "LogTypeOfAnalysis",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-19",
       "text": "0x02 Blocking",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-20",
       "text": "0x03 Analyse*",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-21",
       "text": "1)Data、Traffic、SampleAnalysis",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-22",
       "text": "2)Behavior Analysis & Restore Attack Process",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-23",
       "text": "0x04 Clean*",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-24",
       "text": "1)Non-adversarial",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-25",
       "text": "2)Adversarial",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-26",
+      "text": "不死马",
+      "level": 4
+    },
+    {
+      "id": "section-27",
+      "text": "高权限启动",
+      "level": 4
     },
     {
       "id": "section-28",
       "text": "0x05 Reinforce*",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-29",
       "text": "Memory Forensics",
-      "level": 1,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 1
     },
     {
       "id": "section-30",
       "text": "Linux Forensics",
-      "level": 1,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 1
     },
     {
       "id": "section-31",
       "text": "0x01 Information Gathering",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-32",
       "text": "0x02 Intetnet",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-33",
       "text": "0x03 User",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-34",
       "text": "Super User",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-35",
       "text": "Empty password",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-36",
       "text": "Sudoers Account",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-37",
       "text": "SSH Softlink",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-38",
       "text": "Certificate Login",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-39",
       "text": "0x04 Log",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-40",
       "text": "History Log",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-41",
       "text": "Logon Log",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-42",
       "text": "0x05 Permission maintenance",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-43",
       "text": "Hidden File",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-44",
       "text": "Read_only",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-45",
       "text": "Port multiplexing(Actual Combat)",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-46",
       "text": "DLL Hijacking",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-47",
       "text": "cron(Actual Combat + CTF)",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-48",
       "text": "Foreground Program, Background Program, Daemons",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-49",
       "text": "Writable File(CTF+Promote Permissions)",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-50",
       "text": "SUID(Promote Permissions)",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-51",
       "text": "0x06 RBASH(CTFtarget+SandboxEscape)",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     }
   ],
   "readingMinutes": 45,
   "markdownUrl": "articles/forensics.md",
   "sourceOriginal": true,
-  "chapters": [],
   "searchUrl": "data/articles/forensics/search.json",
   "modifiedAt": "2024-10-12"
 }

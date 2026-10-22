@@ -77,43 +77,32 @@ code line two
             self.assertTrue(published["sourceOriginal"])
             self.assertEqual(published["modifiedAt"], "2026-10-22")
 
-    def test_large_article_uses_balanced_chapters_and_search_index(self):
-        parts = ["# Start\n\n"]
+    def test_large_article_keeps_full_html_all_heading_levels_and_search_index(self):
+        parts = ["# Start\n\n## Second\n\n### Third\n\n#### Fourth\n\n##### Fifth\n\n###### Sixth\n\n"]
         for number in range(22):
             parts.append(f"## Section {number}\n\n" + (f"paragraph-{number} " * 900) + "\n\n")
         parts.append("## Last Section\n\n```text\nCODE-FINAL\n```\n\n$$\n\\omega\n$$\n")
         temporary, root = self.make_site("".join(parts))
         with temporary:
             article = articles.build(root)[0]
-            self.assertEqual(article["html"], "")
-            self.assertGreater(len(article["chapters"]), 1)
-            self.assertTrue(all(item["chapterId"].startswith("chapter-") for item in article["toc"]))
-            self.assertTrue(all("chapterIndex" in item for item in article["toc"]))
-            chapter_html = []
-            for chapter in article["chapters"]:
-                chapter_path = root / "dist" / chapter["url"]
-                payload = json.loads(chapter_path.read_text(encoding="utf-8"))
-                chapter_html.append(payload["html"])
-                self.assertEqual(payload["slug"], "safe-article")
-            combined = "".join(chapter_html)
-            self.assertIn("paragraph-0", combined)
-            self.assertIn("paragraph-21", combined)
+            self.assertNotIn("chapters", article)
+            self.assertEqual([item["level"] for item in article["toc"][:6]], [1, 2, 3, 4, 5, 6])
+            self.assertIn("paragraph-0", article["html"])
+            self.assertIn("paragraph-21", article["html"])
             search = json.loads((root / "dist" / article["searchUrl"]).read_text(encoding="utf-8"))
             self.assertTrue(any("CODE-FINAL" in item["text"] for item in search["entries"]))
             self.assertTrue(any("\\omega" in item["text"] for item in search["entries"]))
             self.assertTrue(any("Last Section" in item["text"] for item in search["entries"]))
             self.assertTrue(all(len(item["text"]) <= 1600 for item in search["entries"]))
 
-    def test_search_entries_in_unheaded_chapter_do_not_point_to_prior_heading(self):
-        code = "CODE-BLOCK\n" * 7000
-        temporary, root = self.make_site("# Only heading\n\n```text\n" + code + "```\n\n```text\n" + code + "```\n\n```text\n" + code + "```\n")
+    def test_search_entries_keep_continuous_heading_context(self):
+        temporary, root = self.make_site("# First\n\nintro\n\n## Last\n\n```text\nCODE-BLOCK\n```\n\n$$\n\\omega\n$$\n")
         with temporary:
             article = articles.build(root)[0]
-            self.assertGreater(len(article["chapters"]), 1)
-            headings_by_index = {index: set(chapter["headingIds"]) for index, chapter in enumerate(article["chapters"])}
             search = json.loads((root / "dist" / article["searchUrl"]).read_text(encoding="utf-8"))
-            for entry in search["entries"]:
-                self.assertTrue(entry["headingId"] is None or entry["headingId"] in headings_by_index[entry["chapterIndex"]])
+            last_entries = [entry for entry in search["entries"] if "CODE-BLOCK" in entry["text"] or "\\omega" in entry["text"]]
+            self.assertTrue(last_entries)
+            self.assertTrue(all(entry["headingId"] == "section-2" for entry in last_entries))
 
     def test_original_crlf_and_actual_unsafe_destinations_are_preserved_or_inert(self):
         source_bytes = b"# Title\r\n\r\n[unsafe](javascript:alert(1)) ![missing](file:///C:/private.png)\r\n"

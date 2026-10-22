@@ -2,1552 +2,1242 @@
   "slug": "os-scheduling",
   "entries": [
     {
-      "chapterIndex": 0,
       "headingId": null,
       "text": "教材为西安电子科技大学 汤小丹老师 第四版\n视频/图片来源：https://www.bilibili.com/video/BV1jv41147h8?p=1\n操作系统系列目录：\n第一章：操作系统引论\n第二章：进程的描述与控制\n第三章：处理机调度与死锁\n第四章：存储器管理\n第五章：虚拟存储器\n第六章：输入输出系统\n第七章：文件管理"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "处理机调度与死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1 处理机调度的基本概念"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.1高级、中级和低级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.1.0 补充：作业和进程 + 作业、进程调度的定义"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.1.1 高级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.1.2 低级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.1.3 中级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.2调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.2.1仅有进程调度的调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.2.1 具有高级和低级调度的调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.2.3 同时具有三级调度的调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.3选择调度方式和调度算法的若干准则"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.3.1面向用户的准则"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "平均周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "带权周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "平均带权周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "响应时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "截止时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.1.3.2面向系统的准则"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.2 调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.2.1 先来先服务（FCFS）和短作业（进程）优先调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.2.2 高优先权优先调度算法(FPF)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.2.3 基于时间片的轮转调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.2.3.1 时间片轮转法（RR）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.2.3.2 多级反馈队列调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3 实时调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3.1 实现 实时调度 的基本条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3.2 实时调度算法的分类"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3.2.1 非抢占调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "① 非抢占式轮转调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "② 非抢占式优先调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3.2.2 抢占调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "① 基于时钟中断的抢占式优先权调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "② 立即抢占的优先权调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3.3 常用的几种实时调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3.3.1 最早截止时间优先EDF（Earliest Deadline First）算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.3.3.2 最低松弛度优先LLF（Least Laxity First）算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.4 多处理机系统中的调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5产生死锁的原因和必要条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.1 产生死锁的原因"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.2产生死锁的必要条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.2.1 互斥条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.2.2 请求和保持条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.2.3 不剥夺条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.2.4 环路等待条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.3处理死锁的基本方法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.3.1 预防死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.3.2 避免死锁(常用)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.3.3 检测死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.5.3.4 解除死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.6 预防死锁的方法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.6.1 预防死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.6.2 系统安全状态"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.6.3 利用银行家算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.7 死锁的检测与解除"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.7.1 死锁的检测"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "3.7.2 死锁的解除"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "本章重点"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "1、掌握处理机调度的基本概念和调度算法。\n2、掌握银行家算法避免死锁的方法。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "3.1 处理机调度的基本概念"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "3.1.1高级、中级和低级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "3.1.1.0 补充：作业和进程 + 作业、进程调度的定义"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "①作业是用户向计算机提交任务的任务实体。进程是完成用户任务的执行实体，是资源分配的基本单位。没有作业任务，进程无事可干；没有进程，作业任务没法完成。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "②作业建立完毕后，是放在外存等待运行。进程一经创建，总由相应的部分存于内存。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "③一个作业可由多个进程组成，且必须至少由一个进程组成，反之则不然。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "④作业的概念更多地用在批处理系统中。进程的概念几乎可以用在所有的多道程序系统中。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "批处理作业的调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "作业调度：使作业进入主存储器。\n处于后备状态的作业在系统资源满足的前提下可以被作业调度选中进入内存计算。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "进程调度：使作业进程占用处理器。\n只有处于执行状态的作业才真正构成进程获得计算的机会。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "一个批处理型作业，从进入系统并驻留在外存的后备队列上开始，直至作业运行完毕，可能要经历下述三级调度。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "高级调度（High Scheduling）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "中级调度（Intermediate-Level Scheduling）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "低级调度（Low Level Scheduling）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "3.1.1.1 高级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "对于用户来说，总希望自己作业的周转时间尽可能的少，而对于系统来说，则希望作业的平均周转时间尽可能少，这样有利于提高CPU的利用率和系统的吞吐量。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "主要功能：根据某种算法，决定将外存上处于后备队列中的哪几个作业调入内存，为它们创建进程，分配必要的资源，并将它们放入就绪队列。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "在每次执行作业（高级）调度时，都须作出两个决定："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "接纳多少作业"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "–每次接纳多少作业进入内存，取决于多道程序度，也就是允许多少个作业同时在内存中运行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "接纳哪些作业"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "–应接纳哪些作业从外存调入内存，取决于所采用的调度算法。如先来先服务，短作业优先等，后面章节会详细介绍。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "在批处理系统中，因作业进入系统后先驻留在外存，故需要有作业调度。\n在分时系统中为做到及时响应，命令或数据被直接送入内存，故不需作业调度。\n在实时系统中，一般不需作业调度。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "3.1.1.2 低级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "通常也称为进程调度或短程调度（Short-Term Scheduling），用来决定就绪队列中的哪个进程应获得处理机，然后再由分派程序把处理机分配给该进程。\n为最基本的一种调度，三种类型OS中都必须有进程调度。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "进程(低级)调度的功能"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "① 保存处理机的现场信息\n② 按某种算法选取进程\n③ 把处理机分配给进程"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "进程调度中的三个基本机制"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "为了实现进程调度，应具有如下三个基本机制：\n(1) 排队器。\n(2) 分派器(分派程序)。\n(3) 上下文切换机制。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "进程调度可采用下述两种调度方式："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "非抢占方式（Non-preemptive Mode）\n抢占方式（Preemptive Mode）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "1、非抢占方式（Non-preemptive Mode）\n一旦把处理机分配给某进程后，便让该进程一直执行，直至该进程完成或发生某事件而被阻塞时，才把处理机分配给其他进程，决不允许进程抢占已分配出去的处理机。\n评价：实现简单、系统开销小；适用于大多数的批处理OS，但在要求比较严格的实时系统中，不宜采用这种调度方式"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "在采用非抢占调度方式时，可能引起进程调度的因素有：\n1、进程执行完毕，或因发生某事件而不能继续执行\n2、执行中的进程因提出I/O请求而暂停执行\n3、执行了某种原语操作：如P操作、Block原语"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "2、抢占方式（Preemptive Mode）\n允许调度程序根据某种原则，去暂停某个正在执行的进程，将处理机重新分配给另一进程。\n抢占的原则有："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "时间片原则：各进程按时间片运行，一个时间片用完时，停止该进程执行重新进行调度。\n短作业（进程）优先原则：短作业（进程）可以抢占长作业（进程）的处理机。\n优先权原则：优先权高的可以抢占优先权低的进程的处理机。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "3.1.1.3 中级调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "又称中程调度（Medium-Term Scheduling）。引入目的是为了提高内存利用率和系统吞吐量。应使那些暂时不能运行的进程不再占用宝贵的内存资源，而将它们调到外存去等待，把此时的进程状态称为就绪驻外存状态或挂起状态。\n当这些进程又具备运行条件、且内存又稍有空闲时，由中级调度来决定把外存上的那些具备运行条件的就绪进程，重新调入内存，并修改其状态为就绪状态，挂在就绪队列上等待进程调度。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "中级调度实际上就是存储器管理中的对换功能"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "进程调度的运行频率最高，在分时系统中通常是10~100ms进行一次进程调度，因而进程调度算法不能太复杂，以免占用太多的CPU时间。\n作业调度是发生在一个作业运行完毕，退出系统，而需要重新调度一个作业进入内存时，故作业调度的周期较长，大约几分钟一次。因而允许作业调度算法花费较多的时间。\n中级调度的运行频率，介于进程调度和作业调度之间。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "3.1.2调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "不论高级、中级或者低级调度，都涉及到进程队列，由此形成了三种类型的调度队列模型："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "1.仅有进程调度的调度队列模型\n2.具有高级和低级调度的调度队列模型\n3.同时具有三级调度的调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "3.1.2.1仅有进程调度的调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "在分时系统中就绪进程组织成FIFO队列形式，当创建一个新进程时，将它放入队列末尾。按时间片轮转方式运行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "3.1.2.1 具有高级和低级调度的调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "在批处理系统中，不仅需要进程调度，而且还需要作业调度，由作业调度按一定的调度算法，从外存的后备队列中选择一批作业调入内存，并为它们建立进程，送入就绪队列，然后才由进程调度算法按照一定的进程调度算法，选择一个进程，把处理机分配给该进程。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "3.1.2.3 同时具有三级调度的调度队列模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "当在OS中引入中级调度后，可以把进程的就绪状态分为内存就绪和外存就绪，把阻塞状态分为内存阻塞和外存阻塞两种状态。\n在调出操作的作用下，可使进程状态由内存就绪转变为外存就绪，由内存阻塞转变为外存阻塞；在中级调度的作用下，又可使外存就绪转变为内存就绪。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "3.1.3选择调度方式和调度算法的若干准则"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "在一个OS的设计中，应如何选择调度方式和算法，很大程度上取决于OS的类型和目标。\n如在批处理系统、分时系统和实时系统中，通常都采用不同的调度方式和算法。选择的准则，有的是面向用户的，有的是面向系统的。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "3.1.3.1面向用户的准则"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "平均周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "带权周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "作业的周转时间T与系统为它提供服务的时间Ts之比"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "平均带权周转时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "响应时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "是从用户通过键盘提交一个请求开始，直至系统首次产生响应为止的时间间隔。\n包括三部分时间：\n从键盘输入的请求信息传送到处理机的时间\n处理机对请求信息进行处理的时间\n将所形成的响应信息回送到终端显示器的时间。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "截止时间"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "是指某任务必须开始执行的最迟时间，或必须完成的最迟时间。\n对于严格的实时系统，其调度方式和调度算法必须能保证这一点，否则将可能造成难以预料的后果。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-20",
       "text": "3.1.3.2面向系统的准则"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-20",
       "text": "系统吞吐量高 （评价批处理系统的指标）\n处理机利用率好\n各类资源的平衡利用"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-21",
       "text": "3.2 调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "3.2.1 先来先服务（FCFS）和短作业（进程）优先调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "FCFS:"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "是一种最简单的调度算法，既可用于作业调度，也可用于进程调度。\n进程调度采用FCFS算法时，每次调度都从就绪队列中选择一个最先进入该队列的进程，为之分配处理机，使之运行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "FCFS算法比较有利于长作业（进程），而不利于短作业（进程）。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "短作业（进程）优先调度算法："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "可以分别用于作业调度和进程调度。\n短作业优先（SJF）的调度算法：从后备队列中选择一个或若干个估计运行时间最短的作业，将它们调入内存运行。\n短进程优先（SPF）调度算法，是从就绪队列中选出一估计运行时间最短的进程，将处理机分配给它，使它立即执行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "优点：有效降低作业的平均等待时间，提高系统吞吐量。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "缺点：对长作业不利。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "该算法完全未考虑作业的紧迫程度，因而不能保证紧迫性作业（进程）会被及时处理。\n由于作业（进程）的长短只是根据估计执行时间定的，主观因素较大，不一定能真正做到短作业优先。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "3.2.2 高优先权优先调度算法(FPF)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "为照顾紧迫性作业，使之在进入系统后便获得优先处理，引入了最高优先权优先（FPF）调度算法。\n此算法常用于批处理系统中，作为作业调度算法，也作为多种操作系统中的进程调度算法，还可用于实时系统中。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "当用于进程调度时，它分为两种：\n1、非抢占式优先权算法\n2、抢占式优先权调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "1、优先权的类型\n对于最高优先权优先调度算法，关键在于：使用静态优先权、动态优先权；如何确定进程的优先权。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "静态优先权：在创建进程时确定的，在进程的整个运行期间保持不变。利用某一范围的整数来表示（0～7），又称为优先数。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "动态优先权：在创建进程时所赋予的优先权可以随进程的推进或随其等待时间的增加而改变。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "2、确定进程优先权的依据有如下三个方面："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "进程类型：一般来说系统进程高于用户进程。\n进程对资源的需求：如进程的估计运行时间及内存需要量的多少，对要求少的进程赋予较高优先权。\n用户要求：由用户进程的紧迫程度及用户所付费用的多少来确定优先权的。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "高响应比优先调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "在批处理系统中，短作业优先算法是一种比较好的算法，其主要不足是长作业的运行得不到保证。我们为每个作业引入动态优先权，并使作业的优先级随着等待时间的增加而以速率 a 提高，则可解决问题。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "见下式：\n优先权=(等待时间+要求服务时间)/要求服务时间\n由于等待时间与服务时间之和就是系统的响应时间，故上式又表示为：Rp=响应时间/要求服务时"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "由上式可以看出：\n如作业等待时间相同，则要求服务的时间愈短优先权愈高，所以该算法利于短作业。\n当要求服务的时间相同，作业优先权的高低决定于其等待时间的长短，所以是先来先服务。\n对于长作业，作业的优先级可以随等待时间的增加而提高，当其等待时间足够长也可获得处理机。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "3.2.3 基于时间片的轮转调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "在分时系统中，为保证能及时响应用户的请求，必须采用基于时间片轮转式进程调度算法。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "在早期，分时系统中采用的是简单的时间片轮转法，进入90年代后，广泛采用多级反馈队列调度算法。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "下面分别介绍这两种方法并比较性能。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "3.2.3.1 时间片轮转法（RR）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "系统将所有的就绪进程按先来先服务的原则排成一个队列，每次调度时，把CPU分配给首进程，并令其执行一个时间片。\n时间片的大小从几ms到几百ms。当执行的时间片用完时，停止该进程的执行并将其送往就绪队列的末尾。这样就可以保证就绪队列中所有进程在一定时间内均能获得一时间片的处理机执行时间，系统能在给定的时间内响应所有用户的请求"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "在时间片轮转算法中，时间片的大小对系统性能有很大的影响。不能太短也不能太长，一个比较可取的大小，是时间片略大于一次典型的交互所需要的时间。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "3.2.3.2 多级反馈队列调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "多级反馈队列调度算法是目前公认的较好的进程调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "(1）设置多个就绪队列并为各个队列赋予不同的优先级，第一个最高，依次降低。各个队列中进程执行时间片的大小设置为：优先权越高，时间片越短。如第一个队列时间片为1ms,第二个队列的时间片为2ms, ……\n（2）当一个新进程进入内存后，首先将它放入第一个队列的末尾，按FCFS原则排队等待调度。当轮到该进程执行时，如它能在该时间片内完成，便可撤离系统；如果它在一个时间片结束时尚未完成，调度程序便将该进程转入第二队列的末尾，在同样地按FCFS原则等待调度执行；如果它在第二队列中运行一个时间片后仍未完成，再依次将它放入第三队列，……如此下去，当一个长作业（进程）从第一队列依次降到第n队列后，在第n队列中便采取按时间片轮转的方式运行。\n（3）仅当第一队列空闲时，调度程序才调度第二队列中的进程运行，仅当第1～(i-1)队列均空时，才会调度第i队列中的进程运行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "(注：FCFS代表——先到先服务准则（first-come first-served）)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "多级反馈队列调度算法具有较好的性能，能较好的满足各种类用户的需要。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "终端型作业用户。大多属于较小的交互性作业，只要能使作业在第一队列的时间片内完成，便可令用户满意。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "短批处理作业用户。周转时间仍然较短，至多在第二到三队列即可完成。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "长批处理作业用户。将依次在1～n级队列中轮转执行，不必担心作业长期得不到处理。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-27",
       "text": "3.3 实时调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-27",
       "text": "由于在实时系统中都存在着若干个实时进程或任务，它们用来反应或控制某个（些）外部事件，往往带有某种程度的紧迫性，因而对实时系统中的调度提出了某些特殊要求，前面所介绍的多种调度算法，并不能很好的满足实时系统对调度的要求，为此，需要引入一种新的调度，即实时调度。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-27",
       "text": "实时系统中包含两种任务："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-27",
       "text": "硬实时任务指必须满足最后期限的限制，否则会给系统带来不可接受的破坏或者致命错误。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-27",
       "text": "软实时任务也有一个与之关联的最后期限，并希望能满足这个期限的要求，但这并不是强制的，即使超过了最后期限，调度和完成这个任务仍然是有意义的。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "3.3.1 实现 实时调度 的基本条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "在实时系统中，硬实时任务和软实时任务都联系着一个截止时间。为保证系统能正常工作，实时调度必须满足实时任务对截止时间的要求，为此，实现实时调度应具备下列4个条件：\n1、提供必要的信息"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "就绪时间：该任务成为就绪状态的时间。\n开始截止时间、完成截止时间。只需知道一个。\n处理时间：从开始执行到完成所需时间。\n资源要求：任务执行时所需的一组资源。\n优先级：根据任务性质赋予不同优先级。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "2、系统处理能力强"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "3、采用抢占式调度机制"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "在含有硬实时任务的实时系统中，广泛采用抢占机制。当一个优先权更高的任务到达时，允许将当前任务暂时挂起，令高优先权任务立即投入运行，这样可满足该硬实时任务对截止时间的要求。但此种机制较复杂。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "4、具有快速切换机制"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "为保证要求较高的硬实时任务能及时运行，在实时系统中还应具有快速切换机制，以保证任务的快速切换。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "需要以下两种能力："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "对外部中断的快速响应能力。要求系统具有快速硬件中断机构，使可在紧迫的外部事件请求中断时及时响应。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "快速的任务分派能力。在完成任务调度后，便应进行任务切换，为提高速度，应使系统中的运行功能单位适当的小，以减少任务切换的时间开销。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-29",
       "text": "3.3.2 实时调度算法的分类"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-29",
       "text": "可按照不同方式对实时调度算法加以分类："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-29",
       "text": "根据实时任务性质的不同，分为硬实时调度算法和软实时调度算法；"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-29",
       "text": "按调度方式的不同，分为非抢占调度算法和抢占调度算法；"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-29",
       "text": "根据调度程序调度时间的不同，分为静态调度算法和动态调度算法。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-29",
       "text": "多处理机环境下，可分为集中式调度和分布式调度两种算法。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "3.3.2.1 非抢占调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "该算法较简单，用于一些小型实时系统或要求不太严格的实时系统中。又可分为两种："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "① 非抢占式轮转调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "常用于工业生产的群控系统中，要求不太严格（响应时间约为数秒）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "② 非抢占式优先调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "要求较为严格，根据任务的优先级安排等待位置。可用于有一定要求的实时控制系统中。（响应时间约为数百ms）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-33",
       "text": "3.3.2.2 抢占调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-33",
       "text": "用于要求较严格的实时系统中，（t约为数十ms），采用抢占式优先权调度算法。根据抢占发生时间的不同可分为两种："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "① 基于时钟中断的抢占式优先权调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "某高优先级任务到达后并不立即抢占，而等下一个时钟中断时抢占。（延时几十毫秒到几毫秒）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "② 立即抢占的优先权调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "一旦出现外部中断，只要当前任务未处于临界区，就立即抢占处理机。 （延时几毫秒到100微秒）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-36",
       "text": "3.3.3 常用的几种实时调度算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "3.3.3.1 最早截止时间优先EDF（Earliest Deadline First）算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "根据任务的截止时间来确定任务的优先级。截止时间越早，其优先级越高。\n该算法要求在系统中保持一个实时任务就绪队列，该队列按各任务截止时间的早晚排序，调度程序在选择任务时总是选择就绪队列中的第一个任务，为之分配处理机，使之投入运行。\nEDF算法既可以用于抢占式调度，也可用于非抢占式调度。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "非抢占式调度方式用于非周期实时任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "抢占式调度方式用于周期实时任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "在t=0时，A1和B1同时到达，由于A1的截止时间比B1早，所以调度A1执行；\n在t=10时，A1完成，又调度B1执行；\n在t=20时A2到达，由于A2的截止时间比B1早，故B1被中断而调度A2执行；\n在t=30时，A2执行完成，又重新调度B1执行；\n在t=40时A3又到达了，但B1的截止时间要比A3早，仍应让B1继续执行，直到完成（t=45）,然后再调度A3执行；\n在t=55时，A3完成，又调度B2执行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "3.3.3.2 最低松弛度优先LLF（Least Laxity First）算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "该算法是根据任务紧急（或松弛）的程度，来确定任务的优先级。任务的紧急程度越高，为之赋予的优先级就越高。\n例如:"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "任务A在200ms时必须完成，本身运行时间100ms，则必须在100ms之前调度执行，A任务的紧急（松弛）程度为100ms，"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "又如任务B在400ms是必须完成，需运行150ms，其松弛程度为250ms."
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "该算法主要用于抢占调度方式中。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "TO：A1，B1同时来到，A1的松弛度=20-10-0=10：B1的松弛度=50-25-0=25：先执行A1"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "A1从TO执行到T10，A1就执行完了，因为这时A2还没有来，所以接下来执行B1，当B1执行到T20时（先执行10MS），A2来了，最低松弛度算法发生任务切换只有2种情况："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "1、当前这个任务执行完了吗？B1还未执行完."
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "2、新来的任务的松弛度=0吗？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "这时A2的松弛度=40-10-20=10不等于0，必须要满足这两种情况之一才会发生切换，所以在T20维续执行B1，从T20-T30又执行了10MS，但这时A2的松弛度=40-10-30=0了，换句话说如果在T30的时候再不去执行A2的话，A2就会被错过了，所以在T30时候发生任务切换，从T30-T40将任务A2处理完。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "在T40时，A3来了，而之前的B1还差5Ms，所以这时算一下松弛度：B1的松弛度=50-5-40=5；A3的松弛度=60-10-40=10；所以在T40时候，B1的级别高，所以从T40-T45，B1就执行完了。在T45时，B2还没有来，所以T45执行3，当A3从T45-T50时，这时B2来了因为A3还差5Ms，另外B2的松弛度=100-25-50=25不等于0，所以不发生切换，从T50-T55继续执行A3的剩下的5MS…"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "3.4 多处理机系统中的调度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-40",
       "text": "3.5产生死锁的原因和必要条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-40",
       "text": "死锁（Deadlock）：是指多个进程在运行过程中因争夺资源而造成的一种僵局，当进程处于这种状态时，若无外力作用，它们都将无法再向前推进。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "3.5.1 产生死锁的原因"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "1、竞争资源\n当系统中供多个进程共享的资源如打印机、公用队列等，其数目不足以满足诸进程的需要时，会引起诸进程对资源的竞争而产生死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "可把系统中的资源分为两类：\na.可剥夺性资源：资源分配给进程后可以被高优先级的进程剥夺。如CPU、主存。\nb.不可剥夺性资源：分配给进程后只能在进程用完后才释放的资源。如磁带机、打印机等。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "竞争不可剥夺性资源引起死锁\n在系统中配置的非剥夺性资源，由于数量不足，会使进程在运行过程中，因争夺这些资源而陷入僵局。\n如，打印机R1,磁带机R2，可供进程P1和P2共享，假定P1已占用R1，P2已占用R2，此时P2又要求R1，因得不到进入阻塞状态，P1又要求R2，也得不到而进入阻塞状态，产生死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "竞争临时性资源引起死锁\n打印机之类的资源属于可顺序重复使用型资源，称为永久性资源。与之相对的是临时性资源，是指由一个进程产生，被另一进程使用一短暂时间后便无用的资源，也称为消耗性资源，它也可能引起死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "P1: …Request(s3);release(s1)…\nP2: …Request(s1);release(s2)…\nP3: …Request(s2);release(s3)…"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "2、进程间推进顺序非法\n进程在运行过程中，请求和释放资源的顺序不当，也同样会导致产生死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "3.5.2产生死锁的必要条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "3.5.2.1 互斥条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "进程访问的是临界资源，即在一段时间内某资源只由一个进程占用。如果此时还有其他进程请求该资源，则请求者只能等待，直至占有该资源的进程用完释放。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "3.5.2.2 请求和保持条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "一进程在请求新的资源的同时，保持对已分配资源的占有。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-45",
       "text": "3.5.2.3 不剥夺条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-45",
       "text": "指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "3.5.2.4 环路等待条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "指在发生死锁时，必然存在一个进程–资源的环形链。即进程集合{P0,P1,P2,…,Pn}中的P0正在等待一个P1占用的资源；P1正在等待一个P2占用的资源，……，\nPn正在等待一个已被P0占用的资源。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "3.5.3处理死锁的基本方法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "在系统中已经出现死锁后，则应及时检测到死锁的发生，并采取适当措施来解除死锁。\n目前处理死锁的方法可归结为四种："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "1、预防死锁\n2、避免死锁\n3、检测死锁\n4、解除死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "3.5.3.1 预防死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "是一种较简单和直观的事先预防方法。该方法是通过设置某些限制条件，去破坏产生死锁的四个必要条件的一个或几个，来预防发生死锁。\n预防死锁是一种较易实现的方法，已被广泛使用。但由于所施加的限制条件往往太严格，可能会导致系统资源利用率和系统吞吐量降低。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-49",
       "text": "3.5.3.2 避免死锁(常用)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-49",
       "text": "该方法同样是属于事先预防的策略，这种方法不是预先加上各种限制条件以预防产生死锁的可能性，而是用某种方法去防止系统进入不安全状态，使死锁不致于最终发生。\n这种方法只须事先加以较弱的限制条件，便可获得较高的资源利用率及系统吞吐量，但在实现上有一定的难度。\n目前在较完善的系统中，常用此方法来避免发生死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-50",
       "text": "3.5.3.3 检测死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-50",
       "text": "这种方法并不须事先采取任何限制性措施，也不必检查系统是否已经进入不安全区。\n此方法允许系统在运行过程中发生死锁，但可通过系统所设置的检测机构，及时的检测出死锁的发生，并精确的确定与死锁有关的进程和资源；然后采取适当的措施，从系统中将已发生的死锁清除掉。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-51",
       "text": "3.5.3.4 解除死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-51",
       "text": "是与死锁检测相配套的一种措施。当检测到系统中已发生死锁时，须将进程从死锁状态中解脱出来。\n常用的实施方法是撤销或挂起一些进程，以便回收一些资源，再将这些资源分配给已处于阻塞状态的进程，使之转为就绪状态，以继续运行。\n死锁的检测与解除措施，有可能使系统获得较好的资源利用率和吞吐量，但在实现上难度也最大。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-52",
       "text": "3.6 预防死锁的方法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-52",
       "text": "预防死锁和避免死锁这两种方法，实质上都是通过施加某些限制条件，来预防发生死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-52",
       "text": "两者的主要区别在于："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-52",
       "text": "预防死锁：施加的限制条件较严格，往往会影响进程的并发执行。\n避免死锁：施加的限制条件则较宽松，这给进程的运行提供了较为宽松的环境，有利于进程的并发执行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "3.6.1 预防死锁"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "预防死锁的方法是使四个必要条件中的第2、3、4条件之一不能成立，来避免发生死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "必要条件1，因为它是由设备的固有条件所决定的，不仅不能改变，还应加以保证。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "摒弃“请求和保持”条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "系统规定所有进程在开始运行之前，都必须一次性的申请其在整个运行过程所需的全部资源。此时若系统有足够资源就分配给该进程，该进程在运行期间不会提出资源要求，从而摒弃了“请求”条件。若系统没有足够资源分配给它，就让该进程等待。因而也摒弃了“保持”条件，从而避免发生死锁。\n优点：算法简单、易于实现且很安全。\n缺点：资源浪费严重和进程延迟运行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "摒弃“不剥夺”条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "系统规定，进程是逐个地提出对资源的要求的。当一个已经保持了某些资源的进程，提出新的要求不被满足时必须释放它已经保持的所有资源，待以后需要时再重新申请。从而摒弃了“不剥夺”条件。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "某一进程已经占有的资源，在运行过程中会被暂时释放掉，认为是被剥夺了。\n实现起来比较复杂且付出很大代价。可能会前功尽弃，反复申请和释放等情况，延长了周转时间，增加系统开销。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "摒弃“环路等待”条件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "系统将所有资源按类型进行线性排队，并赋予不同的序号。所有进程对资源的请求必须严格按照资源序号递增的次序提出，这样在所形成的资源分配图中，不可能会出现环路，因而摒弃了“环路等待”条件。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-53",
       "text": "与前两种策略比较，资源利用率和系统吞吐量都有较明显的改善。但也存在严重问题：\n1、为资源编号限制新设备的增加；\n2、进程使用设备顺序与申请顺序不同，浪费资源；\n3、限制用户编程自由。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "3.6.2 系统安全状态"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "把系统的状态分为安全状态和不安全状态，只要能使系统始终都处于安全状态，便可避免发生死锁。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "思路：允许进程动态地申请资源，但在资源分配前，应先计算资源分配的安全性，若此次分配不会导致系统进入不安全状态，则将资源分配给进程，否则，令进程等待。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "安全状态"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "是指系统能按某种进程顺序（ P0, P1, P2, …, Pn ）来为每个进程Pi分配其所需资源，直至满足每个进程对资源的最大需求，使每个进程都可顺利地完成。如果系统无法找到这样一个安全序列，则称系统处于不安全状态。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "虽然并不是所有的不安全状态都是死锁状态，但当系统进入不安全状态后，便可能进入死锁状态；反之只要处于安全状态就不会死锁。\n避免死锁的实质是：系统在进行资源分配时，设法使系统不进入不安全状态。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "例子："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "1、第一问："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "是否能够找到一个进程推进执行的顺序，从而满足每一个进程的资源最大需求，如能则系统安全，否则系统是不安全的。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "T0时刻：可用的有3台，所以从3台中拿出2台分配给B，那么B就可以运行了，当B执行完，要回收给她分配的资源，所以这个时候系统可用的资源的数量=2+3=5台；然后从5台中拿出5台A用，A就可以执行了，执行完后同收给它的资源，那么A执行完后系统的资源数量=5+5=10台，最后再从10台中拿出7台给C用，c也可以顺利执行完，执行完后系统可用的资源数量=3+9=12台"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "所以系统存在一个合理的进程执行的推进顺序：B-A-C，所以系统在T0时刻是安全的"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "2、第二问："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "T0以后，假设把C申请的1台给她，之前已经分配了2台了，那么加上这1台，就一共给她分配了3台了，那么系统可用的还有=12-5-2-3=2。把2台先给B，那么让B先执行完，执行完后系统资源数量=2+2=4台，这4台既不满足A（还需5台）也不满足C（还需要6台），所以A和C无法运行，所以TO以后，系统找不到一个安全的进程推进的执行序列，所以不可以把那1台分配给C."
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-54",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-55",
       "text": "3.6.3 利用银行家算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-55",
       "text": "参考博客：操作系统第三章：银行家算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-56",
       "text": "3.7 死锁的检测与解除"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-57",
       "text": "3.7.1 死锁的检测"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-57",
       "text": "当系统为进程分配资源时，若未采取任何限制性措施，则系统必须提供检测和解除死锁的手段，为此系统必须：\n1、保存有关资源的请求和分配信息；\n2、提供一种算法，以利用这些信息来检测系统是否已进入死锁状态。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-57",
       "text": "资源分配图\n系统死锁可利用资源分配图来描述。\n该图由表示进程的圆圈和表示一类资源的方框组成，其中方框中的一个点代表一个该类资源，请求边是由\n进程指向方框中的rj，而分配边则应始于方框中的一个点。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-57",
       "text": "在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-57",
       "text": "死锁定理\n我们可以利用资源分配图加以简化的方法，来检测系统处于某状态时是否为死锁状态。简化方法如下：\n1.在资源分配图中找出一个既不阻塞又非独立的进程结点Pi，在顺利的情况下运行完毕，释放其占有的全部资源。\n2.由于释放了资源，这样能使其它被阻塞的进程获得资源继续运行。\n3.在经过一系列简化后若能消去图中的所有的边，使所有进程结点都孤立，则称该图是可完全简化的，反之是不可完全简化的。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-57",
       "text": "可以证明：S状态为死锁状态的充分条件是当且仅当S状态的资源分配图是不可完全简化的。<死锁定理>"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-58",
       "text": "3.7.2 死锁的解除"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-58",
       "text": "当发现进程死锁时，便应立即把它们从死锁状态中解脱出来。常采用的方法是："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-58",
       "text": "1、剥夺资源：从其他进程剥夺足够数量的资源给死锁进程以解除死锁状态。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-58",
       "text": "2、撤销进程：最简单的是让全部进程都死掉；温和一点的是按照某种顺序逐个撤销进程，直至有足够的资源可用，使死锁状态消除为止。"
     }

@@ -8,190 +8,142 @@
     {
       "id": "section-1",
       "text": "Nmap",
-      "level": 1,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 1
     },
     {
       "id": "section-2",
       "text": "Nmap列举远程机器开放的端口原理",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-3",
       "text": "端口状态",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-4",
       "text": "Nmap扫描技术查看",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-5",
       "text": "识别目标机器上的服务指纹",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-6",
       "text": "服务指纹",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-7",
       "text": "Nmap识别服务指纹",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-8",
       "text": "Nmap侵略性的探测",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-9",
       "text": "Nmap发现局域网中存活主机",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-10",
       "text": "主机发现",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-11",
       "text": "Nmap结果输出",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-12",
       "text": "Nmap端口探测技巧",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-13",
       "text": "Nmap NSE脚本使用",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-14",
       "text": "NSE介绍",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-15",
       "text": "NSE使用",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-16",
       "text": "NES分类使用",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-17",
       "text": "NES调试功能使用",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-18",
       "text": "NSE更新",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-19",
       "text": "NSE脚本分类",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-20",
       "text": "Nmap指定特定网卡进行探测",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-21",
       "text": "指定网卡进行探测",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-22",
       "text": "Nmap对比扫描结果ndiff",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-23",
       "text": "工具ndi介绍",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-24",
       "text": "比较Nmap两次扫描结果",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-25",
       "text": "可视化Nmap(Zenmap)的使用",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-26",
       "text": "Zenmap的使用",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-27",
+      "text": "配置扫描策略",
+      "level": 4
     }
   ],
   "readingMinutes": 12,
   "markdownUrl": "articles/nmap.md",
   "sourceOriginal": true,
-  "chapters": [],
   "searchUrl": "data/articles/nmap/search.json",
   "modifiedAt": "2024-09-23"
 }

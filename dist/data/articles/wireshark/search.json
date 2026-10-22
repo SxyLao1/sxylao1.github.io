@@ -2,322 +2,258 @@
   "slug": "wireshark",
   "entries": [
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "Traffic Analysis"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "Wireshark · Go Deep\n我选择网卡时报错说我没有设置混合模式(解决方法建议使用后者)："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "The capture session could not be initiated on interface '\\Device\\NPF_Loopback' (Error opening adapter: The system cannot find the path specified. (3)).\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "管理员权限启动cmd并执行net start npcap，重新启动Wireshark问题解决。或者使用如下方法："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "image-20230317100348328"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "BasicUsage"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "基本语法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "过滤匹配表达式："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "#过滤IP\nip.addr eq/== x.x.x.x #eq即equal 也是等于 ==和eq都可以 使用其一\nip.src eq/== x.x.x.x #只对源地址IP过滤\nip.dst eq/== x.x.x.x #只对目的地址IP过滤\n#过滤端口 判断的==也可以换成\">=\", \"<=\", \">\", \"<\"\ntcp.port == 80 #过滤tcp协议的80端口\ntcp.srcport == 80 #过滤源端口为tcp协议的80端口\ntcp.dstport == 80 #过滤目的端口为tcp协议的80端口\n#过滤协议\ntcp #即只看tcp\nhttp #只看http\n...\n!udp #加上'!'表示非 不查看udp协议 结果为udp协议以外的协议\n#过滤指定字符\nhttp.request.uri contains \"shell.php\" #在所有http协议的头信息中查找\"shell.php\"\nhttp.request.uri matches \"shell.php$\" #matches过滤的字符串中可以使用正则表达\n#http模式过滤\nhttp contains \"Host: 192.168.228.135\" #在所有http协议的内容中寻找包含\"Host: 192.168.228.135\"的内容\ntcp contains \"Host: 192.168.228.135\"\nhttp.request.method == POST #寻找请求方式为post方法的http协议\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "Ctrl + F打开WireShark的内容搜索，可以直接查找协议中的字符串"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "协议分级"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "image-20230317200203129"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "打开后如下图所示\nimage-20230317200312905"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "文件导出"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "image-20230318152713196"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "image-20230318161845721"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "无线流量"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "遇到WIFI密码破解的流量包时可以直接使用Kali的工具进行破解"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "aircrack-ng -w /usr/share/wordlists/wfuzz/general/big.txt ctf.pcapng\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "通过字典爆破得到密码之后，点击编辑==>首选项"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "image-20230318192313229"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "进入首选项找协议中的IEEE 802.11无线协议"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "image-20230318192457450"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "添加该无线流量包的密码点击OK即可 点击视图中的重新加载就能查看该加密流量包(此处Key Type应为wpa-pwd)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "image-20230318193438375"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "TLS协议的证书也可以通过该位置的选项导入对应整数打开加密的流量包"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "SQL流量包"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "strings sqltest.pcapng | grep \"ascii\" > 1.txt #直接输出流量包中的信息到文本中\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "BUUCTF"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "被嗅探的流量"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "题目链接\n流量包下载\nCtrl + F直接在所有协议里面查找字符串flag{"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "image-20230317110757104"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "image-20230317110933368"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "大流量分析(一)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "附件链接: https://pan.baidu.com/s/1EgLI37y6m9btzwIWZYDL9g 提取码: 9jva 后面几道大流量分析都是这条链接的文件"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "image-20230317113250141"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "image-20230317113331888"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "如图该出现频率最高的IP地址中，唯一一个外网IP地址是非常可疑的，这个就是黑客的IP地址，flag{183.129.152.140}"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "大流量分析(二)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "SMTP是一种提供可靠且有效的电子邮件传输的协议。SMTP是建立在FTP文件传输服务上的一种邮件服务，主要用于系统之间的邮件信息传递，并提供有关来信的通知。SMTP独立于特定的传输子系统，且只需要可靠有序的数据流信道支持，SMTP的重要特性之一是其能跨越网络传输邮件，即“SMTP邮件中继”。使用SMTP，可实现相同网络处理进程之间的邮件传输，也可通过中继器或网关实现某处理进程与其他网络之间的邮件传输。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "image-20230317134118624"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "既然题目涉及到了邮件，自然查找与电子邮件传输相关的协议，很简单就查到了相关的邮箱信息，flag{xsser@live.cn}"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "大流量分析(三)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "image-20230317164817194"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "phpinfo是一个服务器的运行指令，可以显示php服务器的配置信息。\n后门程序是可运行的脚本.php，查找包含该信息的所有数据包，找不到就换下一个数据包继续查找后门程序，flag{admin.bak.php}"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "荷兰宽带数据泄露"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "解压得到.bin文件，为路由器文件。使用工具查看：https://1108dx.0098118.com/lc6/routerpassview186.zip\n打开后寻找泄露的特别信息作为flag，flag{053700357621}"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "image-20230317173822042"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "数据包中的线索"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "到手发现文件并不大，直接找http过滤，发现一个很吸引人的文件名，右键追踪HTTP流。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "image-20230317193155176"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "追踪后发现一长串编码："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "image-20230317193406600"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "结果有\"=\"号很有可能是base64编码，将编码复制到浏览器作为png的base64编码打开："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "data:image/png;base64,这里跟编码\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "image-20230317193623742"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "被劫持的神秘礼物"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "链接:https://pan.baidu.com/s/1pwVVpA5_WWY8Og6dhCcWRw 提取码: 31vk"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "直接过滤找HTTP，不多，追踪进去发现name=admina&word=adminb"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "image-20230407094456655"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "拼起来adminaadminb丢给md5加密,sha1加密--md5在线解密 (cmd5.com)加密，取md5加密作为flag"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "杂七杂八"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "2018 铁人三项"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "链接：https://pan.baidu.com/s/1b6bkW-J8vKASr8C2r9vsdQ 提取码：nux4\n[2018.5.18信息安全铁人三项赛数据赛复现_lemonl1的博客-CSDN博客](https://blog.csdn.net/qq_43431158/article/details/107258218?ops_request_misc=%7B%22request%5Fid%22%3A%22167918893816800226510658%22%2C%22scm%22%3A%2220140713.130102334.pc%5Fall.%22%7D&request_id=167918893816800226510658&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_34-4-107258218-null-null.142^v74^pc_new_rank,201^v4^add_ask,239^v2^insert_chatgpt&utm_term=2018CTF 铁人三项 数据流量分析&spm=1018.2226.3001.4187)"
     }

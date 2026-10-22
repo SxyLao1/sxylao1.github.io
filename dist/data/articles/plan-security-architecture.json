@@ -8,246 +8,247 @@
     {
       "id": "section-1",
       "text": "Trident 作者学习路线：从现场经验到安全产品架构设计",
-      "level": 1,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 1
     },
     {
       "id": "section-2",
       "text": "目录",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-3",
       "text": "一、当前能力评估",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-4",
       "text": "优势（核心竞争力）",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-5",
       "text": "短板（需要补强）",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-6",
       "text": "二、学习阶段规划（面试导向）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-7",
       "text": "三、第一阶段：面试急救包（1-2周）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-8",
       "text": "目标",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-9",
       "text": "学习任务",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-10",
+      "text": "3.1 架构图绘制（2天）",
+      "level": 4
+    },
+    {
+      "id": "section-11",
+      "text": "3.2 三个核心概念讲清楚（3天）",
+      "level": 4
+    },
+    {
+      "id": "section-12",
+      "text": "3.3 模拟面试问答（2天）",
+      "level": 4
     },
     {
       "id": "section-13",
       "text": "四、第二阶段：架构形式化（1-2个月）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-14",
       "text": "目标",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-15",
       "text": "学习任务",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-16",
+      "text": "4.1 《领域驱动设计》前6章（2周）",
+      "level": 4
+    },
+    {
+      "id": "section-17",
+      "text": "4.2 《整洁架构》第1-3章（1周）",
+      "level": 4
+    },
+    {
+      "id": "section-18",
+      "text": "4.3 复杂度分析基础（1周）",
+      "level": 4
+    },
+    {
+      "id": "section-19",
+      "text": "4.4 设计模式（选学，2周）",
+      "level": 4
     },
     {
       "id": "section-20",
       "text": "五、第三阶段：安全深度（3-6个月）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-21",
       "text": "目标",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-22",
       "text": "学习任务",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-23",
+      "text": "5.1 MITRE ATT&CK 框架（1个月）",
+      "level": 4
+    },
+    {
+      "id": "section-24",
+      "text": "5.2 威胁建模（2周）",
+      "level": 4
+    },
+    {
+      "id": "section-25",
+      "text": "5.3 攻防技术深度（2个月）",
+      "level": 4
+    },
+    {
+      "id": "section-26",
+      "text": "5.4 安全标准与合规（选学，1个月）",
+      "level": 4
     },
     {
       "id": "section-27",
       "text": "六、第四阶段：工程化与开源（6-12个月）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-28",
       "text": "目标",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-29",
       "text": "学习任务",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-30",
+      "text": "6.1 测试驱动开发（TDD）（2个月）",
+      "level": 4
+    },
+    {
+      "id": "section-31",
+      "text": "6.2 开源运营（2个月）",
+      "level": 4
+    },
+    {
+      "id": "section-32",
+      "text": "6.3 性能优化（1个月）",
+      "level": 4
     },
     {
       "id": "section-33",
       "text": "七、AI 时代的学习策略",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-34",
       "text": "7.1 用 AI 做什么（效率提升）",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-35",
       "text": "7.2 不用 AI 做什么（必须自己学）",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-36",
       "text": "7.3 推荐 AI 使用模式",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-37",
       "text": "八、面试专项准备",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-38",
       "text": "8.1 简历优化",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-39",
       "text": "8.2 常见面试问题与回答框架",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-40",
       "text": "8.3 技术面试准备清单",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-41",
       "text": "九、推荐资源清单",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-42",
       "text": "书籍（按优先级排序）",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-43",
       "text": "在线资源",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-44",
       "text": "社区",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-45",
       "text": "十、与 Trident 项目的结合点",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-46",
       "text": "学习 → 项目实践对照表",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-47",
       "text": "时间管理建议",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-48",
       "text": "附录：快速自查表",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     }
   ],
   "readingMinutes": 23,
   "markdownUrl": "articles/plan-security-architecture.md",
   "sourceOriginal": true,
-  "chapters": [],
   "searchUrl": "data/articles/plan-security-architecture/search.json",
   "modifiedAt": "2026-06-10",
   "status": "还没开始"

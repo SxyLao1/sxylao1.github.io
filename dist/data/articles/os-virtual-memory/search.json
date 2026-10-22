@@ -2,427 +2,342 @@
   "slug": "os-virtual-memory",
   "entries": [
     {
-      "chapterIndex": 0,
       "headingId": null,
       "text": "教材为西安电子科技大学 汤小丹老师 第四版\n视频/图片来源：https://www.bilibili.com/video/BV1jv41147h8?p=1\n操作系统系列目录：\n第一章：操作系统引论\n第二章：进程的描述与控制\n第三章：处理机调度与死锁\n第四章：存储器管理\n第五章：虚拟存储器\n第六章：输入输出系统\n第七章：文件管理"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "虚拟存储器"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.1 虚拟存储器的基本概念"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.1.1虚拟存储器的引入"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.1.2 虚拟存储器的实现方法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.1.3 虚拟存储器的特征"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2 请求分页存储管理方式"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.1 请求分页中的硬件支持"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.1.1页表机制"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.1.2 缺页中断机构"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.1.3 地址变换机构"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.2内存分配策略和分配算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.2.1 最小物理块数的确定"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.2.2 物理块的分配策略"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.2.3 物理块的分配算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.3 调页策略"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.3.1 何时调入页面"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.3.2 从何处调入页面"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.2.3.3 页面调入过程"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.3 页面置换算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "5.4 请求分段存储管理方式"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "5.1 虚拟存储器的基本概念"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "前面介绍的各种存储器管理方式，要求将一个作业全部装入内存后方能运行。于是出现了两种情况："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "有的作业很大，所要求的内存空间超过内存总容量，作业不能被全部装入内存，致使该作业无法运行。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "有大量作业要求运行，但内存容量不足以容纳所有作业，只能将少数作业装入内存使其运行，大量作业留在外存上等待。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "解决方法："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "从物理上增加内存容量\n从逻辑上扩充内存容量"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "5.1.1虚拟存储器的引入"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "在这里插入图片描述\n在这里插入图片描述\n在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "5.1.2 虚拟存储器的实现方法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "在虚拟存储器中，允许将一个作业分多次调入内存。如果采用连续分配方式，不仅造成内存资源的浪费，而且无法从逻辑上扩大内存容量。\n因此，虚拟存储器的实现都是建立在离散分配的存储管理方式的基础上。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "请求分页系统\n在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "请求分段系统\n在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "5.1.3 虚拟存储器的特征"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "多次性：一个作业被分成多次调入内存运行"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "对换性：允许在作业的运行过程中进行换进、换出。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "虚拟性：能够从逻辑上扩充内存容量，使用户所看到的内存容量远大于实际内存容量。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "虚拟性以多次性和对换性为基础；\n多次性和对换性又必须建立在离散分配的基础上。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "5.2 请求分页存储管理方式"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "请求分页系统是建立在基本分页基础上的，增加了请求调页功能和页面置换功能。换入和换出的基本单位都是长度固定的页面，因而在实现上比请求分段系统简单。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "5.2.1 请求分页中的硬件支持"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "5.2.1.1页表机制"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "在请求分页系统中所需要的主要数据结构是页表。\n基本作用仍是将用户地址空间中的逻辑地址变换为内存空间中的物理地址。\n由于只将程序的一部分装入内存，还有一部分在外存中，因此须在页表中增加若干项，供程序或数据在换进、换出时参考。\n在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "5.2.1.2 缺页中断机构"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "在请求分页系统中，每当要访问的页面不在内存时，便产生一缺页中断，请求OS将所缺之页调入内存。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "缺页中断作为中断，同样需要经历诸如保护CPU环境、分析中断原因、转入缺页中断处理程序进行处理、恢复CPU环境等几个步骤。但缺页中断是一种特殊的中断，与一般中断有明显区别："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "在指令执行期间产生和处理中断信号。\n一条指令在执行期间，可能产生多次缺页中断。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "5.2.1.3 地址变换机构"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "请求分页系统中的地址变换机构，是在分页系统地址变换机构的基础上，再为实现虚拟存储器而增加了某些功能而形成的，如产生和处理缺页中断，以及从内存中换出一页的功能等。\n在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "5.2.2内存分配策略和分配算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "为进程分配内存时，涉及三个问题："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "最小物理块数的确定"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "物理块的分配策略"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "物理块的分配算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "5.2.2.1 最小物理块数的确定"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "最小物理块数，指能保证进程正常运行所需的最小物理块数。\n当系统为进程分配的物理块数少于此值时，进程将无法运行。\n进程应获得的最小物理块数与计算机的硬件结构有关，取决于指令的格式、功能和寻址方式。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "5.2.2.2 物理块的分配策略"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "在请求分页系统中，可以采取两种内存分配策略，即固定和可变分配策略。\n在进行置换时，也可以采取两种策略，即全局置换和局部置换。于是组合出三种适合的策略:"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "1）固定分配局部置换\n2）可变分配全局置换\n3）可变分配局部置换"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "固定分配局部置换\n为每个进程分配一定数目的物理块，在整个运行期间不再改变。\n采用该策略时，如果进程在运行中发现缺页，只能从该进程在内存中的n个页面中选出一页换出，然后再调入一页。\n困难：应为每个进程分配多少个物理块难以确定。（比如10M的程序分配一个页面，所花时间都花在频繁交换页面上）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "可变分配全局置换\n在采用这种策略时，先为系统中的每个进程分配一定数目的物理块，而OS自身也保持一个空闲的物理块队列。\n如果某进程发生缺页时，由系统从空闲的物理块队列中，取出一个物理块分配给该进程，并将欲调入的页装入其中。\n当空闲物理块队列中的物理块用完后，OS才能从系统中的任一进程中------即 “OS自身也保持一个空闲的物理块队列” 这个地方选择一页调出。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "可变分配局部置换\n为每个进程分配一定数目的物理块，如果某进程发生缺页时，只允许从该进程在内存的页面中选出一页换出，不会影响其他进程执行。如果进程在运行中频繁发生缺页中断，则系统再为进程分配若干物理块；如果进程在运行中缺页率特别低，则适当减少分配给该进程的物理块。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "5.2.2.3 物理块的分配算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "在采用固定分配策略时，如何将系统中可供分配的物理块分配给各个进程，可采用以下几种算法："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "平均分配算法: 将系统中所有可供分配的物理块，平均分配给各个进程。\n缺点: 未考虑各进程本身的大小。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "按比例分配算法\n在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "考虑优先权的分配算法\n在这里插入图片描述"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "5.2.3 调页策略"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "5.2.3.1 何时调入页面"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "为了确定系统将进程运行时所缺页面调入内存的时机，可采取预调页策略或请求调页策略。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "预调页策略\n采用以预测为基础的预调页策略，将那些预计在不久之后便会被访问的页面，预先调入内存。\n主要用于进程的首次调入时，由程序员指出应该先调入哪些页。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "请求调页策略\n当程序在运行中需要访问某部分程序和数据时，若发现其所在的页面不在内存，便立即提出请求，由OS将其所需要的页面调入内存。\n优点：由请求调页策略所确定调入的页，一定会被访问；请求调 页策略比较容易实现。\n缺点：每次仅调入一页，需花费较大的系统开销，增加了磁盘 I/O的启动频率。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "5.2.3.2 从何处调入页面"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "将请求分页系统中的外存分为文件区和对换区。\n每当发生缺页时，系统应从何处将缺页调入内存，可分为："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "系统拥有足够的对换区空间：\n可以全部从对换区调入所需页面，以提高调页速度。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "系统缺少足够的对换区空间：\n凡不会被修改的文件，直接从文件区调入；当换出这些页面时，因为未修改不用换出，再调入时仍从文件区调入。\n可能被修改的部分，换出时需调到对换区，换入时从对换区调入。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "5.2.3.3 页面调入过程"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "每当程序所要访问的页面未在内存时，便向CPU发出一缺页中断，中断处理程序首先保护CPU环境，分析中断原因后，转入缺页中断处理程序。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "程序通过查找页表，得到该页在外存上的物理块后，如果此时内存能容纳新页，则启动磁盘I/O将所缺之页调入内存，然后修改页表。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "如果内存已满，则需按照某种置换算法从内存中选出一页准备换出；如果该页未被修改过，可不必写回磁盘；但如果此页已被修改，则必须将它写回磁盘，然后把所缺的页调入内存，并修改页表中的相应表项，置其存在位为“1”，并将此页表项写入快表。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "在缺页调入内存后，利用修改后的页表，形成所要访问的物理地址，再去访问内存数据。整个页面调入过程对用户是透明的(就是能看到结果，过程不用管）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "5.3 页面置换算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "参考我的博客：操作系统第五章：虚拟存储器 之 页面置换算法"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-20",
       "text": "5.4 请求分段存储管理方式"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-20",
       "text": "跟请求分页存储管理方式一样，只是页变成了段"
     }

@@ -6,45 +6,39 @@
   "html": "<blockquote>\n<p>参考大佬博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/104415990?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163473008716780261954971%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=163473008716780261954971&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-104415990.first_rank_v2_pc_rank_v29&amp;utm_term=%E7%8E%8B%E9%81%93%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&amp;spm=1018.2226.3001.4187\" rel=\"noopener noreferrer\" target=\"_blank\">《王道操作系统》学习笔记总目录+思维导图</a><br />\nb站王道操作系统：<a href=\"https://www.bilibili.com/video/BV1YE411D7nH?p=63&amp;spm_id_from=pageDriver\" rel=\"noopener noreferrer\" target=\"_blank\">王道计算机考研 操作系统</a><br />\n操作系统系列目录：<br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119898085\" rel=\"noopener noreferrer\" target=\"_blank\">第一章：操作系统引论</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119927993\" rel=\"noopener noreferrer\" target=\"_blank\">第二章：进程的描述与控制</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119980799\" rel=\"noopener noreferrer\" target=\"_blank\">第三章：处理机调度与死锁</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/119980799\" rel=\"noopener noreferrer\" target=\"_blank\">第四章：存储器管理</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/120875028\" rel=\"noopener noreferrer\" target=\"_blank\">第五章：虚拟存储器</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/120875693\" rel=\"noopener noreferrer\" target=\"_blank\">第六章：输入输出系统</a><br />\n<a href=\"https://blog.csdn.net/weixin_42214698/article/details/120875693\" rel=\"noopener noreferrer\" target=\"_blank\">第七章：文件管理</a></p>\n</blockquote>\n<h4 id=\"section-1\">文件管理</h4>\n<ul>\n<li><a href=\"#1__18\">1. 初识文件管理概念和功能</a></li>\n<li><a href=\"#2__22\">2. 文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）</a></li>\n<li><a href=\"#3_FCB_30\">3. 文件目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身</a></li>\n<li><a href=\"#4_OS_41\">4. OS之文件共享（索引节点-硬链接、符号链接-软链接）</a></li>\n<li><a href=\"#5OS_51\">5.OS之文件保护（口令保护、加密保护、访问控制）</a></li>\n</ul>\n<h2 id=\"section-2\">1. 初识文件管理概念和功能</h2>\n<p>只要知道：文件管理是干这个就行<br />\n<img src=\"https://i-blog.csdnimg.cn/blog_migrate/f98a95f775394371645f5d2bfe77f17e.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<h2 id=\"section-3\">2. 文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）</h2>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/cc6aae3500c670892740bbe8ada41025.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/e304654c781557f581e8ccdfa382403a.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106277412\" rel=\"noopener noreferrer\" target=\"_blank\">文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）</a></p>\n</blockquote>\n<h2 id=\"section-4\">3. 文件目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身</h2>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/d85b71b3dbc52dcefd0e119576e5ffc8.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /><br />\n<img src=\"https://i-blog.csdnimg.cn/blog_migrate/e1365cf6e05070e6990c3c5ed2208a58.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106298565\" rel=\"noopener noreferrer\" target=\"_blank\">OS之文件目录目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身</a></p>\n</blockquote>\n<h2 id=\"section-5\">4. OS之文件共享（索引节点-硬链接、符号链接-软链接）</h2>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/bb3cc8d4176b28b032ba33370079b497.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /><br />\n<img src=\"https://i-blog.csdnimg.cn/blog_migrate/5d9bd8b12b50c71b605a3775588125aa.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106378152\" rel=\"noopener noreferrer\" target=\"_blank\"> OS之文件共享（索引节点-硬链接、符号链接-软链接）</a></p>\n</blockquote>\n<h2 id=\"section-6\">5.OS之文件保护（口令保护、加密保护、访问控制）</h2>\n<p><img src=\"https://i-blog.csdnimg.cn/blog_migrate/218341cbf901e4dadc22768b895ae3bb.png\" alt=\"在这里插入图片描述\" loading=\"lazy\" decoding=\"async\" referrerpolicy=\"no-referrer\" /></p>\n<blockquote>\n<p>参考博客：<a href=\"https://blog.csdn.net/weixin_43914604/article/details/106384893\" rel=\"noopener noreferrer\" target=\"_blank\"> OS之文件保护（口令保护、加密保护、访问控制）</a></p>\n</blockquote>\n",
   "toc": [
     {
+      "id": "section-1",
+      "text": "文件管理",
+      "level": 4
+    },
+    {
       "id": "section-2",
       "text": "1. 初识文件管理概念和功能",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-3",
       "text": "2. 文件逻辑结构（顺序文件、索引文件、索引顺序文件、多级索引顺序文件）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-4",
       "text": "3. 文件目录结构（单级-两级-多级-无环图）、索引节点FCB瘦身",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-5",
       "text": "4. OS之文件共享（索引节点-硬链接、符号链接-软链接）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-6",
       "text": "5.OS之文件保护（口令保护、加密保护、访问控制）",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     }
   ],
   "readingMinutes": 5,
   "markdownUrl": "articles/os-files.md",
   "sourceOriginal": true,
-  "chapters": [],
   "searchUrl": "data/articles/os-files/search.json",
   "modifiedAt": "2024-11-26"
 }
