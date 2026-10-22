@@ -75,7 +75,7 @@ em { font-weight: inherit; }
 .post-arrow { color: var(--accent); }
 .home-post:hover h3 { color: var(--accent); }
 .home-signoff { text-align: center; padding-block: 90px 75px; }
-.home-signoff p { font-size: 24px; line-height: 1.9; margin-top: 25px; }
+.home-signoff p { font-size: 24px; line-height: 1.9; margin-top: 25px; white-space: nowrap; }
 .home-signoff p em { font-style: normal; }
 .home-signoff > span:last-child { font-size: 11px; color: var(--muted); display: block; margin-top: 20px; }
 .site-footer { display: grid; grid-template-columns: 1fr auto 1fr; gap: 28px; border-top: 1px solid var(--line); padding-block: 30px 25px; align-items: center; margin-top: 90px; }

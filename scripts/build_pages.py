@@ -42,7 +42,7 @@ HOME = '''<section class="home-hero wrap">
   <a class="entry" href="join.html"><span class="entry-top">04 / JOIN <span>↗</span></span><h2>打个招呼</h2><p>在代码、文字和共同<br>感兴趣的事情里遇见。</p></a>
 </section>
 <section class="section wrap"><div class="section-heading"><div><p class="eyebrow">FROM THE NOTEBOOK</p><h2>笔记的几页</h2></div><a class="text-link" href="blog.html">全部笔记 <span>↗</span></a></div><div class="home-posts" id="homePosts"><p class="loading">正在整理目录…</p></div></section>
-<section class="home-signoff wrap"><span class="eyebrow">A NOTE TO MYSELF</span><p>愿此行，<br><em>终抵群星。</em></p></section>'''
+<section class="home-signoff wrap"><span class="eyebrow">A NOTE TO MYSELF</span><p>愿此行，终抵群星。</p></section>'''
 
 ABOUT = page_head("01", "ABOUT", "关于我", "计算机爱好者，二次元与文字的爱好者，也在认真认识自己。") + render_about()
 
@@ -99,7 +99,7 @@ def main():
         elif page == 'article':
             extra = '<link rel="stylesheet" href="article.css?v=20261022-fullnote"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="article.js?v=20261022-fullnote" defer></script>'
         html = f'''<!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-fullnote"><script src="app.js?v=20261022-fullnote" defer></script>{extra}</head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-quote"><script src="app.js?v=20261022-fullnote" defer></script>{extra}</head>
 <body id="top" data-page="{page}"><a class="skip-link" href="#main">跳到主要内容</a>{header('blog' if page == 'article' else 'about' if page.startswith('thought') else page)}<main id="main">{body}</main>{FOOTER}</body></html>'''
         (DIST / f"{page}.html").write_text(html, encoding="utf-8")
     print(f"Rendered {len(bodies)} pages, including {len(reflections)} thoughts.")
