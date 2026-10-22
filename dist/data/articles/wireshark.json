@@ -8,127 +8,92 @@
     {
       "id": "section-1",
       "text": "Traffic Analysis",
-      "level": 1,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 1
     },
     {
       "id": "section-2",
       "text": "BasicUsage",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-3",
       "text": "基本语法",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-4",
       "text": "协议分级",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-5",
       "text": "文件导出",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-6",
       "text": "无线流量",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-7",
       "text": "SQL流量包",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-8",
       "text": "BUUCTF",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-9",
       "text": "被嗅探的流量",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-10",
       "text": "大流量分析(一)",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-11",
       "text": "大流量分析(二)",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-12",
       "text": "大流量分析(三)",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-13",
       "text": "荷兰宽带数据泄露",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-14",
       "text": "数据包中的线索",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-15",
       "text": "被劫持的神秘礼物",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-16",
       "text": "杂七杂八",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-17",
       "text": "2018 铁人三项",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     }
   ],
   "readingMinutes": 8,
   "markdownUrl": "articles/wireshark.md",
   "sourceOriginal": true,
-  "chapters": [],
   "searchUrl": "data/articles/wireshark/search.json",
   "modifiedAt": "2024-09-23"
 }

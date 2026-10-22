@@ -262,8 +262,11 @@ class ArticleMarkup(HTMLParser):
         super().__init__()
         self.ids = set()
         self.links = []
+        self.headings = []
 
     def handle_starttag(self, tag, attrs):
+        if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            self.headings.append((dict(attrs).get("id"), int(tag[1:])))
         if tag in {"script", "style", "iframe", "object", "embed", "form", "svg"}:
             fail(f"article includes active HTML tag: {tag}")
         for key, value in attrs:
@@ -299,35 +302,17 @@ def check_articles() -> None:
             fail(f"article must be rendered from its original Markdown: {slug}")
         if article.get("markdownUrl") != f"articles/{slug}.md":
             fail(f"article has an invalid Markdown download URL: {slug}")
-        chapters = article.get("chapters", [])
-        if not isinstance(chapters, list):
-            fail(f"invalid article chapters: {slug}")
+        if "chapters" in article:
+            fail(f"article must be a single complete document: {slug}")
         markup = ArticleMarkup()
-        chapter_ids = []
-        if chapters:
-            if article.get("html"):
-                fail(f"large article must not carry the full body in its opening payload: {slug}")
-            for index, chapter in enumerate(chapters):
-                url = f"data/articles/{slug}/chapter-{index + 1:03d}.json"
-                if chapter.get("url") != url or chapter.get("id") != f"chapter-{index + 1}":
-                    fail(f"invalid chapter URL or identity: {slug}")
-                payload = load_json(DIST / url)
-                if payload.get("slug") != slug or payload.get("chapterId") != chapter["id"] or not payload.get("html", '').strip():
-                    fail(f"missing chapter content: {slug}")
-                one = ArticleMarkup()
-                one.feed(payload["html"])
-                if one.ids != set(chapter.get("headingIds", [])):
-                    fail(f"chapter heading map is inconsistent: {slug}")
-                chapter_ids.append(one.ids)
-                markup.feed(payload["html"])
-        else:
-            if not article.get("html", '').strip():
-                fail(f"small article has no rendered body: {slug}")
-            markup.feed(article["html"])
-            chapter_ids.append(markup.ids)
+        if not article.get("html", '').strip():
+            fail(f"article has no complete rendered body: {slug}")
+        markup.feed(article["html"])
+        toc = article.get("toc", [])
+        if [(heading.get("id"), heading.get("level")) for heading in toc] != markup.headings:
+            fail(f"table of contents must retain every heading's level and source order: {slug}")
         for heading in article.get("toc", []):
-            index = heading.get("chapterIndex", -1)
-            if not isinstance(index, int) or not 0 <= index < len(chapter_ids) or heading.get("id") not in chapter_ids[index] or not heading.get("text"):
+            if heading.get("id") not in markup.ids or not heading.get("text") or heading.get("level") not in range(1, 7):
                 fail(f"article has a broken table of contents: {slug}")
         search_url = f"data/articles/{slug}/search.json"
         if article.get("searchUrl") != search_url:
@@ -336,10 +321,9 @@ def check_articles() -> None:
         if search.get("slug") != slug or not isinstance(search.get("entries"), list) or not search["entries"]:
             fail(f"article full-text index is empty: {slug}")
         for hit in search["entries"]:
-            index = hit.get("chapterIndex", -1)
-            if not isinstance(index, int) or not 0 <= index < len(chapter_ids) or not isinstance(hit.get("text"), str) or not 0 < len(hit["text"]) <= 1600:
+            if not isinstance(hit.get("text"), str) or not 0 < len(hit["text"]) <= 1600:
                 fail(f"article search entry is invalid: {slug}")
-            if hit.get("headingId") and hit["headingId"] not in chapter_ids[index]:
+            if hit.get("headingId") and hit["headingId"] not in markup.ids:
                 fail(f"article search entry has no reachable heading: {slug}")
         for link in markup.links:
             parsed = urlsplit(link)
@@ -351,6 +335,8 @@ def check_articles() -> None:
                     fail(f"article has a broken local resource: {slug}")
         if entry.get("status") and article.get("status") != entry["status"]:
             fail(f"article has an inconsistent learning status: {slug}")
+    if list((DIST / "data" / "articles").glob("*/chapter-*.json")):
+        fail("retired chapter payloads must not remain in the publication")
     asset_manifest = load_json(CONTENT / "article-assets.json")["articles"]
     for assets in asset_manifest.values():
         for url in assets.values():

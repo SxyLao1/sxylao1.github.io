@@ -18,7 +18,7 @@ python -m http.server 8000 --directory dist
 
 只更新笔记时，可依次运行 `python scripts/import_articles.py` 和 `python scripts/build_articles.py`。引用的本地图片会复制到 `content/article-assets/` 与 `dist/article-assets/`；找不到的原始图片以缺图提示保留。
 
-只更新个人资料或感悟时，运行 `python scripts/build_pages.py`。修改首页精选范围和顺序后，运行 `python scripts/build_catalog.py`；全文搜索与章节数据由文章构建器一并生成，不需要额外服务。
+只更新个人资料或感悟时，运行 `python scripts/build_pages.py`。修改首页精选范围和顺序后，运行 `python scripts/build_catalog.py`；文章构建器一并生成整篇阅读数据、标题 1–6 层级和全文搜索数据，不需要额外服务。
 
 修改生成器或阅读器后运行对应检查：
 

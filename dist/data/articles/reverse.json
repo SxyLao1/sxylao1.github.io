@@ -8,309 +8,242 @@
     {
       "id": "section-1",
       "text": "Reverse",
-      "level": 1,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 1
     },
     {
       "id": "section-2",
       "text": "Basic",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-3",
       "text": "PE加壳脱壳",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-4",
       "text": "Tools",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-5",
       "text": "ALL",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-6",
       "text": "UPX",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-7",
       "text": "PEID",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-8",
       "text": "jd-gui",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-9",
       "text": "OllyICE",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-10",
       "text": "jadx-gui",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-11",
       "text": "UPXShell",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-12",
       "text": "ExeinfoPE",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-13",
       "text": "Reshacker",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-14",
       "text": "AndroidKiiler",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-15",
       "text": "BuuCTF",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-16",
       "text": "easyre",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-17",
       "text": "reverse1",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-18",
       "text": "reverse2",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-19",
       "text": "内涵的软件",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-20",
       "text": "新年快乐",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-21",
+      "text": "工具脱壳",
+      "level": 4
+    },
+    {
+      "id": "section-22",
+      "text": "人工脱壳",
+      "level": 4
     },
     {
       "id": "section-23",
       "text": "xor",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-24",
       "text": "helloword",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-25",
       "text": "reverse3",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-26",
       "text": "不一样的flag",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-27",
       "text": "SimpleRev",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-28",
       "text": "Java逆向解密",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-29",
       "text": "[GXYCTF2019]luck_guy",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-30",
       "text": "[BJDCTF2020]JustRE",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-31",
       "text": "刮开有奖",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-32",
       "text": "简单注册器",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-33",
       "text": "[GWCTF 2019]pyre",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-34",
       "text": "[ACTF新生赛2020]easyre",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-35",
       "text": "findit",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-36",
       "text": "[ACTF新生赛2020]rome",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-37",
       "text": "rsa",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-38",
       "text": "[FlareOn4]login",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-39",
       "text": "CrackRTF",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-40",
       "text": "[WUSTCTF2020]level1",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-41",
       "text": "[GUET-CTF2019]re",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-42",
       "text": "[2019红帽杯]easyRE",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
     },
     {
       "id": "section-43",
       "text": "CTF-Show",
-      "level": 2,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 2
     },
     {
       "id": "section-44",
       "text": "Challenges",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-45",
+      "text": "re2",
+      "level": 4
     },
     {
       "id": "section-46",
       "text": "内部赛",
-      "level": 3,
-      "chapterIndex": 0,
-      "chapterId": "chapter-1"
+      "level": 3
+    },
+    {
+      "id": "section-47",
+      "text": "真的是签到",
+      "level": 4
     }
   ],
   "readingMinutes": 39,
   "markdownUrl": "articles/reverse.md",
   "sourceOriginal": true,
-  "chapters": [],
   "searchUrl": "data/articles/reverse/search.json",
   "modifiedAt": "2024-12-03"
 }

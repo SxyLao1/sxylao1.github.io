@@ -42,7 +42,7 @@ HOME = '''<section class="home-hero wrap">
   <a class="entry" href="join.html"><span class="entry-top">04 / JOIN <span>↗</span></span><h2>打个招呼</h2><p>在代码、文字和共同<br>感兴趣的事情里遇见。</p></a>
 </section>
 <section class="section wrap"><div class="section-heading"><div><p class="eyebrow">FROM THE NOTEBOOK</p><h2>笔记的几页</h2></div><a class="text-link" href="blog.html">全部笔记 <span>↗</span></a></div><div class="home-posts" id="homePosts"><p class="loading">正在整理目录…</p></div></section>
-<section class="home-signoff wrap"><span class="eyebrow">A NOTE TO MYSELF</span><p>要沉住气，<br><em>要能无数次爬起来继续前行。</em></p></section>'''
+<section class="home-signoff wrap"><span class="eyebrow">A NOTE TO MYSELF</span><p>愿此行，<br><em>终抵群星。</em></p></section>'''
 
 ABOUT = page_head("01", "ABOUT", "关于我", "计算机爱好者，二次元与文字的爱好者，也在认真认识自己。") + render_about()
 
@@ -62,20 +62,17 @@ CONTACT = page_head("04", "CONTACT", "打个招呼", "欢迎聊聊代码、文�
 
 ARTICLE = '''<div class="reader-wrap wrap">
 <a class="text-link reader-back" href="blog.html">← 返回博客</a>
-<div id="articleStatus" class="reader-status" role="status"><span class="reader-spinner" aria-hidden="true"></span><p>正在读取笔记…</p></div>
+<div id="articleStatus" class="reader-status is-loading" role="status" aria-live="polite"><span class="reader-spinner" aria-hidden="true"></span><p>正在读取完整笔记…</p></div>
 <div id="articleView" hidden aria-busy="true">
   <header class="reader-heading"><p class="eyebrow" id="articleCategory"></p><h1 id="articleTitle"></h1><p class="reader-summary" id="articleSummary"></p><div class="reader-meta"><span id="articleMeta"></span><a id="articleDownload" href="blog.html" download>下载原始 Markdown ↓</a></div></header>
   <section class="reader-search" aria-label="笔记内搜索">
-    <div class="reader-search-field"><label for="articleSearch">全文搜索</label><input id="articleSearch" type="search" maxlength="80" placeholder="搜索全部章节和代码…" autocomplete="off"><kbd>Ctrl K</kbd><button id="articleSearchClear" type="button">清空</button></div>
+    <div class="reader-search-field"><label for="articleSearch">全文搜索</label><input id="articleSearch" type="search" maxlength="80" placeholder="搜索整篇笔记与代码…" autocomplete="off"><kbd>Ctrl K</kbd><button id="articleSearchClear" type="button">清空</button></div>
     <div id="articleSearchPanel" class="reader-search-panel" hidden><p id="articleSearchStatus" role="status" aria-live="polite"></p><div id="articleSearchResults"></div></div>
   </section>
   <div class="reading-layout">
     <aside class="reader-toc" aria-label="文章目录"><p class="eyebrow">CONTENTS / 目录</p><nav id="articleToc"></nav></aside>
     <div class="reader-main">
-      <nav id="chapterControls" class="chapter-controls" aria-label="分节阅读" hidden><button id="chapterPrev" type="button">← 上一节</button><label><span id="chapterPosition"></span><select id="chapterSelect" aria-label="选择阅读章节"></select></label><button id="chapterNext" type="button">下一节 →</button></nav>
-      <div id="chapterLoading" class="chapter-loading" role="status" hidden></div>
       <article class="markdown-body" id="articleContent"></article>
-      <nav id="chapterBottom" class="chapter-controls chapter-bottom" aria-label="继续阅读" hidden><button id="chapterPrevBottom" type="button">← 上一节</button><span id="chapterBottomPosition"></span><button id="chapterNextBottom" type="button">下一节 →</button></nav>
     </div>
   </div>
   <div class="reader-end"><span class="eyebrow">FROM THE NOTEBOOK</span><p>写下所学，也留下问题。</p><a class="text-link" href="blog.html">继续翻翻笔记 <span>↗</span></a></div>
@@ -96,13 +93,13 @@ def main():
         title = f"{DISPLAY_NAME} · 个人主页" if page == "index" else f"{label} · {DISPLAY_NAME}"
         extra = ''
         if page == 'about' or page.startswith('thought'):
-            extra = '<link rel="stylesheet" href="about.css?v=20261022-experience">'
+            extra = '<link rel="stylesheet" href="about.css?v=20261022-fullnote">'
         elif page == 'album':
-            extra = '<link rel="stylesheet" href="album.css?v=20261022-experience"><script src="moments.js?v=20261022-experience" defer></script>'
+            extra = '<link rel="stylesheet" href="album.css?v=20261022-fullnote"><script src="moments.js?v=20261022-fullnote" defer></script>'
         elif page == 'article':
-            extra = '<link rel="stylesheet" href="article.css?v=20261022-experience"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="article.js?v=20261022-experience" defer></script>'
+            extra = '<link rel="stylesheet" href="article.css?v=20261022-fullnote"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="article.js?v=20261022-fullnote" defer></script>'
         html = f'''<!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-experience"><script src="app.js?v=20261022-experience" defer></script>{extra}</head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-fullnote"><script src="app.js?v=20261022-fullnote" defer></script>{extra}</head>
 <body id="top" data-page="{page}"><a class="skip-link" href="#main">跳到主要内容</a>{header('blog' if page == 'article' else 'about' if page.startswith('thought') else page)}<main id="main">{body}</main>{FOOTER}</body></html>'''
         (DIST / f"{page}.html").write_text(html, encoding="utf-8")
     print(f"Rendered {len(bodies)} pages, including {len(reflections)} thoughts.")

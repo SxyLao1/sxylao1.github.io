@@ -1,25 +1,22 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>笔记 · 𝒮𝓍𝓎ℒ𝒶ℴ𝓁</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-experience"><script src="app.js?v=20261022-experience" defer></script><link rel="stylesheet" href="article.css?v=20261022-experience"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="article.js?v=20261022-experience" defer></script></head>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>笔记 · 𝒮𝓍𝓎ℒ𝒶ℴ𝓁</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-fullnote"><script src="app.js?v=20261022-fullnote" defer></script><link rel="stylesheet" href="article.css?v=20261022-fullnote"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="article.js?v=20261022-fullnote" defer></script></head>
 <body id="top" data-page="article"><a class="skip-link" href="#main">跳到主要内容</a><header class="site-header"><div class="wrap header-inner">
       <a class="brand" href="index.html" aria-label="SxyLao1 首页">𝒮𝓍𝓎ℒ𝒶ℴ𝓁<span class="brand-period">.</span><small>MY PROFILE</small></a>
       <nav class="main-nav" aria-label="主导航"><a href="index.html" ><span>HOME</span>首页</a><a href="about.html" ><span>ABOUT</span>关于</a><a href="blog.html" aria-current="page"><span>BLOG</span>博客</a><a href="album.html" ><span>ALBUM</span>相册</a><a href="join.html" ><span>CONTACT</span>联系</a></nav>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深色主题" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
     </div></header><main id="main"><div class="reader-wrap wrap">
 <a class="text-link reader-back" href="blog.html">← 返回博客</a>
-<div id="articleStatus" class="reader-status" role="status"><span class="reader-spinner" aria-hidden="true"></span><p>正在读取笔记…</p></div>
+<div id="articleStatus" class="reader-status is-loading" role="status" aria-live="polite"><span class="reader-spinner" aria-hidden="true"></span><p>正在读取完整笔记…</p></div>
 <div id="articleView" hidden aria-busy="true">
   <header class="reader-heading"><p class="eyebrow" id="articleCategory"></p><h1 id="articleTitle"></h1><p class="reader-summary" id="articleSummary"></p><div class="reader-meta"><span id="articleMeta"></span><a id="articleDownload" href="blog.html" download>下载原始 Markdown ↓</a></div></header>
   <section class="reader-search" aria-label="笔记内搜索">
-    <div class="reader-search-field"><label for="articleSearch">全文搜索</label><input id="articleSearch" type="search" maxlength="80" placeholder="搜索全部章节和代码…" autocomplete="off"><kbd>Ctrl K</kbd><button id="articleSearchClear" type="button">清空</button></div>
+    <div class="reader-search-field"><label for="articleSearch">全文搜索</label><input id="articleSearch" type="search" maxlength="80" placeholder="搜索整篇笔记与代码…" autocomplete="off"><kbd>Ctrl K</kbd><button id="articleSearchClear" type="button">清空</button></div>
     <div id="articleSearchPanel" class="reader-search-panel" hidden><p id="articleSearchStatus" role="status" aria-live="polite"></p><div id="articleSearchResults"></div></div>
   </section>
   <div class="reading-layout">
     <aside class="reader-toc" aria-label="文章目录"><p class="eyebrow">CONTENTS / 目录</p><nav id="articleToc"></nav></aside>
     <div class="reader-main">
-      <nav id="chapterControls" class="chapter-controls" aria-label="分节阅读" hidden><button id="chapterPrev" type="button">← 上一节</button><label><span id="chapterPosition"></span><select id="chapterSelect" aria-label="选择阅读章节"></select></label><button id="chapterNext" type="button">下一节 →</button></nav>
-      <div id="chapterLoading" class="chapter-loading" role="status" hidden></div>
       <article class="markdown-body" id="articleContent"></article>
-      <nav id="chapterBottom" class="chapter-controls chapter-bottom" aria-label="继续阅读" hidden><button id="chapterPrevBottom" type="button">← 上一节</button><span id="chapterBottomPosition"></span><button id="chapterNextBottom" type="button">下一节 →</button></nav>
     </div>
   </div>
   <div class="reader-end"><span class="eyebrow">FROM THE NOTEBOOK</span><p>写下所学，也留下问题。</p><a class="text-link" href="blog.html">继续翻翻笔记 <span>↗</span></a></div>

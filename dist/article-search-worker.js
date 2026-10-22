@@ -30,7 +30,7 @@ self.onmessage = async ({ data }) => {
       const at = entry.text.toLowerCase().indexOf(query);
       if (at < 0) continue;
       total += 1;
-      if (results.length < 60) results.push({ chapterIndex: entry.chapterIndex, headingId: entry.headingId, snippet: entry.text.slice(Math.max(0, at - 65), at + query.length + 105) });
+      if (results.length < 60) results.push({ headingId: entry.headingId, snippet: entry.text.slice(Math.max(0, at - 65), at + query.length + 105) });
     }
     self.postMessage({ type: 'results', requestId: data.requestId, total, results });
   } catch {

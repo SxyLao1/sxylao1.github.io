@@ -2,2152 +2,1722 @@
   "slug": "plan-security-architecture",
   "entries": [
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "Trident 作者学习路线：从现场经验到安全产品架构设计"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-1",
       "text": "适用对象: 有安全现场经验（绿盟/深信服/奇安信设备使用经验），具备基础编程能力（Java SME/SpringBoot、Python 脚本），正在开发 Trident 安全产品，以求职面试为当前首要目标\n核心原则: 循序渐进，面试优先，项目迭代为辅，AI 辅助编程时代聚焦\"决策能力\"而非\"编码速度\"\n生成时间: 2026-06-10\n关联项目: Trident WebShell 检测系统 v1.7.9+"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "目录"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "一、当前能力评估"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "二、学习阶段规划（面试导向）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "三、第一阶段：面试急救包（1-2周）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "四、第二阶段：架构形式化（1-2个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "五、第三阶段：安全深度（3-6个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "六、第四阶段：工程化与开源（6-12个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "七、AI 时代的学习策略"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "八、面试专项准备"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "九、推荐资源清单"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-2",
       "text": "十、与 Trident 项目的结合点"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-3",
       "text": "一、当前能力评估"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "优势（核心竞争力）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "能力"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "说明"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "市场价值"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "现场经验"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "使用过绿盟/深信服/奇安信等主流安全设备，了解真实攻防场景"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "安全产品岗最稀缺的素质"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "产品直觉"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "能提出\"画像\"\"行为指纹\"\"代理池检测\"等高级概念，命中 CrowdStrike/Splunk 核心设计"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "架构师级别的思维"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "问题意识"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "知道\"磁盘被打坏\"\"运维人员还活不活了\"等真实痛点"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "产品经理+工程师的复合能力"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "项目驱动"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "有 Trident 完整项目经验，从 0 到 1 开发安全产品"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-4",
       "text": "面试时最有说服力的谈资"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "短板（需要补强）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "短板"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "影响"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "优先级"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "架构形式化能力"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "能\"感觉\"到要分层，但画不出架构图、定义不了接口契约"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "高（面试必问）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "复杂度分析"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "对 Big-O、性能数字没有体感"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "中（面试可能问）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "工程化习惯"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "测试覆盖、版本管理、文档规范不够系统"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "中（入职后重要）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "安全理论深度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "知道 ATT&CK 但讲不清 Technique 编号"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "高（安全岗必问）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "代码深度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "能写脚本，但不懂 Python 内存模型、GIL、异步 IO"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-5",
       "text": "低（面试很少深挖）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "二、学习阶段规划（面试导向）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "时间线:\n\n现在 ──────────────────────────────────────────────> 12个月\n  │         │              │              │\n  ▼         ▼              ▼              ▼\n面试急救   架构形式化     安全深度       工程化开源\n(1-2周)   (1-2个月)     (3-6个月)      (6-12个月)\n  │         │              │              │\n  └─────────┴──────────────┴──────────────┘\n              与 Trident 项目迭代同步进行\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "核心原则："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "面试优先：先解决\"面试时被问住\"的问题"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "项目驱动：每个学习内容都能在 Trident 中找到结合点"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "循序渐进：不要同时开多个大坑，一次只攻一个主题"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-6",
       "text": "AI 辅助：用 AI 生成代码/测试/文档，自己专注\"决策\"和\"验证\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-7",
       "text": "三、第一阶段：面试急救包（1-2周）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "目标"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-8",
       "text": "面试时能说清楚 Trident 的架构、自己的角色、技术决策的理由。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-9",
       "text": "学习任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "3.1 架构图绘制（2天）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "任务：用 Draw.io 或 Excalidraw 画一张 Trident 的架构图"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "要求："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "分层：Domain（领域）/ Application（应用）/ Infrastructure（基础设施）/ Interface（接口）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "每个框写清楚职责"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "箭头标明依赖方向（Domain 不依赖其他层）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "标注你自己的设计决策：为什么画像 ID 不是 IP？为什么用 WAL？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "参考："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "[Interface Layer]\n    Dashboard (Flask + HTMX)\n    REST API\n\n[Application Layer]\n    AlertUseCase\n    ProfileUseCase\n    QuarantineUseCase\n\n[Domain Layer]\n    AttackerProfile (Entity)\n    ThreatIntelligence (Port/Interface)\n    HashEngine (Strategy)\n\n[Infrastructure Layer]\n    WALStore\n    JSONLStore\n    SimpleDecayEngine\n    HTMXRenderer\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-10",
       "text": "验证：把图发给 AI，问\"这个架构符合整洁架构的依赖规则吗？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "3.2 三个核心概念讲清楚（3天）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "概念 1：画像系统（Attacker Profile）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "为什么不用 IP 作为唯一标识？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "行为指纹包括哪些维度？（UA + 文件相似簇 + 时间窗口）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "和 CrowdStrike Falcon 的 Threat Graph 有什么相似之处？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "面试话术：\"传统设备以事件为核心，我们升级为以攻击者实体为核心，解决代理池 IP 变化的问题\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "概念 2：WAL 持久化"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "为什么用 JSONL 而不是 JSON？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "什么是原子写入？（先写 .tmp 再 rename）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "和客户现场磁盘被打坏的经历有什么关联？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "面试话术：\"现场环境极端恶劣，我们设计 WAL 只追加模式，即使断电也不会 corrupt 数据文件\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "概念 3：三轨哈希引擎"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "为什么同时支持 ssdeep / py-tlsh / SimHash？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "什么是 graceful degradation？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "零外部依赖为什么是枷锁？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-11",
       "text": "面试话术：\"核心功能零依赖保证永不崩溃，增强功能 graceful degradation 保证最佳体验\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "3.3 模拟面试问答（2天）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "自己问自己（或让 AI 扮演面试官）："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "\"请介绍一下 Trident 的架构\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "\"画像系统的 ID 为什么不用 IP？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "\"衰减公式 24h/0.5 是怎么设计的？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "\"WAL 和快照有什么区别？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "\"如果红队用 1000 个 IP 扫 1000 个文件，你的系统怎么处理？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "\"ssdeep 安装失败怎么办？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "\"你和传统安全设备（如 WAF、IDS）有什么区别？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-12",
       "text": "要求：每个问题能回答 3 分钟，不卡壳。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-13",
       "text": "四、第二阶段：架构形式化（1-2个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "目标"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-14",
       "text": "能独立设计分层架构，定义接口契约，画出清晰的依赖图。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-15",
       "text": "学习任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "4.1 《领域驱动设计》前6章（2周）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "重点概念："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "实体（Entity）：有唯一标识，状态可变 → AttackerProfile"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "值对象（Value Object）：无标识，不可变 → IPReputation、FileReputation"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "聚合根（Aggregate Root）：一组实体/值对象的入口 → ThreatGraph"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "仓储模式（Repository）：抽象持久化 → ThreatIntelligence ABC"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "领域服务（Domain Service）：跨实体的业务逻辑 → DecayEngine"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "结合 Trident："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "读一章，画一张 Trident 对应概念的图"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-16",
       "text": "例：读完\"聚合根\"，确认 ThreatGraph 是聚合根，AttackerProfile 是实体"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "4.2 《整洁架构》第1-3章（1周）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "重点概念："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "依赖规则：内层不依赖外层"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "Domain 不依赖 Application"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "Application 不依赖 Infrastructure"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "Interface 依赖所有内层"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "边界：用接口（ABC）定义边界"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "用例：Application 层的独立业务单元"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "结合 Trident："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "检查当前代码："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "core/interfaces/threat_intel.py → Domain 层 ✅"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "core/threat_graph.py → 混合了 Domain + Application ❌（需要拆分）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "core/persistence/wal_store.py → Infrastructure 层 ✅"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-17",
       "text": "web/blueprints/admin_bp.py → Interface 层 ✅"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "4.3 复杂度分析基础（1周）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "不需要刷 LeetCode，只需要理解："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "操作"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "数据结构"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "时间复杂度"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "实际耗时（Python）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "查询"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "dict"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "O(1)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "~50 ns"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "遍历"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "dict"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "O(N)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "N=10000 → ~1 ms"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "排序"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "list"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "O(N log N)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "N=10000 → ~5 ms"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "文件读取"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "-"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "O(文件大小)"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "1MB → ~10 ms"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "实践任务："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "在 Trident 的 SimpleDecayEngine 中加一个计时器"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "打印\"扫描 N 个画像耗时 X ms\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-18",
       "text": "验证 N=10000 时是否 < 10 ms"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "4.4 设计模式（选学，2周）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "安全产品常用模式："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "策略模式（Strategy）：HashEngine 的三轨降级"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "观察者模式（Observer）：检测事件 → 画像更新 → 告警推送"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "工厂模式（Factory）：ThreatIntelligence 的实现类创建"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "适配器模式（Adapter）：ssdeep / py-tlsh 统一接口"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "学习资源："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "《Head First 设计模式》（选读相关章节）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-19",
       "text": "或直接用 AI：\"请用策略模式重构 Trident 的 HashEngine\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-20",
       "text": "五、第三阶段：安全深度（3-6个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-21",
       "text": "目标"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-21",
       "text": "成为\"懂安全的工程师\"，而不仅是\"会写代码的安全爱好者\"。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-22",
       "text": "学习任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "5.1 MITRE ATT&CK 框架（1个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "必学内容："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "战术（Tactics）：14 个战术（Initial Access → Impact）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "技术（Techniques）：常用技术编号和含义"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "T1505.003：Web Shell（你的核心检测目标）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "T1190：Exploit Public-Facing Application"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "T1071：Application Layer Protocol"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "子技术（Sub-techniques）：细分场景"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "结合 Trident："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "为 Trident 的每个检测规则标注 ATT&CK 技术编号"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "例：webshell_jsp_hsx → T1505.003"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-23",
       "text": "面试话术：\"我们的检测覆盖 ATT&CK T1505.003，并通过画像系统关联到 T1071 的 C2 通信\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "5.2 威胁建模（2周）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "工具："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "OWASP Threat Dragon：免费，画图式威胁建模"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "Microsoft STRIDE：威胁分类框架"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "Spoofing（伪装）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "Tampering（篡改）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "Repudiation（抵赖）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "Information Disclosure（信息泄露）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "Denial of Service（拒绝服务）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "Elevation of Privilege（权限提升）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "实践任务："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "用 Threat Dragon 为 Trident 画一张威胁模型图"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "识别：\"如果攻击者篡改 WAL 文件怎么办？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-24",
       "text": "识别：\"如果攻击者 DDoS 检测接口怎么办？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "5.3 攻防技术深度（2个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "必读书籍："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "《黑客攻防技术宝典：Web实战篇》（Dafydd Stuttard）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "重点：文件上传漏洞、webshell 原理、条件竞争"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "《内网安全攻防：渗透测试实战指南》（徐焱）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "重点：横向移动、权限维持、C2 通信"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "《Metasploit渗透测试指南》（David Kennedy）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "重点：payload 生成、编码绕过"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "实践任务："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "在本地搭建 DVWA / Pikachu 靶场"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "自己上传 webshell，观察 Trident 的检测行为"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-25",
       "text": "尝试绕过 Trident 的 YARA 规则（红队思维）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "5.4 安全标准与合规（选学，1个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "等保 2.0：三级系统要求"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "ISO 27001：信息安全管理体系"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "GDPR：数据保护（如果产品有海外客户）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-26",
       "text": "SRRC：无线电发射设备认证（你之前问过）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-27",
       "text": "六、第四阶段：工程化与开源（6-12个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "目标"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-28",
       "text": "让 Trident 成为可维护、可测试、可扩展的工业级产品。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-29",
       "text": "学习任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "6.1 测试驱动开发（TDD）（2个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "测试金字塔："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "        /\\\n       /  \\      E2E 测试（慢，覆盖核心流程）\n      /----\\\n     /      \\    集成测试（中速，覆盖模块交互）\n    /--------\\\n   /          \\  单元测试（快速，覆盖每个函数）\n  /------------\\\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "Trident 测试覆盖计划："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "单元测试：tests/unit/test_threat_graph.py"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "模拟代理池场景：100 IP → 1 画像"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "模拟红队共享 shell：100 文件 → 1 画像"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "集成测试：tests/integration/test_hash_engine.py"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "ssdeep / py-tlsh / SimHash 三轨降级"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "E2E 测试：tests/e2e/test_threat_intel_flow.py"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-30",
       "text": "完整流程：检测 → 画像 → 推送 → 前端"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "6.2 开源运营（2个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "任务清单："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "[ ] 完善 README（中英双语）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "[ ] 写 CONTRIBUTING.md（贡献指南）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "[ ] 选择 LICENSE（MIT / Apache-2.0 / GPL）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "[ ] 发布到 GitHub，打 tag（v1.7.9）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "[ ] 写 Release Notes"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "[ ] 在 V2EX / 知乎 / 安全圈子推广"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "[ ] 收集 Issue，修复 bug，合并 PR"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "收益："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "简历亮点：\"开源项目作者，Star 数 XXX\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "社区反馈：别人会指出你的架构问题，加速成长"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-31",
       "text": "面试谈资：\"我维护了一个开源安全产品，处理了 XXX 个 Issue\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "6.3 性能优化（1个月）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "目标：Trident 能处理 10万+ 文件监控，1000+ 并发连接"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "任务："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "用 cProfile / py-spy 分析性能瓶颈"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "考虑 asyncio 替换部分同步 I/O"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "考虑 multiprocessing 处理文件哈希计算"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-32",
       "text": "考虑 Redis 缓存热点画像（如果部署多实例）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-33",
       "text": "七、AI 时代的学习策略"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "7.1 用 AI 做什么（效率提升）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "AI 能力"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "你的角色"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "生成代码"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "写 Python/Java/JS"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "审查、验证、决策"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "写测试"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "生成单元测试用例"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "补充边界条件、验证覆盖率"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "写文档"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "生成 API 文档、Handover"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "补充业务背景、决策理由"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "画架构图"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "生成 PlantUML / Mermaid"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "调整分层、验证依赖方向"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "解释概念"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "解释 DDD / 整洁架构"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "结合 Trident 实际场景提问"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "模拟面试"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "扮演面试官提问"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-34",
       "text": "回答、反思、改进"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "7.2 不用 AI 做什么（必须自己学）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "为什么必须自己学"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "架构决策"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "AI 能生成代码，但给不出\"为什么这样分层\"的业务理由"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "威胁建模"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "需要现场经验，AI 没有\"磁盘被打坏\"的痛感"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "面试表达"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "必须自己说出来，AI 生成的答案面试官一听就知道"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "代码审查"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "必须能看懂 AI 生成的代码，否则被坑"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "调试排错"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-35",
       "text": "AI 只能给建议，实际环境问题必须自己排查"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-36",
       "text": "7.3 推荐 AI 使用模式"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-36",
       "text": "1. 你提出需求（基于现场经验）\n   ↓\n2. AI 生成方案 A/B/C\n   ↓\n3. 你评估方案（基于业务场景）\n   ↓\n4. AI 实现选定方案\n   ↓\n5. 你验证结果（测试、运行、观察）\n   ↓\n6. 你记录决策（为什么选 A 不选 B）\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-37",
       "text": "八、面试专项准备"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "8.1 简历优化"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "突出点："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "\"独立开发 WebShell 检测系统 Trident，支持 YARA 规则、实时告警、威胁画像\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "\"设计画像系统（Attacker Profile），解决代理池 IP 变化问题，对标 CrowdStrike Threat Graph\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "\"设计 WAL 持久化方案，解决客户现场磁盘故障导致的数据丢失问题\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "\"设计三轨哈希引擎（ssdeep/py-tlsh/SimHash），实现 graceful degradation\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "避免："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "不要写\"熟悉 Python/Java\"（太泛）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "不要写\"参与过项目\"（没有说服力）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-38",
       "text": "不要夸大（\"精通 DDD\" → 面试官一问就露馅）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "8.2 常见面试问题与回答框架"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "Q1: \"请介绍一下 Trident\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "Trident 是一个跨平台 WebShell 检测系统，我独立开发。\n核心设计：\n1. 检测层：YARA 规则 + 文件监控\n2. 分析层：威胁画像系统（Attacker Profile），解决代理池问题\n3. 持久层：WAL 只追加日志，保证现场可靠性\n4. 推送层：智能聚合，避免告警风暴\n技术栈：Python/Flask + HTMX + YARA\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "Q2: \"画像系统是什么？和传统 IDS 有什么区别？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "传统 IDS 以事件为核心：IP A 访问了文件 B → 告警\n画像系统以攻击者为核心：IP A 只是代理池中的一个节点，\n真正的攻击者是\"使用冰蝎工具、在 10 秒内扫了 100 个 webshell 的实体\"\n优势：\n- 代理池 IP 变化不影响检测\n- 能发现红队共享 webshell 的协作行为\n- 输出攻击链时间线，辅助研判\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "Q3: \"WAL 是什么？为什么不用数据库？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "WAL = Write-Ahead Log，只追加的日志文件。\n不用数据库的原因：\n1. 客户现场环境恶劣，SQLite 文件可能被防病毒软件锁定\n2. JSONL 格式可读，现场排查时直接用 cat/head 查看\n3. 原子写入（rename）保证不 corrupt\n4. 每小时快照，平衡了查询性能和可靠性\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "Q4: \"如果让你重构 Trident，你会怎么做？\""
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-39",
       "text": "1. 分层：Domain/Application/Infrastructure/Interface 四层\n2. 插件化：HashEngine、Notifier、Persistence 都做成插件\n3. 事件驱动：检测事件 → 领域事件 → 异步处理\n4. 配置中心：热加载配置，不重启生效\n5. 多租户：支持多个站点独立监控\n"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-40",
       "text": "8.3 技术面试准备清单"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-40",
       "text": "□ 能画 Trident 架构图（分层 + 依赖方向）\n□ 能解释 DDD 的实体、值对象、聚合根、仓储\n□ 能解释 24h/0.5 衰减公式的设计理由\n□ 能解释为什么画像 ID 不用 IP\n□ 能解释 WAL 和快照的区别\n□ 能解释三轨哈希的降级策略\n□ 能说出 5 个 ATT&CK 技术编号和含义\n□ 能描述一次完整的攻击链（侦察→上传→连接→横向）\n□ 能说出 Trident 和 WAF/IDS/EDR 的区别\n□ 能说出未来 3 个月的迭代计划"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-41",
       "text": "九、推荐资源清单"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "书籍（按优先级排序）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "优先级"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "书名"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "阅读重点"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "预计耗时"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "P0"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "《领域驱动设计》Eric Evans"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "前6章：实体、值对象、聚合根、仓储"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "2周"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "P0"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "《整洁架构》Robert C. Martin"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "第1-3章：依赖规则、分层"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "1周"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "P1"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "《黑客攻防技术宝典：Web实战篇》"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "文件上传、webshell、条件竞争"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "1个月"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "P1"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "《内网安全攻防：渗透测试实战指南》"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "横向移动、权限维持"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "1个月"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "P2"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "《Head First 设计模式》"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "策略模式、观察者模式、工厂模式"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "2周"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "P2"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "《算法图解》Aditya Bhargava"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "时间复杂度、数据结构基础"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "1周"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "P3"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "《TCP/IP详解》卷1"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "选读：TCP 握手、HTTP 协议"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-42",
       "text": "1个月"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "在线资源"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "资源"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "用途"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "链接"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "MITRE ATT&CK"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "威胁建模标准"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "https://attack.mitre.org/"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "OWASP Threat Dragon"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "威胁建模工具"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "https://owasp.org/www-project-threat-dragon/"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "Excalidraw"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "架构图绘制"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "https://excalidraw.com/"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "PlantUML"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "代码生成架构图"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "https://www.plantuml.com/"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "Python cProfile"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "性能分析"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-43",
       "text": "内置模块"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "社区"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "社区"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "用途"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "V2EX"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "技术产品推广、求职信息"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "知乎安全圈子"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "安全知识分享"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "GitHub Security Lab"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "开源安全项目学习"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "看雪论坛"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "逆向、二进制安全"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "FreeBuf"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-44",
       "text": "安全资讯、行业动态"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-45",
       "text": "十、与 Trident 项目的结合点"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "学习 → 项目实践对照表"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "学习阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "学习内容"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "Trident 实践任务"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "产出物"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第一阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "架构图绘制"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "画 Trident 分层架构图"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "架构图 PNG"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第一阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "核心概念"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "准备面试问答"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "面试 Q&A 文档"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第二阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "DDD 实体"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "确认 AttackerProfile 是实体"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "代码注释更新"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第二阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "DDD 仓储"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "完善 ThreatIntelligence ABC"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "接口文档"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第二阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "复杂度分析"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "给 DecayEngine 加计时器"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "性能日志"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第三阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "ATT&CK"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "为 YARA 规则标注技术编号"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "规则文档"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第三阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "威胁建模"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "用 Threat Dragon 画威胁模型"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "威胁模型图"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第三阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "攻防技术"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "搭建靶场测试 Trident"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "测试报告"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第四阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "TDD"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "写单元测试覆盖核心模块"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "测试代码"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "第四阶段"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "开源运营"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "发布 GitHub，写 README"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-46",
       "text": "开源项目"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "时间管理建议"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "工作日（假设有工作/实习）："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "晚上 1-2 小时：Trident 迭代（编码/测试/文档）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "周末 1 天：集中学习（看书/画架构图/模拟面试）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "求职期（全力找工作）："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "上午：投简历、准备面试"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "下午：Trident 迭代（保持手感）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-47",
       "text": "晚上：学习（架构/安全深度）"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "附录：快速自查表"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "每周日晚上问自己："
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "[ ] 本周是否完成了一个 Trident 功能点？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "[ ] 本周是否读完了计划中的章节？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "[ ] 本周是否模拟面试了一次？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "[ ] 本周是否记录了至少一个架构决策？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "[ ] 本周是否向 AI 提出了一个\"现场经验驱动\"的问题？"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "如果 3 个以上没完成，下周减少任务量，保持可持续性。"
     },
     {
-      "chapterIndex": 0,
       "headingId": "section-48",
       "text": "文档版本: v1.0\n生成时间: 2026-06-10\n关联项目: Trident WebShell 检测系统 v1.7.9+\n核心原则: 面试优先，循序渐进，AI 辅助，现场经验驱动"
     }
