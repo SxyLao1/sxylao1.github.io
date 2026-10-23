@@ -1,4 +1,4 @@
-"""Render the original HOME / ABOUT / BLOG / ALBUM / JOIN structure as static pages."""
+"""Render the original HOME / ABOUT / BLOG / ALBUM / CONTACT structure as static pages."""
 from pathlib import Path
 from shutil import copyfile
 from about_content import render_about
@@ -13,7 +13,7 @@ PAGES = {"index": ("首页", "HOME"), "about": ("关于", "ABOUT"), "blog": ("�
 def header(page):
     links = "".join(f'<a href="{key}.html" {"aria-current=\"page\"" if key == page else ""}><span>{en}</span>{cn}</a>' for key, (cn, en) in PAGES.items())
     return f'''<header class="site-header"><div class="wrap header-inner">
-      <a class="brand" href="index.html" aria-label="SxyLao1 首页">{DISPLAY_NAME}<span class="brand-period">.</span><small>PERSONAL ARCHIVE</small></a>
+      <a class="brand" href="index.html" aria-label="SxyLao1 首页">{DISPLAY_NAME}<span class="brand-period">.</span><small>MY PROFILE</small></a>
       <nav class="main-nav" aria-label="主导航">{links}</nav>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深色主题" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
     </div></header>'''
@@ -33,7 +33,7 @@ HOME = '''<section class="home-hero wrap">
     <a class="text-link" href="blog.html">翻翻我的笔记 <span>↗</span></a>
     <div class="hero-bottom"><span>TECHNOLOGY · NOTES · LIFE</span><span>SCROLL TO EXPLORE ↓</span></div>
   </div>
-  <div class="hero-art"><img class="lab-orbit" src="assets/orbital-study.svg" alt="轨道、坐标网格与悬浮几何体组成的个人档案视觉" width="840" height="1000"></div>
+  <div class="hero-art"><img src="assets/quiet-hours.svg" alt="安静的窗边：远山、阳光和几本书" width="840" height="1000"><span class="art-caption">A WINDOW, A FEW BOOKS, SOME TIME.</span><span class="art-number">01 — HOME</span></div>
 </section>
 <section class="home-entries wrap" aria-label="网站入口">
   <a class="entry" href="about.html"><span class="entry-top">01 / ABOUT <span>↗</span></span><h2>关于我</h2><p>普通人，计算机爱好者，<br>还在人生的长跑路上。</p></a>
@@ -98,12 +98,9 @@ def main():
             extra = '<link rel="stylesheet" href="album.css?v=20261022-fullnote"><script src="moments.js?v=20261022-fullnote" defer></script>'
         elif page == 'article':
             extra = '<link rel="stylesheet" href="article.css?v=20261022-fullnote"><link rel="stylesheet" href="vendor/katex/katex.min.css"><script src="article.js?v=20261022-fullnote" defer></script>'
-        active = 'blog' if page == 'article' else 'about' if page.startswith('thought') else page
-        section_number = list(PAGES).index(active)
-        archive_rail = f'<div class="archive-rail wrap" aria-hidden="true"><span>PERSONAL ARCHIVE</span><span>TECHNOLOGY / NOTES / LIFE</span><span>{section_number:02d} / {PAGES[active][1]}</span></div>'
         html = f'''<!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-quote"><script src="app.js?v=20261022-fullnote" defer></script>{extra}<link rel="stylesheet" href="lab-theme.css?v=20261023-lab2"></head>
-<body id="top" data-page="{page}"><a class="skip-link" href="#main">跳到主要内容</a>{header(active)}{archive_rail}<main id="main">{body}</main>{FOOTER}</body></html>'''
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="SxyLao1 的个人主页：博客、笔记与图像收藏。"><meta name="color-scheme" content="light dark"><title>{title}</title><link rel="icon" href="favicon.jpg?v=20261022-hacker" type="image/jpeg"><link rel="stylesheet" href="styles.css?v=20261022-quote"><script src="app.js?v=20261022-fullnote" defer></script>{extra}</head>
+<body id="top" data-page="{page}"><a class="skip-link" href="#main">跳到主要内容</a>{header('blog' if page == 'article' else 'about' if page.startswith('thought') else page)}<main id="main">{body}</main>{FOOTER}</body></html>'''
         (DIST / f"{page}.html").write_text(html, encoding="utf-8")
     print(f"Rendered {len(bodies)} pages, including {len(reflections)} thoughts.")
 
