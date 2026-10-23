@@ -6,6 +6,7 @@
 - 首页采用原创轨道几何 SVG，保留花体名字、指定头像与单行寄语；全站样式由 `lab-theme.css` 统一管理。
 - 设计参考为 [rhine-lab-art](https://github.com/reverieach/rhine-lab-art)，新增图形与样式为本站独立实现，继续使用 GitHub Pages 静态部署。
 - 静态产物和阅读、相册运行时检查通过。真实浏览器视觉及触屏复测仍受浏览器连接超时限制。
+- 已通过 [PR #8](https://github.com/SxyLao1/sxylao1.github.io/pull/8) 合并，[Pages 部署成功](https://github.com/SxyLao1/sxylao1.github.io/actions/runs/39977776933)。九个页面与新增主题、首页 SVG、目录数据和头像的线上文件均与提交产物一致。
 
 ## 阅读与相册体验更新
 
