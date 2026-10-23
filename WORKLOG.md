@@ -1,5 +1,12 @@
 # 网站维护状态
 
+## 2026-10-23 视觉融合
+
+- 保留五个导航入口和九个页面的内容结构，加入冷灰纸白与近黑双主题、橄榄色、等宽小标和细线分区。
+- 首页采用原创轨道几何 SVG，保留花体名字、指定头像与单行寄语；全站样式由 `lab-theme.css` 统一管理。
+- 设计参考为 [rhine-lab-art](https://github.com/reverieach/rhine-lab-art)，新增图形与样式为本站独立实现，继续使用 GitHub Pages 静态部署。
+- 静态产物和阅读、相册运行时检查通过。真实浏览器视觉及触屏复测仍受浏览器连接超时限制。
+
 ## 阅读与相册体验更新
 
 - 博客保留 20 篇原始 Markdown，新增 Forensics、Reverse 与 Web-CTF；首页精选按 Penetration、Pwn、8086 汇编、Forensics、Reverse、Web-CTF 排列。
