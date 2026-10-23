@@ -6,6 +6,8 @@
 
 使用 HTML、CSS 和 JavaScript 构建，发布到 GitHub Pages。浏览网站不需要运行 Python、数据库或自己的服务器。
 
+视觉采用实验室档案式平面设计：冷灰纸白与近黑双主题、橄榄色点缀、等宽标注和几何轨道。灵感参考 [rhine-lab-art](https://github.com/reverieach/rhine-lab-art)，主题样式与首页 SVG 为本站独立实现。
+
 ## 页面与内容
 
 - 首页：个人介绍和精选笔记入口。
@@ -47,3 +49,5 @@ python -m http.server 4177 --bind 127.0.0.1 --directory dist
 原主页设计致谢：HZR / Bilibili-hzr。收藏图片的相关权利归各自原作者。
 
 网站图标源文件为 `content/site-icon.jpg`，构建时自动同步为 `dist/favicon.jpg`。
+
+全站视觉覆盖层为 `dist/lab-theme.css`，由页面生成器在各页基础样式之后加载；首页图形为 `dist/assets/orbital-study.svg`。动效遵循系统的减少动态效果设置。
